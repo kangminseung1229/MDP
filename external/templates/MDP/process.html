@@ -4,18 +4,18 @@
 </head>
 <body>
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
-    <div>
-        asdf
-    </div>
-    <!-- <div id="process_wrapper">
+    
+    <div id="process_wrapper">
         <nav th:replace = "fragments/MDP_process_fragment :: nav"></nav>
         <div id="step">
-            <step th:replace="fragments/MDP_process_fragment :: step"></step>
-            <step th:replace="fragments/MDP_process_fragment :: step('step2')"></step>
+            
+            <step th:replace="fragments/MDP_process_fragment :: step('1')"></step>
+            <!-- <step th:replace="fragments/MDP_process_fragment :: step('step2')"></step> -->
             <div id="next">
                 NEXT
             </div>
         </div>
-    </div> -->
+    </div>
 </body>
 </html>
+<div th:replace = "fragments/MDP_process_fragment :: script"></div> 

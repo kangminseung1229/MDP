@@ -8,24 +8,25 @@
                 <hr id = "horizontal_line">
                 
                 <div class="group">
-        
-                    <input type="radio" name="rb" id="rb1" />
+                
+                    <input type="radio" name="menu" id="rb1" value="1"/>
                     <label for="rb1">01 받는 사람</label><br>
                 
-                    <input type="radio" name="rb" id="rb2"/>
+                    <input type="radio" name="menu" id="rb2" value="2"/>
                     <label for="rb2">02 되돌아 보며</label><br>
             
-                    <input type="radio" name="rb" id="rb3" />
+                    <input type="radio" name="menu" id="rb3" value="3"/>
                     <label for="rb3">03 그 사람과 나는</label><br>
             
-                    <input type="radio" name="rb" id="rb4" />
+                    <input type="radio" name="menu" id="rb4" value="4"/>
                     <label for="rb4">04 그때의 나는</label><br>
             
-                    <input type="radio" name="rb" id="rb5" />
+                    <input type="radio" name="menu" id="rb5" value="5"/>
                     <label for="rb5">05 그때의 내 마음은</label><br>
             
-                    <input type="radio" name="rb" id="rb6" />
+                    <input type="radio" name="menu" id="rb6" value="6"/>
                     <label for="rb6">06 감정단어</label><br> 
+
                 </div>
             </div>
            
@@ -33,16 +34,37 @@
     </nav>
 
     <step th:fragment ="step(step)">
-        <div th:if="${step=='step1'}" id="content">                 
+        <div th:if="${step=='1'}" id="content">
             <div id="step_title">
                 01 받는 사람
             </div>
-            <p>
+            
+            <div class="paragraph">
                 <p id = "stage1"><span id="hl_yello">노란색 칸</span>에 자신의 이름을 써보세요.</p> 
                 <p id = "stage2">그리고 떠오르는 세 사람의 이름을 <span id="hl_blue">파란색 칸</span>에 써보세요.</p>
                 <p id = "stage3">다음에 떠오르는 다섯 사람의 이름은 <span id="hl_green">초록색 칸</span>에 써보세요.</p>
-            </p>
+                <p id = "stage4" >이 중 오늘 마음을 전하고 싶은 한 사람을 클릭해주세요.</p>
+                
+            </div>
+            <!-- <div id = "textbox_shapes_parent" >aaa -->
+            <div id = "textbox_shapes">
+                <input id="step1_textbox1" type="text" placeholder="이름">
+                <input id="step1_textbox2" type="text" placeholder="이름">
+                <input id="step1_textbox3" type="text" placeholder="이름">
+                <input id="step1_textbox4" type="text" placeholder="이름">
+                <input id="step1_textbox5" type="text" placeholder="이름">
+                <input id="step1_textbox6" type="text" placeholder="이름">
+                <input id="step1_textbox7" type="text" placeholder="이름">
+                <input id="step1_textbox8" type="text" placeholder="이름">
+                <input id="step1_textbox9" type="text" placeholder="이름">
+
+                <div id="step1_shape_num1" class="step1_shape"></div>
+                <div id="step1_shape_num2"></div>
+                <div id="step1_shape_num3"></div>
+               
+            </div>
         </div>
+
         <div th:if="${step=='step2'}" id="content">
             <div id="step_title">
                 02 되돌아 보며
@@ -66,4 +88,13 @@
             </div>
         </div> 
     </step>
+
+
+    <div th:fragment = "script">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/assets/js/anime.min.js"></script>
+        <script src = "/assets/js/MDP_process.js"></script>
+
+    </div>
+
 </html>
