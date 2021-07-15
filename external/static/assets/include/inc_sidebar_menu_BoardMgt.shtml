@@ -1,0 +1,91 @@
+<!-- *******************************************************************************************************************************
+* LEFT SIDEBAR MENU
+************************************************************************************************************************************ -->
+<aside id="sidebar" class="nav-collapse">
+	<!-- sidebar menu start -->
+	<ul class="sidebar-menu" id="nav-accordion">
+		<!--#include file="/CUG/assets/include/inc_sidebar_menu_login.shtml"-->
+		<li class="first">
+			<a href="/CUG/pages/BoardMgt/Notice/notice_List.shtml" class="active">
+				<i class="fa fa-fw fa-bullhorn"></i>
+				<span>공지사항</span>
+			</a>
+		</li>
+		<li>
+			<a href="/CUG/pages/BoardMgt/ReferenceRoom/data_List.shtml">
+				<i class="fas fa-fw fa-folder-plus"></i>
+				<span>자료실</span>
+			</a>
+		</li>
+		<li>
+			<a href="/CUG/pages/BoardMgt/InausDb/db_List.shtml">
+				<i class="fa fa-fw fa-download"></i>
+				<span>이나우스 DB 다운로드</span>
+			</a>
+		</li>		
+		<li>
+			<a href="/CUG/pages/BoardMgt/Faq/faq_List.shtml">
+				<i class="fa fa-fw fa-comment"></i>
+				<span>FAQ</span>
+			</a>
+		</li>
+		<li>
+			<a href="/CUG/pages/BoardMgt/QnA/qna_List.shtml">
+				<i class="fa fa-fw fa-comments-o"></i>
+				<span>Q&A</span>
+			</a>
+		</li>
+		<li>
+			<a href="/CUG/pages/BoardMgt/VOC/voc_List.shtml">
+				<i class="fa fa-fw fa-volume-up"></i>
+				<span>고객의 소리</span>
+			</a>
+		</li>
+		<li>
+			<a href="/CUG/pages/BoardMgt/NewsApp/newsApp_List.shtml">
+				<i class="fa fa-fw fa-envelope"></i>
+				<span>뉴스레터 APP 관리</span>
+			</a>
+		</li>
+		<li class="sub-menu">
+			<a>
+				<i class="fas fa-fw fa-chart-area"></i>
+				<span>Rank This Week</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/BoardMgt/RTW/weekly_rank.shtml">Rank This Week</a></li>
+				<li><a href="/CUG/pages/BoardMgt/RTW/weekly_topic.shtml">Weekly 1위 자료</a></li>
+            </ul>
+		</li>
+		<!-- <li class="sub-menu" title="신규 기획안 대기">
+			<a class="clr-red3">
+				<i class="fa fa-fw fa-user"></i>
+				<span>세무공무원 관리</span>
+			</a>
+			<ul class="sub">
+				<li><a href="###">세무관서 관리</a></li>
+				<li><a href="###">프로필 관리</a></li>
+            </ul>
+		</li> -->
+		<li>
+			<a href="/CUG/pages/BoardMgt/Panel/panel_List.shtml">
+				<i class="fa fa-fw fa-pencil"></i>
+				<span>기고자 관리</span>
+			</a>
+		</li>
+		<li>
+			<a href="/CUG/pages/BoardMgt/Event/event_List.shtml">
+				<i class="fa fa-fw fa-gift"></i>
+				<span>이벤트 관리</span>
+			</a>
+		</li>
+		<li>
+			<a href="/CUG/pages/BoardMgt/News/news_List.shtml">
+				<i class="fa fa-fw fas fa-newspaper"></i>
+				<span>뉴스 관리</span>
+			</a>
+		</li>
+	</ul>
+	<!--// sidebar menu End -->
+	<!--#include file="/CUG/assets/include/inc_sidebar_menu_bottom.shtml"-->
+</aside>

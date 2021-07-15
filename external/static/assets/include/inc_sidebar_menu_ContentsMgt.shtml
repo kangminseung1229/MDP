@@ -1,0 +1,127 @@
+<!-- *******************************************************************************************************************************
+* LEFT SIDEBAR MENU
+************************************************************************************************************************************ -->
+<aside id="sidebar" class="nav-collapse">
+	<!-- sidebar menu start -->
+	<ul class="sidebar-menu" id="nav-accordion">
+		<li class="sub-menu first">
+			<a>
+				<i class="fa fa-fw fa-envelope-o"></i>
+				<span>위클리 관리</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/Weekly/weekly_List.shtml">위클리 등록</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/Weekly/Application_List.shtml">위클리 신청내역</a></li>
+            </ul>
+		</li>
+		<li class="sub-menu">
+			<a class="active">
+				<i class="fa fa-fw fa-file-text"></i>
+				<span>정기간행물 관리</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/PeriodicPublication/hardTax_List.shtml" class="active">정기간행물</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/PeriodicPublication/Webbook_List.shtml">웹북 등록</a></li>
+            </ul>
+		</li>
+		<li>
+			<a href="/CUG/pages/ContentsMgt/Dictionary/dic_List.shtml">
+				<i class="fa fa-fw fa-book"></i>
+				<span>용어사전</span>
+			</a>
+		</li>
+		<li class="sub-menu">
+			<a>
+				<i class="fa fa-fw fa-money"></i>
+				<span>세무</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/Tax/OrderMgt/order_List.shtml">훈령고시 관리</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/Tax/TaxSchedule/taxSch_List.shtml">세무일정</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/Tax/RapidAdvance/downLoad_List.shtml">일사천리</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/Tax/SeTech/seTech_List.shtml">세테크</a></li>
+            </ul>
+		</li>
+		<li class="sub-menu">
+			<a>
+				<i class="fa fa-fw fa-calculator"></i>
+				<span>회계</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/Account/AccountingMgt/accCnt_List.shtml">회계 콘텐츠 관리</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/Account/QueryReply/kifrsQnA_List.shtml">K-IFRS 질의회신</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/Account/AccountingAudit/accAudit_List.shtml">회계감사</a></li>
+            </ul>
+		</li>
+		<li class="sub-menu">
+			<a>
+				<i class="fa fa-fw fa-gavel"></i>
+				<span>예규판례 관리</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/EPMgt/EP/ep_List.shtml">예규판례</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/EPMgt/trot_List.shtml">판례속보</a></li>
+            </ul>
+		</li>
+		<li class="sub-menu" title="신규 기획안 대기">
+			<a class="clr-red3">
+				<i class="fa fa-fw fa-user"></i>
+				<span>인명 관리</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/NameMgt/Public/public_List.shtml">인사동정</a></li>
+				<li><a href="###" class="clr-red3">세무공무원</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/NameMgt/TaxAccountant/taxper_List.shtml">세무사 리스트</a></li>
+            </ul>
+		</li>
+		<li class="sub-menu">
+			<a>
+				<i class="fa fa-fw fa-microphone"></i>
+				<span>뉴스&보도자료</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/News/News/tax_List.shtml">뉴스</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/News/PressRelease/press_List.shtml">보도자료</a></li>
+            </ul>
+		</li>
+		<li class="sub-menu">
+			<a>
+				<i class="fa fa-fw fa-cog"></i>
+				<span>홈페이지 관리</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/HomepageMgt/Main/topIssue_List.shtml">메인 노출 관리</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/HomepageMgt/OneClickIssue/press_List.shtml">One Click 이슈</a></li>
+            </ul>
+		</li>
+		<li class="sub-menu">
+			<a>
+				<i class="fa fa-fw fa-pencil-square-o"></i>
+				<span>택스넷 포스트</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/TaxnetPost/Author/author_List.shtml">저자 관리</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/TaxnetPost/Post/post_List.shtml">게시물 관리</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/TaxnetPost/Series/series_List.shtml">시리즈물 관리</a></li>
+            </ul>
+		</li>
+		<li class="sub-menu">
+			<a>
+				<i class="fa fa-fw fa-comments-o"></i>
+				<span>알림 서비스 관리</span>
+			</a>
+			<ul class="sub">
+				<li><a href="/CUG/pages/ContentsMgt/AlertService/caseAlert_List.shtml">판례이력 알림 현황</a></li>
+				<li><a href="/CUG/pages/ContentsMgt/AlertService/topicAlert_LIst.shtml">주제어 알림 현황</a></li>
+            </ul>
+		</li>
+		<li>
+			<a href="/CUG/pages/ContentsMgt/IssueDic/issueDic_List.shtml">
+				<i class="fa fa-fw fa-youtube-play"></i>
+				<span>이슈파헤치기</span>
+			</a>
+		</li>
+	</ul>
+	<!--// sidebar menu End -->
+	<!--#include file="/CUG/assets/include/inc_sidebar_menu_bottom.shtml"-->
+</aside>

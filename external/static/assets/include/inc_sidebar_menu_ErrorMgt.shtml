@@ -1,0 +1,23 @@
+<!-- *******************************************************************************************************************************
+* LEFT SIDEBAR MENU
+************************************************************************************************************************************ -->
+<aside id="sidebar" class="nav-collapse">
+	<!-- sidebar menu start -->
+	<ul class="sidebar-menu" id="nav-accordion">
+		<!--#include file="/CUG/assets/include/inc_sidebar_menu_login.shtml"-->
+		<li class="first">
+			<a href="/CUG/pages/ErrorMgt/error_List.shtml" class="active">
+				<i class="fa fa-fw fa-warning"></i>
+				<span>오류 메시지</span>
+			</a>
+		</li>
+		<li>
+			<a href="/CUG/pages/ErrorMgt/SameUser.shtml">
+				<i class="fa fa-fw fa-users"></i>
+				<span>동시 사용자</span>
+			</a>
+		</li>
+	</ul>
+	<!--// sidebar menu End -->
+	<!--#include file="/CUG/assets/include/inc_sidebar_menu_bottom.shtml"-->
+</aside>

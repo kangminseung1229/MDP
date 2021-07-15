@@ -9,9 +9,9 @@
 target/
 
 # files
-external/static/assets
+!external/static/assets
 external/static/files
-external/static/img
+!external/static/img/MDP
 
 
 HELP.md
@@ -19,7 +19,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
 
 
 ### macOS ###

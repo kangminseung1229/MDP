@@ -1,0 +1,19 @@
+<!-- *************************************************************************************************************************************
+* FOOTER
+************************************************************************************************************************************* -->
+<!-- footer start -->
+<footer class="site-footer">
+	<div class="text-center">
+		<p>
+			COPYRIGHTS ⓒ JOSE-TONGRAM. CORP. All rights reserved.
+		</p>
+		<div class="credits">
+			Created with Closed User Group  by <a href="//www.taxnet.co.kr/" target="_blank" title="새창으로 이동">www.taxnet.co.kr</a>
+		</div>
+		<a class="go-top" title="맨위로 이동">
+			<i class="fa fa-angle-up"></i>
+		</a>
+	</div>
+</footer>
+<!--// footer End -->
+</div>

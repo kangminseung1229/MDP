@@ -1,0 +1,10 @@
+		<!-- 로그인 계정별 정보출력 -->
+		<div class="login-info">
+			<!-- <div class="thumbs">
+				<video muted autoplay loop poster="">
+					<source src="/CUG/img/Pexels Videos 2439510.mp4" type="video/mp4">
+				</video>
+			</div> -->
+			<img src="/CUG/img/human.png" class="img-circle" width="80" alt="">
+			<h5>Administrator</h5>
+		</div>

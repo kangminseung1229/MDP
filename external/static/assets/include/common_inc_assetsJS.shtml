@@ -1,0 +1,12 @@
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="/CUG/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/CUG/assets/lib/jquery.dcjqaccordion.2.7.js" class="include"></script>
+<script src="/CUG/assets/lib/jquery.scrollTo.min.js"></script>
+<script src="/CUG/assets/lib/jquery.nicescroll.js"></script>
+
+<!-- CustomScrollbar -->
+<link rel="stylesheet" href="/CUG/assets/lib/customScrollbar/jquery.mCustomScrollbar.css" />
+<script src="/CUG/assets/lib/customScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<!-- common script for all pages -->
+<script src="/CUG/assets/js/CUG-scripts.js"></script>

@@ -32,7 +32,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/rest/*").permitAll()
 				.antMatchers("/test/**").permitAll()
 				.antMatchers("/.well-known/pki-validation/*").permitAll()
-                .antMatchers("/test_Controller/*").permitAll()
                 .antMatchers("/MDP/*").permitAll()
                 .anyRequest().authenticated()
 				.and()
