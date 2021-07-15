@@ -15,6 +15,6 @@ public class MvcConfigration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers( ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
-                .addResourceLocations("file:D:/hahehoMDP/external/static/");
+                .addResourceLocations("file:D:/MDP/external/static/");
     }
 }
