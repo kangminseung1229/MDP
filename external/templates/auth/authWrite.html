@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="ko">
+
+<head th:replace="fragments/common_inc_top :: head('권한')">
+</head>
+
+<body>
+
+    <header th:replace="fragments/common_inc_top :: menu('권한')"></header>
+
+    <aside id="sidebar" class="nav-collapse" th:replace="fragments/common_inc_top :: sidebar('권한')"></aside>
+
+
+    <!-- *******************************************************************************************************************************
+* BODY CONTENT
+************************************************************************************************************************************ -->
+    <article id="container">
+        <section id="body-content">
+            <form name="frm" th:action="@{/auth/write}" th:object="${SecurityAdmins}" method="POST">
+                <!-- Body content start -->
+                <div class="body-Title">
+                    <i class="fa"></i>아이디 권한 관리
+                    <span class="stxt">CUG 계정 및 권한을 관리합니다.</span>
+                </div>
+                <div class="body-mTitle"><i class="fa"></i>관리자 정보</div>
+                <div class="content-panel border bg">
+
+
+
+                    <input type="hidden" th:field="*{id}">
+                    <table class="table View table-bordered bg-white" style="margin-top: 15px;">
+                        <caption></caption>
+                        <colgroup>
+                            <col style="width: 12%" />
+                            <col style="width: 38%" />
+                            <col style="width: 12%" />
+                            <col style="width: 38%" />
+                        </colgroup>
+                        <tr>
+                            <th colspan="4" class="ct">
+                                <input type="text" name="username" th:field="*{username}" readonly>
+                                <!-- <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+                                    error msg.
+                                </div> -->
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>pw</th>
+                            <td><input type="text" th:name="password" id="password" placeholder=""></td>
+                            <th>사용여부</th>
+                            <td><input type="text" name="enabled" id="enabled" th:field="*{enabled}"></td>
+                        </tr>
+                        <tr>
+                            <th>보유권한</th>
+                            <td colspan="3">
+
+                                
+
+
+                                <th:block th:each=" roleAll : ${AuthAll}">
+
+
+                                            <label class="radio-field checkbox None tooltips" data-placement="right" >
+                                                <input type="checkbox" th:value="${roleAll.id}" name="roles" th:checked="${#strings.contains(userAuth,roleAll.id)}"/>
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <span th:text="${roleAll.name}">전체 권한</span>
+                                        
+                                </th:block>
+
+                                <!-- <a href="javascript:chgAuth();" class="btn btn-success">권한 변경</a> -->
+
+
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                </div>
+
+                <div class="Btns-wp">
+
+                    <!-- button 일 경우 -->
+                    <!-- <span class="Right">
+                        <button type="button" onclick="send();" class="btn btn-success" />저장하기</button>
+                    </span>
+                    <span class="Right">
+                        <button type="button" onclick="back();" class="btn btn-success" />취소하기</button>
+                    </span> -->
+
+                    <!-- a tag 일 경우 -->
+                    <span class="Right">
+                        <a href="javascript:send();" class="btn btn-success">저장하기</a>
+                        <a th:onclick="|del('${id}')|" class="btn btn-danger">삭제하기</a>
+                        <a th:href="@{/auth/list}" class="btn btn-default">목록</a>
+                    </span>
+
+                </div>
+            </form>
+            <!--// Body content End -->
+        </section>
+    </article>
+</body>
+
+</html>
+
+<footer th:replace="fragments/bottom_script :: footer('권한')"> </footer>
+
+
+
+
+<script>
+    function back() {
+        location.href = "/auth/list";
+    }
+    function send() {
+        document.frm.submit();
+    }
+    function del(id) {
+
+        if (confirm('삭제하시겠습니까?')) {
+            location.href = "/auth/delete?id=" + id;
+        }
+
+        return;
+
+    }
+
+    //권한 변경 
+    function chgAuth() {
+
+        var auth = ""
+        var userid = $("#id").val();
+
+        $("input[name=rolesID]:checked").each(function () {
+            var chkVal = $(this).val();
+
+            if (chkVal != "")
+                auth = auth + chkVal + "/";
+        });
+
+        $.ajax({
+            type: "post",
+            url: "/rest/ChangeAuth",
+            data: { auth: auth, userid: userid },
+            dataType: "text",
+            success: function (response) {
+                if (response == 1) {
+                    alert('권한이 수정됨.');
+                }
+            },
+            error: function (e) {
+                console.log(e);
+                alert('denied');
+            }
+        });
+
+    }
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="ko">
+
+<head th:replace="fragments/common_inc_top :: head('키워드')">
+</head>
+
+<body>
+
+
+  <header th:replace="fragments/common_inc_top :: menu('키워드')"></header>
+
+  <aside id="sidebar" class="nav-collapse" th:replace="fragments/common_inc_top :: sidebar('키워드')"></aside>
+
+
+
+  <article id="container">
+    <section id="body-content">
+
+        <h1>keyword 추출</h1>
+
+        <textarea id="keywordText" placeholder="postContents를 입력하세요." style="width: 1000px; height: 500px;" ></textarea>
+
+        <button onclick="send();">전송</button>
+
+      
+    </section>
+
+  </article>
+</body>
+
+</html>
+
+<script>
+
+    function send() {
+
+        var text = $("#keywordText").val();
+        
+        $.ajax({
+            type: "get",
+            url: "/keywordRest/send",
+            data: {keywordText : text},
+            dataType: "text",
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    }
+</script>

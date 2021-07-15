@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <nav th:fragment = "nav">
+        <div class="process_div">
+            <div class="process_div2" >
+                <img src = "/img/MDP/main_logo_white_process.png"  class="process_logo" >
+                <hr id = "horizontal_line">
+                
+                <div class="group">
+        
+                    <input type="radio" name="rb" id="rb1" />
+                    <label for="rb1">01 받는 사람</label><br>
+                
+                    <input type="radio" name="rb" id="rb2"/>
+                    <label for="rb2">02 되돌아 보며</label><br>
+            
+                    <input type="radio" name="rb" id="rb3" />
+                    <label for="rb3">03 그 사람과 나는</label><br>
+            
+                    <input type="radio" name="rb" id="rb4" />
+                    <label for="rb4">04 그때의 나는</label><br>
+            
+                    <input type="radio" name="rb" id="rb5" />
+                    <label for="rb5">05 그때의 내 마음은</label><br>
+            
+                    <input type="radio" name="rb" id="rb6" />
+                    <label for="rb6">06 감정단어</label><br> 
+                </div>
+            </div>
+           
+        </div>
+    </nav>
+
+    <step th:fragment ="step(step)">
+        <div th:if="${step=='step1'}" id="content">                 
+            <div id="step_title">
+                01 받는 사람
+            </div>
+            <p>
+                <p id = "stage1"><span id="hl_yello">노란색 칸</span>에 자신의 이름을 써보세요.</p> 
+                <p id = "stage2">그리고 떠오르는 세 사람의 이름을 <span id="hl_blue">파란색 칸</span>에 써보세요.</p>
+                <p id = "stage3">다음에 떠오르는 다섯 사람의 이름은 <span id="hl_green">초록색 칸</span>에 써보세요.</p>
+            </p>
+        </div>
+        <div th:if="${step=='step2'}" id="content">
+            <div id="step_title">
+                02 되돌아 보며
+            </div>
+            <p>
+                추억이 담긴 사진들을 찾아 보며 우리의 순간을 되돌아 볼까요?<br>
+                함께 찍은 사진이 없다면 마음에 드는 사진을 골라 주세요.
+            </p>
+            <div id="input_image">
+                thinkus
+            </div>
+            <p style="padding-top:2%;">
+               그 사람에게 내가 전하고 싶은 감정을 선택해주세요
+            </p>
+            <div id="radio_wrapper">
+                <label id="feeling"><input type="radio" name="select"/><span id="thanks">고마움</span></label>
+                <label id="feeling"><input type="radio" name="select"/><span id="sorry">미안함</span></label>
+                <label id="feeling"><input type="radio" name="select"/><span id="cheer">축하/응원</span></label>
+                <label id="feeling"><input type="radio" name="select"/><span id="love">사랑</span></label>
+                <label id="feeling"><input type="radio" name="select"/><span id="hello">안부</span></label>
+            </div>
+        </div> 
+    </step>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="ko">
+
+<head th:replace="fragments/common_inc_top :: head('권한')">
+</head>
+
+<body>
+
+
+  <header th:replace="fragments/common_inc_top :: menu('권한')"></header>
+
+  <aside id="sidebar" class="nav-collapse" th:replace="fragments/common_inc_top :: sidebar('권한')"></aside>
+
+
+
+  <article id="container">
+    <section id="body-content">
+      This page is principal <br/>
+
+
+            auth : <span th:text="${auth}"></span> <br/>
+            principal : <h1><span th:text="${principal}"></span></h1>
+
+        
+
+    </section>
+
+  </article>
+</body>
+
+</html>

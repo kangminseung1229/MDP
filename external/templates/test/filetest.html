@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filetest</title>
+</head>
+<body>
+    [session: rootPath] -------><span th:text="${session.rootPath}">rootpath</span><br/>
+    [session: classpath] -------><span th:text="${session.classpath}">classpath</span><br/>
+    [file] -------><span th:text="${session.filename1}">classpath</span><br/>
+
+
+
+    <!-- [sec:name ]  <span class="text-white" sec:authentication="name">사용자</span> <br/>
+	[sec:name ]  <span class="text-white mx-2" sec:authentication="principal.authorities">권한</span> <br/> -->
+
+
+    <h1>fileupload</h1>
+	
+    <form th:action="@{/test/file}" method="post" enctype="multipart/form-data">
+       <input type="file" name="filetag" id=""> 
+       <input type="submit" value="전송">
+    </form>
+
+
+    <a th:href="@{/test/fileDownload2(fileName=${session.filepath})}">
+        <img th:src="@{${session.classpath}}" alt="img" >
+    </a>
+
+
+
+</body>
+</html>

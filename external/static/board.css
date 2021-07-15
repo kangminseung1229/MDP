@@ -1,0 +1,62 @@
+table {
+    padding: 10px;
+}
+
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+thead tr td {
+    text-align:  center;
+    font-size: 20px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+.active{
+
+    color: red;
+    font-size: 30px;
+}
+
+ul li {
+   float: left; 
+   margin: 20px;
+}
+
+h1{
+    clear: both;
+}
+
+span{
+    display: block;
+    font-size:10px;
+}
+.boardCnt{
+    font-size: 20px;
+    color: red;
+}
+
+
+/* valid red font */
+.valid{
+    color: red;
+    font-size: 5px;
+}
+
+.disabled{
+    color: gray;
+    font-size: 30px;
+}
+
+.search{
+    padding:30px;
+}

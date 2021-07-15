@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="ko">
+
+<head th:replace="fragments/common_inc_top :: head('로그관리')">
+</head>
+
+<body>
+
+    <header th:replace="fragments/common_inc_top :: menu('로그')"></header>
+
+    <aside id="sidebar" class="nav-collapse" th:replace="fragments/common_inc_top :: sidebar('로그')"></aside>
+
+
+    <!-- *******************************************************************************************************************************
+* BODY CONTENT
+************************************************************************************************************************************ -->
+    <article id="container">
+        <section id="body-content">
+            <form name="frm" th:action="@{/board/write}" th:object="${taxnet_logs}" method="POST">
+                <!-- Body content start -->
+                <div class="body-Title">
+                    <i class="fa"></i>로그 관리
+                    <span class="stxt">택스넷의 접속 로그 관리합니다.</span>
+                </div>
+                <div class="body-mTitle"><i class="fa"></i>로그 정보</div>
+                <div class="content-panel border bg">
+
+
+
+                    <input type="hidden" th:field="*{id}">
+                    <table class="table View table-bordered bg-white" style="margin-top: 15px;">
+                        <caption></caption>
+                        <colgroup>
+                            <col style="width: 12%" />
+                            <col style="width: 38%" />
+                            <col style="width: 12%" />
+                            <col style="width: 38%" />
+                        </colgroup>
+                        <tr>
+                            <th colspan="4" class="ct">
+                                <input type="text" name="userid" th:field="*{userid}">
+                                <div th:if="${#fields.hasErrors('userid')}" th:errors="*{userid}">
+                                    error msg.
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>ip</th>
+                            <td><input type="text" name="ip" id="ip" th:field="*{ip}"></td>
+                            <th>URL</th>
+                            <td><input type="text" name="c_url" id="c_url" th:field="*{c_url}"></td>
+                        </tr>
+                        <tr>
+                            <th>menu</th>
+                            <td><input type="text" name="menu" id="menu" th:field="*{menu}"></td>
+                            <th>검색어</th>
+                            <td><input type="text" name="search" id="search" th:field="*{search}"></td>
+
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="Btns-wp">
+
+                    <!-- button 일 경우 -->
+                    <!-- <span class="Right">
+                        <button type="button" onclick="send();" class="btn btn-success" />저장하기</button>
+                    </span>
+                    <span class="Right">
+                        <button type="button" onclick="back();" class="btn btn-success" />취소하기</button>
+                    </span> -->
+
+                    <!-- a tag 일 경우 -->
+                    <span class="Right">
+                        <a href="javascript:send();" class="btn btn-success">저장하기</a>
+                        <a th:onclick="|del('${id}')|" class="btn btn-success red">삭제하기</a>
+                        <a th:href="@{/board/list}" class="btn btn-success">목록</a>
+                    </span>
+
+                </div>
+            </form>
+            <!--// Body content End -->
+        </section>
+    </article>
+</body>
+
+</html>
+
+<footer th:replace="fragments/bottom_script :: footer('로그')"> </footer>
+
+<script>
+    function back() {
+        location.href = "/board/list";
+    }
+    function send() {
+        document.frm.submit();
+    }
+    function del(id) {
+        
+        if (confirm('삭제하시겠습니까?')) {
+            location.href ="/board/delete?id=" +id; 
+        }
+
+        return;
+
+    }
+</script>
