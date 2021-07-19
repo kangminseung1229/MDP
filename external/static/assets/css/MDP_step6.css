@@ -18,6 +18,7 @@
     opacity: 0.3;
     transition-property:opacity;
     transition-duration:0.3s;
+    cursor:pointer;
     
 }
 #emmotion_common:hover{
@@ -63,6 +64,7 @@
     background-color: #85C247;
     transition-property:opacity;
     transition-duration:0.3s;
+    cursor:pointer;
 }
 
 #emmotion_thanks:hover{
@@ -110,7 +112,7 @@
     opacity: 0.3;
     transition-property:opacity;
     transition-duration:0.3s;
-    
+    cursor:pointer;
 }
 #emmotion_sorry:hover{
     width: 60px;
@@ -155,7 +157,7 @@
     opacity: 0.3;
     transition-property:opacity;
     transition-duration:0.3s;
-    
+    cursor:pointer;
 }
 #emmotion_celebration:hover{
     width: 60px;
@@ -198,7 +200,7 @@
     opacity: 0.3;
     transition-property:opacity;
     transition-duration:0.3s;
-    
+    cursor:pointer;
 }
 #emmotion_love:hover{
     width: 60px;
@@ -242,7 +244,7 @@
     opacity: 0.3;
     transition-property:opacity;
     transition-duration:0.3s;
-    
+    cursor:pointer;
 }
 #emmotion_say:hover{
     width: 60px;

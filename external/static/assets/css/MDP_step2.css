@@ -6,6 +6,8 @@
     text-align:center;
     width:500px;
     height:250px;
+    line-height:250px;
+    color:#1656e0a1;
 }
 #radio_wrapper{
     width:100%;
