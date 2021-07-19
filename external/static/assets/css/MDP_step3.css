@@ -2,7 +2,7 @@
     color:black;
     margin:0 auto;
     border-radius:10px;
-    width:60%;
+    width:80%;
     height:50px;
     margin-bottom:10px;
     font-size:14px;
@@ -16,53 +16,29 @@
 .num{
     font-size:11px;
 }
-
+.green{
+    background-color:#F2F8EB;
+}
+.blue{
+    background-color:#DDEDF9;
+}
+.yellow{
+    background-color:#FFF8D2;
+}
 .text_end{
     float:right;
-    margin-top:5px;
 }
 .step3_textbox{
+    width:480px;
     border:none;
-    font-size:16px;
-    font-family:gmarket_medium;
-    height:30px;
-    border-radius:10px;
 }
 .green .step3_textbox{
     background-color:#F2F8EB;
-
 }
 .blue .step3_textbox{
     background-color:#DDEDF9;
 }
 .yellow .step3_textbox{
     background-color:#FFF8D2;
-}
-#one{
-    width:360px;
-}
-#two{
-    width:391px;
-}
-#three{
-    width:364px;
-}
-#four{
-    width:295px;
-}
-#five{
-    width:333px;
-}
-#six{
-    width:360px;
-}
-#seven{
-    width:374px;
-}
-#eight{
-    width:391px;
-}
-#nine{
-    width:291px;
 }
 
