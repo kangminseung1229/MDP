@@ -27,8 +27,12 @@
     font-family:gmarket_medium;
     height:30px;
     border-radius:10px;
+    padding-left: 10px;
 }
-.green .step3_textbox{
+.step3_textbox:focus{
+    outline: none;
+}
+    .green .step3_textbox{
     background-color:#F2F8EB;
 
 }
@@ -38,6 +42,60 @@
 .yellow .step3_textbox{
     background-color:#FFF8D2;
 }
+
+.step3_shape_green {
+    cursor: pointer;
+    animation: pulseAnim_step3_green 2s infinite;
+}
+
+@keyframes pulseAnim_step3_green{
+    0% {
+        box-shadow: 0 0 0 0 rgba(117, 248, 29, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(117, 248, 29, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(117, 248, 29, 0);
+    }
+}
+
+.step3_shape_blue {
+    cursor: pointer;
+    animation: pulseAnim_step3_blue 2s infinite;
+}
+
+@keyframes pulseAnim_step3_blue{
+    0% {
+        box-shadow: 0 0 0 0 rgba(29, 113, 248, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(29, 113, 248, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(29, 113, 248, 0);
+    }
+}
+.step3_shape_yellow {
+    cursor: pointer;
+    animation: pulseAnim_step3_yellow 2s infinite;
+}
+
+@keyframes pulseAnim_step3_yellow{
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 210, 7, 0.753);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(248, 208, 29, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(248, 208, 29, 0);
+    }
+}
+
+
+
+
 #one{
     width:360px;
 }

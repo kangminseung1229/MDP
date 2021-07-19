@@ -33,7 +33,7 @@
 
 #textbox_shapes{
     position: relative;
-    border: solid 1px #ff00ea;
+    /* border: solid 1px #ff00ea; */
     width: 550px;
     height: 550px;
     display: inline-block;  
@@ -44,15 +44,30 @@
 
 /* textbox */
 
+.step1_textbox{
+    font-family: gmarket_medium;
+    font-size: 20px;
+    z-index: 2;
+    border: none;
+
+}
+.step1_textbox::placeholder{
+    text-align: center;
+    
+}
+.step1_textbox:focus{
+    outline: none;
+    
+}
+
 #step1_textbox1{
     width: 70px;
     position:absolute; 
     top:50%; left:50%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
 }
+
 
 .textbox1_class{
     background-color: #FDF9E3;
@@ -65,8 +80,6 @@
     position:absolute; 
     top:33%; left:50%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
   
 }
@@ -77,8 +90,6 @@
     position:absolute; 
     top:55%; left:32%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
 }
 
@@ -88,8 +99,6 @@
     position:absolute; 
     top:65%; left:60%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
 }
 
@@ -104,8 +113,6 @@
     position:absolute; 
     top:15%; left:50%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
 }
 
@@ -115,8 +122,6 @@
     position:absolute; 
     top:45%; left:14%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
 }
 
@@ -126,8 +131,6 @@
     position:absolute; 
     top:80%; left:30%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
 }
 
@@ -137,8 +140,6 @@
     position:absolute; 
     top:80%; left:70%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
 }
 
@@ -148,8 +149,6 @@
     position:absolute; 
     top:45%; left:86%;
     transform: translate(-50%,-50%);
-    font-family: gmarket_medium;
-    font-size: 20px;
     z-index: 2;
 }
 
@@ -182,7 +181,7 @@
 
 @keyframes pulseAnim_step1{
     0% {
-        box-shadow: 0 0 0 0 rgba(248, 208, 29, 0.4);
+        box-shadow: 0 0 0 0 rgba(255, 210, 7, 0.753);
     }
     70% {
         box-shadow: 0 0 0 10px rgba(248, 208, 29, 0);
@@ -272,6 +271,6 @@
     height: 130px;
     width: auto;
     text-align: center;
-    border: 2px solid rgb(42, 177, 18);
+    /* border: 2px solid rgb(42, 177, 18); */
     
 }
