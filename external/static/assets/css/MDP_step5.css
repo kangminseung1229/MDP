@@ -34,9 +34,9 @@ left:-15px;
     margin-right: 150px;
     margin-top: 18px;
     margin-bottom: 50px;
-    width:400px;
+    width:370px;
     overflow:visible;
-    height:100px;
+    height:70px;
     background:#DDEDF9;
     border-radius: 20px;
     float: right;
@@ -44,7 +44,11 @@ left:-15px;
     font-family: gmarket_medium;
     font-size: 15px;
     resize: none;
-   
+    padding: 15px 15px 15px 15px;
+    line-height:20px;
+}
+#step5_answer1:focus{
+    outline:none;
 }
 #step5_answer1:after {
     border-top:15px solid #DDEDF9;
@@ -108,8 +112,8 @@ left:-15px;
     margin-right: 150px;
     margin-top: 18px;
     margin-bottom: 50px;
-    width:400px;
-    height:100px;
+    width:370px;
+    height:70px;
     background:#FFF8D2;
     border-radius: 20px;
     float: right;
@@ -117,6 +121,11 @@ left:-15px;
     font-size: 15px;
     resize: none;
     border: none;
+    padding: 15px 15px 15px 15px;
+    line-height:20px;
+}
+#step5_answer2:focus{
+    outline:none;
 }
 #step5_answer2:after {
     border-top:15px solid #FFF8D2;
@@ -180,8 +189,8 @@ left:-15px;
     margin-right: 150px;
     margin-top: 18px;
     margin-bottom: 50px;
-    width:400px;
-    height:100px;
+    width:370px;
+    height:70px;
     background:#F2F8EB;
     border-radius: 20px;
     float: right;
@@ -189,6 +198,11 @@ left:-15px;
     font-size: 15px;
     resize: none;
     border: none;
+    padding: 15px 15px 15px 15px;
+    line-height:20px;
+}
+#step5_answer3:focus{
+    outline:none;
 }
 #step5_answer3:after {
     border-top:15px solid #F2F8EB;
@@ -252,8 +266,8 @@ left:-15px;
     margin-right: 150px;
     margin-top: 18px;
     margin-bottom: 50px;
-    width:400px;
-    height:100px;
+    width:370px;
+    height:70px;
     background:#DDEDF9;
     border-radius: 20px;
     float: right;
@@ -261,6 +275,11 @@ left:-15px;
     font-size: 15px;
     resize: none;
     border: none;
+    padding: 15px 15px 15px 15px;
+    line-height:20px;
+}
+#step5_answer4:focus{
+    outline:none;
 }
 #step5_answer4:after {
     border-top:15px solid #DDEDF9;
