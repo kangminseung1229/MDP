@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/MDP_main_fragment :: top('letter')">
+<body>
+    <header th:replace="fragments/MDP_main_fragment :: header"></header>
+    <div id="letter_wrapper">
+        <div id="letter_top">
+            <div id="letter_title">
+                편지쓰기
+            </div>
+        </div>
+        <div id="letter_left">
+            <div id="one">
+                <div class="hashtag" id="step2">
+                    #고마움
+                </div>
+                <div class="hashtag green">
+                    #해시태그
+                </div>
+                <div class="hashtag blue">
+                    #해시태그
+                </div>
+                <div class="hashtag yellow">
+                    #해시태그
+                </div>
+                <div class="hashtag green">
+                    #해
+                </div>
+                <div class="hashtag blue">
+                    #해
+                </div>
+                <div class="hashtag yellow">
+                    #해시태그
+                </div>
+                <div class="hashtag green">
+                    #해
+                </div>
+                <div class="hashtag blue">
+                    #해
+                </div>
+                <div class="hashtag yellow">
+                    #해시태그
+                </div>
+            </div>
+            <div id="two">
+                <div class="second_wrapper">
+                    <div class="second_div left">
+                        그때 나는 무엇을 보았나요?  👀
+                        <div class="inner_div">
+                            tsadkljtkladtjkajtkljaktjkaljdtklsjkjklsajriosthkjatndkafsdtsklaj
+                        </div>
+                    </div>
+                    <div class="second_div right">
+                        그때 나는 무엇을 들었나요? 👂
+                        <div class="inner_div">
+                        </div>
+                    </div>
+                </div>
+                <div class="second_wrapper">
+                    <div class="second_div left">
+                        그때 나는 어떤 말과 행동을 하였나요? 👄
+                        <div class="inner_div">
+                        </div>
+                    </div>
+                    <div class="second_div right">
+                        그때 나는 무엇을 생각하고 느꼈나요? 🤔
+                        <div class="inner_div">
+                            tsadkljtkladtjkajtkljaktjkaljdtklsjkjklsajriosthkjatndkafsdtsklaj
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="three">
+                <div class="third_wrapper">
+                    <div class="third_quest">
+                        이 에피소드를 통해<br>그 친구에게 어떤 마음이 들었나요?
+                    </div>
+                    <div class="third_answer">
+                        adstkjklasdjkt
+                    </div>  
+                </div>
+                <div class="third_wrapper">
+                    <div class="third_quest">
+                        왜 그렇게 생각했나요?
+                    </div>
+                    <div class="third_answer">
+                        asdf
+                    </div>  
+                </div>
+                <div class="third_wrapper">
+                    <div class="third_quest">
+                        왜 그런 마음이 들었나요?
+                    </div>
+                    <div class="third_answer">
+                        asdf
+                    </div>  
+                </div>
+                <div class="third_wrapper">
+                    <div class="third_quest">
+                        왜 그렇게 느꼈나요?
+                    </div>
+                    <div class="third_answer">
+                        adf
+                    </div>  
+                </div>
+            </div>
+            <div class="step6_container_select">
+                <table id = "letter_select_word">
+                    <tr>
+                        <td>
+                            <div class="emotion_card_common" >긍정적인</div>
+                        </td>
+                    </tr>
+                  
+                </table>
+            </div>
+        </div>
+        
+        <div id="letter_updown"></div>
+        
+        <div id="letter_right">
+            <div id="right_paragraph">
+                편지를 쓸 준비가 모두 끝났습니다.<br>
+                기억들과 마음을 정리해 소중한 사람에게 전해보아요.
+            </div>
+            <div id="letter_help">
+                <div id="help">?</div>
+                &ensp;편지 작성을 시작하기 어렵다면 물음표를 눌러 보세요.
+            </div>
+            <div id="letter">
+                <img src="/img/MDP/twinkle.png" class="twinkle">
+                <div class = "letter_to">
+                    <p style=" display: inline; white-space: nowrap; width: 50px;">TO.</p><p id = "letter_to_name">최지원</p>
+                </div>
+
+                <div id = "letter_img"></div>
+                <textarea id="letter_textarea"></textarea>
+                <div class = "letter_from">
+                    <p style=" display: inline; white-space: nowrap; width: 50px;">FROM.</p><p id = "letter_from_name">김가영</p>
+                </div>
+                <div id = "wave_shape">
+                    <div class="letter_thinkus">THINKUS</div>
+                    <div class='wave-top'></div>
+                    <div class="wave-mid"></div>
+                </div>
+            </div>
+            <!-- <div id="write_helper">
+                <div class="help_title">
+                    가벼운 인사말로 시작해 보세요
+                </div>
+                <div class="help_example">
+                    예시)<br>
+                    안녕 오랜만이야, 잘 지내고 있지?<br>
+                    안녕하세요 저 00 입니다. 잘 지내고 계신가요?
+                </div>
+                <div class="help_title">
+                    에피소드로 이야기를 시작해요
+                </div>
+                <div class="help_example">
+                    예시)<br>
+                    그때 기억나니? 편지를 쓰려다 보니 너와 함께 했던 이때가 기억났어.<br>
+                    널 보면 항상 그 자리에 서 있는 나무가 떠올라.
+                </div>
+                <div class="help_title">
+                    에피소드를 좀 더 자세히 풀어내요
+                </div>
+                <div class="help_example">
+                    예시)<br>
+                    제가 굉장히 걱정하면서 어렵게 꺼낸 이야기를 잘 들어주셨던게 기억이 나요.<br>
+                    그때 너랑 나랑 정말 다르면서도 비슷하다고 생각했어.
+                </div>
+                <div class="help_title">
+                    전하고 싶은 솔직한 감정을 꺼내요
+                </div>
+                <div class="help_example">
+                    예시)<br>
+                    말로 표현하지는 못했지만 언제나 날 응원해 주는 너에게 고마움을 느끼고 있어.<br>
+                    돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.
+                </div>
+            </div> -->
+    </div>
+</body>
+</html>

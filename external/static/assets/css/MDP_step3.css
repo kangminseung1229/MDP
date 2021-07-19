@@ -1,0 +1,45 @@
+.input_textbox{
+    color:black;
+    margin:0 auto;
+    border-radius:10px;
+    width:80%;
+    height:50px;
+    margin-bottom:10px;
+    font-size:14px;
+    line-height:20px;
+    text-align:left;
+    padding-top:10px;
+    padding-left:20px;
+    padding-right:20px;
+    vertical-align:middle;
+}
+.num{
+    font-size:11px;
+}
+.green{
+    background-color:#F2F8EB;
+}
+.blue{
+    background-color:#DDEDF9;
+}
+.yellow{
+    background-color:#FFF8D2;
+}
+.text_end{
+    float:right;
+}
+.step3_textbox{
+    width:480px;
+    border:none;
+}
+.green .step3_textbox{
+    background-color:#F2F8EB;
+}
+.blue .step3_textbox{
+    background-color:#DDEDF9;
+}
+.yellow .step3_textbox{
+    background-color:#FFF8D2;
+}
+
+

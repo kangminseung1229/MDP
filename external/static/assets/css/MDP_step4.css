@@ -1,0 +1,51 @@
+#step4_wrapper{
+    text-align:center;
+    margin:0 auto;
+    width:80%;
+    height:410px;
+    color:black;
+}
+.step4_main{
+    position:relative;
+    width:372px;
+    height:200px;
+    background-color:#DDEDF9;
+    border-radius:15px;
+}
+.step4_quest{
+    margin-top:10px;
+}
+#eye{
+    float:left;
+    margin-bottom:10px;
+}
+#ear{
+    float:right;
+    margin-bottom:10px;
+}
+#talk{
+    float:left;
+}
+#think{
+    float:right;
+}
+#center{
+    position:absolute;
+    background-color:#FFF8D2;
+    margin:0 auto;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    margin-top:165px;
+    margin-left:340px;
+    text-align:center;
+    line-height:80px;
+    font-size:18px;
+}
+.step4_textbox{
+    width:80%;
+    height:70%;
+    border:none;
+    background-color:#DDEDF9;
+    resize:none;
+}

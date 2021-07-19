@@ -1,0 +1,69 @@
+#fin_wrapper{
+    width:1200px;
+    height:auto;
+    padding-top:130px;
+    position:relative;
+    margin:0 auto;
+}
+#fin_letter{
+    border:2px solid #043384;
+    width:45%;
+    margin:0 auto;
+    height:500px;
+}
+#fin_paragraph{
+    padding-top:10px;
+    text-align:center;
+    font-family:gmarket_medium;
+    font-size:15px;
+    color: #043384;
+    line-height:20px;
+}
+#fin_btn_wrapper{
+    padding-top:10px;
+    margin:0 auto;
+    /* border:2px solid red; */
+    width:45%;
+    height:100px;
+}
+.fin_btn{
+    border:2px solid #043384;
+    border-radius:45px;
+    text-align:center;
+    line-height:30px;
+    background-color:#fff;
+    color:#043383;
+    font-family:gmarket_medium;
+    cursor:pointer;
+}
+#copy{
+    float:left;
+    width:49%;
+    height:40px;
+}
+#save_image{
+    float:right;
+    width:49%;
+    height:40px;
+}
+#to_first{
+    width:100%;
+    height:40px;
+    margin-top:10px;
+}
+#copy:hover{
+    background-color:#043384;
+    color:white;
+}
+#save_image:hover{
+    background-color:#043384;
+    color:white;
+}
+#to_first:hover{
+    background-color:#043384;
+    color:white;
+}
+@font-face {
+    font-family: 'gmarket_medium';
+    src: url('../css/fonts/GmarketSansMedium.otf') format('opentype');
+}

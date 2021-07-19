@@ -4,69 +4,65 @@
     background-color:#E0EAF7;
     border-radius:20px;
     text-align:center;
-    width:50%;
-    height:35%;
+    width:500px;
+    height:250px;
 }
 #radio_wrapper{
-    width:80%;
+    width:100%;
     margin:0 auto;
-    margin-top:7%;
-    height:30%;
+    margin-top:20px;
+    /* margin-top:7%; */
+    height:auto;
     text-align:center;
 }
-#radio_wrapper input[type='radio']{
+.feeling input[type='radio']{
     display:none;
 }
-#radio_wrapper #thanks{
+.feeling input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border-radius:50%;
+    text-align-last:center;
+    height:100px;
+    width:100px;
+    line-height:100px;
+    cursor:pointer;
+    font-size:16px;
+}
+.feeling input[type="radio"] + #thanks{
     border: 1.5px solid rgb(133, 194, 71);
     color:rgb(133, 194, 71);
-    padding:3vw 2vw 3vw 2vw;
-    margin-left:-5%;
-    text-align: center;
-    border-radius: 100%;
-    font-size: 13pt;
-    font-family:gmarket_bold;
-    margin-left:0%;
 }
-#radio_wrapper #sorry{
+.feeling input[type="radio"] + #sorry{
     border: 1.5px solid rgb(107, 167, 219);
     color:rgb(107, 167, 219);
-    padding:3vw 2vw 3vw 2vw;
-    text-align: center;
-    border-radius: 100%;
-    font-size: 13pt;
-    font-family:gmarket_bold;
-    margin-left:3%;
 }
-#radio_wrapper #cheer{
+.feeling input[type="radio"] + #cheer{
     border: 1.5px solid rgb(236, 106, 55);
     color:rgb(236, 106, 55);
-    padding:3vw 1vw 3vw 1vw;
-    text-align: center;
-    border-radius: 100%;
-    font-size: 13pt;
-    font-family:gmarket_bold;
-    margin-left:3%;
 }
-#radio_wrapper #love{
+.feeling input[type="radio"] + #love{
     border: 1.5px solid rgb(219, 77, 150);
     color:rgb(219, 77, 150);
-    padding:3vw 2.5vw 3vw 2.5vw;
-    text-align: center;
-    border-radius: 100%;
-    font-size: 13pt;
-    font-family:gmarket_bold;
-    margin-left:3%;
 }
-#radio_wrapper #hello{
+.feeling input[type="radio"] + #hello{
     border: 1.5px solid rgb(232, 59, 77);
     color:rgb(232, 59, 77);
-    padding:3vw 2.5vw 3vw 2.5vw;
-    text-align: center;
-    border-radius: 100%;
-    font-size: 13pt;
-    font-family:gmarket_bold;
-    margin-left:3%;
+}
+#radio_wrapper input[type="radio"]:hover + #thanks{
+    background-color: rgba(133, 194, 71, 0.2);
+}
+#radio_wrapper input[type="radio"]:hover + #sorry{
+    background-color: rgba(107, 167, 219, 0.2);
+}
+#radio_wrapper input[type="radio"]:hover + #cheer{
+    background-color: rgba(236, 106, 55, 0.2);
+}
+#radio_wrapper input[type="radio"]:hover + #love{
+    background-color: rgba(219, 77, 150, 0.2);
+}
+#radio_wrapper input[type="radio"]:hover + #hello{
+    background-color: rgba(232, 59, 77, 0.2);
 }
 
 #radio_wrapper input[type="radio"]:checked + #thanks{
