@@ -119,11 +119,7 @@ label::before {
     font-size:14px;
     height:auto;
 }
-.content_top{
-    border:3px solid pink;
-}
 .content{
-    border:3px solid red;
     width:950px;
     float:right;
     text-align: center;
@@ -175,28 +171,6 @@ label::before {
 }
 
 
-/* process id */
-#step1{
-    /* display: none; */
-}
-#step2{
-    /* display: none; */
-}
-#step3{
-    /* display: none; */
-}
-
-#step4{
-    /* display: none; */
-}
-
-#step5{
-    /* display: none; */
-}
-
-#step6{
-    /* display: none; */
-}
 
 
 

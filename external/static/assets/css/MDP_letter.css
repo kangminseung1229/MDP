@@ -1,12 +1,10 @@
 #letter_wrapper{
-    border:2px solid pink;
     margin:0 auto;
     padding-top:70px;
     width:1200px;
     height:auto;
 }
 #letter_top{
-    border:2px solid green;
     margin:0 auto;
     margin-top:30px;
     height:40px;
@@ -25,7 +23,6 @@
 }
 #letter_left{
     float:left;
-    border:1px solid red;
     width:45%;
     margin-left:2%;
     margin-right:2%;
@@ -156,7 +153,6 @@
     width:45%;
     margin-left:2%;
     margin-right:2%;
-    border:1px solid red;
 }
 #letter_updown{
     border: 2px solid #043383;
@@ -188,6 +184,8 @@
     margin:0 auto;
     width:90%;
     margin-top:10px;
+    margin-left:70px;
+    margin-bottom:10px;
     font-size:12px;
     font-family:gmarket_medium;
     color:#726F6F;
