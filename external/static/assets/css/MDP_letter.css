@@ -1,0 +1,135 @@
+#letter_wrapper{
+    border:2px solid pink;
+    margin:0 auto;
+    padding-top:70px;
+    width:1200px;
+    height:auto;
+}
+#letter_top{
+    border:2px solid green;
+    margin:0 auto;
+    margin-top:30px;
+    height:40px;
+    margin-bottom:20px;
+}
+#letter_title{
+    background-color:#043384;
+    border-radius:45px;
+    width:150px;
+    height:40px;
+    line-height:40px;
+    font-size:14px;
+    font-family:gmarket_medium;
+    text-align:center;
+    color:#fff;
+}
+#letter_left{
+    float:left;
+    border:1px solid red;
+    width:45%;
+    margin-left:2%;
+    margin-right:2%;
+}
+#one{
+    width:96%;
+    margin:0 auto;
+    display:inline-block;
+    height:auto;
+    border-bottom:1px solid #E5E5EB;
+    margin:15px 2% 0px 2%;
+}
+#two{
+    width:96%;
+    margin:0 auto;
+    display:inline-block;
+    height:auto;
+    /* border-bottom:1px solid #E5E5EB; */
+    border:1px solid pink;
+    margin:10px 2% 0px 2%;
+}
+#three{
+    border:1px solid pink;
+}
+.hashtag{
+    color:#043383;
+    border-radius:10px;
+    font-family:gmarket_medium;
+    font-size:13px;
+    float: left;
+    width:auto;
+    height:20px;
+    margin:0px 0px 10px 15px;
+    padding:10px 5px 5px 5px;
+}
+#step2{
+    color:#fff;
+    background-color:#85C247;
+}
+.green{
+    background-color:#F2F8EB;
+}
+.blue{
+    background-color:#DDEDF9;
+}
+.yellow{
+    background-color:#FFF8D2;
+}
+
+.second_div{
+    width:49%;
+    border:1px solid blue;
+    margin-bottom:8px;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+/* .inner_div{
+
+} */
+
+#letter_right{
+    display:inline-block;
+    width:45%;
+    margin-left:2%;
+    margin-right:2%;
+    border:1px solid red;
+}
+#letter_updown{
+    border: 3px solid #043384;
+    height: 100%;
+    float:left;
+}
+
+#right_paragraph{
+    font-family:gmarket_medium;
+    color:#043384;
+    text-align:center;
+    font-size:14px;
+    line-height:20px;
+}
+#letter_help{
+    margin:0 auto;
+    width:90%;
+    margin-top:10px;
+    font-size:12px;
+}
+#help{
+    float:left;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background-color:#FFF8D2;
+    text-align:center;
+    font-size:12px;
+    line-height:16px;
+}
+#letter{
+    width:90%;
+    margin:0 auto;
+    margin-top:5px;
+    border:1px solid green;
+    height:300px;
+}

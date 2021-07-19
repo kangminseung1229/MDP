@@ -23,5 +23,9 @@ public class MDP_MainController {
     public String process(){
         return "MDP/process";
     }
+    @GetMapping("/letter")
+    public String letter(){
+        return "MDP/letter";
+    }
 }
 

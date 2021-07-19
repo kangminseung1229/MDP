@@ -13,7 +13,6 @@
     width:250px;
     height: 100vh;
     z-index: -2;
-    /* 이거 문제 */
     position:fixed; 
 }
 .process_div2{
@@ -176,7 +175,7 @@ label::before {
 
 /* process id */
 #step1{
-    display: none;
+    /* display: none; */
 }
 #step2{
     display: none;
@@ -190,7 +189,7 @@ label::before {
 }
 
 #step5{
-    display: none;
+    /* display: none; */
 }
 
 #step6{

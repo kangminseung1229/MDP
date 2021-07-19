@@ -11,6 +11,9 @@
         <link th:if = "${top == 'join'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_join.css">
         <link th:if = "${top == 'process'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step1.css">
         <link th:if = "${top == 'process'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step2.css">
+        <link th:if = "${top == 'process'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step5.css">
+        <link th:if = "${top == 'process'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step6.css">
+        <link th:if = "${top == 'letter'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_letter.css">
      
         
     </head>
@@ -42,8 +45,5 @@
             </div>
         </div>
 
-        <script th:if="${footer == 'step1'}" src = "/assets/js/MDP_process1.js"></script>
-        <script src="/assets/js/jquery-3.4.1.min.js" th:href="@{/assets/js/jquery-3.4.1.min.js}"></script>
-        
     </footer>
 </html>
