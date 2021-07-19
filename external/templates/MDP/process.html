@@ -173,18 +173,138 @@
 
 
 
-            <!-- step5 -->
+            <!-- Step5 --->
+            <div id="step5">
+                <div id="step_title">
+                    05 그때의 내 마음은
+                </div>
+                <p>
+                    마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
+                    주어진 질문에 답하며 우리의 추억을 떠올려 보세요.
+                </p>
 
+                <table class="step5_text_wrapper">
+                    <tr>
+                        <td id = "step5_question1">이 에피소드를 통해</br>그 친구에게 어떤 마음이 들었나요?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id = "step5_answer1" class="step5_answer1_focus" ></textarea>
+                        </td>   
+                    </tr>
+                    <tr>
+                        <td id = "step5_question2">왜 그런 마음이 들었나요?</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id = "step5_answer2" class="step5_answer2_focus" ></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id = "step5_question3">왜 그렇게 느꼈나요?</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id = "step5_answer3" class="step5_answer3_focus" ></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id = "step5_question4">왜 그렇게 생각했나요?</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id = "step5_answer4" class="step5_answer4_focus" ></textarea>
+                        </td>
+                    </tr>
+                </table>
 
-
-
-            <!-- step6 -->
-            <div style="border:3px solid pink; height:50px;">
-                <div id="next">NEXT</div>
             </div>
+
+            <!-- Step6 --->
+            <div id="step6">
+                <div id="step_title">
+                    06 그때의 내 마음은
+                </div>
+                <p>
+                    내가 전하고 싶은 <span id="hl_green">감정을 클릭</span>한 후<br>
+                    어울리는 <span id="hl_blue">단어카드를 선택</span>해보세요<br>
+                    각 단어의 색은 내 감정에 맞게 글로 전달하는 것을 도와줍니다.<br>
+                    정해진 감정에 상관없이 자유롭게 골라도 좋습니다!
+                </p>
+                <p>원하는 감정을 선택해주세요</p>
+
+                <div class="step6_container">
+                    <table style="border: 2px solid red; display:inline-block; ">
+                        <tr>
+                            <td class="step6_container_td">
+                                <div id = emmotion_common></div>
+                                <div id = emmotion_common_text>공통단어</div>   
+                            </td>
+                            <td class="step6_container_td">
+                                <div id = emmotion_thanks></div>
+                                <div id = emmotion_thanks_text>고마움</div> 
+                            </td>
+                            <td class="step6_container_td">
+                                <div id = emmotion_sorry></div>
+                                <div id = emmotion_sorry_text>미안함</div> 
+                            </td>
+                            <td class="step6_container_td">
+                                <div id = emmotion_celebration></div>
+                                <div id = emmotion_celebration_text>축하응원</div> 
+                            </td>
+                            <td class="step6_container_td">
+                                <div id = emmotion_love></div>
+                                <div id = emmotion_love_text>사랑</div> 
+                            </td>
+                            <td class="step6_container_td">
+                                <div id = emmotion_say></div>
+                                <div id = emmotion_say_text>안부</div> 
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="step6_container">
+                    <table id = "emotion_card_table_common"></table>
+                    <table id = "emotion_card_table_thanks"></table>
+                    <table id = "emotion_card_table_sorry"></table>
+                    <table id = "emotion_card_table_celebration"></table>
+                    <table id = "emotion_card_table_love"></table>
+                </div>
+                <div class="step6_container_select">
+                    <span id = "select_word_text1">내가 선택한 감정단어</span>
+                    <span id = "select_word_text2">감정단어를 클릭하면 지울 수 있어요.</span>
+                    <table id = "select_word">
+                        <tr>
+                            <td>
+                                <div class="emotion_card_common" >긍정적인</div>
+                            </td>
+                            <td>
+                                <div class="emotion_card_common">긍정적인</div>
+                            </td>
+                           
+                        </tr>
+                      
+                    </table>
+                </div>
+                
+          
+                
+            </div>
+
+            <!-- Next Button -->
+            <div id="next">NEXT</div>
             
         </div>
+        
+        
     </div>
 </body>
 </html>
-<div th:replace = "fragments/MDP_process_fragment :: script"></div> 
+
+<footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/assets/js/anime.min.js"></script>
+    <script src = "/assets/js/MDP_process.js"></script>
+    <script src = "/assets/js/MDP_process_step6.js"></script>
+</footer>
