@@ -43,9 +43,38 @@
     font-size:18px;
 }
 .step4_textbox{
-    width:80%;
-    height:70%;
-    border:none;
-    background-color:#DDEDF9;
-    resize:none;
+    width: 300px;
+    height: 120px;
+    border: none;
+    font-size: 17px;
+    font-family: gmarket_medium;
+    margin-top: 10px;;
+    background-attachment: local;
+    background-image:
+        linear-gradient(to right, #DDEDF9 10px, transparent 10px),
+        linear-gradient(to left, #DDEDF9 10px, transparent 10px),
+        repeating-linear-gradient(#DDEDF9, #DDEDF9 30px, #13356F 30px, #13356F 31px, #DDEDF9 31px);
+    line-height: 31px;
+    padding: 8px 10px;
+    resize: none;
 }
+.step4_textbox:focus{
+    outline: none;
+}
+/* 
+#letter_textarea{
+    width: 330px;
+    height: 200px;
+    border: none;
+    font-size: 17px;
+    font-family: gmarket_medium;
+    margin-top: 10px;;
+    background-attachment: local;
+    background-image:
+        linear-gradient(to right, white 10px, transparent 10px),
+        linear-gradient(to left, white 10px, transparent 10px),
+        repeating-linear-gradient(white, white 30px, #13356F 30px, #13356F 31px, white 31px);
+    line-height: 31px;
+    padding: 8px 10px;
+    resize: none;
+} */

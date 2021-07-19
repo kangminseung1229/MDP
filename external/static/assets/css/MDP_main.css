@@ -8,7 +8,7 @@ body{
     height:70px;
     border-bottom:1px solid #043383;
     background-color:#fff;
-    z-index:1;
+    z-index:5;
 }
 #top_wrapper{
     margin:0 auto;
