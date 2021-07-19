@@ -40,16 +40,19 @@
     float:left;
     width:49%;
     height:40px;
+    transition-duration:0.5s;
 }
 #save_image{
     float:right;
     width:49%;
     height:40px;
+    transition-duration:0.5s;
 }
 #to_first{
     width:100%;
     height:40px;
     margin-top:10px;
+    transition-duration:0.5s;
 }
 #copy:hover{
     background-color:#043384;
