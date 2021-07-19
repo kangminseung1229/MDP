@@ -13,12 +13,14 @@
         <link th:if = "${top == 'process'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step2.css">
         <link th:if = "${top == 'process'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step3.css">
         <link th:if = "${top == 'process'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step4.css">
-
+        <link th:if = "${top == 'process'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step5.css">
+        <link th:if = "${top == 'process' || top == 'letter'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_step6.css">
         <link th:if = "${top == 'letter'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_letter.css">
         <link th:if = "${top == 'fin'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_fin.css">
-
         <link th:if = "${top == 'manage'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_manage.css">
 
+        
+     
         
     </head>
     
@@ -49,8 +51,5 @@
             </div>
         </div>
 
-        <script th:if="${footer == 'step1'}" src = "/assets/js/MDP_process1.js"></script>
-        <script src="/assets/js/jquery-3.4.1.min.js" th:href="@{/assets/js/jquery-3.4.1.min.js}"></script>
-        
     </footer>
 </html>

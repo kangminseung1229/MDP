@@ -168,3 +168,15 @@ body{
     font-family: 'gmarket_bold';
     src: url('../css/fonts/GmarketSansBold.otf') format('opentype');
 }
+@font-face {
+    font-family: 'brandon_bold';
+    src: url('../css/fonts/Brandon_bld.otf') format('opentype');
+}
+@font-face {
+    font-family: 'brandon_medium';
+    src: url('../css/fonts/Brandon_med.otf') format('opentype');
+}
+@font-face {
+    font-family: 'brandon_light';
+    src: url('../css/fonts/Brandon_light.otf') format('opentype');
+}

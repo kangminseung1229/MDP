@@ -4,6 +4,7 @@
     padding-top:70px;
     left:0;
     right:0;
+    
 }
 .process_div{
     background-color: #043383;
@@ -11,7 +12,7 @@
     width:250px;
     height: 100vh;
     z-index: -2;
-    position:fixed;
+    position:fixed; 
 }
 .process_div2{
     width: 100%;
@@ -105,11 +106,12 @@ label::before {
     -o-transition: .25s all ease;
     transition: .25s all ease;
 }
-
-.content{
-    /* border:3px solid red; */
-    width:950px;
-    float:right;
+#step{
+    /* position:fixed; */
+    margin:0 auto;
+    margin-left:250px;
+    /* margin-top:70px; */
+    z-index:-4;
     text-align: center;
     line-height:200%;
     font-family:gmarket_medium;
@@ -120,8 +122,20 @@ label::before {
 .content_top{
     border:3px solid pink;
 }
+.content{
+    border:3px solid red;
+    width:950px;
+    float:right;
+    text-align: center;
+    line-height:200%;
+    font-family:gmarket_medium;
+    color:#043383;
+    font-size:14px;
+    height:auto;
+}
 #next{
     border:1px solid #043383;
+    /* display: none; */
     text-align:center;
     margin:0 auto;
     width:10vw;
@@ -161,29 +175,29 @@ label::before {
 }
 
 
-/* ------------------------------------------------------ */
-@font-face {
-    font-family: 'gmarket_medium';
-    src: url('../css/fonts/GmarketSansMedium.otf') format('opentype');
-}
-/* GmarketSansLight */
-@font-face {
-    font-family: 'gmarket_light';
-    src: url('../css/fonts/GmarketSansLight.otf') format('opentype');
-}
-@font-face {
-    font-family: 'gmarket_bold';
-    src: url('../css/fonts/GmarketSansBold.otf') format('opentype');
-}
+/* process id */
 #step1{
-    border:3px solid red;
+    /* display: none; */
 }
 #step2{
-    border:3px solid red;
+    display: none;
 }
 #step3{
-    border:3px solid red;
+    display: none;
 }
+
 #step4{
-    border:3px solid red;
+    display: none;
 }
+
+#step5{
+    /* display: none; */
+}
+
+#step6{
+    /* display: none; */
+}
+
+
+
+
