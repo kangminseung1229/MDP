@@ -20,10 +20,7 @@
     text-align: center;
 }
 .process_logo{
-    max-width : 70%;
-    height:auto;
-    margin-top: 20%; 
-    image-rendering: auto;
+    margin-top: 40px; 
 }
 #horizontal_line{
     border: 2px solid white;
