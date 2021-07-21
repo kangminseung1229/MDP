@@ -10,7 +10,7 @@ public class MainController {
     // default page , root page 를 설정함.
     @RequestMapping("/")
     public String index() {
-        return "login";
+        return "MDP/login";
     }
 
 }

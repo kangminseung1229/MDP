@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import com.example.demo.MDP.MDP_PurchaseCode;
@@ -50,38 +51,34 @@ public class MDP_MainController {
 
         MDP_PurchaseCode mp = new MDP_PurchaseCode();
 
-        int randomCHECK = 0;
+        // int randomCHECK = 0;
 
         Random random = new Random();
         ArrayList<String> code = new ArrayList<String>();
-        
-        mp.setId(1l);
-        System.out.println(mp.getId());
-        mp.setCode("code1234");
-        mdpRepo.save(mp);
-        
+        ArrayList<Long> id = new ArrayList<Long>();
+        ArrayList<Date> dateTime = new ArrayList<Date>();
 
-        mp.setCode("THINKUS_53723");
-        randomCHECK = mdpRepo.randomCHECK(mp.getCode());
-
-        model.addAttribute("randomCheck", randomCHECK);
-
-
-        // for(int i =0; i<count; i++){
-        //     mp.setId(Long.valueOf(i+1l));
-        //     mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(100000)));
-        //     //select 문 필요 개수가 존재하는 여부에따라서
-
-        //     codeRepo.save(mp);
-        //     codeRepo.flush();
-        //     code.add("THINKUS_"+String.format("%05d",random.nextInt(100000)));
-        // }
+        for(int i=0; i<count; i++){
+            mp.setId(Long.valueOf(i+1l)); //id 설정
+            mp.setCode("THINKUS_"+String.format("%02d",random.nextInt(10))); 
+            
+            if(mdpRepo.countByCode(mp.getCode())>0){
+                i--;
+                continue;
+            }
+            
+            mdpRepo.save(mp);
+            mdpRepo.flush();
+            code.add(mp.getCode());
+            id.add(mp.getId());
+            dateTime.add(mp.getDateTime());
+        }
         
 
-        // model.addAttribute("code", code);
-
+        model.addAttribute("code", code);
+        model.addAttribute("id", id);
         
+
         return "MDP/manage";
     }
 }
-

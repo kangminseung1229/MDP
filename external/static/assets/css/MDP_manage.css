@@ -120,7 +120,7 @@ label::before {
     border:3px solid pink;
 }
 .content{
-    border:3px solid red;
+    /* border:3px solid red; */
     width:950px;
     float:right;
     text-align: center;
@@ -171,3 +171,22 @@ label::before {
     padding-bottom:1%;   
 }
 
+table{ 
+    border-collapse: collapse; 
+    text-align: center; 
+    line-height: 1.5; 
+    margin : 20px 10px;
+    width: 100%;
+}
+th { 
+    width: 150px; 
+    padding: 10px; 
+    font-weight: bold;
+    vertical-align: top; 
+    border: 1px solid #ccc;
+}
+td { 
+    width: 350px; padding: 10px; 
+    vertical-align: top; 
+    border: 1px solid #ccc; 
+}
