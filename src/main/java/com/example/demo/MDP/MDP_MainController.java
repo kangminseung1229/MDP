@@ -1,6 +1,7 @@
 package com.example.demo.MDP;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,37 +53,37 @@ public class MDP_MainController {
     }
 
     @GetMapping("/manage")
-    public String manage(Model model, @RequestParam int count) {
+    public String manage(Model model,@RequestParam int count){
+
 
         MDP_PurchaseCode mp = new MDP_PurchaseCode();
 
-        int randomCHECK = 0;
+        // int randomCHECK = 0;
 
         Random random = new Random();
+        ArrayList<Long> id = new ArrayList<Long>();
         ArrayList<String> code = new ArrayList<String>();
 
-        mp.setId(1l);
-        System.out.println(mp.getId());
-        mp.setCode("code1234");
-        mdpRepo.save(mp);
 
-        mp.setCode("THINKUS_53723");
-        randomCHECK = mdpRepo.randomCHECK(mp.getCode());
+        for(int i=0; i<count; i++){
+            mp.setId(Long.valueOf(i+1l)); //id 설정
+            mp.setCode("THINKUS_"+String.format("%02d",random.nextInt(15))); 
+            
+            if(mdpRepo.countByCode(mp.getCode())>0){
+                i--;
+                continue;
+            }
+            
+            mdpRepo.save(mp);
+            mdpRepo.flush();
 
-        model.addAttribute("randomCheck", randomCHECK);
-
-        // for(int i =0; i<count; i++){
-        // mp.setId(Long.valueOf(i+1l));
-        // mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(100000)));
-        // //select 문 필요 개수가 존재하는 여부에따라서
-
-        // codeRepo.save(mp);
-        // codeRepo.flush();
-        // code.add("THINKUS_"+String.format("%05d",random.nextInt(100000)));
-        // }
-
-        // model.addAttribute("code", code);
-
+            id.add(mp.getId());
+            code.add(mp.getCode());
+        }
+        
+        model.addAttribute("id", id);
+        model.addAttribute("code", code);
+        
         return "MDP/manage";
     }
 

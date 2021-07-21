@@ -18,13 +18,23 @@
         </div>
 
         <div class="content">
-            <div style="float:left; margin:30px 0 0 30px ; color:#043383; font-size:30px; font-family: gmarket_bold;">구매코드 관리</div>
-            
-            <table id = "purchase_code"></table>
-
-            <div th:text="${code}">xx</div>
-        
+            <div style="margin-top:50px; margin-bottom: 50px; width:100%; color:#043383; font-size:30px; font-family: gmarket_bold; text-align: center;">구매코드 관리</div>
+            <table>
+                <tr >
+                    <td style="background-color:#043383;color:white;">ID</td>
+                    <td style="background-color:#043383;color:white;">구매코드</td>
+                </tr>
+                <tr th:each="num, id: ${code}">
+                    <td th:text="${id.index}">yy</td>
+                    <td th:text="${num}">xx</td>
+                   
+                </tr>
+            </table>
         </div>
+        
+
+        
+
     </div>
 
     
