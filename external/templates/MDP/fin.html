@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/MDP_main_fragment :: top('fin')">
+<body>
+    <header th:replace="fragments/MDP_main_fragment :: header"></header>
+    <div id="fin_wrapper">
+        <div id="fin_letter">
+            편지 들어갈 자리
+        </div>
+        <div id="fin_paragraph">
+            <p>
+                편지가 완성되었습니다.<br>
+                소중한 사람에게 전달해보아요 :)
+            </p>
+        </div>
+        <div id="fin_btn_wrapper">
+            <button class="fin_btn" id="copy">복사하기</button>
+            <button class="fin_btn" id="save_image">이미지로 저장하기</button>
+            <!-- <button class="fin_btn" id="to_first">첫페이지로 돌아가기</button> -->
+            <input type="button" class="fin_btn" id="to_first" onclick="location.href='main'" value="첫페이지로 돌아가기">
+        </div>
+    </div>
+</body>
+</html>

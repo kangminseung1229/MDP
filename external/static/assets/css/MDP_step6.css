@@ -1,0 +1,352 @@
+.step6_container{
+    height: auto;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.step6_container_td{
+    padding: 25px;
+}
+
+/* 공통단어 */
+#emmotion_common{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #F5D53F;
+    opacity: 0.3;
+    transition-property:opacity;
+    transition-duration:0.3s;
+    cursor:pointer;
+    
+}
+#emmotion_common:hover{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #F5D53F;
+    opacity: 1.0;
+   
+    
+}
+
+#emmotion_common_text{
+    margin-top: 10px;
+    width: 60px;
+    height: auto;
+    color: #7E7E7F;
+}
+.emotion_card_common{
+    width: 117px;
+    height: 50px;
+    border-radius: 10px;
+    background: #113576;
+    color: #F5D53F;
+    text-align: center;
+    line-height: 50px;
+    font-family: gmarket_bold;
+    transition-property:opacity;
+    opacity: 1.0;
+    transition-duration:0.3s;
+    border: none;
+}
+.emotion_card_common:hover{
+    opacity: 0.7;
+}
+
+/* 고마움 */
+#emmotion_thanks{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    opacity: 0.3;
+    background-color: #85C247;
+    transition-property:opacity;
+    transition-duration:0.3s;
+    cursor:pointer;
+}
+
+#emmotion_thanks:hover{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #85C247;
+    opacity: 1.0;
+   
+    
+}
+
+#emmotion_thanks_text{
+    width: 60px;
+    height: auto;
+    color: #7E7E7F;
+    margin-top: 10px;
+}
+
+.emotion_card_thanks{
+    width: 117px;
+    height: 50px;
+    border-radius: 10px;
+    background: #113576;
+    color: #85C247;
+    text-align: center;
+    line-height: 50px;
+    font-family: gmarket_bold;
+    transition-property:opacity;
+    opacity: 1.0;
+    transition-duration:0.3s;
+    border: none;
+}
+
+.emotion_card_thanks:hover{
+    opacity: 0.7;
+}
+
+/* 미안함 */
+#emmotion_sorry{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #6BA7DB;
+    opacity: 0.3;
+    transition-property:opacity;
+    transition-duration:0.3s;
+    cursor:pointer;
+}
+#emmotion_sorry:hover{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #6BA7DB;
+    opacity: 1.0;
+   
+    
+}
+
+#emmotion_sorry_text{
+    width: 60px;
+    height: auto;
+    color: #7E7E7F;
+    margin-top: 10px;
+}
+.emotion_card_sorry{
+    width: 117px;
+    height: 50px;
+    border-radius: 10px;
+    background: #113576;
+    color: #6BA7DB;
+    text-align: center;
+    line-height: 50px;
+    font-family: gmarket_bold;
+    transition-property:opacity;
+    opacity: 1.0;
+    transition-duration:0.3s;
+    border: none;
+}
+.emotion_card_sorry:hover{
+    opacity: 0.7;
+}
+
+/* 축하응원 */
+#emmotion_celebration{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #EC6A37;
+    opacity: 0.3;
+    transition-property:opacity;
+    transition-duration:0.3s;
+    cursor:pointer;
+}
+#emmotion_celebration:hover{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #EC6A37;
+    opacity: 1.0;
+   
+    
+}
+#emmotion_celebration_text{
+    width: 60px;
+    height: auto;
+    color: #7E7E7F;
+    margin-top: 10px;
+}
+.emotion_card_celebration{
+    width: 117px;
+    height: 50px;
+    border-radius: 10px;
+    background: #113576;
+    color: #EC6A37;
+    text-align: center;
+    line-height: 50px;
+    font-family: gmarket_bold;
+    transition-property:opacity;
+    opacity: 1.0;
+    transition-duration:0.3s;
+    border: none;
+}
+.emotion_card_celebration:hover{
+    opacity: 0.7;
+}
+/* 사랑 */
+#emmotion_love{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #DB4D96;
+    opacity: 0.3;
+    transition-property:opacity;
+    transition-duration:0.3s;
+    cursor:pointer;
+}
+#emmotion_love:hover{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #DB4D96;
+    opacity: 1.0;
+   
+    
+}
+
+#emmotion_love_text{
+    width: 60px;
+    height: auto;
+    color: #7E7E7F;
+    margin-top: 10px;
+}
+.emotion_card_love{
+    width: 117px;
+    height: 50px;
+    border-radius: 10px;
+    background: #113576;
+    color: #DB4D96;
+    text-align: center;
+    line-height: 50px;
+    font-family: gmarket_bold;
+    transition-property:opacity;
+    opacity: 1.0;
+    transition-duration:0.3s;
+    border: none;
+}
+.emotion_card_love:hover{
+    opacity: 0.7;
+}
+/* 안부 */
+#emmotion_say{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #E83B4D;
+    opacity: 0.3;
+    transition-property:opacity;
+    transition-duration:0.3s;
+    cursor:pointer;
+}
+#emmotion_say:hover{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #E83B4D;
+    opacity: 1.0;
+}
+
+#emmotion_say_text{
+    width: 60px;
+    height: auto;
+    color: #7E7E7F;
+    margin-top: 10px;
+}
+.emotion_card_say{
+    width: 117px;
+    height: 50px;
+    border-radius: 10px;
+    background: #113576;
+    color: #E83B4D;
+    text-align: center;
+    line-height: 50px;
+    font-family: gmarket_bold;
+    transition-property:opacity;
+    opacity: 1.0;
+    transition-duration:0.3s;
+    border: none;
+}
+.emotion_card_say:hover{
+    opacity: 0.7;
+}
+
+/* 감정 카드 */
+#emotion_card_table_common{
+    display:inline-block;
+    background-color:#FDF8E0;
+    padding: 10px;
+    border-radius: 15px;
+    
+}
+#emotion_card_table_thanks{
+    display:inline-block;
+    background-color:#DBEDC8;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#emotion_card_table_sorry{
+    display:inline-block;
+    background-color: #D3E5F4;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#emotion_card_table_celebration{  
+    display:inline-block;
+    background-color: #F9D3C3;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+
+#emotion_card_table_love{
+    display:inline-block;
+    background-color: #F4CAE0;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+
+#emotion_card_table_say{
+    display:inline-block;
+    background-color: #F8C5CA;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+
+.step6_container_select{
+    height: auto;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+#select_word_text1{
+    float: left;
+    padding-left: 160px;
+    font-size: 18px;
+    
+}
+#select_word_text2{
+    float: left;
+    padding-left: 10px;
+    font-size: 10px;
+    color: #7E7E7F;
+}
+#select_word{
+    display:inline-block;
+    background-color: #E0EAF7;
+    padding: 10px;
+    border-radius: 15px;
+    width: 627px;
+}

@@ -1,0 +1,89 @@
+#input_image{
+    margin:0 auto;
+    border:1px solid #E0EAF7;
+    background-color:#E0EAF7;
+    border-radius:20px;
+    text-align:center;
+    width:500px;
+    height:250px;
+    line-height:250px;
+    color:#1656e0a1;
+}
+#radio_wrapper{
+    width:100%;
+    margin:0 auto;
+    margin-top:20px;
+    /* margin-top:7%; */
+    height:auto;
+    text-align:center;
+}
+.feeling input[type='radio']{
+    display:none;
+}
+.feeling input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border-radius:50%;
+    text-align-last:center;
+    height:100px;
+    width:100px;
+    line-height:100px;
+    cursor:pointer;
+    font-size:16px;
+}
+.feeling input[type="radio"] + #thanks{
+    border: 1.5px solid rgb(133, 194, 71);
+    color:rgb(133, 194, 71);
+    transition-duration:0.5s;
+}
+.feeling input[type="radio"] + #sorry{
+    border: 1.5px solid rgb(107, 167, 219);
+    color:rgb(107, 167, 219);
+    transition-duration:0.5s;
+}
+.feeling input[type="radio"] + #cheer{
+    border: 1.5px solid rgb(236, 106, 55);
+    color:rgb(236, 106, 55);
+    transition-duration:0.5s;
+}
+.feeling input[type="radio"] + #love{
+    border: 1.5px solid rgb(219, 77, 150);
+    color:rgb(219, 77, 150);
+    transition-duration:0.5s;
+}
+.feeling input[type="radio"] + #hello{
+    border: 1.5px solid rgb(232, 59, 77);
+    color:rgb(232, 59, 77);
+    transition-duration:0.5s;
+}
+#radio_wrapper input[type="radio"]:hover + #thanks{
+    background-color: rgba(133, 194, 71, 0.2);
+}
+#radio_wrapper input[type="radio"]:hover + #sorry{
+    background-color: rgba(107, 167, 219, 0.2);
+}
+#radio_wrapper input[type="radio"]:hover + #cheer{
+    background-color: rgba(236, 106, 55, 0.2);
+}
+#radio_wrapper input[type="radio"]:hover + #love{
+    background-color: rgba(219, 77, 150, 0.2);
+}
+#radio_wrapper input[type="radio"]:hover + #hello{
+    background-color: rgba(232, 59, 77, 0.2);
+}
+
+#radio_wrapper input[type="radio"]:checked + #thanks{
+    background-color: rgba(133, 194, 71, 0.2);
+}
+#radio_wrapper input[type="radio"]:checked + #sorry{
+    background-color: rgba(107, 167, 219, 0.2);
+}
+#radio_wrapper input[type="radio"]:checked + #cheer{
+    background-color: rgba(236, 106, 55, 0.2);
+}
+#radio_wrapper input[type="radio"]:checked + #love{
+    background-color: rgba(219, 77, 150, 0.2);
+}
+#radio_wrapper input[type="radio"]:checked + #hello{
+    background-color: rgba(232, 59, 77, 0.2);
+}
