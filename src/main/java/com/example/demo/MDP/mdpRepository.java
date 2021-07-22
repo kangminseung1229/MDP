@@ -30,6 +30,8 @@ public interface mdpRepository extends JpaRepository<TestTable,Long> {
 
 
     Page<TestTable> findAll(Pageable pageable);
+    // Page<TestTable> findAllOrderByIdDesc(Pageable pageable);
+    Page<TestTable> findByOrderByIdDesc(Pageable pageable);
 
     @Query(value="SELECT id FROM TestTable order by id desc limit 1", nativeQuery = true )
     long last_column();

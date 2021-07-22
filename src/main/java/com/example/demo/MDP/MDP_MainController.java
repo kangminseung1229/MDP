@@ -97,13 +97,14 @@ public class MDP_MainController {
         // 페이징 작업
         // Page<TestTable> page = mdpRepo.findByUser(searchText, pageable);
         
-        Page<TestTable> page = mdpRepo.findAll(pageable);
-        int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
-		int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+        Page<TestTable> page = mdpRepo.findByOrderByIdDesc(pageable);
+        int startPage = Math.max(1, page.getPageable().getPageNumber() - 1);
+        int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
 
-		model.addAttribute("startPage", startPage);
-		model.addAttribute("endPage", endPage);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
         model.addAttribute("list", page);
+
         
         return "MDP/manage";
     }
@@ -111,8 +112,8 @@ public class MDP_MainController {
     @GetMapping("/search")
     public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
         Page<TestTable> page = mdpRepo.findByUser(searchText,pageable);
-        int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
-		int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+        int startPage = Math.max(1, page.getPageable().getPageNumber() - 1);
+		int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
 
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
@@ -136,7 +137,7 @@ public class MDP_MainController {
         for(int i=0; i<count; i++){
 
             mp.setId(Long.valueOf(i+last+1l)); //id 설정
-            mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(30))); 
+            mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(100000))); 
             
             //중복 제거
             if(mdpRepo.countByCode(mp.getCode())>0){
