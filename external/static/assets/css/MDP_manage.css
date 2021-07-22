@@ -190,3 +190,30 @@ td {
     vertical-align: top; 
     border: 1px solid #ccc; 
 }
+
+
+.page-item{
+    display: inline-block;
+    color:#043383;
+    
+}
+
+.search_textbox{
+    width: 300px;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    border: 1px solid #ccc; 
+    float: left;
+}
+
+.searchbtn{
+    border: 1px solid #ccc; 
+    background-color: white;
+    /* display: inline-block; */
+    font-family: gmarket_medium;
+    float: left;
+    margin-left : 10px;
+    height: 32px;
+    
+}

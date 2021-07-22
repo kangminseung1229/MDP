@@ -11,32 +11,87 @@
                 <div class="group">
                     <div style="color:white; font-size:30px; font-family: gmarket_bold;">관리자 페이지</div>
                     <br>
-                    <input type="radio" name="menu" id="rb1" value="1" checked = "true"/>
-                    <label for="rb1">구매코드 관리</label><br>
+                    <input type="radio" name="menu" id="rb1" value="1" checked = "true" onclick="location.href='manage'"/>
+                    <label for="rb1" >구매코드 관리</label><br>
+
+                    <!-- <input type="radio" name="menu" id="rb2" value="2" onclick="location.href='add'"/>
+                    <label for="rb2" >구매코드 생성</label><br> -->
+                    
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <div style="margin-top:50px; margin-bottom: 50px; width:100%; color:#043383; font-size:30px; font-family: gmarket_bold; text-align: center;">구매코드 관리</div>
+
+            
+            <div onclick="location.href='manage'" style="margin-top:50px; margin-bottom: 30px; width:100%; color:#043383; font-size:30px; font-family: gmarket_bold; text-align: center;">구매코드 관리</div>
+        
+            <div >
+                <div style="text-align:left; padding-left:10px; width: 300px; display: table-cell">아이디 검색</div>
+                <div style=" text-align:left;padding-left:70px; width: 300px; display: table-cell">구매코드 추가</div>
+                <form action="search" method="GET" >
+                    <input name = "searchText" type ="textbox" class="search_textbox" >
+                    <input id = "searchButton" type="submit" class="searchbtn" value="검색" >
+                </form>
+
+                <form action="add" method="GET" >
+                    <input name = "count" type ="number" class="search_textbox" >
+                    <input id = "addButton" type="submit" class="searchbtn" value="추가" >
+                </form>
+
+                <button class="searchbtn" style="float: right; " onclick="location.href='manage'">새로고침</button>
+            </div>
+            
             <table>
                 <tr >
-                    <td style="background-color:#043383;color:white;">ID</td>
-                    <td style="background-color:#043383;color:white;">구매코드</td>
+                    <td style="background-color:#043383;color:white;">id</td>
+                    <td style="background-color:#043383;color:white;">code</td>
+                    <td style="background-color:#043383;color:white;">user</td>
+                    <td style="background-color:#043383;color:white;">dateTime</td>
                 </tr>
-                <tr th:each="num, id: ${code}">
-                    <td th:text="${id.index}">yy</td>
-                    <td th:text="${num}">xx</td>
-                   
+                <tr th:each = "row:${list}">
+                    <td th:text="${row.id}">id</td>
+                    <td th:text="${row.code}">code</td>
+                    <td th:text="${row.user}">user</td>
+                    <td th:text="${row.dateTime}">dateTime</td>
                 </tr>
+
             </table>
+
+            <div class="Board-pagination">
+
+                <ul class="pagination justify-content-center">
+
+                <li class="page-item disabled">
+                    <a class="page-link" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
+                    th:href="@{/MDP/manage(    page=${list.pageable.pageNumber -1 }, searchText=${param.searchText}    )   }"
+                    tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+
+                <li class="page-item" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
+                    th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link"
+                    th:href="@{/MDP/manage(page=${i-1}, searchText=${param.searchText})}" th:text="${i}">1</a></li>
+
+                <li class="page-item">
+                    <a class="page-link" th:classappend="${list.totalPages == list.pageable.pageNumber+1} ? 'disabled'"
+                    th:href="@{/MDP/manage(page=${list.pageable.pageNumber +1 }, searchText=${param.searchText})}">Next</a>
+                </li>
+                </ul>
+
+
+            </div>
+
+        
+
+
         </div>
-        
-
-        
-
+    
     </div>
 
     
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+   
+</script>

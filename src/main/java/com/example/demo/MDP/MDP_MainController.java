@@ -54,23 +54,91 @@ public class MDP_MainController {
         return "MDP/fin";
     }
 
+    //(Model model,@RequestParam int count)
+    // @RequestParam(required = false, defaultValue = "") String searchText
+    // 검색할 text가 꼭 있을 필요가 없다
+
     @GetMapping("/manage")
-    public String manage(Model model,@RequestParam int count){
+    public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
 
 
-        MDP_PurchaseCode mp = new MDP_PurchaseCode();
+        // mdpPurchaseCode mp = new mdpPurchaseCode();
+        // TestTable tTable = new TestTable();
 
         // int randomCHECK = 0;
 
+        /*** 구매코드 생성 ***/ 
+        /*
         Random random = new Random();
         ArrayList<Long> id = new ArrayList<Long>();
         ArrayList<String> code = new ArrayList<String>();
 
 
         for(int i=0; i<count; i++){
-            mp.setId(Long.valueOf(i+1l)); //id 설정
-            mp.setCode("THINKUS_"+String.format("%02d",random.nextInt(15))); 
+            tTable.setId(Long.valueOf(i+1l)); //id 설정
+            tTable.setCode("THINKUS_"+String.format("%05d",random.nextInt(100000))); 
             
+            if(mdpRepo.countByCode(tTable.getCode())>0){
+                i--;
+                continue;
+            }
+            
+            mdpRepo.save(tTable);
+            mdpRepo.flush();
+
+            id.add(tTable.getId());
+            code.add(tTable.getCode());
+        }
+        
+        model.addAttribute("id", id);
+        model.addAttribute("code", code);
+         */
+
+        // 페이징 작업
+        // Page<TestTable> page = mdpRepo.findByUser(searchText, pageable);
+        
+        Page<TestTable> page = mdpRepo.findAll(pageable);
+        int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
+		int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+        model.addAttribute("list", page);
+        
+        return "MDP/manage";
+    }
+
+    @GetMapping("/search")
+    public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
+        Page<TestTable> page = mdpRepo.findByUser(searchText,pageable);
+        int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
+		int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+        model.addAttribute("list", page);
+        
+        return "MDP/manage";
+    }
+
+
+
+    @GetMapping("/add")
+    public String add(Model model, @RequestParam int count){
+        TestTable mp = new TestTable();
+
+        Random random = new Random();
+
+        
+
+       long last=mdpRepo.last_column();
+
+        for(int i=0; i<count; i++){
+
+            mp.setId(Long.valueOf(i+last+1l)); //id 설정
+            mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(30))); 
+            
+            //중복 제거
             if(mdpRepo.countByCode(mp.getCode())>0){
                 i--;
                 continue;
@@ -78,32 +146,27 @@ public class MDP_MainController {
             
             mdpRepo.save(mp);
             mdpRepo.flush();
-
-            id.add(mp.getId());
-            code.add(mp.getCode());
         }
+
+        return "redirect:manage";
         
-        model.addAttribute("id", id);
-        model.addAttribute("code", code);
-        
-        return "MDP/manage";
     }
 
 
     //board 만들기
-    @GetMapping("/boardList")
-    public String  boardList(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 3) Pageable pageable) {
+    // @GetMapping("/boardList")
+    // public String  boardList(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 3) Pageable pageable) {
 
-        Page<MDP_PurchaseCode> list = mdpRepo.findByUserContainingOrCodeContaining(searchText, searchText, pageable);
+    //     // Page<TestTable> list = mdpRepo.findByUserContainingOrCodeContaining(searchText, searchText, pageable);
         
-        int startPage = Math.max(1, list.getPageable().getPageNumber() - 4);
-		int endPage = Math.min(list.getTotalPages(), list.getPageable().getPageNumber() + 4);
+    //     int startPage = Math.max(1, list.getPageable().getPageNumber() - 4);
+	// 	int endPage = Math.min(list.getTotalPages(), list.getPageable().getPageNumber() + 4);
 
-		model.addAttribute("startPage", startPage);
-		model.addAttribute("endPage", endPage);
-        model.addAttribute("list", list);
-        return "MDP/boardList";
-    }
- 
+	// 	model.addAttribute("startPage", startPage);
+	// 	model.addAttribute("endPage", endPage);
+    //     model.addAttribute("list", list);
+    //     return "MDP/boardList";
+    // }
+   
 
 }
