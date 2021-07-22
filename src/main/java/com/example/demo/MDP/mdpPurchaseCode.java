@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class MDP_PurchaseCode {
+public class mdpPurchaseCode {
     @Id
     private Long id;
     
