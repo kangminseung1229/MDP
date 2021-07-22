@@ -13,8 +13,11 @@ import lombok.Data;
 
 @Data
 @Entity
+<<<<<<< HEAD:src/main/java/com/example/demo/MDP/mdpPurchaseCode.java
 public class mdpPurchaseCode {
-
+=======
+public class jiwonTest {
+>>>>>>> master:src/main/java/com/example/demo/MDP/jiwonTest.java
     @Id
     private Long id;
     

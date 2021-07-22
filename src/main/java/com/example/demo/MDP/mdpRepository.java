@@ -21,19 +21,18 @@ import org.springframework.stereotype.Repository;
 // }
 
 @Repository
-public interface mdpRepository extends JpaRepository<TestTable,Long> {
+public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     
     
     long countByCode(String code);
 
-    Page<TestTable> findByUser(String user, Pageable pageable);
+    Page<mdpPurchaseCode> findByUser(String user, Pageable pageable);
 
 
-    Page<TestTable> findAll(Pageable pageable);
-    // Page<TestTable> findAllOrderByIdDesc(Pageable pageable);
-    Page<TestTable> findByOrderByIdDesc(Pageable pageable);
+    Page<mdpPurchaseCode> findAll(Pageable pageable);
+    Page<mdpPurchaseCode> findByOrderByIdDesc(Pageable pageable);
 
-    @Query(value="SELECT id FROM TestTable order by id desc limit 1", nativeQuery = true )
+    @Query(value="SELECT id FROM mdpPurchaseCode order by id desc limit 1", nativeQuery = true )
     long last_column();
 
 }    
