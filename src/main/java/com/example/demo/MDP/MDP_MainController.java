@@ -1,22 +1,22 @@
 package com.example.demo.MDP;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Random;
+
+import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
+import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import kotlin.sequences.FlatteningSequence;
 
 @Controller
 @RequestMapping("MDP")
@@ -24,6 +24,12 @@ public class MDP_MainController {
 
     @Autowired
     private mdpRepository mdpRepo;
+
+    @Autowired
+    private PasswordEncoder pwEncoder;
+
+    @Autowired
+    private saRepository saRepo;
 
     @GetMapping("/main")
     public String main() {
@@ -56,7 +62,7 @@ public class MDP_MainController {
     }
 
 
-    @GetMapping("/manage")
+    @GetMapping("admin/manage")
     public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
 
         Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
@@ -71,7 +77,7 @@ public class MDP_MainController {
         return "MDP/manage";
     }
 
-    @GetMapping("/search")
+    @GetMapping("admin/search")
     public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
         Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText,pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
@@ -86,7 +92,7 @@ public class MDP_MainController {
 
 
 
-    @GetMapping("/add")
+    @GetMapping("admin/add")
     public String add(Model model, @RequestParam int count){
         mdpPurchaseCode mp = new mdpPurchaseCode();
 
@@ -112,5 +118,33 @@ public class MDP_MainController {
         
     }
 
+
+    // 관리자페이지컨트롤러
+
+    @GetMapping("/admin_login")
+    public String adminLogin(){
+        return "MDP/admin_login";
+    }
+
+    @GetMapping("/admin_join")
+    public String admin_join(){
+        return "MDP/admin_join";
+    }
+
+    @PostMapping("/admin_join")
+    public String admin_join(SecurityAdmins sa) {
+        
+        String encodedpw = pwEncoder.encode(sa.getPassword());
+        sa.setPassword(encodedpw);
+        sa.setEnabled(true);
+
+        SecurityRole sr = new SecurityRole();
+        sr.setId(1l);
+        sa.getRoles().add(sr);
+        saRepo.save(sa);
+        return "redirect:admin_login";
+        
+    
+    }
 
 }
