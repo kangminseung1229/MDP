@@ -10,24 +10,22 @@
         </div>
         <div id="join_form_wrapper">
             <div id="join_icon">
-                ADMIN JOIN
+                ADMIN login
             </div>
             
 
-            <form th:action="@{/MDP/join}" method="POST">
+            <form th:action="@{/}" method="POST">
 
                 <div id="join_id">
                     <span id="star">*</span> 아이디<br>
                     <input type="text" name="username" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
                 </div>
                 <div id="join_code">
-                    <span id="star">*</span> 구매코드<br>
+                    <span id="star">*</span> 패스워드<br>
                     <input type="password" name="password" size="15" placeholder=" 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
                 </div>
-
-                <input type="hidden" value="1" name="enabled" />
                 <div id="join_button" >
-                    <input type="submit" value="회원가입"/>
+                    <input type="submit" value="로그인"/>
                 </div>
                 
             </form>
