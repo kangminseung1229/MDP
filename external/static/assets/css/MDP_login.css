@@ -43,6 +43,10 @@
     top: 45%;
     transform: translateY(-50%);
 }
+
+#login_form_wrapper input[type="text"],input[type="password"]{
+    font-family:gmarket_light;
+}
 #login_icon{
     width:178px;
     height:27px;
@@ -65,7 +69,7 @@
     height:30px;
     border:1px solid #043383;
     margin:0 auto;
-    color:#d7d8d8;
+    color:black;
 }
 #login_form input:focus{
     outline:none;
@@ -80,14 +84,19 @@
     font-family: gmarket_medium;
     line-height:30px;
 }
+
 #join{
     border:1.5px solid #043383;
     background-color:#fff;
     width:100%;
-    margin-right:1%;
+    margin-bottom:2%;
     cursor:pointer;
     border-radius:5px;
     color:#043383;
+    height: 30px;
+    font-size: 13px;
+    font-family: gmarket_medium;
+    margin-top: 10px;
 }
 #join:hover{
     background-color:#043383;
@@ -101,11 +110,17 @@
     cursor:pointer;
     border-radius:5px;
     color:#043383;
+    height: 30px;
+    font-size: 13px;
+    font-family: gmarket_medium;
 }
 #login:hover{
     background-color:#043383;
     color:#fff;
 }
+
+
+
 @font-face {
     font-family: 'gmarket_medium';
     src: url('../css/fonts/GmarketSansMedium.otf') format('opentype');
@@ -119,4 +134,12 @@
 @font-face {
     font-family: 'gmarket_light';
     src: url('../css/fonts/GmarketSansLight.otf') format('opentype');
+}
+
+#login_form{
+    margin:0 auto;
+    text-align:left;
+    line-height:25px;
+    font-size:13px;
+    font-family:gmarket_medium;
 }

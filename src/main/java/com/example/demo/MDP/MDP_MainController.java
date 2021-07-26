@@ -66,7 +66,7 @@ public class MDP_MainController {
     }
 
 
-    @GetMapping("/manage")
+    @GetMapping("admin/manage")
     public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
 
         Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
@@ -81,7 +81,7 @@ public class MDP_MainController {
         return "MDP/manage";
     }
 
-    @GetMapping("/search")
+    @GetMapping("admin/search")
     public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
         Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText,pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
@@ -96,7 +96,7 @@ public class MDP_MainController {
 
 
 
-    @GetMapping("/add")
+    @GetMapping("admin/add")
     public String add(Model model, @RequestParam int count){
         mdpPurchaseCode mp = new mdpPurchaseCode();
 
@@ -123,39 +123,32 @@ public class MDP_MainController {
     }
 
 
-    @GetMapping("/admin_join")
-    public String admiJoin(SecurityAdmins sa){
-        
-        return "MDP/admin_join";
-    }
+    // 관리자페이지컨트롤러
 
-    @PostMapping("/admin_join")
-    public String admin_join(SecurityAdmins sa){
-        
-        String encodedpw = pwEncoder.encode(sa.getPassword());
-
-        sa.setPassword(encodedpw);
-        sa.setEnabled(true);
-
-        
-        SecurityRole sr = new SecurityRole();
-        sr.setId(1l);
-
-
-        sa.getRoles().add(sr);
-        saRepo.save(sa);
-
-        
-        return "redirect:MDP/login";
-    }
-    
-    @GetMapping("/admin_login")
-    public String admin_login(){
-
+    @GetMapping("/adminLogin")
+    public String adminLogin(){
         return "MDP/admin_login";
     }
 
+    @GetMapping("/adminJoin")
+    public String admin_join(){
+        return "MDP/admin_join";
+    }
 
+    @PostMapping("/adminJoin")
+    public String admin_join(SecurityAdmins sa) {
+        
+        String encodedpw = pwEncoder.encode(sa.getPassword());
+        sa.setPassword(encodedpw);
+        sa.setEnabled(true);
 
+        SecurityRole sr = new SecurityRole();
+        sr.setId(1l);
+        sa.getRoles().add(sr);
+        saRepo.save(sa);
+        return "redirect:admin_login";
+        
+    
+    }
 
 }

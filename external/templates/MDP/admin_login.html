@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/MDP_main_fragment :: top('join')">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-rity"> 
+<head th:replace="fragments/MDP_main_fragment :: top('login')">
     
 </head>
 <body>
-    <div id="join_wrapper">
-        <div id="join_logo">
+    <div id="login_wrapper">
+        <div id="login_logo">
             <img src="/img/MDP/main_logo.png">
         </div>    
         <div id="updown">
         </div>
-        <div id="join_form_wrapper">
-            <div id="join_icon">
+        <div id="login_form_wrapper">
+            <div id="login_icon">
                 ADMIN LOGIN
             </div>
-            <form th:action="@{/}" method="POST">
-                <div id="join_id">
-                    <span id="star">*</span> 아이디<br>
-                    <input type="text" name="username" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
+
+            <form th:action="@{/}" method ="POST">
+                <div id="login_form" >
+                    <span >아이디</span><br>
+                    <input type="text" name="username" id="id" size="15" placeholder="아이디" onfocus="this.placeholder=''" onblur="this.placeholder='아이디'">
                 </div>
-                <div id="join_code">
-                    <span id="star">*</span> 비밀번호<br>
-                    <input type="password" name="password" size="15" placeholder=" 비밀번호" onfocus="this.placeholder=''" onblur="this.placeholder=' 비밀번호'">
+                
+                <div id="login_form" >
+                    <span>비밀번호</span><br>
+                    <input type="password" name="password" id="id" size="15" placeholder="비밀번호" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'">
                 </div>
-                <div id="join_button" >
-                    <input type="submit" value="로그인"/>
+
+
+                <div id="button_wrapper">
+                    <input id="login" type="submit" value="관리자 로그인"></div>
+                    <input id="join" type="button" onclick="location.href='admin_join'" value= '관리자 회원가입'></input>
                 </div>
             </form>
+           
         </div>
     </div>
 </body>

@@ -14,6 +14,7 @@ import lombok.Data;
 @Data
 @Entity
 public class mdpPurchaseCode {
+
     @Id
     private Long id;
     
