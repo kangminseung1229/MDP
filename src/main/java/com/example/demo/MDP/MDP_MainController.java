@@ -1,10 +1,16 @@
 package com.example.demo.MDP;
 
+import java.io.IOException;
 import java.util.Random;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.example.demo.SecurityDTO.SecurityAdmins;
-import com.example.demo.SecurityDTO.SecurityRole;
+// import com.example.demo.SecurityDTO.SecurityAdmins;
+import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
+import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +23,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping("MDP")
@@ -32,11 +39,11 @@ public class MDP_MainController {
     private saRepository saRepo;
 
     @Autowired
-    private SessionCheck sc;
+    private SessionCheckService sc;
 
 
     @GetMapping("/main")
-    public String main() {
+    public String main(){
         return "MDP/main";
     }
 
@@ -45,23 +52,57 @@ public class MDP_MainController {
         return "MDP/login";
     }
 
+    @PostMapping("/login")
+    public String loginPost(HttpServletRequest request, String user) {
+        if(sc.CheckId(request, user))
+            return "MDP/main";
+        else
+            return "MDP/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.invalidate();
+
+        return "MDP/main";
+    }
+
     @GetMapping("/join")
     public String join() {
         return "MDP/join";
     }
 
     @GetMapping("/process")
-    public String process() {
+    public String process(HttpServletResponse response, HttpServletRequest request ) throws IOException, ServletException {
+
+        HttpSession session=request.getSession();
+        String permition=(String) session.getAttribute("permition");
+
+        sc.permitionCheck(response, permition);
+
         return "MDP/process";
     }
 
     @GetMapping("/letter")
-    public String letter() {
+    public String letter(HttpServletResponse response, HttpServletRequest request ) throws IOException, ServletException {
+
+        HttpSession session=request.getSession();
+        String permition=(String) session.getAttribute("permition");
+
+        sc.permitionCheck(response, permition);
+
         return "MDP/letter";
     }
 
     @GetMapping("/fin")
-    public String fin() {
+    public String fin(HttpServletResponse response, HttpServletRequest request ) throws IOException, ServletException {
+
+        HttpSession session=request.getSession();
+        String permition=(String) session.getAttribute("permition");
+
+        sc.permitionCheck(response, permition);
+
         return "MDP/fin";
     }
 
@@ -101,7 +142,7 @@ public class MDP_MainController {
         mdpPurchaseCode mp = new mdpPurchaseCode();
 
         Random random = new Random();
-        long last=mdpRepo.last_column();
+        long last=mdpRepo.lastColumn();
 
         for(int i=0; i<count; i++){
 

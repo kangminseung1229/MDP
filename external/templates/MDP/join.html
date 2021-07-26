@@ -14,6 +14,19 @@
             <div id="join_icon">
                 JOIN
             </div>
+            <!-- <form th:href="@{MDP/join}" method="POST">
+                <div id="join_id">
+                    <span id="star">*</span> 아이디<br>
+                    <input type="text" name="id" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
+                </div>
+                <div id="join_code">
+                    <span id="star">*</span> 구매코드<br>
+                    <input type="text" name="code" size="15" placeholder=" 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
+                </div>
+                <div id="join_button" onclick="location.href='login'">
+                    <input type="submit" id="join" value="회원가입"/>
+                </div>
+            </form> -->
             <div id="join_id">
                 <span id="star">*</span> 아이디<br>
                 <input type="text" name="id" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
@@ -23,8 +36,9 @@
                 <input type="text" name="code" size="15" placeholder=" 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
             </div>
             <div id="join_button" onclick="location.href='login'">
-                회원가입
+                <input type="submit" id="join" value="회원가입"/>
             </div>
+            
         </div>
     </div>
 </body>
