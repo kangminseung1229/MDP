@@ -1,6 +1,12 @@
 package com.example.demo.MDP;
 
+import java.io.IOException;
 import java.util.Random;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
@@ -31,8 +37,16 @@ public class MDP_MainController {
     @Autowired
     private saRepository saRepo;
 
+    @Autowired
+    private checkID checkID;
+
+
     @GetMapping("/main")
-    public String main() {
+    public String main(HttpServletRequest request,Model model) {
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+        checkID.checkLoginOut(permission,model);
+
         return "MDP/main";
     }
 
@@ -41,23 +55,57 @@ public class MDP_MainController {
         return "MDP/login";
     }
 
+    @PostMapping("/login")
+    public String logined(HttpServletRequest request, String user) {
+
+        if(checkID.checked(request, user))
+            return "MDP/main";
+        else
+            return "MDP/login";
+        
+        // checkID.checked(request, user);
+
+        // if(checkID.checked(request, user))
+        // return "";
+    }
+
     @GetMapping("/join")
     public String join() {
         return "MDP/join";
     }
 
     @GetMapping("/process")
-    public String process() {
+    public String process(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException  {
+
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+
+        checkID.checkLoginOut(permission,model);
+        checkID.checkPermissions(response,permission);
+        
+
         return "MDP/process";
     }
 
     @GetMapping("/letter")
-    public String letter() {
+    public String letter(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+
+        checkID.checkLoginOut(permission,model);
+        checkID.checkPermissions(response,permission);
+
         return "MDP/letter";
     }
 
     @GetMapping("/fin")
-    public String fin() {
+    public String fin(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+
+        checkID.checkLoginOut(permission,model);
+        checkID.checkPermissions(response,permission);
+
         return "MDP/fin";
     }
 
@@ -89,7 +137,6 @@ public class MDP_MainController {
         
         return "MDP/manage";
     }
-
 
 
     @GetMapping("admin/add")
