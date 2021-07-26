@@ -121,17 +121,17 @@ public class MDP_MainController {
 
     // 관리자페이지컨트롤러
 
-    @GetMapping("/admin_login")
+    @GetMapping("/adminLogin")
     public String adminLogin(){
         return "MDP/admin_login";
     }
 
-    @GetMapping("/admin_join")
+    @GetMapping("/adminJoin")
     public String admin_join(){
         return "MDP/admin_join";
     }
 
-    @PostMapping("/admin_join")
+    @PostMapping("/adminJoin")
     public String admin_join(SecurityAdmins sa) {
         
         String encodedpw = pwEncoder.encode(sa.getPassword());
