@@ -1,6 +1,12 @@
 package com.example.demo.MDP;
 
+import java.io.IOException;
 import java.util.Random;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.example.demo.securityDTO.SecurityAdmins;
 import com.example.demo.securityDTO.SecurityRole;
@@ -22,6 +28,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MDP_MainController {
 
     @Autowired
+    SessionCheckService scService;
+
+    @Autowired
     private mdpRepository mdpRepo;
 
     @Autowired
@@ -29,7 +38,6 @@ public class MDP_MainController {
 
     @Autowired
     private saRepository saRepo;
-
 
     @GetMapping("/main")
     public String main() {
@@ -41,13 +49,30 @@ public class MDP_MainController {
         return "MDP/login";
     }
 
+    @PostMapping("/login")
+    public String PostLogin(HttpServletRequest request, @RequestParam String user) {
+
+        if (scService.IdCheck(request, user)) {
+            return "MDP/process";
+        } else {
+            return "MDP/login";
+        }
+
+    }
+
     @GetMapping("/join")
     public String join() {
         return "MDP/join";
     }
 
     @GetMapping("/process")
-    public String process() {
+    public String process(HttpServletResponse response, HttpServletRequest request) throws IOException, ServletException{
+
+        HttpSession session = request.getSession();
+        String permition =  (String) session.getAttribute("permition");
+
+        scService.permitionCheck(response, permition);
+
         return "MDP/process";
     }
 
@@ -61,9 +86,9 @@ public class MDP_MainController {
         return "MDP/fin";
     }
 
-
     @GetMapping("/admin/manage")
-    public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
+    public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText,
+            @PageableDefault(size = 15) Pageable pageable) {
 
         Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
         // Page<mdpPurchaseCode> page = mdpRepo.findByOrderByIdDesc(pageable);
@@ -73,53 +98,51 @@ public class MDP_MainController {
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
         model.addAttribute("list", page);
-        
+
         return "MDP/manage";
     }
 
     @GetMapping("/search")
-    public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
-        Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText,pageable);
+    public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText,
+            @PageableDefault(size = 15) Pageable pageable) {
+        Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText, pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
-      int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+        int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
 
-      model.addAttribute("startPage", startPage);
-      model.addAttribute("endPage", endPage);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
         model.addAttribute("list", page);
-        
+
         return "MDP/manage";
     }
 
-
-
     @GetMapping("/add")
-    public String add(Model model, @RequestParam int count){
+    public String add(Model model, @RequestParam int count) {
         mdpPurchaseCode mp = new mdpPurchaseCode();
 
         Random random = new Random();
-        long last=mdpRepo.last_column();
+        long last = mdpRepo.last_column();
 
-        for(int i=0; i<count; i++){
+        for (int i = 0; i < count; i++) {
 
-            mp.setId(Long.valueOf(i+last+1l)); //id 설정
-            mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(10000))); 
-            
-            //중복 제거
-            if(mdpRepo.countByCode(mp.getCode())>0){
+            mp.setId(Long.valueOf(i + last + 1l)); // id 설정
+            mp.setCode("THINKUS_" + String.format("%05d", random.nextInt(10000)));
+
+            // 중복 제거
+            if (mdpRepo.countByCode(mp.getCode()) > 0) {
                 i--;
                 continue;
             }
-            
+
             mdpRepo.save(mp);
             mdpRepo.flush();
         }
 
         return "redirect:manage";
-        
+
     }
 
-
-    //회원가입
+    // 회원가입
     @PostMapping("/join")
     public String register(SecurityAdmins sa) {
 
@@ -128,27 +151,38 @@ public class MDP_MainController {
         sa.setPassword(encodedpw);
         sa.setEnabled(true);
 
-        
         SecurityRole sr = new SecurityRole();
         sr.setId(1l);
 
-
         sa.getRoles().add(sr);
-        
 
         saRepo.save(sa);
 
-
         return "redirect:MDP/login";
-        
+
     }
 
-    //관리자 로그인 페이지
+    // 관리자 로그인 페이지
     @GetMapping("/adminLogin")
-    public String adminLogin(){
+    public String adminLogin() {
 
         return "MDP/adminLogin";
     }
 
+    // 회원 가입
+    @GetMapping("/userJoin")
+    public String userJoin() {
+
+        return "MDP/join";
+
+    }
+
+    // 회원 가입
+    @PostMapping("/userJoin")
+    public String userJoinPost(Model model, HttpServletRequest request) {
+
+        return "MDP/join";
+
+    }
 
 }

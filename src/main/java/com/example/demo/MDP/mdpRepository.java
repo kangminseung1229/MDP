@@ -35,4 +35,10 @@ public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     @Query(value="SELECT id FROM mdpPurchaseCode order by id desc limit 1", nativeQuery = true )
     long last_column();
 
+
+    //user login
+
+    @Query(value = "SELECT COUNT(*) FROM mdpPurchaseCode WHERE USER = :user ", nativeQuery = true)
+    Long CountByUser(String user);
+
 }    
