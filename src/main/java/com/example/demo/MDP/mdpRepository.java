@@ -8,18 +8,6 @@ import org.springframework.stereotype.Repository;
 
 
 
-// @Repository
-// public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
-    
-    
-//     long countByCode(String code);
-
-//     Page<mdpPurchaseCode> findByUserContainingOrCodeContaining(String user, String code, Pageable pageable);
-    
-
-
-// }
-
 @Repository
 public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     

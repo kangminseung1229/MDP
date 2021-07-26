@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/MDP_main_fragment :: top('join')">
+    
+</head>
+<body>
+    <div id="join_wrapper">
+        <div id="join_logo">
+            <img src="/img/MDP/main_logo.png">
+        </div>    
+        <div id="updown">
+        </div>
+        <div id="join_form_wrapper">
+            <div id="join_icon">
+                ADMIN JOIN
+            </div>
+            <form th:action="@{/MDP/admin_join}" method="POST">
+                <div id="join_id">
+                    <span id="star">*</span> 아이디<br>
+                    <input type="text" name="username" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
+                </div>
+                <div id="join_code">
+                    <span id="star">*</span> 비밀번호<br>
+                    <input type="password" name="password" size="15" placeholder=" 비밀번호" onfocus="this.placeholder=''" onblur="this.placeholder=' 비밀번호'">
+                </div>
+                <input type="hidden" value="1" name="enabled" />
+                <div id="join_button" onclick="location.href='login'">
+                    <input type="submit" value="회원가입"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
