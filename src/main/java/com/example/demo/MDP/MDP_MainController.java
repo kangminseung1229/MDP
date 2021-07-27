@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -56,10 +57,15 @@ public class MDP_MainController {
     }
 
     @PostMapping("/login")
-    public String logined(HttpServletRequest request, String user) {
+    public String logined(HttpServletRequest request, String user,Model model) {
 
-        if(checkID.checked(request, user))
+        if(checkID.checked(request, user)){
+            HttpSession session = request.getSession();
+            String permission = (String) session.getAttribute("permission");
+            checkID.checkLoginOut(permission,model);
             return "MDP/main";
+        }
+        
         else
             return "MDP/login";
         
