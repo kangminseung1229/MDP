@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -47,7 +46,6 @@ public class MDP_MainController {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         checkID.checkLoginOut(permission,model);
-
         return "MDP/main";
     }
 
@@ -68,15 +66,22 @@ public class MDP_MainController {
         
         else
             return "MDP/login";
+    }
         
-        // checkID.checked(request, user);
 
-        // if(checkID.checked(request, user))
-        // return "";
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "MDP/main";
     }
 
     @GetMapping("/join")
     public String join() {
+        return "MDP/join";
+    }
+    @PostMapping("/join")
+    public String joinPost() {
         return "MDP/join";
     }
 
@@ -88,7 +93,6 @@ public class MDP_MainController {
 
         checkID.checkLoginOut(permission,model);
         checkID.checkPermissions(response,permission);
-        
 
         return "MDP/process";
     }
@@ -120,7 +124,6 @@ public class MDP_MainController {
     public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
 
         Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
-        // Page<mdpPurchaseCode> page = mdpRepo.findByOrderByIdDesc(pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 1);
         int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
 
@@ -150,7 +153,7 @@ public class MDP_MainController {
         mdpPurchaseCode mp = new mdpPurchaseCode();
 
         Random random = new Random();
-        long last=mdpRepo.last_column();
+        long last=mdpRepo.lastColumn();
 
         for(int i=0; i<count; i++){
 

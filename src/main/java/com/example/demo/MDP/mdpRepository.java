@@ -11,18 +11,6 @@ import org.springframework.stereotype.Repository;
 
 
 
-// @Repository
-// public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
-    
-    
-//     long countByCode(String code);
-
-//     Page<mdpPurchaseCode> findByUserContainingOrCodeContaining(String user, String code, Pageable pageable);
-    
-
-
-// }
-
 @Repository
 public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     
@@ -40,6 +28,9 @@ public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     Page<mdpPurchaseCode> findByOrderByIdDesc(Pageable pageable);
 
     @Query(value="SELECT id FROM mdpPurchaseCode order by id desc limit 1", nativeQuery = true )
-    long last_column();
+    long lastColumn();
 
+    Long countByUser(String user);
+
+    
 }    
