@@ -24,4 +24,6 @@ public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     long lastColumn();
 
     Long countByUser(String user);
+
+    
 }    

@@ -72,6 +72,10 @@ public class MDP_MainController {
     public String join() {
         return "MDP/join";
     }
+    @PostMapping("/join")
+    public String joinPost() {
+        return "MDP/join";
+    }
 
     @GetMapping("/process")
     public String process(HttpServletResponse response, HttpServletRequest request ) throws IOException, ServletException {
