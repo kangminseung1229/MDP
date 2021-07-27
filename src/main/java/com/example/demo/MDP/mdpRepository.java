@@ -16,8 +16,6 @@ public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     
     
     long countByCode(String code);
-
-    long countByUser(String user);
     
     Optional<mdpPurchaseCode> findByCode(String code);
 
