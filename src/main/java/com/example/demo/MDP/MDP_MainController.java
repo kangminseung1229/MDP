@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
 
+import org.hibernate.dialect.identity.SybaseAnywhereIdentityColumnSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -56,16 +57,12 @@ public class MDP_MainController {
 
     @PostMapping("/login")
     public String logined(HttpServletRequest request, String user,Model model) {
-
+        System.out.println(user);
         if(checkID.checked(request, user)){
-            HttpSession session = request.getSession();
-            String permission = (String) session.getAttribute("permission");
-            checkID.checkLoginOut(permission,model);
-            return "MDP/main";
+            return main(request, model);
         }
-        
         else
-            return "MDP/login";
+            return "redirect:login";
     }
         
 
@@ -81,8 +78,15 @@ public class MDP_MainController {
         return "MDP/join";
     }
     @PostMapping("/join")
-    public String joinPost() {
-        return "MDP/join";
+    public String joinPost(HttpServletRequest request, String user, String code, Model model) {
+        System.out.println(user);
+        System.out.println(code);
+        if(checkID.checkJoin(request, user, code)){
+            mdpRepo.updateUser(user, code);
+            return "MDP/login";
+        }  
+        else
+            return "MDP/join";
     }
 
     @GetMapping("/process")
