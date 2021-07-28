@@ -184,26 +184,6 @@ public class MDP_MainController {
 
     }
 
-    // 회원가입
-    @PostMapping("/join")
-    public String register(SecurityAdmins sa) {
-
-        String encodedpw = pwEncoder.encode(sa.getPassword());
-
-        sa.setPassword(encodedpw);
-        sa.setEnabled(true);
-
-        SecurityRole sr = new SecurityRole();
-        sr.setId(1l);
-
-        sa.getRoles().add(sr);
-
-        saRepo.save(sa);
-
-        return "redirect:MDP/login";
-
-    }
-
     // 회원 가입
     @GetMapping("/userJoin")
     public String userJoin() {
