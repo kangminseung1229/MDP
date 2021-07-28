@@ -79,8 +79,7 @@ public class MDP_MainController {
     }
     @PostMapping("/join")
     public String joinPost(HttpServletRequest request, String user, String code, Model model) {
-        System.out.println(user);
-        System.out.println(code);
+
         if(checkID.checkJoin(request, user, code)){
             mdpRepo.updateUser(user, code);
             return "MDP/login";
@@ -108,6 +107,15 @@ public class MDP_MainController {
 
         checkID.checkLoginOut(permission,model);
         checkID.checkPermissions(response,permission);
+
+        return "MDP/letter";
+    }
+
+    @PostMapping("/letter")
+    public String letterPost(HttpServletRequest request, HttpServletResponse response, Model model, String feeling) throws IOException, ServletException {
+        
+        System.out.println(feeling);
+        
 
         return "MDP/letter";
     }
