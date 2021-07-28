@@ -2,31 +2,66 @@
 $(document).ready(function(){
     
 
-    $("input:radio[name=menu]").click(function()
-    {
-        console.log("click!");
-    });
     
-    let menu = $('input:radio[name="rb"]:checked').val();
-    console.log(menu);
-    menu = 1;
-    switch(menu){
-        case 1: {
-            console.log("1")
-            process1();
-            // break;
-        }
-    }
-
+    var bullet = ['1번', '2번', '3번'];
     let swiper = new Swiper(".mySwiper", {
+    
+        // autoHeight : true,
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
         },
-        // allowSlideNext:false
+            // allowSlideNext:false
+
+        on: {
+            activeIndexChange: function () {
+                // alert(this.realIndex+'번째 slide입니다.');
+                // $(input:radio[id=this.realIndex+1]).prop("checked",true);
+                console.log();
+                num = this.realIndex+1;
+                $("input:radio[id="+num+"]").prop('checked', true)
+            }
+        }
       });
 
     swiper.keyboard.disable(); 
+    
+    $("input:radio[name=menu]").click(function()
+    {
+        let menu = $('input:radio[name="menu"]:checked').val();
+        
+        switch(menu){
+            case "1": {
+                swiper.slideTo(0);
+                break;
+            }
+            case "2": {
+                swiper.slideTo(1);
+                break;
+            }
+            case "3": {
+                swiper.slideTo(2);
+                break;
+            }
+            case "4": {
+                swiper.slideTo(3);
+                break;
+            }
+            case "5": {
+                swiper.slideTo(4);
+                break;
+            }
+            case "6": {
+                swiper.slideTo(5);
+                break;
+            }
+        }
+    });
+    
+    
+    process1();
+
+    
     // swiper.allowSlideNext(false);
 
 });
