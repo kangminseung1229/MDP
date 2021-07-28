@@ -22,17 +22,12 @@ public class MainController {
 
     // default page , root page 를 설정함.
     @GetMapping("/")
-<<<<<<< HEAD
-    public String index() {
-        return "MDP/login";
-=======
     public String index(HttpServletRequest request,Model model) {
         // HttpSession session = request.getSession();
         // String permission = (String) session.getAttribute("permission");
         // checkID.checkLoginOut(permission,model);
         // return "/MDP/main";
         return mainController.main(request, model);
->>>>>>> origin/jiwon
     }
     // public String index(){
     //     return "MDP/login";
