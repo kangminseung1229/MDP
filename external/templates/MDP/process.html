@@ -7,294 +7,288 @@
     <div id="process_wrapper">
         <nav th:replace = "fragments/MDP_process_fragment :: nav"></nav>
         
-        <!-- step1 -->
-        <div class="content">
-            <div id="step1" >
-                <div class="content_top">
-                    <div id="step_title">
-                        01 받는 사람
+        <div class="swiper-container mySwiper">
+            <div class="content swiper-wrapper">
+              <div class=" swiper-slide">
+
+                <!-- step1 -->
+                <div id="step1" >
+        
+                    <div class="paragraph">
+                        <p id = "stage1"><span id="hl_yello">노란색 칸</span>에 자신의 이름을 써보세요.</p> 
+                        <p id = "stage2">그리고 떠오르는 세 사람의 이름을 <span id="hl_blue">파란색 칸</span>에 써보세요.</p>
+                        <p id = "stage3">다음에 떠오르는 다섯 사람의 이름은 <span id="hl_green">초록색 칸</span>에 써보세요.</p>
+                        <p id = "stage4" >이 중 오늘 마음을 전하고 싶은 한 사람을 클릭해주세요.</p>
+                        
                     </div>
-                </div>
-                <div class="paragraph">
-                    <p id = "stage1"><span id="hl_yello">노란색 칸</span>에 자신의 이름을 써보세요.</p> 
-                    <p id = "stage2">그리고 떠오르는 세 사람의 이름을 <span id="hl_blue">파란색 칸</span>에 써보세요.</p>
-                    <p id = "stage3">다음에 떠오르는 다섯 사람의 이름은 <span id="hl_green">초록색 칸</span>에 써보세요.</p>
-                    <p id = "stage4" >이 중 오늘 마음을 전하고 싶은 한 사람을 클릭해주세요.</p>
                     
-                </div>
-                
-                <div id = "textbox_shapes">
-                    <input id="step1_textbox1" class="step1_textbox" type="text" placeholder="이름">
-                    <input id="step1_textbox2" class="step1_textbox" type="text" placeholder="이름">
-                    <input id="step1_textbox3" class="step1_textbox"type="text" placeholder="이름">
-                    <input id="step1_textbox4" class="step1_textbox" type="text" placeholder="이름">
-                    <input id="step1_textbox5" class="step1_textbox" type="text" placeholder="이름">
-                    <input id="step1_textbox6" class="step1_textbox" type="text" placeholder="이름">
-                    <input id="step1_textbox7" class="step1_textbox" type="text" placeholder="이름">
-                    <input id="step1_textbox8" class="step1_textbox" type="text" placeholder="이름">
-                    <input id="step1_textbox9" class="step1_textbox" type="text" placeholder="이름">
-
-                    <div id="step1_shape_num1" class="step1_shape"></div>
-                    <div id="step1_shape_num2"></div>
-                    <div id="step1_shape_num3"></div>
-
+                    <div id = "textbox_shapes">
+                        <form th:action="@{MDP/letter}" method ="GET">
+                            <input id="step1_textbox1" class="step1_textbox" type="text" placeholder="이름">
+                            <input id="step1_textbox2" class="step1_textbox" type="text" placeholder="이름">
+                            <input id="step1_textbox3" class="step1_textbox" type="text" placeholder="이름">
+                            <input id="step1_textbox4" class="step1_textbox" type="text" placeholder="이름">
+                            <input id="step1_textbox5" class="step1_textbox" type="text" placeholder="이름">
+                            <input id="step1_textbox6" class="step1_textbox" type="text" placeholder="이름">
+                            <input id="step1_textbox7" class="step1_textbox" type="text" placeholder="이름">
+                            <input id="step1_textbox8" class="step1_textbox" type="text" placeholder="이름">
+                            <input id="step1_textbox9" class="step1_textbox" type="text" placeholder="이름">
+                            
+                        </form>
+                       
+                        <div id="step1_shape_num1" class="step1_shape"></div>
+                        <div id="step1_shape_num2"></div>
+                        <div id="step1_shape_num3"></div>
+                        <div id="next">NEXT</div>
+                        
+                    </div>
+                   
                     
-                </div>
-                <br>
-                
-                
-                
-            </div>
-            <!-- Step2 -->
-            <div id="step2">
-                <div id="step_title">
-                    02 되돌아 보며
-                </div>
-                <p>
-                    추억이 담긴 사진들을 찾아 보며 우리의 순간을 되돌아 볼까요?<br>
-                    함께 찍은 사진이 없다면 마음에 드는 사진을 골라 주세요.
-                </p>
-                <div id="input_image">
-                    thinkus
-                </div>
-                <p style="padding-top:3%;">
-                   그 사람에게 내가 전하고 싶은 감정을 선택해주세요
-                </p>
-                <div id="radio_wrapper">
-                    <label class="feeling"><input type="radio" name="feeling" value="thanks"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp;
-                    <label class="feeling"><input type="radio" name="feeling" value="sorry"><span id="sorry">미안함</span></label>&emsp;&emsp;&emsp;
-                    <label class="feeling"><input type="radio" name="feeling" value="cheer"><span id="cheer">축하/응원</span></label>&emsp;&emsp;&emsp;
-                    <label class="feeling"><input type="radio" name="feeling" value="love"><span id="love">사랑</span></label>&emsp;&emsp;&emsp;
-                    <label class="feeling"><input type="radio" name="feeling" value="hello"><span id="hello">안부</span></label>
-                </div>
-            </div>
+                    
+                </div> 
             
+              </div>
 
-
-            
-            <!-- step3 -->
-            <div id="step3">
-                <div id="step_title">
-                    03 그 사람과 나는
-                </div>
-                <p>
-                    마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
-                    주어진 질문에 답하며 우리의 추억을 떠올려 보세요.
-                </p>
-                <div class="input_textbox green ">
-                    <span class="num">01</span><br>우리가 처음 만났던 때는&ensp;
-                    <input class="step3_textbox step3_shape_green" type="text" id="one">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-                <div class="input_textbox blue">
-                    <span class="num">02</span><br>이 사람의 첫인상은&ensp;
-                    <input class="step3_textbox step3_shape_blue" type="text" id="two">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-                <div class="input_textbox yellow">
-                    <span class="num">03</span><br>생각하면 떠오르는 색은&ensp;
-                    <input class="step3_textbox step3_shape_yellow" type="text" id="three">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-                <div class="input_textbox green">
-                    <span class="num">04</span><br>지난 날들 중, 가장 재미있었던 일은&ensp;
-                    <input class="step3_textbox step3_shape_green" type="text" id="four">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-                <div class="input_textbox blue">
-                    <span class="num">05</span><br>가장 진지했던 이야기 주제는&ensp;
-                    <input class="step3_textbox step3_shape_blue" type="text" id="five">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-                <div class="input_textbox yellow">
-                    <span class="num">06</span><br>가장 마음이 쓰이는 날은&ensp;
-                    <input class="step3_textbox step3_shape_yellow" type="text" id="six">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-                <div class="input_textbox green">
-                    <span class="num">07</span><br>이 사람의 반전 매력은&ensp;
-                    <input class="step3_textbox step3_shape_green" type="text" id="seven">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-                <div class="input_textbox blue">
-                    <span class="num">08</span><br>우리 둘의 공통점은&ensp;
-                    <input class="step3_textbox step3_shape_blue" type="text" id="eight">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-                <div class="input_textbox yellow">
-                    <span class="num">09</span><br>나에게 한 말 중 가장 인상 깊은 말은&ensp;
-                    <input class="step3_textbox step3_shape_yellow" type="text" id="nine">&ensp;
-                    <span class="text_end">이다.</span>
-                </div>
-            </div>
-
-
-
-            <!-- step4 -->
-            <div id="step4">
-                <div id="step_title">
-                    04 그때의 나는
-                </div>
-                <p>
-                    그 사람과 함께한 특별한 에피소드가 떠올랐나요?<br>
-                    떠오르는 단어나 문장을 자유롭게 적어도 좋습니다.
-                </p>
-                <div id="step4_wrapper">
-                    <div class="step4_main" id="eye">
-                        <div class="step4_quest">
-                            그때 나는 무엇을 보았나요? 👀
-                        </div>
-                        <textarea class="step4_textbox"></textarea>                      
+              <!-- step2 -->
+              <div class="swiper-slide">
+                <div id="step2">
+                    
+                    <p>
+                        추억이 담긴 사진들을 찾아 보며 우리의 순간을 되돌아 볼까요?<br>
+                        함께 찍은 사진이 없다면 마음에 드는 사진을 골라 주세요.
+                    </p>
+                    <div id="input_image">
+                        thinkus
                     </div>
-                    <div class="step4_main" id="ear">
-                        <div class="step4_quest">
-                            그때 나는 무엇을 들었나요? 👂
-                        </div>
-                        <textarea class="step4_textbox"></textarea>                             
+                    <p style="padding-top:3%;">
+                       그 사람에게 내가 전하고 싶은 감정을 선택해주세요
+                    </p>
+                    <div id="radio_wrapper">
+                        <label class="feeling"><input type="radio" name="feeling" value="thanks"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp;
+                        <label class="feeling"><input type="radio" name="feeling" value="sorry"><span id="sorry">미안함</span></label>&emsp;&emsp;&emsp;
+                        <label class="feeling"><input type="radio" name="feeling" value="cheer"><span id="cheer">축하/응원</span></label>&emsp;&emsp;&emsp;
+                        <label class="feeling"><input type="radio" name="feeling" value="love"><span id="love">사랑</span></label>&emsp;&emsp;&emsp;
+                        <label class="feeling"><input type="radio" name="feeling" value="hello"><span id="hello">안부</span></label>
                     </div>
-                    <div class="step4_main" id="talk">
-                        <div class="step4_quest">
-                            그때 나는 어떤 말과 행동을 하였나요? 👄
-                        </div>
-                        <textarea class="step4_textbox"></textarea>                              
+                </div>
+                
+              </div>
+
+              <!-- step3 -->
+              <div class="swiper-slide">
+
+                <div id="step3">
+                    
+                    <p>
+                        마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
+                        주어진 질문에 답하며 우리의 추억을 떠올려 보세요.
+                    </p>
+                    <div class="input_textbox green ">
+                        <span class="num">01</span><br>우리가 처음 만났던 때는&ensp;
+                        <input class="step3_textbox step3_shape_green" type="text" id="one">&ensp;
+                        <span class="text_end">이다.</span>
                     </div>
-                    <div class="step4_main" id="think">
-                        <div class="step4_quest">
-                            그때 나는 무엇을 생각하고 느꼈나요? 🤔
-                        </div>
-                        <textarea class="step4_textbox"></textarea>                           
+                    <div class="input_textbox blue">
+                        <span class="num">02</span><br>이 사람의 첫인상은&ensp;
+                        <input class="step3_textbox step3_shape_blue" type="text" id="two">&ensp;
+                        <span class="text_end">이다.</span>
                     </div>
-                    <div id="center">
-                        나
-                    </div>                   
+                    <div class="input_textbox yellow">
+                        <span class="num">03</span><br>생각하면 떠오르는 색은&ensp;
+                        <input class="step3_textbox step3_shape_yellow" type="text" id="three">&ensp;
+                        <span class="text_end">이다.</span>
+                    </div>
+                    <div class="input_textbox green">
+                        <span class="num">04</span><br>지난 날들 중, 가장 재미있었던 일은&ensp;
+                        <input class="step3_textbox step3_shape_green" type="text" id="four">&ensp;
+                        <span class="text_end">이다.</span>
+                    </div>
+                    <div class="input_textbox blue">
+                        <span class="num">05</span><br>가장 진지했던 이야기 주제는&ensp;
+                        <input class="step3_textbox step3_shape_blue" type="text" id="five">&ensp;
+                        <span class="text_end">이다.</span>
+                    </div>
+                    <div class="input_textbox yellow">
+                        <span class="num">06</span><br>가장 마음이 쓰이는 날은&ensp;
+                        <input class="step3_textbox step3_shape_yellow" type="text" id="six">&ensp;
+                        <span class="text_end">이다.</span>
+                    </div>
+                    <div class="input_textbox green">
+                        <span class="num">07</span><br>이 사람의 반전 매력은&ensp;
+                        <input class="step3_textbox step3_shape_green" type="text" id="seven">&ensp;
+                        <span class="text_end">이다.</span>
+                    </div>
+                    <div class="input_textbox blue">
+                        <span class="num">08</span><br>우리 둘의 공통점은&ensp;
+                        <input class="step3_textbox step3_shape_blue" type="text" id="eight">&ensp;
+                        <span class="text_end">이다.</span>
+                    </div>
+                    <div class="input_textbox yellow">
+                        <span class="num">09</span><br>나에게 한 말 중 가장 인상 깊은 말은&ensp;
+                        <input class="step3_textbox step3_shape_yellow" type="text" id="nine">&ensp;
+                        <span class="text_end">이다.</span>
+                    </div>
                 </div>
-            </div>
 
-
-
-
-            <!-- Step5 --->
-            <div id="step5">
-                <div id="step_title">
-                    05 그때의 내 마음은
+              </div>
+              <!-- step4 -->
+              <div class="swiper-slide">
+                <div id="step4">
+                    
+                    <p>
+                        그 사람과 함께한 특별한 에피소드가 떠올랐나요?<br>
+                        떠오르는 단어나 문장을 자유롭게 적어도 좋습니다.
+                    </p>
+                    <div id="step4_wrapper">
+                        <div class="step4_main" id="eye">
+                            <div class="step4_quest">
+                                그때 나는 무엇을 보았나요? 👀
+                            </div>
+                            <textarea class="step4_textbox"></textarea>                      
+                        </div>
+                        <div class="step4_main" id="ear">
+                            <div class="step4_quest">
+                                그때 나는 무엇을 들었나요? 👂
+                            </div>
+                            <textarea class="step4_textbox"></textarea>                             
+                        </div>
+                        <div class="step4_main" id="talk">
+                            <div class="step4_quest">
+                                그때 나는 어떤 말과 행동을 하였나요? 👄
+                            </div>
+                            <textarea class="step4_textbox"></textarea>                              
+                        </div>
+                        <div class="step4_main" id="think">
+                            <div class="step4_quest">
+                                그때 나는 무엇을 생각하고 느꼈나요? 🤔
+                            </div>
+                            <textarea class="step4_textbox"></textarea>                           
+                        </div>
+                        <div id="center">
+                            나
+                        </div>                   
+                    </div>
                 </div>
-                <p>
-                    마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
-                    주어진 질문에 답하며 우리의 추억을 떠올려 보세요.
-                </p>
-
-                <table class="step5_text_wrapper">
-                    <tr>
-                        <td id = "step5_question1">이 에피소드를 통해</br>그 친구에게 어떤 마음이 들었나요?
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea id = "step5_answer1" class="step5_answer1_focus" ></textarea>
-                        </td>   
-                    </tr>
-                    <tr>
-                        <td id = "step5_question2">왜 그런 마음이 들었나요?</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea id = "step5_answer2" class="step5_answer2_focus" ></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id = "step5_question3">왜 그렇게 느꼈나요?</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea id = "step5_answer3" class="step5_answer3_focus" ></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id = "step5_question4">왜 그렇게 생각했나요?</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea id = "step5_answer4" class="step5_answer4_focus" ></textarea>
-                        </td>
-                    </tr>
-                </table>
-
-            </div>
-
-            <!-- Step6 --->
-            <div id="step6">
-                <div id="step_title">
-                    06 그때의 내 마음은
-                </div>
-                <p>
-                    내가 전하고 싶은 <span id="hl_green">감정을 클릭</span>한 후<br>
-                    어울리는 <span id="hl_blue">단어카드를 선택</span>해보세요<br>
-                    각 단어의 색은 내 감정에 맞게 글로 전달하는 것을 도와줍니다.<br>
-                    정해진 감정에 상관없이 자유롭게 골라도 좋습니다!
-                </p>
-                <p>원하는 감정을 선택해주세요</p>
-
-                <div class="step6_container">
-                    <table style="display:inline-block;">
+              </div>
+              <!-- step5 -->
+              <div class="swiper-slide">
+                <div id="step5">
+                    
+                    <p>
+                        마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
+                        주어진 질문에 답하며 우리의 추억을 떠올려 보세요.
+                    </p>
+    
+                    <table class="step5_text_wrapper">
                         <tr>
-                            <td class="step6_container_td">
-                                <div id = emmotion_common></div>
-                                <div id = emmotion_common_text>공통단어</div>   
+                            <td id = "step5_question1">이 에피소드를 통해</br>그 친구에게 어떤 마음이 들었나요?
                             </td>
-                            <td class="step6_container_td">
-                                <div id = emmotion_thanks></div>
-                                <div id = emmotion_thanks_text>고마움</div> 
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea id = "step5_answer1" class="step5_answer1_focus" ></textarea>
+                            </td>   
+                        </tr>
+                        <tr>
+                            <td id = "step5_question2">왜 그런 마음이 들었나요?</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea id = "step5_answer2" class="step5_answer2_focus" ></textarea>
                             </td>
-                            <td class="step6_container_td">
-                                <div id = emmotion_sorry></div>
-                                <div id = emmotion_sorry_text>미안함</div> 
+                        </tr>
+                        <tr>
+                            <td id = "step5_question3">왜 그렇게 느꼈나요?</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea id = "step5_answer3" class="step5_answer3_focus" ></textarea>
                             </td>
-                            <td class="step6_container_td">
-                                <div id = emmotion_celebration></div>
-                                <div id = emmotion_celebration_text>축하응원</div> 
-                            </td>
-                            <td class="step6_container_td">
-                                <div id = emmotion_love></div>
-                                <div id = emmotion_love_text>사랑</div> 
-                            </td>
-                            <td class="step6_container_td">
-                                <div id = emmotion_say></div>
-                                <div id = emmotion_say_text>안부</div> 
+                        </tr>
+                        <tr>
+                            <td id = "step5_question4">왜 그렇게 생각했나요?</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea id = "step5_answer4" class="step5_answer4_focus" ></textarea>
                             </td>
                         </tr>
                     </table>
+    
                 </div>
-                <div id="step6_container">
-                    <table id = "emotion_card_table_common"></table>
-                    <table id = "emotion_card_table_thanks"></table>
-                    <table id = "emotion_card_table_sorry"></table>
-                    <table id = "emotion_card_table_celebration"></table>
-                    <table id = "emotion_card_table_love"></table>
+              </div>
+              <!-- step6 -->
+              <div class="swiper-slide">
+                <div id="step6">
+                   
+                    <p>
+                        내가 전하고 싶은 <span id="hl_green">감정을 클릭</span>한 후<br>
+                        어울리는 <span id="hl_blue">단어카드를 선택</span>해보세요<br>
+                        각 단어의 색은 내 감정에 맞게 글로 전달하는 것을 도와줍니다.<br>
+                        정해진 감정에 상관없이 자유롭게 골라도 좋습니다!
+                    </p>
+                    <p>원하는 감정을 선택해주세요</p>
+    
+                    <div class="step6_container">
+                        <table style="display:inline-block;">
+                            <tr>
+                                <td class="step6_container_td">
+                                    <div id = emmotion_common></div>
+                                    <div id = emmotion_common_text>공통단어</div>   
+                                </td>
+                                <td class="step6_container_td">
+                                    <div id = emmotion_thanks></div>
+                                    <div id = emmotion_thanks_text>고마움</div> 
+                                </td>
+                                <td class="step6_container_td">
+                                    <div id = emmotion_sorry></div>
+                                    <div id = emmotion_sorry_text>미안함</div> 
+                                </td>
+                                <td class="step6_container_td">
+                                    <div id = emmotion_celebration></div>
+                                    <div id = emmotion_celebration_text>축하응원</div> 
+                                </td>
+                                <td class="step6_container_td">
+                                    <div id = emmotion_love></div>
+                                    <div id = emmotion_love_text>사랑</div> 
+                                </td>
+                                <td class="step6_container_td">
+                                    <div id = emmotion_say></div>
+                                    <div id = emmotion_say_text>안부</div> 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="step6_container">
+                        <table id = "emotion_card_table_common"></table>
+                        <table id = "emotion_card_table_thanks"></table>
+                        <table id = "emotion_card_table_sorry"></table>
+                        <table id = "emotion_card_table_celebration"></table>
+                        <table id = "emotion_card_table_love"></table>
+                    </div>
+                    <div class="step6_container_select">
+                        <span id = "select_word_text1">내가 선택한 감정단어</span>
+                        <span id = "select_word_text2">감정단어를 클릭하면 지울 수 있어요.</span>
+                        <table id = "select_word">
+                            <tr>
+                                <td>
+                                    <div class="emotion_card_common" >긍정적인</div>
+                                </td>
+                                <td>
+                                    <div class="emotion_card_common">긍정적인</div>
+                                </td>
+                               
+                            </tr>
+                          
+                        </table>
+                    </div>
+                    
                 </div>
-                <div class="step6_container_select">
-                    <span id = "select_word_text1">내가 선택한 감정단어</span>
-                    <span id = "select_word_text2">감정단어를 클릭하면 지울 수 있어요.</span>
-                    <table id = "select_word">
-                        <tr>
-                            <td>
-                                <div class="emotion_card_common" >긍정적인</div>
-                            </td>
-                            <td>
-                                <div class="emotion_card_common">긍정적인</div>
-                            </td>
-                           
-                        </tr>
-                      
-                    </table>
-                </div>
-                
-          
-                
+              </div>
+              
             </div>
-
-            <!-- Next Button -->
-            <div id="next">NEXT</div>
-            
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
         
         
@@ -307,4 +301,9 @@
     <script src="/assets/js/anime.min.js"></script>
     <script src = "/assets/js/MDP_process.js"></script>
     <script src = "/assets/js/MDP_process_step6.js"></script>
+
+    <!-- swiper -->
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </footer>

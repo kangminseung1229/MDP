@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     $("input:radio[name=menu]").click(function()
     {
-        console.log("click!")
+        console.log("click!");
     });
     
     let menu = $('input:radio[name="rb"]:checked').val();
@@ -18,8 +18,17 @@ $(document).ready(function(){
         }
     }
 
-    
-    
+    let swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // allowSlideNext:false
+      });
+
+    swiper.keyboard.disable(); 
+    // swiper.allowSlideNext(false);
+
 });
 
 function process1(){
