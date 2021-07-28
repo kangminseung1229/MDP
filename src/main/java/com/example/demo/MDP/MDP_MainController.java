@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("MDP")
@@ -105,17 +106,28 @@ public class MDP_MainController {
         checkID.checkLoginOut(permission, model);
         checkID.checkPermissions(response, permission);
 
+
         return "MDP/letter";
     }
-
+    
     @PostMapping("/letter")
-    public String letterPost(HttpServletRequest request, HttpServletResponse response, Model model, String feeling)
-            throws IOException, ServletException {
+    public String letter(Model model, @RequestParam String step2Fileupload){
 
-        System.out.println(feeling);
 
+        model.addAttribute("filetag", step2Fileupload);
+
+        
         return "MDP/letter";
     }
+
+    // @PostMapping("/letter")
+    // public String letterPost(HttpServletRequest request, HttpServletResponse response, Model model, String feeling)
+    //         throws IOException, ServletException {
+
+    //     System.out.println(feeling);
+
+    //     return "MDP/letter";
+    // }
 
     @GetMapping("/fin")
     public String fin(HttpServletRequest request, HttpServletResponse response, Model model)

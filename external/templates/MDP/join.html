@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-rity"> 
-=======
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
->>>>>>> master
 <head th:replace="fragments/MDP_main_fragment :: top('join')">
 </head>
     <div id="join_wrapper">
@@ -16,29 +12,6 @@
             <div id="join_icon">
                 JOIN
             </div>
-<<<<<<< HEAD
-            
-
-            <form th:action="@{/MDP/userJoin}" method="POST">
-
-                <div id="join_id">
-                    <span id="star">*</span> 아이디<br>
-                    <input type="text" name="username" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
-                </div>
-                <div id="join_code">
-                    <span id="star">*</span> 구매코드<br>
-                    <input type="password" name="password" size="15" placeholder=" 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
-                </div>
-
-                <input type="hidden" value="1" name="enabled" />
-                <div id="join_button" >
-                    <input type="submit" value="회원가입"/>
-                </div>
-                
-            </form>
-
-
-=======
             <form th:href="@{MDP/join}" method="POST">
                 <div id="join_id">
                     <span id="star">*</span> 아이디<br>
@@ -52,7 +25,6 @@
                     <input type="submit" id="join" value="회원가입"/>
                 </div>
             </form>
->>>>>>> master
         </div>
     </div>
 </body>
