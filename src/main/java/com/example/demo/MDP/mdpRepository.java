@@ -3,9 +3,12 @@ package com.example.demo.MDP;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -30,5 +33,11 @@ public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
 
     Long countByUser(String user);
 
+    @Transactional
+    @Modifying
+    @Query(value="UPDATE mdpPurchaseCode SET USER=:user WHERE CODE=:code", nativeQuery = true )
+    void updateUser(String user, String code);
+
+    Long countByCodeAndUserIsNull(String code);
     
 }    

@@ -21,7 +21,7 @@ public class checkID {
         boolean result = false;
         System.out.println(result);
 
-        if(Repo.countByUser(user)>0 || (Repo.findByCode(user).get().getUser() != null)){
+        if(Repo.countByUser(user)>0 || (Repo.countByCode(user))>0){
             HttpSession session = request.getSession();
             session.setAttribute("permission", "permission");
             result=true;
@@ -30,20 +30,6 @@ public class checkID {
         return result;
         
     }
-    
-    // public boolean checked(HttpSession session, String user){
-    //     boolean result = false;
-    //     System.out.println(result);
-
-    //     if(Repo.countByUser(user)>0 || (Repo.findByCode(user).get().getUser() != null)){
-    //         // HttpSession session = request.getSession();
-    //         session.setAttribute("permission", "permission");
-    //         result=true;
-    //     }
-        
-    //     return result;
-        
-    // } 
     
     public void checkPermissions(HttpServletResponse response,String permission) throws IOException,ServletException{
 
@@ -60,4 +46,18 @@ public class checkID {
         }
         model.addAttribute("loginOut",loginOut);
     }
+
+    public boolean checkJoin(HttpServletRequest request, String user, String code){
+        boolean result = false;
+
+        if(Repo.countByCode(code)>0 && (Repo.countByCodeAndUserIsNull(code) >0) && (Repo.countByUser(user)==0)){
+            HttpSession session = request.getSession();
+            session.setAttribute("permission", "permission");
+            result=true;
+        }
+        
+        return result;
+        
+    }
+
 }
