@@ -1,5 +1,4 @@
-
-package com.example.demo.securityDTO;
+package com.example.demo.MDP.MDP_Security_DTO;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

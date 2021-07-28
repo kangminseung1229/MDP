@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.example.demo.securityDTO.SecurityAdmins;
-import com.example.demo.securityDTO.SecurityRole;
+import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
+import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,9 +28,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MDP_MainController {
 
     @Autowired
-    SessionCheckService scService;
-
-    @Autowired
     private mdpRepository mdpRepo;
 
     @Autowired
@@ -39,8 +36,14 @@ public class MDP_MainController {
     @Autowired
     private saRepository saRepo;
 
+    @Autowired
+    private checkID checkID;
+
     @GetMapping("/main")
-    public String main() {
+    public String main(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+        checkID.checkLoginOut(permission, model);
         return "MDP/main";
     }
 
@@ -50,14 +53,19 @@ public class MDP_MainController {
     }
 
     @PostMapping("/login")
-    public String PostLogin(HttpServletRequest request, @RequestParam String user) {
+    public String logined(HttpServletRequest request, String user, Model model) {
+        System.out.println(user);
+        if (checkID.checked(request, user)) {
+            return main(request, model);
+        } else
+            return "redirect:login";
+    }
 
-        if (scService.IdCheck(request, user)) {
-            return "MDP/process";
-        } else {
-            return "MDP/login";
-        }
-
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "MDP/main";
     }
 
     @GetMapping("/join")
@@ -65,33 +73,67 @@ public class MDP_MainController {
         return "MDP/join";
     }
 
+    @PostMapping("/join")
+    public String joinPost(HttpServletRequest request, String user, String code, Model model) {
+
+        if (checkID.checkJoin(request, user, code)) {
+            mdpRepo.updateUser(user, code);
+            return "MDP/login";
+        } else
+            return "MDP/join";
+    }
+
     @GetMapping("/process")
-    public String process(HttpServletResponse response, HttpServletRequest request) throws IOException, ServletException{
+    public String process(HttpServletRequest request, HttpServletResponse response, Model model)
+            throws IOException, ServletException {
 
         HttpSession session = request.getSession();
-        String permition =  (String) session.getAttribute("permition");
+        String permission = (String) session.getAttribute("permission");
 
-        scService.permitionCheck(response, permition);
+        checkID.checkLoginOut(permission, model);
+        checkID.checkPermissions(response, permission);
 
         return "MDP/process";
     }
 
     @GetMapping("/letter")
-    public String letter() {
+    public String letter(HttpServletRequest request, HttpServletResponse response, Model model)
+            throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+
+        checkID.checkLoginOut(permission, model);
+        checkID.checkPermissions(response, permission);
+
+        return "MDP/letter";
+    }
+
+    @PostMapping("/letter")
+    public String letterPost(HttpServletRequest request, HttpServletResponse response, Model model, String feeling)
+            throws IOException, ServletException {
+
+        System.out.println(feeling);
+
         return "MDP/letter";
     }
 
     @GetMapping("/fin")
-    public String fin() {
+    public String fin(HttpServletRequest request, HttpServletResponse response, Model model)
+            throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+
+        checkID.checkLoginOut(permission, model);
+        checkID.checkPermissions(response, permission);
+
         return "MDP/fin";
     }
 
-    @GetMapping("/admin/manage")
+    @GetMapping("admin/manage")
     public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText,
             @PageableDefault(size = 15) Pageable pageable) {
 
         Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
-        // Page<mdpPurchaseCode> page = mdpRepo.findByOrderByIdDesc(pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 1);
         int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
 
@@ -102,7 +144,7 @@ public class MDP_MainController {
         return "MDP/manage";
     }
 
-    @GetMapping("/search")
+    @GetMapping("admin/search")
     public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText,
             @PageableDefault(size = 15) Pageable pageable) {
         Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText, pageable);
@@ -116,12 +158,12 @@ public class MDP_MainController {
         return "MDP/manage";
     }
 
-    @GetMapping("/add")
+    @GetMapping("admin/add")
     public String add(Model model, @RequestParam int count) {
         mdpPurchaseCode mp = new mdpPurchaseCode();
 
         Random random = new Random();
-        long last = mdpRepo.last_column();
+        long last = mdpRepo.lastColumn();
 
         for (int i = 0; i < count; i++) {
 
@@ -162,13 +204,6 @@ public class MDP_MainController {
 
     }
 
-    // 관리자 로그인 페이지
-    @GetMapping("/adminLogin")
-    public String adminLogin() {
-
-        return "MDP/adminLogin";
-    }
-
     // 회원 가입
     @GetMapping("/userJoin")
     public String userJoin() {
@@ -182,6 +217,33 @@ public class MDP_MainController {
     public String userJoinPost(Model model, HttpServletRequest request) {
 
         return "MDP/join";
+
+    }
+
+    // 관리자페이지컨트롤러
+
+    @GetMapping("/adminLogin")
+    public String adminLogin() {
+        return "MDP/admin_login";
+    }
+
+    @GetMapping("/adminJoin")
+    public String admin_join() {
+        return "MDP/admin_join";
+    }
+
+    @PostMapping("/adminJoin")
+    public String admin_join(SecurityAdmins sa) {
+
+        String encodedpw = pwEncoder.encode(sa.getPassword());
+        sa.setPassword(encodedpw);
+        sa.setEnabled(true);
+
+        SecurityRole sr = new SecurityRole();
+        sr.setId(1l);
+        sa.getRoles().add(sr);
+        saRepo.save(sa);
+        return "redirect:admin_login";
 
     }
 

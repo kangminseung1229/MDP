@@ -1,4 +1,4 @@
-package com.example.demo.securityDTO;
+package com.example.demo.MDP.MDP_Security_DTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class SecurityAdmins {
 
 
     @ManyToMany // N : N 관계  
-    @JoinTable(
+    @JoinTable( //AdminsRole Table
         name = "AdminsRole",
         joinColumns = @JoinColumn(name = "admins_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id")

@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/MDP_main_fragment :: top('fin')">
 <body>
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="fin_wrapper">
-        <div id="fin_letter">
-            편지 들어갈 자리
+        
+        <div id="letter">
+            <img src="/img/MDP/letter.png" class="letter_botttom"> 
+            
+            <div class ="letter_wrapper">
+                
+                <div class = "letter_to">
+                    <p style="display: inline; white-space: nowrap; width: 50px;">TO.</p><p id = "letter_to_name">최지원</p>
+                </div>
+
+                <div id = "letter_img"></div>
+                <textarea id="letter_textarea"></textarea>
+                <div class = "letter_from">
+                    <p style=" display: inline; white-space: nowrap; width: 50px;">FROM.</p><p id = "letter_from_name">김가영</p>
+                </div>
+                <!-- <div id = "wave_shape">
+                    <div class="letter_thinkus">THINKUS</div>
+                    <div class='wave-top'></div>
+                    <div class="wave-mid"></div>
+                </div> -->
+
+            </div>
+            <div class ="letter_background"></div>
+
         </div>
+
+
         <div id="fin_paragraph">
             <p>
                 편지가 완성되었습니다.<br>

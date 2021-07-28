@@ -43,7 +43,7 @@
     top: 50%;
     transform: translateY(-50%);
 }
-#join_form_wrapper input{
+#join_form_wrapper input[type="text"],input[type="password"]{
     font-family:gmarket_light;
 }
 #join_icon{
@@ -67,14 +67,14 @@
     font-size:13px;
     font-family:gmarket_medium;
 }
-#join_id input{
+#join_id input[type="text"],input[type="password"]{
     width:280px;
     height:30px;
     border:1px solid #043383;
     margin:0 auto;
-    color:#d7d8d8;
+    color:black;
 }
-#join_id input:focus{
+#join_id input[type="text"],input[type="password"]:focus{
     outline:none;
     color:black;
 }
@@ -91,7 +91,7 @@
     height:30px;
     border:1px solid #043383;
     margin:0 auto;
-    color:#d7d8d8;
+    color:black;
 }
 #join_code input:focus{
     outline:none;
@@ -101,15 +101,15 @@
     border:1.5px solid #043383;
     background-color:#fff;
     width:100%;
-    margin-right:1%;
-    margin-top:7%;
+    margin-bottom:2%;
     cursor:pointer;
     border-radius:5px;
     color:#043383;
-    height:30px;
-    line-height:30px;
-    font-family:gmarket_medium;
-    font-size:1vw;
+    height: 30px;
+    font-size: 13px;
+    font-family: gmarket_medium;
+    margin-top: 10px;
+    text-align: center;
 }
 #join_button:hover{
     background-color:#043383;

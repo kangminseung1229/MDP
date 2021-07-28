@@ -5,12 +5,7 @@
     position:relative;
     margin:0 auto;
 }
-#fin_letter{
-    border:2px solid #043384;
-    width:45%;
-    margin:0 auto;
-    height:500px;
-}
+
 #fin_paragraph{
     padding-top:10px;
     text-align:center;
@@ -66,7 +61,196 @@
     background-color:#043384;
     color:white;
 }
-@font-face {
-    font-family: 'gmarket_medium';
-    src: url('../css/fonts/GmarketSansMedium.otf') format('opentype');
+
+
+
+/* 편지지 */
+
+.fin_letter_background{
+    border:2px solid #043384;
+    border-radius: 15px;
+    width:500px;
+    margin:0 auto;
+    height:500px;
+}
+
+/* 편지 작성 */
+
+#letter{
+    width:500px;
+    margin:0 auto;
+    background-color: #113576;
+    height:600px;
+    z-index: -1;
+    position: relative;
+    text-align: center;
+}
+
+.letter_wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:450px;
+    margin:0 auto;
+    height:550px;
+    border-radius: 15px;
+    z-index: 3;
+    text-align: center;
+    display: inline-block;
+}
+
+.letter_background{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:450px;
+    margin:0 auto;
+    background-color: white;
+    height:550px;
+    border-radius: 15px;
+    z-index: -1;
+    text-align: center;
+    display: inline-block;
+}
+.letter_botttom{
+    height: auto;
+    width: 500px;
+    z-index: 2;
+    position: absolute; 
+    right: 0px; 
+    bottom: 0px;
+}
+
+.letter_to{
+    color: #13356F;
+    font-family: gmarket_medium;
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 19px;
+    float: left;
+}
+
+
+#letter_to_name{
+    width: 100px;
+    text-decoration: underline 2px #13356F;
+    text-underline-position:under;
+    display: inline; 
+    margin-left: 20px;
+}
+
+
+#letter_img{
+    width: 330px;
+    height: 200px;
+    border: none;
+    border-radius: 15px;
+    display: inline-block;
+    background-color: #E0EAF7;
+}
+
+#letter_textarea{
+    width: 330px;
+    height: 200px;
+    border: none;
+    font-size: 17px;
+    font-family: gmarket_medium;
+    margin-top: 10px;;
+    background-attachment: local;
+    background-image:
+        linear-gradient(to right, white 10px, transparent 10px),
+        linear-gradient(to left, white 10px, transparent 10px),
+        repeating-linear-gradient(white, white 30px, #13356F 30px, #13356F 31px, white 31px);
+    line-height: 31px;
+    padding: 8px 10px;
+    resize: none;
+}
+
+
+.letter_from{
+    color: #13356F;
+    font-family: gmarket_medium;
+    margin-right: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 19px;
+    float: right;
+}
+
+
+#letter_from_name{
+    width: 100px;
+    text-decoration: underline 2px #13356F;
+    text-underline-position:under;
+    display: inline; 
+    margin-left: 20px;
+    
+
+}
+
+#wave_shape{
+    width: auto;
+    height: auto;
+    position: relative;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.letter_thinkus{
+    width: 100px;
+    height: 23px;
+    /* border: 2px solid rebeccapurple; */
+    position: absolute;
+    font-size: 13px;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-family: brandon_medium;
+    letter-spacing:3px;
+    margin-left: -50px;
+    margin-top: -20px;
+   
+}
+.wave-top {
+
+    position: relative;
+    margin-top: 20px;
+    
+  }
+  
+.wave-top::before,
+.wave-top::after {
+    border-bottom: 5px solid #13356F;
+}
+  
+.wave-top::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    background-size: 20px 40px;
+    background-image: radial-gradient(circle at 10px -15px, transparent 20px, #13356F 21px);
+}
+  
+.wave-top::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 15px;
+    background-size: 40px 40px;
+    background-image: radial-gradient(circle at 10px 26px, #13356F 20px, transparent 21px);
+}
+
+.wave-mid {
+    background-color: #13356F;
+    height: 50px;
+    border-radius: 0 0 15px 15px;
+    border: 1px solid #13356F;
 }

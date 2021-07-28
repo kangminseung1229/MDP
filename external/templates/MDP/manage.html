@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/MDP_main_fragment :: top('manage')"></head>
 <body>
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
@@ -23,14 +23,14 @@
             <div id = "codeManage">
                 <div onclick="location.href='manage'" style="margin-top:50px; margin-bottom: 30px; width:100%; color:#043383; font-size:30px; font-family: gmarket_bold; text-align: center;">구매코드 관리</div>
                 <div>  
-                    <div style="text-align:left; padding-left:10px; width: 300px; display: table-cell">아이디 검색</div>
+                    <div style="text-align:left; padding-left:10px; width: 300px; display: table-cell">아이디(user) 검색</div>
                     <div style=" text-align:left;padding-left:70px; width: 300px; display: table-cell">구매코드 추가</div>
                     <form action="search" method="GET" >
                         <input name = "searchText" type ="textbox" class="search_textbox" >
                         <input id = "searchButton" type="submit" class="searchbtn" value="검색" >
                     </form>
                     <form action="add" method="GET" >
-                        <input name = "count" type ="number" class="search_textbox" >
+                        <input name = "count" type ="number" class="search_textbox" min="1">
                         <input id = "addButton" type="submit" class="searchbtn" value="추가" >
                     </form>
                     <button class="searchbtn" style="float: right; " onclick="location.href='manage'">새로고침</button>
@@ -58,17 +58,17 @@
 
                     <li class="page-item disabled">
                         <a class="page-link" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
-                        th:href="@{/MDP/manage(    page=${list.pageable.pageNumber -1 }, searchText=${param.searchText}    )   }"
+                        th:href="@{/MDP/admin/manage(    page=${list.pageable.pageNumber -1 }, searchText=${param.searchText}    )   }"
                         tabindex="-1" aria-disabled="true">Previous</a>
                     </li>
 
                     <li class="page-item" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
                         th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link"
-                        th:href="@{/MDP/manage(page=${i-1}, searchText=${param.searchText})}" th:text="${i}">1</a></li>
+                        th:href="@{/MDP/admin/manage(page=${i-1}, searchText=${param.searchText})}" th:text="${i}">1</a></li>
 
                     <li class="page-item">
                         <a class="page-link" th:classappend="${list.totalPages == list.pageable.pageNumber+1} ? 'disabled'"
-                        th:href="@{/MDP/manage(page=${list.pageable.pageNumber +1 }, searchText=${param.searchText})}">Next</a>
+                        th:href="@{/MDP/admin/manage(page=${list.pageable.pageNumber +1 }, searchText=${param.searchText})}">Next</a>
                     </li>
                     </ul>
 
@@ -80,19 +80,11 @@
 
         </div>
         
-        <!-- <div id ="codeAdd">
-            <div onclick="location.href='manage'" style="margin-top:50px; margin-bottom: 30px; width:100%; color:#043383; font-size:30px; font-family: gmarket_bold; text-align: center;">구매코드 생성</div>
-            <div >
-                <div style="text-align:left; margin-left : 10px;">추가할 구매코드의 개수를 입력해주세요</div>
-                <form action="add" method="GET" >
-                    <input name = "addText" type ="number" class="search_textbox" >
-                    <input id = "addhButton" type="submit" class="searchbtn" value="확인" >
-                </form>
-                
-            </div>
+   
 
-        </div> -->
 
+        </div>
+    
     </div>
 
     
