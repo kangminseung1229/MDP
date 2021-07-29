@@ -39,11 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/") //login form 전송시 오는 곳 -> postmapping login 에 해당한다.
                 // .defaultSuccessUrl("/sessionIns")
                 .successHandler(new SuccessHandler())
-                .failureUrl("/?error")
+                .failureUrl("/MDP/adminLogin")
 				.permitAll()
 				.and()
-			.logout()
-                .logoutSuccessUrl("/?logout")
+            .logout()
+                .logoutUrl("/adminLogout")
+                .logoutSuccessUrl("/MDP/adminLogin")
 				.permitAll()
                 .and()
             .csrf().disable();

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 @Service
 public class checkID {
@@ -17,14 +16,24 @@ public class checkID {
     @Autowired
     mdpRepository Repo;
 
+    @Autowired
+    saRepository saRepo;
+
     public boolean checked(HttpServletRequest request, String user){
         boolean result = false;
         System.out.println(result);
 
-        if(Repo.countByUser(user)>0 || (Repo.countByCode(user))>0){
+        if(Repo.countByUser(user)>0){
             HttpSession session = request.getSession();
             session.setAttribute("permission", "permission");
             result=true;
+        }
+        else if(Repo.countByCode(user)>0){
+            if(Repo.findByCode(user).get().getUser()!=null){
+                HttpSession session = request.getSession();
+                session.setAttribute("permission", "permission");
+                result=true;
+            }
         }
         
         return result;
@@ -36,15 +45,6 @@ public class checkID {
         if(permission != "permission"){
             response.sendRedirect("/MDP/login");
         }
-    }
-
-    public void checkLoginOut(String permission,Model model){
-        String loginOut = "LOGOUT";
-        if(permission != "permission"){
-            loginOut = "LOGIN";
-            
-        }
-        model.addAttribute("loginOut",loginOut);
     }
 
     public boolean checkJoin(HttpServletRequest request, String user, String code){

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
 
-import org.hibernate.dialect.identity.SybaseAnywhereIdentityColumnSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -46,7 +45,7 @@ public class MDP_MainController {
     public String main(HttpServletRequest request,Model model) {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
-        checkID.checkLoginOut(permission,model);
+        model.addAttribute("loginOut",permission);
         return "MDP/main";
     }
 
@@ -67,10 +66,10 @@ public class MDP_MainController {
         
 
     @GetMapping("/logout")
-    public String logout(HttpServletRequest request){
+    public String logout(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();
         session.invalidate();
-        return "MDP/main";
+        return "MDP/login";        
     }
 
     @GetMapping("/join")
@@ -93,8 +92,7 @@ public class MDP_MainController {
 
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
-
-        checkID.checkLoginOut(permission,model);
+        model.addAttribute("loginOut",permission);
         checkID.checkPermissions(response,permission);
 
         return "MDP/process";
@@ -104,8 +102,7 @@ public class MDP_MainController {
     public String letter(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
-
-        checkID.checkLoginOut(permission,model);
+        model.addAttribute("loginOut",permission);
         checkID.checkPermissions(response,permission);
 
         return "MDP/letter";
@@ -124,8 +121,7 @@ public class MDP_MainController {
     public String fin(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
-
-        checkID.checkLoginOut(permission,model);
+        model.addAttribute("loginOut",permission);
         checkID.checkPermissions(response,permission);
 
         return "MDP/fin";
@@ -150,10 +146,10 @@ public class MDP_MainController {
     public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
         Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText,pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
-      int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+        int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
 
-      model.addAttribute("startPage", startPage);
-      model.addAttribute("endPage", endPage);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
         model.addAttribute("list", page);
         
         return "MDP/manage";
@@ -191,12 +187,12 @@ public class MDP_MainController {
 
     @GetMapping("/adminLogin")
     public String adminLogin(){
-        return "MDP/admin_login";
+        return "MDP/adminLogin";
     }
 
     @GetMapping("/adminJoin")
     public String admin_join(){
-        return "MDP/admin_join";
+        return "MDP/adminJoin";
     }
 
     @PostMapping("/adminJoin")
@@ -210,9 +206,8 @@ public class MDP_MainController {
         sr.setId(1l);
         sa.getRoles().add(sr);
         saRepo.save(sa);
-        return "redirect:admin_login";
+        return "redirect:adminLogin";
         
-    
     }
 
 }
