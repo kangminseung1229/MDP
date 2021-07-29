@@ -29,7 +29,9 @@
                 <div id=image_wrapper>
                     <a href='main'><img src="/img/MDP/logo.png"></a>
                 </div>
-                <div class="logout" onclick="location.href='logout'" th:text = "${loginOut}"></div>  
+                <div class="logout" onclick="location.href='logout'" th:if="${loginOut} == 'permission'" th:text="LOGOUT"></div> 
+                <div class="logout" onclick="location.href='MDP/login'" th:if="${loginOut} != 'permission'" th:text="LOGIN"></div>  
+
             </div>
         </div>
     </header>

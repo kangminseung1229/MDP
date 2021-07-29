@@ -79,7 +79,6 @@
     width:285px;
     height:30px;
     margin:0 auto;
-    margin-top:15px;
     font-size:1vw;
     font-family: gmarket_medium;
     line-height:30px;
@@ -91,6 +90,7 @@
     width:100%;
     cursor:pointer;
     border-radius:5px;
+    margin-top:5px;
     color:#043383;
     height: 30px;
     font-size: 13px;
@@ -102,6 +102,7 @@
     color:#fff;
 }
 #login{
+    margin-top:40px;
     border:1.5px solid #043383;
     background-color:#fff;
     width:100%;
@@ -136,6 +137,7 @@
 
 #login_form{
     margin:0 auto;
+    margin-top: 10px;
     text-align:left;
     line-height:25px;
     font-size:13px;

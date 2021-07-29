@@ -28,9 +28,9 @@
                     상대방에게 내 마음을 전하는 것이 한층 쉬워질 거에요.<br>
                 </p>
             </div>
-            <div class="start_btn">
-                <input id="start" type="button" onclick="location.href='MDP/process'" value= 'start'></input>
-            </div>
+            <input class="start_btn" type="button" th:if="${loginOut} == 'permission'" onclick="location.href='process'" value= 'START'></input>
+            <input class="start_btn" type="button" th:if="${loginOut} != 'permission'" onclick="location.href='MDP/login'" value= 'START'></input>
+
         </div>
     </div>
 </div> 

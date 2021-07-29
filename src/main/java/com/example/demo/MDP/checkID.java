@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+
 
 @Service
 public class checkID {
@@ -36,15 +36,6 @@ public class checkID {
         if(permission != "permission"){
             response.sendRedirect("/MDP/login");
         }
-    }
-
-    public void checkLoginOut(String permission,Model model){
-        String loginOut = "LOGOUT";
-        if(permission != "permission"){
-            loginOut = "LOGIN";
-            
-        }
-        model.addAttribute("loginOut",loginOut);
     }
 
     public boolean checkJoin(HttpServletRequest request, String user, String code){

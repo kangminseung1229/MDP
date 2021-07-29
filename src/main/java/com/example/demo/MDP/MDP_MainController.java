@@ -46,7 +46,7 @@ public class MDP_MainController {
     public String main(HttpServletRequest request,Model model) {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
-        checkID.checkLoginOut(permission,model);
+        model.addAttribute("loginOut",permission);
         return "MDP/main";
     }
 
@@ -70,9 +70,9 @@ public class MDP_MainController {
     public String logout(HttpServletRequest request){
         HttpSession session = request.getSession();
         session.invalidate();
-        return "MDP/main";
+        return "MDP/login";
     }
-
+    
     @GetMapping("/join")
     public String join() {
         return "MDP/join";
@@ -93,8 +93,8 @@ public class MDP_MainController {
 
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
+        model.addAttribute("loginOut",permission);
 
-        checkID.checkLoginOut(permission,model);
         checkID.checkPermissions(response,permission);
 
         return "MDP/process";
@@ -104,8 +104,8 @@ public class MDP_MainController {
     public String letter(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
+        model.addAttribute("loginOut",permission);
 
-        checkID.checkLoginOut(permission,model);
         checkID.checkPermissions(response,permission);
 
         return "MDP/letter";
@@ -124,8 +124,8 @@ public class MDP_MainController {
     public String fin(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
+        model.addAttribute("loginOut",permission);
 
-        checkID.checkLoginOut(permission,model);
         checkID.checkPermissions(response,permission);
 
         return "MDP/fin";
@@ -150,10 +150,10 @@ public class MDP_MainController {
     public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
         Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText,pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
-      int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+        int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
 
-      model.addAttribute("startPage", startPage);
-      model.addAttribute("endPage", endPage);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
         model.addAttribute("list", page);
         
         return "MDP/manage";
