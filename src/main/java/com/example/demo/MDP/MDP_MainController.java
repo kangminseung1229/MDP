@@ -198,15 +198,33 @@ public class MDP_MainController {
     @PostMapping("/adminJoin")
     public String admin_join(SecurityAdmins sa) {
         
+        // String encodedpw = pwEncoder.encode(sa.getPassword());
+        // sa.setPassword(encodedpw);
+        // sa.setEnabled(true);
+
+        // SecurityRole sr = new SecurityRole();
+        // sr.setId(1l);
+        // sa.getRoles().add(sr);
+        // saRepo.save(sa);
+        // return "redirect:adminLogin";
+
         String encodedpw = pwEncoder.encode(sa.getPassword());
         sa.setPassword(encodedpw);
         sa.setEnabled(true);
 
         SecurityRole sr = new SecurityRole();
-        sr.setId(1l);
-        sa.getRoles().add(sr);
-        saRepo.save(sa);
-        return "redirect:adminLogin";
+        if(checkID.sacheckJoin(sa.getUsername())){
+            sr.setId(1l);
+            sa.getRoles().add(sr);
+            saRepo.save(sa);
+            return "redirect:adminLogin";
+        }
+        else{
+            return "redirect:adminJoin";
+        }
+        
+
+
         
     }
 

@@ -60,4 +60,15 @@ public class checkID {
         
     }
 
+    public boolean sacheckJoin(String user){
+        boolean result = false;
+
+        if((saRepo.countByUsername(user)==0)){
+            result=true;
+        }
+        
+        return result;
+        
+    }
+
 }
