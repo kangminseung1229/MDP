@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/MDP/adminLogin")
 				.permitAll()
 				.and()
-            .logout()
+			.logout()
                 .logoutUrl("/adminLogout")
                 .logoutSuccessUrl("/MDP/adminLogin")
 				.permitAll()

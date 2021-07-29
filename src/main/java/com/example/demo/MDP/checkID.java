@@ -9,6 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b259bd4e5ec5bed1126209e4e3b1a9e835816fed
 
 @Service
 public class checkID {

@@ -27,10 +27,18 @@
         <div id = top>
             <div id=top_wrapper>
                 <div id=image_wrapper>
-                    <a href='main'><img src="/img/MDP/logo.png"></a>
+                    <a th:if="${loginOut} == 'admin'"><img src="/img/MDP/logo.png"></a>
+                    <a th:if="${loginOut} != 'admin'" href='main'><img src="/img/MDP/logo.png"></a>
                 </div>
+<<<<<<< HEAD
                 <div class="logout" onclick="location.href='MDP/login'" th:if="${loginOut} != 'permission'" th:text="LOGIN"></div>  
                 <div class="logout" onclick="location.href='MDP/logout'" th:if="${loginOut} == 'permission'" th:text="LOGOUT"></div>
+=======
+            
+                <div class="logout" onclick="location.href='logout'" th:if="${loginOut} == 'permission'" th:text="LOGOUT"></div>
+                <div class="logout" onclick="location.href='MDP/login'" th:unless="${loginOut} == 'permission'" th:text="LOGIN"></div> 
+
+>>>>>>> b259bd4e5ec5bed1126209e4e3b1a9e835816fed
             </div>
         </div>
     </header>

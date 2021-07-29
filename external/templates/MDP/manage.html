@@ -2,7 +2,17 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/MDP_main_fragment :: top('manage')"></head>
 <body>
-    <header th:replace="fragments/MDP_main_fragment :: header"></header>
+    <div id = top>
+        <div id=top_wrapper>
+            <div id=image_wrapper>
+                <a th:if="${loginOut} == 'admin'"><img src="/img/MDP/logo.png"></a>
+                <a th:if="${loginOut} != 'admin'" href='main'><img src="/img/MDP/logo.png"></a>
+            </div>
+            <div class="logout" onclick="location.href='/adminLogout'" th:text="LOGOUT"></div>
+
+        </div>
+    </div>
+
     <div id="process_wrapper">
         <div class="process_div">
             <div class="process_div2" >

@@ -97,7 +97,7 @@
     outline:none;
     color:black;
 }
-#join_button{
+#join_button [type="submit"]{
     border:1.5px solid #043383;
     background-color:#fff;
     width:100%;
@@ -111,8 +111,12 @@
     margin-top: 10px;
     text-align: center;
 }
+<<<<<<< HEAD
 
 #join_button:hover{
+=======
+#join_button [type="submit"]:hover{
+>>>>>>> b259bd4e5ec5bed1126209e4e3b1a9e835816fed
     background-color:#043383;
     color:#fff;
 }
