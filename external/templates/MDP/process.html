@@ -45,7 +45,9 @@
                             함께 찍은 사진이 없다면 마음에 드는 사진을 골라 주세요.
                         </p>
                         <div class="input_image">
-                            <input type="file" id="fileupload" name="step2Fileupload" accept="image/*" style="margin:0 auto; margin-left:50px;"/>
+                            <img src="" id="target" alt="">
+                            <input type="file" id="fileupload" name="step2Fileupload" accept="image/*" style="margin:0 auto; margin-left:50px;">
+                            <!-- ENCTYPE="multipart/form-data" -->
                         </div>
                         <p style="padding-top:3%;">
                             그 사람에게 내가 전하고 싶은 감정을 선택해주세요
@@ -284,5 +286,34 @@
     <!-- swiper -->
     
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        $("#fileupload").change(function(){
+            const imgPath=document.querySelector('#fileupload').files[0];
+            const reader = new FileReader();
+            reader.addEventListener("load", function(){
+                localStorage["target"]=reader.result;
+            }, false);
+            if(imgPath){
+                reader.readAsDataURL(imgPath);
+            }
+            let img=document.getElementById('target');
+            img.src=localStorage["target"];
+        });
+
+         
+
+        function send(param) {  
+
+            if ($("#"+param).val() == undefined ) {
+                alert(param +'이 없습니다.');
+            }
+
+
+        }
+
+
+    
+    </script>
 
 </footer>

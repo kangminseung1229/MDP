@@ -109,10 +109,9 @@ public class MDP_MainController {
     }
 
     @PostMapping("/letter")
-    public String letterPost(HttpServletRequest request, HttpServletResponse response, Model model, String feeling) throws IOException, ServletException {
+    public String letterPost(Model model, @RequestParam String step2Fileupload) throws IOException, ServletException {
         
-        System.out.println(feeling);
-        
+        model.addAttribute("filetag", step2Fileupload);        
 
         return "MDP/letter";
     }
