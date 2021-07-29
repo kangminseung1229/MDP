@@ -1,22 +1,18 @@
 
 $(document).ready(function(){
-    
 
-    
-    var bullet = ['1번', '2번', '3번'];
     let swiper = new Swiper(".mySwiper", {
     
-        // autoHeight : true,
+        autoHeight : true,
+        // allowSlideNext:false,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev"
         },
-            // allowSlideNext:false
 
         on: {
             activeIndexChange: function () {
-                // alert(this.realIndex+'번째 slide입니다.');
-                // $(input:radio[id=this.realIndex+1]).prop("checked",true);
+
                 console.log();
                 num = this.realIndex+1;
                 $("input:radio[id="+num+"]").prop('checked', true)
@@ -62,11 +58,15 @@ $(document).ready(function(){
     process1();
 
     
-    // swiper.allowSlideNext(false);
+    
 
 });
 
 function process1(){
+
+    for(let i =2; i<10; i++){
+        $("#step1_textbox"+i).hide();
+    }
 
     $("#step1_textbox1").keyup(function(){
         step1();
@@ -195,7 +195,25 @@ function process1(){
 
                 $('#stage4').delay(600).fadeIn(600);
 
-                $("#step1_textbox1").prop("type","radio");
+                $("#step1_textbox2").prop("type","radio");
+                $("#step1_textbox2").after('<label class = "step1_textbox2"; >'+$("#step1_textbox2").val()+'</label>');
+                // html($("#step1_textbox2").val()).addClass("step1_textbox2")
+
+                $("#step1_textbox3").prop("type","radio");
+                // console.log();
+
+                // let button = $('<button/>', {
+                //     id: class_name+index,
+                //     value : value
+                // });
+                // button.addClass(class_name);
+                // button.html(value);
+                // $(table).children().eq(num).append("<td>").children().eq(tr_num).append(button);
+
+                
+                // $("#step1_textbox2").prop("type","radio");
+                // $("#step1_textbox2").prop("type","radio");
+                // $("#step1_textbox2").prop("type","radio");
 
 
            

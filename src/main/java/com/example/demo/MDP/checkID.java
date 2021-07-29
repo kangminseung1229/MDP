@@ -21,10 +21,17 @@ public class checkID {
         boolean result = false;
         System.out.println(result);
 
-        if(Repo.countByUser(user)>0 || (Repo.countByCode(user))>0){
+        if(Repo.countByUser(user)>0){
             HttpSession session = request.getSession();
             session.setAttribute("permission", "permission");
             result=true;
+        }
+        else if(Repo.countByCode(user)>0){
+            if(Repo.findByCode(user).get().getUser()!=null){
+                HttpSession session = request.getSession();
+                session.setAttribute("permission", "permission");
+                result=true;
+            }
         }
         
         return result;

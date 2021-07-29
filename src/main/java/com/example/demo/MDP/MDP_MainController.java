@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
 
-import org.hibernate.dialect.identity.SybaseAnywhereIdentityColumnSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -142,7 +141,7 @@ public class MDP_MainController {
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
         model.addAttribute("list", page);
-        
+        model.addAttribute("loginOut", "admin");
         return "MDP/manage";
     }
 
@@ -191,6 +190,10 @@ public class MDP_MainController {
 
     @GetMapping("/adminLogin")
     public String adminLogin(){
+        return "MDP/admin_login";
+    }
+    @GetMapping("admin/login")
+    public String adminLogin2(){
         return "MDP/admin_login";
     }
 
