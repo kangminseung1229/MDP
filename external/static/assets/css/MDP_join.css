@@ -111,12 +111,7 @@
     margin-top: 10px;
     text-align: center;
 }
-<<<<<<< HEAD
-
-#join_button:hover{
-=======
 #join_button [type="submit"]:hover{
->>>>>>> b259bd4e5ec5bed1126209e4e3b1a9e835816fed
     background-color:#043383;
     color:#fff;
 }
