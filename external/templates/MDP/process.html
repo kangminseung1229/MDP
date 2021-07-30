@@ -19,23 +19,24 @@
                             <p id = "stage3">다음에 떠오르는 다섯 사람의 이름은 <span id="hl_green">초록색 칸</span>에 써보세요.</p>
                             <p id = "stage4" >이 중 오늘 마음을 전하고 싶은 한 사람을 클릭해주세요.</p>
                         </div>
-                        <div id = "textbox_shapes">
-                            <input id="step1_textbox1" class="step1_textbox" type="text" placeholder="이름" name="step1Me">
-                            <input id="step1_textbox2" class="step1_textbox" type="text" placeholder="이름" name="step1Text">
-                            <input id="step1_textbox3" class="step1_textbox" type="text" placeholder="이름" name="step1Text">
-                            <input id="step1_textbox4" class="step1_textbox" type="text" placeholder="이름" name="step1Text">
-                            <input id="step1_textbox5" class="step1_textbox" type="text" placeholder="이름" name="step1Text">
-                            <input id="step1_textbox6" class="step1_textbox" type="text" placeholder="이름" name="step1Text">
-                            <input id="step1_textbox7" class="step1_textbox" type="text" placeholder="이름" name="step1Text">
-                            <input id="step1_textbox8" class="step1_textbox" type="text" placeholder="이름" name="step1Text">
-                            <input id="step1_textbox9" class="step1_textbox" type="text" placeholder="이름" name="step1Text">
+                        <div class = "textbox_shapes">
+                            <input id="step1_textbox1" class="step1_textbox1 step1_textbox" type="text" placeholder="이름" name="step1Me">
+                            <input id="step1_textbox2" class="step1_textbox2 step1_textbox" type="text" placeholder="이름" name="step1Text">
+                            <input id="step1_textbox3" class="step1_textbox3 step1_textbox" type="text" placeholder="이름" name="step1Text">
+                            <input id="step1_textbox4" class="step1_textbox4 step1_textbox" type="text" placeholder="이름" name="step1Text">
+                            <input id="step1_textbox5" class="step1_textbox5 step1_textbox" type="text" placeholder="이름" name="step1Text">
+                            <input id="step1_textbox6" class="step1_textbox6 step1_textbox" type="text" placeholder="이름" name="step1Text">
+                            <input id="step1_textbox7" class="step1_textbox7 step1_textbox" type="text" placeholder="이름" name="step1Text">
+                            <input id="step1_textbox8" class="step1_textbox8 step1_textbox" type="text" placeholder="이름" name="step1Text">
+                            <input id="step1_textbox9" class="step1_textbox9 step1_textbox" type="text" placeholder="이름" name="step1Text">
                             <div id="step1_shape_num1" class="step1_shape"></div>
                             <div id="step1_shape_num2"></div>
                             <div id="step1_shape_num3"></div>
-                            <div id="next">NEXT</div>   
+                            <div id="step1_next" class="next">NEXT</div>   
                         </div>                      
                     </div> 
                 </div>
+
 
                 <!-- step2 -->
                 <div class="swiper-slide">
@@ -201,6 +202,9 @@
                 </div>
 
                 <!-- step6 -->
+
+                <!-- <label class="feeling"><input type="radio" name="feeling" value="고마움"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp; -->
+
                 <div class="swiper-slide">
                     <div id="step6">
                         <p>
@@ -213,34 +217,58 @@
         
                         <div class="step6_container">
                             <table style="display:inline-block;">
-                                <tr>
+                                <tr id = "step6_emotion_category_wrapper">
                                     <td class="step6_container_td">
-                                        <div id = emmotion_common></div>
-                                        <div id = emmotion_common_text>공통단어</div>   
+                                        <input type="radio"  name="step6_emotion_category"></input>
+                                        <span id = emotion_common ></span>
+                
+                                        <div id = emotion_common_text>공통단어</div>   
                                     </td>
                                     <td class="step6_container_td">
-                                        <div id = emmotion_thanks></div>
-                                        <div id = emmotion_thanks_text>고마움</div> 
+                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <span id = emotion_thanks ></span>
+
+                                        <div id = emotion_thanks_text>고마움</div> 
                                     </td>
                                     <td class="step6_container_td">
-                                        <div id = emmotion_sorry></div>
-                                        <div id = emmotion_sorry_text>미안함</div> 
+                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <span id = emotion_sorry ></span>
+
+                                        <div id = emotion_sorry_text>미안함</div> 
                                     </td>
                                     <td class="step6_container_td">
-                                        <div id = emmotion_celebration></div>
-                                        <div id = emmotion_celebration_text>축하응원</div> 
+                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <span id = emotion_celebration ></span>
+
+                                        <div id = emotion_celebration_text>축하응원</div> 
                                     </td>
                                     <td class="step6_container_td">
-                                        <div id = emmotion_love></div>
-                                        <div id = emmotion_love_text>사랑</div> 
+                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <span id = emotion_love ></span>
+
+                                        <div id = emotion_love_text>사랑</div> 
                                     </td>
                                     <td class="step6_container_td">
-                                        <div id = emmotion_say></div>
-                                        <div id = emmotion_say_text>안부</div> 
+                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <span id = emotion_say ></span>
+
+                                        <div id = emotion_say_text>안부</div> 
                                     </td>
                                 </tr>
                             </table>
                         </div>
+
+
+
+
+                    <!-- <label class="box-radio-input">
+                            <input type="radio" name="cp_item" value="옵션1" checked="checked">
+                            <span>옵션1</span></label>
+                        <label class="box-radio-input">
+                            <input type="radio" name="cp_item" value="옵션2">
+                            <span>옵션2</span></label> -->
+
+
                         <div id="step6_container">
                             <table id = "emotion_card_table_common"></table>
                             <table id = "emotion_card_table_thanks"></table>

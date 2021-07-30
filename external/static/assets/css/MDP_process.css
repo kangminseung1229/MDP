@@ -189,7 +189,7 @@
     /* border: 2px solid rgb(76, 76, 214); */
 }
 
-#next {
+.next {
     border: 1px solid #043383;
     text-align: center;
     /* margin:0 auto; */
@@ -210,7 +210,7 @@
     top: 460px;
     position: absolute;
 }
-#next:hover {
+.next:hover {
     background-color: #fff;
     box-shadow: 0 15px 20p #fff;
     color: #043383;
@@ -263,11 +263,11 @@
 
 .swiper-button-next {
     color: #043383 !important;
-    /* display: none !important; */
+    display: none !important;
 }
 .swiper-button-prev {
     color: #043383 !important;
-    /* display: none !important; */
+    display: none !important;
 }
 
 

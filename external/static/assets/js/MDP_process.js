@@ -1,18 +1,17 @@
 
 $(document).ready(function(){
     
-
-    
-    var bullet = ['1번', '2번', '3번'];
     let swiper = new Swiper(".mySwiper", {
     
-        // autoHeight : true,
+        autoHeight : true,
+        // allowSlideNext:false,
+        // allowSlidePrev:false,
+
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev"
         },
-            // allowSlideNext:false
-
+        
         on: {
             activeIndexChange: function () {
                 // alert(this.realIndex+'번째 slide입니다.');
@@ -21,10 +20,16 @@ $(document).ready(function(){
                 num = this.realIndex+1;
                 $("input:radio[id="+num+"]").prop('checked', true)
             }
-        }
+        },
+        keyboard: {
+            enabled: false,
+            onlyInViewport: false,
+            pageUpDown:false
+          },
       });
 
-    swiper.keyboard.disable(); 
+    //   임시로 6페이지로 고정
+    swiper.slideTo(5);
     
     $("input:radio[name=menu]").click(function()
     {
@@ -68,6 +73,12 @@ $(document).ready(function(){
 
 function process1(){
 
+    $("#step1_next").hide();
+    for(let i =2; i<10; i++){
+        $("#step1_textbox"+i).hide();
+    }
+
+
     $("#step1_textbox1").keyup(function(){
         step1();
     });
@@ -106,7 +117,7 @@ function process1(){
 
     
     function step1(){
-        if(  $("#step1_textbox1").val().length > 1 ){
+        if(  $("#step1_textbox1").val().length > 0 ){
             
             console.log("A")
             $('#stage2').fadeIn(600);
@@ -130,9 +141,9 @@ function process1(){
 
     function step2() { 
 
-        if( $("#step1_textbox2").val().length>1 &&  
-            $("#step1_textbox3").val().length >1 &&  
-            $("#step1_textbox4").val().length>1){
+        if( $("#step1_textbox2").val().length>0 &&  
+            $("#step1_textbox3").val().length >0 &&  
+            $("#step1_textbox4").val().length>0){
                 console.log("abc")
                 $('#stage3').fadeIn(600);
                 $('#step1_shape_num3').fadeIn(600);
@@ -157,9 +168,9 @@ function process1(){
 
     function step3() { 
  
-        if( $("#step1_textbox5").val().length>1 &&  $("#step1_textbox6").val().length >1 &&  
-            $("#step1_textbox7").val().length>1 && $("#step1_textbox8").val().length>1 &&  
-            $("#step1_textbox9").val().length >1 ){
+        if( $("#step1_textbox5").val().length>0 &&  $("#step1_textbox6").val().length >0 &&  
+            $("#step1_textbox7").val().length>0 && $("#step1_textbox8").val().length>0 &&  
+            $("#step1_textbox9").val().length >0 ){
 
 
             $('#step1_shape_num3').removeClass( "step3_shape" );  
@@ -170,22 +181,24 @@ function process1(){
             $('#step1_textbox8').addClass( "textbox5_9_class" ) ;
             $('#step1_textbox9').addClass( "textbox5_9_class" ) ;
             
-            $('#next').fadeIn(600);
+            $('#step1_next').fadeIn(600);
 
-            $("#next").click(function(){
-                step4();
-            });
+            
 
         }
     }
 
+    $("#step1_next").click(function(){
+        step4();
+    });
+
     function step4(){
 
-        if($("#step1_textbox1").val().length>1 &&  $("#step1_textbox2").val().length >1 &&  
-            $("#step1_textbox3").val().length>1 && $("#step1_textbox4").val().length>1 &&  
-            $("#step1_textbox5").val().length >1 && $("#step1_textbox6").val().length>1 &&  
-            $("#step1_textbox7").val().length >1 &&  $("#step1_textbox8").val().length>1 &&
-            $("#step1_textbox9").val().length>1 ){
+        if($("#step1_textbox1").val().length>0 &&  $("#step1_textbox2").val().length >0 &&  
+            $("#step1_textbox3").val().length>0 && $("#step1_textbox4").val().length>0 &&  
+            $("#step1_textbox5").val().length >0 && $("#step1_textbox6").val().length>0 &&  
+            $("#step1_textbox7").val().length >0 &&  $("#step1_textbox8").val().length>0 &&
+            $("#step1_textbox9").val().length>0 ){
             
                 console.log("4")
                 $('#stage1').fadeOut(600);
@@ -194,11 +207,19 @@ function process1(){
                 $('#next').fadeOut(600)
 
                 $('#stage4').delay(600).fadeIn(600);
+                
 
-                $("#step1_textbox1").prop("type","radio");
+                $("#step1_textbox1").prop("readonly",true);
+                $("#step1_textbox1").prop("width","auto");
 
+                for(let i = 2; i<10; i++){
+                    let textbox = "step1_textbox"+i;
+                    $("#"+textbox).prop("type","radio");
+                    $("#"+textbox).after("<label class ="+textbox+" id = step1_label"+i+">"+$("#"+textbox).val()+"</label>");
+                }
+                
 
-           
+                
                 
             
             
@@ -206,6 +227,7 @@ function process1(){
 
         
     }
+
   
 }
 
