@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
     
-    let swiper = new Swiper(".mySwiper", {
+    let swiper = new Swiper(".entireSwiper", {
     
         autoHeight : true,
         // allowSlideNext:false,
@@ -17,8 +17,8 @@ $(document).ready(function(){
                 // alert(this.realIndex+'번째 slide입니다.');
                 // $(input:radio[id=this.realIndex+1]).prop("checked",true);
                 console.log();
-                num = this.realIndex+1;
-                $("input:radio[id="+num+"]").prop('checked', true)
+                let num = this.realIndex+1;
+                $("input:radio[id=menu"+num+"]").prop('checked', true)
             }
         },
         keyboard: {
@@ -30,38 +30,41 @@ $(document).ready(function(){
 
     //   임시로 6페이지로 고정
     swiper.slideTo(5);
-    
-    $("input:radio[name=menu]").click(function()
-    {
-        let menu = $('input:radio[name="menu"]:checked').val();
-        
-        switch(menu){
-            case "1": {
-                swiper.slideTo(0);
-                break;
-            }
-            case "2": {
-                swiper.slideTo(1);
-                break;
-            }
-            case "3": {
-                swiper.slideTo(2);
-                break;
-            }
-            case "4": {
-                swiper.slideTo(3);
-                break;
-            }
-            case "5": {
-                swiper.slideTo(4);
-                break;
-            }
-            case "6": {
-                swiper.slideTo(5);
-                break;
-            }
-        }
+    $("input:radio[name=menu]").click(function(){
+        console.log("LLL")
     });
+    // $("input:radio[name=menu]").click(function()
+    // {
+    //     console.log("AAAAAA")
+    //     let menu = $('input:radio[name="menu"]:checked').val();
+        
+    //     switch(menu){
+    //         case "1": {
+    //             swiper.slideTo(0);
+    //             break;
+    //         }
+    //         case "2": {
+    //             swiper.slideTo(1);
+    //             break;
+    //         }
+    //         case "3": {
+    //             swiper.slideTo(2);
+    //             break;
+    //         }
+    //         case "4": {
+    //             swiper.slideTo(3);
+    //             break;
+    //         }
+    //         case "5": {
+    //             swiper.slideTo(4);
+    //             break;
+    //         }
+    //         case "6": {
+    //             swiper.slideTo(5);
+    //             break;
+    //         }
+    //     }
+    // });
     
     
     process1();

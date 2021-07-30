@@ -233,13 +233,13 @@
 }
 
 /* swiper */
-.swiper-container {
+.entireSwiper {
     width: 1200px;
     height: auto;
 
 }
 
-.swiper-slide {
+.entireSwiper-swiper-slide  {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -269,6 +269,7 @@
     color: #043383 !important;
     display: none !important;
 }
+
 
 
 

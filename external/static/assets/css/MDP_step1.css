@@ -336,12 +336,6 @@
 }
 
 
-.step3_shape{
-    cursor: pointer;
-    animation: pulseAnim_step3 2s infinite;
-}
-
-
 /* Checked */
 .textbox_shapes input[type="radio"]:checked + label {
     color: #ffffff;

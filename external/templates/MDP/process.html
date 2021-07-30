@@ -7,11 +7,11 @@
     <div id="process_wrapper">
         <nav th:replace = "fragments/MDP_process_fragment :: nav"></nav>
         
-        <div class="swiper-container mySwiper">
+        <div class="swiper-container entireSwiper">
             <div class="content swiper-wrapper">
 
                 <!-- step1 -->
-                <div class=" swiper-slide">
+                <div class=" swiper-slide entireSwiper-swiper-slide">
                     <div id="step1" >
                         <div class="paragraph">
                             <p id = "stage1"><span id="hl_yello">노란색 칸</span>에 자신의 이름을 써보세요.</p> 
@@ -39,7 +39,7 @@
 
 
                 <!-- step2 -->
-                <div class="swiper-slide">
+                <div class="swiper-slide entireSwiper-swiper-slide">
                     <div id="step2">
                         <p>
                             추억이 담긴 사진들을 찾아 보며 우리의 순간을 되돌아 볼까요?<br>
@@ -63,7 +63,7 @@
                 </div>
 
                 <!-- step3 -->
-                <div class="swiper-slide">
+                <div class="swiper-slide entireSwiper-swiper-slide">
                     <div id="step3">
                         <p>
                             마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
@@ -118,7 +118,7 @@
                 </div>
 
                 <!-- step4 -->
-                <div class="swiper-slide">
+                <div class="swiper-slide entireSwiper-swiper-slide">
                     <div id="step4">
                         <p>
                             그 사람과 함께한 특별한 에피소드가 떠올랐나요?<br>
@@ -157,7 +157,7 @@
                 </div>
 
                 <!-- step5 -->
-                <div class="swiper-slide">
+                <div class="swiper-slide entireSwiper-swiper-slide">
                     <div id="step5">
                         <p>
                             마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
@@ -205,7 +205,7 @@
 
                 <!-- <label class="feeling"><input type="radio" name="feeling" value="고마움"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp; -->
 
-                <div class="swiper-slide">
+                <div class="swiper-slide entireSwiper-swiper-slide">
                     <div id="step6">
                         <p>
                             내가 전하고 싶은 <span id="hl_green">감정을 클릭</span>한 후<br>
@@ -214,68 +214,74 @@
                             정해진 감정에 상관없이 자유롭게 골라도 좋습니다!
                         </p>
                         <p>원하는 감정을 선택해주세요</p>
-        
+                        
+                        <!-- 감정 카테고리 라디오 버튼 -->
                         <div class="step6_container">
                             <table style="display:inline-block;">
-                                <tr id = "step6_emotion_category_wrapper">
+                                <tr>
                                     <td class="step6_container_td">
-                                        <input type="radio"  name="step6_emotion_category"></input>
+                                        <input type="radio" id="emotion1" value ="1" name="step6_emotion_category"></input>
                                         <span id = emotion_common ></span>
-                
-                                        <div id = emotion_common_text>공통단어</div>   
+                                        <div class = emotion_text id = emotion_common_text>공통단어</div>   
                                     </td>
                                     <td class="step6_container_td">
-                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <input type="radio" id="emotion2" value ="2" name="step6_emotion_category"></input>
                                         <span id = emotion_thanks ></span>
-
-                                        <div id = emotion_thanks_text>고마움</div> 
+                                        <div  class = emotion_text id = emotion_thanks_text>고마움</div> 
                                     </td>
                                     <td class="step6_container_td">
-                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <input type="radio" id="emotion3" value ="3" name="step6_emotion_category"></input>
                                         <span id = emotion_sorry ></span>
-
-                                        <div id = emotion_sorry_text>미안함</div> 
+                                        <div  class = emotion_text id = emotion_sorry_text>미안함</div> 
                                     </td>
                                     <td class="step6_container_td">
-                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <input type="radio" id="emotion4" value ="4" name="step6_emotion_category"></input>
                                         <span id = emotion_celebration ></span>
-
-                                        <div id = emotion_celebration_text>축하응원</div> 
+                                        <div  class = emotion_text id = emotion_celebration_text>축하응원</div> 
                                     </td>
                                     <td class="step6_container_td">
-                                        <input type="radio" name="step6_emotion_category"></input>
+                                        <input type="radio" id="emotion5" value ="5" name="step6_emotion_category"></input>
                                         <span id = emotion_love ></span>
-
-                                        <div id = emotion_love_text>사랑</div> 
+                                        <div  class = emotion_text id = emotion_love_text>사랑</div> 
                                     </td>
                                     <td class="step6_container_td">
-                                        <input type="radio" name="step6_emotion_category"></input>
-                                        <span id = emotion_say ></span>
-
-                                        <div id = emotion_say_text>안부</div> 
+                                        <input type="radio" id="emotion6" value ="6" name="step6_emotion_category"></input>
+                                        <span id = emotion_say ></span>    
+                                        <div  class = emotion_text id = emotion_say_text>안부</div> 
                                     </td>
                                 </tr>
                             </table>
                         </div>
-
-
-
-
-                    <!-- <label class="box-radio-input">
-                            <input type="radio" name="cp_item" value="옵션1" checked="checked">
-                            <span>옵션1</span></label>
-                        <label class="box-radio-input">
-                            <input type="radio" name="cp_item" value="옵션2">
-                            <span>옵션2</span></label> -->
-
-
-                        <div id="step6_container">
-                            <table id = "emotion_card_table_common"></table>
-                            <table id = "emotion_card_table_thanks"></table>
-                            <table id = "emotion_card_table_sorry"></table>
-                            <table id = "emotion_card_table_celebration"></table>
-                            <table id = "emotion_card_table_love"></table>
+                        <div class="swiper-container emotionSwiper">
+                            <div class="swiper-wrapper step6_container">
+                                <div class="swiper-slide">
+                                    <table id = "emotion_card_table_common"></table>
+                                </div>
+                                <div class="swiper-slide">
+                                    <table id = "emotion_card_table_thanks"></table>
+                                </div>
+                                <div class="swiper-slide">
+                                    <table id = "emotion_card_table_sorry"></table>
+                                </div>
+                                <div class="swiper-slide">
+                                    <table id = "emotion_card_table_celebration"></table>
+                                </div>
+                                <div class="swiper-slide">
+                                    <table id = "emotion_card_table_love"></table>
+                                </div>
+                                <div class="swiper-slide">
+                                    <table id = "emotion_card_table_say"></table>
+                                </div>
+                            </div>
                         </div>
+<!-- 
+                        <div id="step6_container">
+                            
+                            
+                            
+                            
+                           
+                        </div> -->
                         <div class="step6_container_select">
                             <span id = "select_word_text1">내가 선택한 감정단어</span>
                             <span id = "select_word_text2">감정단어를 클릭하면 지울 수 있어요.</span>

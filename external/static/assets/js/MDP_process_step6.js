@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+
     
     let common=["진심의","의지되는","감사한","걱정스러운","기억에 남는",
                 "안심이 되는","그리운","배려하는","위로의","재미있는",
@@ -26,7 +27,66 @@ $(document).ready(function(){
     add(love,"#emotion_card_table_love","emotion_card_love");
     add(say,"#emotion_card_table_say","emotion_card_say");
 
+    
+    let emotionSwiper = new Swiper(".emotionSwiper", {
+    
+        autoHeight : true,
+        // allowSlideNext:false,
+        // allowSlidePrev:false,
 
+        // navigation: {
+        //     nextEl: ".emotion-swiper-button-next",
+        //     prevEl: ".emotion-swiper-button-prev"
+        // },
+        
+        on: {
+            activeIndexChange: function () {
+                let num = this.realIndex+1;
+                $("input[id=emotion"+num+"]").prop('checked', true);
+                console.log(num);
+            }
+        },
+        keyboard: {
+            enabled: false,
+            onlyInViewport: false,
+            pageUpDown:false
+          },
+      });
+
+   
+
+    $("input:radio[name=step6_emotion_category]").click(function()
+    {
+        let emotion_radio = $('input:radio[name="step6_emotion_category"]:checked').val();
+        
+        switch(emotion_radio){
+            case "1": {
+                emotionSwiper.slideTo(0);
+                break;
+            }
+            case "2": {
+                emotionSwiper.slideTo(1);
+                break;
+            }
+            case "3": {
+                emotionSwiper.slideTo(2);
+                break;
+            }
+            case "4": {
+                emotionSwiper.slideTo(3);
+                break;
+            }
+            case "5": {
+                emotionSwiper.slideTo(4);
+                break;
+            }
+            case "6": {
+                emotionSwiper.slideTo(5);
+                break;
+            }
+        }
+    });
+    
     
 });
 
