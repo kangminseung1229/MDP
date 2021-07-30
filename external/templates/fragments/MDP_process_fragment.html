@@ -2,31 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <nav th:fragment = "nav">
-     
-        
-        <div class="nav-wrapper">
-            <div class ="process_menu">
-              <div class="tittle">MIND DELIVERY PROCESS</div>
-              <div id="menu-slider">
-                <input type="radio" name="menu" id="menu1" value="1" checked = "true" required>
-                <label for="1" data-menu="01 받는 사람"></label>
-                <input type="radio" name="menu" id="menu2" value="2" required>
-                <label for="2" data-menu="02 되돌아 보며"></label>
-                <input type="radio" name="menu" id="menu3" value="3" required>
-                <label for="3" data-menu="03 그 사람과 나는"></label>
-                <input type="radio" name="menu" id="menu4" value="4" required>
-                <label for="4" data-menu="04 그때의 나는"></label>
-                <input type="radio" name="menu" id="menu5" value="5" required>
-                <label for="5" data-menu="05 그때의 내 마음은"></label>
-                <input type="radio" name="menu" id="menu6" value="6" required>
-                <label for="6" data-menu="06 감정단어"></label>
-                <div id="menu-pos"></div>
-                
-              </div>
-            </div>
+      <div class="nav-wrapper">
+        <div class ="process_menu">
+          <div class="tittle">MIND DELIVERY PROCESS</div>
+          <div id="menu-slider">
+            <input type="radio" name="menu" id="1" value="1" checked = "true" required>
+            <label for="1" data-menu="01 받는 사람"></label>
+            <input type="radio" name="menu" id="2" value="2" required>
+            <label for="2" data-menu="02 되돌아 보며"></label>
+            <input type="radio" name="menu" id="3" value="3" required>
+            <label for="3" data-menu="03 그 사람과 나는"></label>
+            <input type="radio" name="menu" id="4" value="4" required>
+            <label for="4" data-menu="04 그때의 나는"></label>
+            <input type="radio" name="menu" id="5" value="5" required>
+            <label for="5" data-menu="05 그때의 내 마음은"></label>
+            <input type="radio" name="menu" id="6" value="6" required>
+            <label for="6" data-menu="06 감정단어"></label>
+            <div id="menu-pos"></div>
             
+          </div>
         </div>
-        <div class = "background-blur"></div>
+      </div>
+       <div class = "background-blur"></div>
     </nav>
     <div th:fragment = "script">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

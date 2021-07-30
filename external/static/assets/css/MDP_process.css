@@ -2,10 +2,20 @@
 .nav-wrapper {
     width: 1200px;
     height: 190px;
-    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
+    z-index: 3;
+
+}
+.background-blur{
+    width: 1200px;
+    height: 190px;
+    background-color: white;
+    opacity:0.7;
+    position: fixed;
+    z-index: 2;
 }
 .process_menu {
     width: 100%;
@@ -205,9 +215,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 10px;
-    /* display:none; */
-    left: 600px;
-    top: 460px;
+    display:none;
     position: absolute;
 }
 .next:hover {
@@ -236,10 +244,10 @@
 .entireSwiper {
     width: 1200px;
     height: auto;
-
+    top:190px;
 }
 
-.entireSwiper-swiper-slide  {
+.entireSwiper-swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -263,13 +271,12 @@
 
 .swiper-button-next {
     color: #043383 !important;
-    display: none !important;
+    /* display: none !important; */
 }
 .swiper-button-prev {
     color: #043383 !important;
-    display: none !important;
+    /* display: none !important; */
 }
-
 
 
 

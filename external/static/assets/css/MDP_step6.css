@@ -184,44 +184,81 @@
 }
 
 
+/**** 감정카드 ****/
 
-/* 공통단어 */
-
-
-.emotion_card_common{
+.emotion_card_text{
     width: 117px;
     height: 50px;
     border-radius: 10px;
     background: #113576;
-    color: #F5D53F;
-    text-align: center;
-    line-height: 50px;
     font-family: gmarket_bold;
     transition-property:opacity;
     opacity: 1.0;
     transition-duration:0.3s;
     border: none;
+    line-height: 50px;
+    font-size: 15px;
+    text-align: center;
 }
-.emotion_card_common:hover{
+
+
+/* 공통단어 */
+.emotion_card_common{
+    color: #F5D53F;
+}
+/* .emotion_card_common:hover{
     opacity: 0.7;
+} */
+
+
+input[type="checkbox"] + div {
+    width: 117px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #113576;
+    font-family: gmarket_bold;
+    transition-property:opacity;
+    opacity: 1.0;
+    transition:all 0.15s;
+    border: none;
+    line-height: 50px;
+    font-size: 15px;
+    text-align: center;
+    box-shadow: 1px 1px 3px 1px #dadce0;
 }
+input[type="checkbox"]:checked + div {
+    opacity: 0.7;
+    box-shadow: 1px 1px 3px 1px #dadce0 inset;
+    
+}
+input[type="checkbox"]:hover + div {
+    opacity: 0.7;
+    
+}
+input[type="checkbox"]:active + div {
+    transform: translateY(4px);
+    
+}
+
+input[type="checkbox"]{
+    margin-left:-58px;
+    width: 117px;
+    height: 50px;
+    z-index:3;
+    /* text-align: center;
+    display:inline-block;  */
+    position: absolute;
+    opacity: 0;
+    border:2px solid red;
+}
+
+
 
 /* 고마움 */
 
 
 .emotion_card_thanks{
-    width: 117px;
-    height: 50px;
-    border-radius: 10px;
-    background: #113576;
     color: #85C247;
-    text-align: center;
-    line-height: 50px;
-    font-family: gmarket_bold;
-    transition-property:opacity;
-    opacity: 1.0;
-    transition-duration:0.3s;
-    border: none;
 }
 
 .emotion_card_thanks:hover{
@@ -232,18 +269,7 @@
 
 
 .emotion_card_sorry{
-    width: 117px;
-    height: 50px;
-    border-radius: 10px;
-    background: #113576;
     color: #6BA7DB;
-    text-align: center;
-    line-height: 50px;
-    font-family: gmarket_bold;
-    transition-property:opacity;
-    opacity: 1.0;
-    transition-duration:0.3s;
-    border: none;
 }
 .emotion_card_sorry:hover{
     opacity: 0.7;
@@ -252,58 +278,22 @@
 /* 축하응원 */
 
 .emotion_card_celebration{
-    width: 117px;
-    height: 50px;
-    border-radius: 10px;
-    background: #113576;
     color: #EC6A37;
-    text-align: center;
-    line-height: 50px;
-    font-family: gmarket_bold;
-    transition-property:opacity;
-    opacity: 1.0;
-    transition-duration:0.3s;
-    border: none;
 }
 .emotion_card_celebration:hover{
     opacity: 0.7;
 }
 /* 사랑 */
 
-
 .emotion_card_love{
-    width: 117px;
-    height: 50px;
-    border-radius: 10px;
-    background: #113576;
     color: #DB4D96;
-    text-align: center;
-    line-height: 50px;
-    font-family: gmarket_bold;
-    transition-property:opacity;
-    opacity: 1.0;
-    transition-duration:0.3s;
-    border: none;
 }
 .emotion_card_love:hover{
     opacity: 0.7;
 }
 /* 안부 */
-
-
 .emotion_card_say{
-    width: 117px;
-    height: 50px;
-    border-radius: 10px;
-    background: #113576;
     color: #E83B4D;
-    text-align: center;
-    line-height: 50px;
-    font-family: gmarket_bold;
-    transition-property:opacity;
-    opacity: 1.0;
-    transition-duration:0.3s;
-    border: none;
 }
 .emotion_card_say:hover{
     opacity: 0.7;
@@ -313,6 +303,7 @@
 .emotionSwiper{
     width: 627px;
     height: auto;
+    margin-top: -20px;
 }
 
 .emotion-swiper-button-next {
@@ -328,10 +319,6 @@
 
 
 /* 감정 카드 */
-
-
-
-
 
 #emotion_card_table_common{
     display:inline-block;
@@ -383,18 +370,22 @@
     width: 100%;
     margin: auto;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
+}
+#select_word{
+    margin-top: 10px;
 }
 #select_word_text1{
     float: left;
-    padding-left: 160px;
+    padding-left: 40px;
     font-size: 18px;
     
 }
 #select_word_text2{
     float: left;
+    padding-top: 5px;
     padding-left: 10px;
-    font-size: 10px;
+    font-size: 12px;
     color: #7E7E7F;
 }
 #select_word{
@@ -404,3 +395,5 @@
     border-radius: 15px;
     width: 627px;
 }
+
+

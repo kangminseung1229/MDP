@@ -1,3 +1,51 @@
+emotionArray = []
+
+Emotion = function(str,table,class_name){
+    this.str =  str;
+    this.table = table;
+    this.class_name = class_name;
+
+    this.add(this.table,this.class_name);
+}
+Emotion.prototype = Object.create(Emotion.prototype);
+
+Emotion.prototype.add = function(table,class_name){
+    
+    let num = 0;
+    let tr_num = 0;
+    
+
+    this.str.forEach(function(value,index){
+        
+        if((index) % 5 == 0){
+           
+            $(table).append('<tr>');
+            if(index != 0)
+                num++;
+            tr_num = 0
+            
+        }
+        
+        let checkbox = $('<input/>', {
+                id: class_name+index,
+                value : value,
+                type : "checkbox",
+                name : class_name
+            });
+        let label = $('<div/>', {
+                value : value,
+                for:class_name+index
+            });
+  
+        label.addClass(class_name);
+        label.html(value);
+        
+        $(table).children().eq(num).append("<td>").children().eq(tr_num).append(checkbox).append(label);
+        tr_num++;
+        
+    });
+
+}
 
 $(document).ready(function(){
 
@@ -18,27 +66,22 @@ $(document).ready(function(){
     let say=["화사한","아련한","씁쓸한","단단한","외로운",
                 "궁금한","다시 예전처럼","포근한","잔잔한","끈끈한"];
     
+    let emotion=[[common,"#emotion_card_table_common","emotion_card_common"],[thanks,"#emotion_card_table_thanks","emotion_card_thanks"],
+                [sorry,"#emotion_card_table_sorry","emotion_card_sorry"],[celebration,"#emotion_card_table_celebration","emotion_card_celebration"],
+                [love,"#emotion_card_table_love","emotion_card_love"],[say,"#emotion_card_table_say","emotion_card_say"]];
+
+            
+    console.log("A");
+    emotion.forEach(function(value,index){
+        emo = new Emotion(value[0],value[1],value[2]);
+        emotionArray.push(emo);
     
-
-    add(common,"#emotion_card_table_common","emotion_card_common");
-    add(thanks,"#emotion_card_table_thanks","emotion_card_thanks");
-    add(sorry,"#emotion_card_table_sorry","emotion_card_sorry");
-    add(celebration,"#emotion_card_table_celebration","emotion_card_celebration");
-    add(love,"#emotion_card_table_love","emotion_card_love");
-    add(say,"#emotion_card_table_say","emotion_card_say");
-
+    })
     
     let emotionSwiper = new Swiper(".emotionSwiper", {
     
         autoHeight : true,
-        // allowSlideNext:false,
-        // allowSlidePrev:false,
-
-        // navigation: {
-        //     nextEl: ".emotion-swiper-button-next",
-        //     prevEl: ".emotion-swiper-button-prev"
-        // },
-        
+        allowTouchMove : false,
         on: {
             activeIndexChange: function () {
                 let num = this.realIndex+1;
@@ -51,9 +94,16 @@ $(document).ready(function(){
             onlyInViewport: false,
             pageUpDown:false
           },
-      });
-
+          
+    });
+    console.log(emotionArray[0].class_name);
    
+    $("input:checkbox[name="+emotionArray[0].class_name+"]").click(function(){
+        console.log(emotionArray[0].class_name);
+
+
+    });
+
 
     $("input:radio[name=step6_emotion_category]").click(function()
     {
@@ -86,10 +136,20 @@ $(document).ready(function(){
             }
         }
     });
-    
-    
+
+
 });
 
+
+
+
+
+
+
+/*
+
+
+checkbox.html(value);
 
 function add(str,table,class_name){
 
@@ -112,6 +172,7 @@ function add(str,table,class_name){
                 id: class_name+index,
                 value : value
             });
+        button.addClass("emotion_card_text");
         button.addClass(class_name);
         button.html(value);
         $(table).children().eq(num).append("<td>").children().eq(tr_num).append(button);
@@ -121,3 +182,6 @@ function add(str,table,class_name){
 
 
 }
+
+
+*/
