@@ -5,8 +5,7 @@
     border-radius:20px;
     text-align:center;
     width:500px;
-    height:250px;
-    line-height:250px;
+    height:auto;
 }
 #radio_wrapper{
     width:100%;
