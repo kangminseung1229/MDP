@@ -11,13 +11,15 @@
             <div class ="letter_wrapper">
                 
                 <div class = "letter_to">
-                    <p style="display: inline; white-space: nowrap; width: 50px;">TO.</p><p id = "letter_to_name">최지원</p>
+                    <p style="display: inline; white-space: nowrap;">TO.</p><p id = "letter_to_name">최지원</p>
                 </div>
 
-                <div id = "letter_img"></div>
+                <div id = "letter_img">
+                    <img src="" id="target" alt="" class="letter_botttom"> 
+                </div>
                 <textarea id="letter_textarea"></textarea>
                 <div class = "letter_from">
-                    <p style=" display: inline; white-space: nowrap; width: 50px;">FROM.</p><p id = "letter_from_name">김가영</p>
+                    <p style=" display: inline; white-space: nowrap;">FROM.</p><p id = "letter_from_name">김가영</p>
                 </div>
                 <!-- <div id = "wave_shape">
                     <div class="letter_thinkus">THINKUS</div>
@@ -40,9 +42,65 @@
         <div id="fin_btn_wrapper">
             <button class="fin_btn" id="copy">복사하기</button>
             <button class="fin_btn" id="save_image">이미지로 저장하기</button>
-            <!-- <button class="fin_btn" id="to_first">첫페이지로 돌아가기</button> -->
             <input type="button" class="fin_btn" id="to_first" onclick="location.href='main'" value="첫페이지로 돌아가기">
         </div>
     </div>
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script type="text/javascript">
+    // function PrintDiv(div){
+    //     div = div[0]
+    //     html2canvas(div).then(function(canvas){
+    //         var myImage = canvas.toDataURL();
+    //         downloadURI(myImage, "letter.png") 
+    //     });
+    // }
+
+    // function downloadURI(uri, name){
+    //     var link = document.createElement("a")
+    //     link.download = name;
+    //     link.href = uri;
+    //     document.body.appendChild(link);
+    //     link.click();
+    // }
+
+    // $('#save_image').click(function(){
+    //     console.log("********************");
+    //     PrintDiv($("#letter"));
+    // });
+
+    $("#save_image").on("click", function(){
+        html2canvas(document.querySelector("#letter"), {scrollY: -window.scrollY}).then(function(canvas){
+            if(canvas.msToBlob){
+                var blob = canvas.msToBlob();
+                window.navigator.msSaveBlob(blob, "capture.jpeg");
+            }
+            else{
+                saveAs(canvas.toDataURL(), "capture.jpeg");
+            }
+        });
+
+        function saveAs(uri, filename){
+            var link=document.createElement('a');
+            if(typeof link.download==='string'){
+                link.href=uri;
+                link.download=filename;
+
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+            else{
+                window.open(uri);
+            }
+        }
+        // var x=new XMLHttpRequest();
+        // x.open("GET", url, true);
+        // x.responseType='blob';
+        // x.onload=function(e){downlaod(x.response, "", d_type);}
+        // x.send();
+    });
+
+</script>

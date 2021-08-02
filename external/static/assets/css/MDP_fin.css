@@ -81,6 +81,7 @@
     margin:0 auto;
     background-color: #113576;
     height:600px;
+    /* height:auto; */
     z-index: -1;
     position: relative;
     text-align: center;

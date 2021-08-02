@@ -7,33 +7,32 @@
 
 /* Step5-1 */
 #step5_question1 {
-position:relative;
-margin-left:200px;
-width:400px;
-height:80px;
-background:#DDEDF9;
-border-radius: 20px;
-float: left;
-padding-top: 20px;
+    position:relative;
+    width:400px;
+    height:80px;
+    background:#DDEDF9;
+    border-radius: 20px;
+    float: left;
+    padding-top: 20px;
+    margin-left:-30px;
 }
 #step5_question1:after {
-border-top:15px solid #DDEDF9;
-border-left: 15px solid transparent;
-border-right: 15px solid transparent;
-border-bottom: 0px solid transparent;
-content:"";
-position:absolute;
-top:10px;
-left:-15px;
+    border-top:15px solid #DDEDF9;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 0px solid transparent;
+    content:"";
+    position:absolute;
+    top:10px;
+    left:-15px;
 }
 
 
 #step5_answer1{
     position:relative;
-    /* display: none; */
-    margin-right: 200px;
     margin-top: 18px;
     margin-bottom: 50px;
+    margin-right:-30px;
     width:370px;
     overflow:visible;
     height:70px;
@@ -83,9 +82,8 @@ left:-15px;
 /* Step5-2 */
 
 #step5_question2 {
-    /* display: none; */
     position:relative;
-    margin-left:200px;
+    margin-left:-40px;
     width:400px;
     height:100px;
     background:#FFF8D2;
@@ -109,7 +107,7 @@ left:-15px;
 #step5_answer2{
     /* display: none; */
     position:relative;
-    margin-right: 200px;
+    margin-right: -30px;
     margin-top: 18px;
     margin-bottom: 50px;
     width:370px;
@@ -162,7 +160,7 @@ left:-15px;
 #step5_question3 {
     /* display: none; */
     position:relative;
-    margin-left:200px;
+    margin-left:-30px;
     width:400px;
     height:100px;
     background:#F2F8EB;
@@ -186,7 +184,7 @@ left:-15px;
 #step5_answer3{
     /* display: none; */
     position:relative;
-    margin-right: 200px;
+    margin-right: -30px;
     margin-top: 18px;
     margin-bottom: 50px;
     width:370px;
@@ -238,7 +236,7 @@ left:-15px;
 #step5_question4 {
     /* display: none; */
     position:relative;
-    margin-left:200px;
+    margin-left:-30px;
     width:400px;
     height:100px;
     background:#DDEDF9;
@@ -263,7 +261,7 @@ left:-15px;
 #step5_answer4{
     /* display: none; */
     position:relative;
-    margin-right: 200px;
+    margin-right: -30px;
     margin-top: 18px;
     margin-bottom: 50px;
     width:370px;
