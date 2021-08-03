@@ -13,10 +13,13 @@ $(document).ready(function(){
             prevEl: ".swiper-button-prev"
         },
         
-        // on: {
-        //     activeIndexChange: function () {
-
-        //     },
+        on: {
+            activeIndexChange: function () {
+                console.log();
+                num = this.realIndex+1;
+                $("input:radio[id="+num+"]").prop('checked', true);
+            }
+        },
         keyboard: {
             enabled: false,
             onlyInViewport: false,
@@ -25,7 +28,7 @@ $(document).ready(function(){
       });
 
     //   임시로 6페이지로 고정
-    // swiper.slideTo(5);
+    swiper.slideTo(5);
   
     $("input:radio[name=menu]").click(function()
     {
@@ -226,24 +229,3 @@ function process1(){
 
   
 }
-
-
-
-//onkeyup
-// $(document).ready(function(){
-//     $('')
-// })
-
-
-// id = html에서 1개
-// class = 여러개 적용가능
-
-// name = 여러개 체크박스, 라디오
-
-// $("#id").val(); //id가져오기
-// $('.class').val("1");
-
-// $("#id").attr();
-// $("#id").prop();//속성을 오리지널 접근
-
-// local git     
