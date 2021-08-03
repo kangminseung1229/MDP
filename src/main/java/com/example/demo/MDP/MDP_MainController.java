@@ -56,7 +56,7 @@ public class MDP_MainController {
 
     @PostMapping("/login")
     public String logined(HttpServletRequest request, String user,Model model) {
-        System.out.println(user);
+
         if(checkID.checked(request, user)){
             return main(request, model);
         }
@@ -109,9 +109,9 @@ public class MDP_MainController {
     }
 
     @PostMapping("/letter")
-    public String letterPost(Model model, @RequestParam String step2Fileupload) throws IOException, ServletException {
+    public String letterPost(Model model) throws IOException, ServletException {
         
-        model.addAttribute("filetag", step2Fileupload);        
+        // model.addAttribute("filetag", step2Fileupload);        
 
         return "MDP/letter";
     }
