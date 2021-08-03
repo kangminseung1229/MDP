@@ -3,7 +3,7 @@ $(document).ready(function(){
     
     let swiper = new Swiper(".entireSwiper", {
     
-        autoHeight : true,
+        // autoHeight : true,
         allowTouchMove : false,
         // allowSlideNext:false,
         // allowSlidePrev:false,

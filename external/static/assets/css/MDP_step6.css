@@ -65,7 +65,6 @@
 .step6_container_td input[type="radio"]:checked + #emotion_common {
     opacity: 1;
     transform: scale(1.2);
-    color:t
 }
 
 .step6_container_td input[type="radio"]:checked ~ #emotion_common_text{
@@ -226,7 +225,7 @@ input[type="checkbox"] + div {
     text-align: center;
     box-shadow: 1px 1px 3px 1px #dadce0;
 }
-input[type="checkbox"]:checked + div {
+input[type="checkbox"]:checked ~ div {
     opacity: 0.7;
     box-shadow: 1px 1px 3px 1px #dadce0 inset;
     
