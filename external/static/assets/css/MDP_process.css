@@ -199,7 +199,7 @@
     /* border: 2px solid rgb(76, 76, 214); */
 }
 
-#next {
+.next {
     border: 1px solid #043383;
     text-align: center;
     /* margin:0 auto; */
@@ -220,7 +220,7 @@
     top: 460px;
     position: absolute;
 }
-#next:hover {
+.next:hover {
     background-color: #fff;
     box-shadow: 0 15px 20p #fff;
     color: #043383;
@@ -243,13 +243,13 @@
 }
 
 /* swiper */
-.swiper-container {
+.entireSwiper {
     width: 1200px;
     height: auto;
     top:190px;
 }
 
-.swiper-slide {
+.entireSwiper-swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;

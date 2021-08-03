@@ -31,7 +31,7 @@
 
 /* textbox outer */
 
-#textbox_shapes{
+.textbox_shapes{
     position: relative;
     /* border: solid 1px #ff00ea; */
     width: 550px;
@@ -47,7 +47,6 @@
     font-size: 20px;
     z-index: 2;
     border: none;
-
 }
 .step1_textbox::placeholder{
     text-align: center;
@@ -55,6 +54,7 @@
 }
 .step1_textbox:focus{
     outline: none;
+    text-align: center;
     
 }
 
@@ -63,7 +63,8 @@
     position:absolute; 
     top:50%; left:50%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
 }
 
 
@@ -77,7 +78,8 @@
     position:absolute; 
     top:33%; left:50%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
   
 }
 
@@ -86,7 +88,8 @@
     position:absolute; 
     top:55%; left:32%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
 }
 
 .step1_textbox4{
@@ -94,7 +97,8 @@
     position:absolute; 
     top:65%; left:60%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
 }
 
 .textbox2_4_class{
@@ -107,7 +111,8 @@
     position:absolute; 
     top:15%; left:50%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
 }
 
 .step1_textbox6{
@@ -115,7 +120,8 @@
     position:absolute; 
     top:45%; left:14%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
 }
 
 .step1_textbox7{
@@ -123,7 +129,8 @@
     position:absolute; 
     top:80%; left:30%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
 }
 
 .step1_textbox8{
@@ -131,7 +138,8 @@
     position:absolute; 
     top:80%; left:70%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
 }
 
 .step1_textbox9{
@@ -139,7 +147,8 @@
     position:absolute; 
     top:45%; left:86%;
     transform: translate(-50%,-50%);
-    z-index: 2;
+    /* z-index: 2; */
+    text-align: center;
 }
 
 .textbox5_9_class{
@@ -251,8 +260,8 @@
 #stage4{
     display: none;
     /* position: absolute; */
-    margin-top: 53px;
-    margin-bottom: 53px;
+    padding-top: 45px;
+    /* margin-bottom: 53px; */
 
 }
 
@@ -266,74 +275,87 @@
 }
 
 
-.group input[type="radio"] {
+.textbox_shapes input[type="radio"] {
     position: absolute;
     opacity: 0;
-    z-index: -1;
-    visibility:hidden;
+    z-index: 2;
+    /* visibility:hidden; */
     text-align: center;
     display:inline-block; 
 }
 
-.group label {
-    position: relative;
-    
-    padding-left: 10px;
-    padding-right: 10px;
+.textbox_shapes label {
 
-    margin-bottom: 10px;
-    line-height: 32px;
+    line-height: 2em;
     cursor: pointer;
-    color: rgb(255, 255, 255);
-    font-family: gmarket_bold;
-    font-size: 15px;
-    z-index: 1;
+    color: #043383;
+    font-family: gmarket_medium;
+    font-size: 20px;
+    z-index: -1;
     text-align: center;
     display:inline-block; 
+    /* padding: 0 10px 0 10px; */
+    width: auto;
+    height: 2em;
 }
 
-.group label:before {
+.textbox_shapes label:before {
     box-sizing: border-box;
     content: " ";
     position: absolute;
-    top: 0.3em;
-    left: 0;
     display: block;
     width: 100%;
     height: 2em;
     top: 0;
-    width: 100%;
-    height: 15px;
-    background: #043383;
+    background: #ffffff;
     z-index: -1;
+    color: #043383;
+    font-family: gmarket_medium;
+    font-size: 20px;
+    
+    
 }
 
-.group input[type="radio"] + label::before {
+.textbox_shapes input[type="radio"] + label::before {
     border-radius: 0.5em;
    
+} 
+
+.textbox_shapes input[type="radio"]:hover + label {
+    color: #ffffff;
+    
 }
+.textbox_shapes input[type="radio"]:hover + label:before {
+    background: #043383;
+    
+}
+
+.textbox_shapes input[type="radio"]:active + label:before {
+    transform: translateY(4px);
+    
+}
+
 
 /* Checked */
-.group input[type="radio"]:checked + label {
-    /* padding-left: 1em; */
-    color: #043383;
+.textbox_shapes input[type="radio"]:checked + label {
+    color: #ffffff;
 }
 
-.group input[type="radio"]:checked + label:before {
+.textbox_shapes input[type="radio"]:checked + label:before {
     top: 0;
     width: 100%;
     height: 2em;
-    border: 2px solid #ffffff;
-    background: #ffffff;
-}
+    background: #043383;
+   
+} 
 
 /* Transition */
-.group label,
+
+.textbox_shapes label,
 label::before {
-    -webkit-transition: .25s all ease;
-    -o-transition: .25s all ease;
     transition: .25s all ease;
-}
+} 
+
 #step{
     /* position:fixed; */
     margin:0 auto;
