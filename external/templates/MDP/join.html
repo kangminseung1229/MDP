@@ -14,7 +14,7 @@
             <div id="join_icon">
                 JOIN
             </div>
-            <form th:href="@/{MDP/join}" method="POST">
+            <form th:href="@{/MDP/join}" method="POST">
                 <div id="join_id">
                     <span id="star">*</span> 아이디<br>
                     <input type="text" name="user" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
@@ -24,7 +24,7 @@
                     <input type="text" name="code" size="15" placeholder=" 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
                 </div>
                 <div id="join_button" >
-                    <input type="submit" onclick="location.href='login'" id="join" value="회원가입"/>
+                    <input type="submit" onclick="location.href='MDP/login'" id="join" value="회원가입"/>
                 </div>
             </form>
         </div>
