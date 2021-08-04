@@ -13,7 +13,7 @@
             <div>
                 <div id="one">
                     <div class="hashtag" id="step2">
-                        <span th:text="|# ${feeling}|"></span>
+                        <span id = "step2_emotion" th:text="|# ${feeling}|"></span>
                     </div>
                     <div class="hashtag green">
                         <span th:text="|# ${step3_textbox1}|"></span>
@@ -108,6 +108,7 @@
                     </div>
                 </div>
                 <div class="step6_container_select">
+                    <span id = "step6_emotion" th:text="${step6_emotion_check}" style="display: none;"></span>
                     <table id = "letter_select_word">
                         <tr>
                             <td>
@@ -198,14 +199,49 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-    $("#help").click(function(){
-        $("#write_helper").css("display", "block");  
+    
+
+    $(document).ready(function(){
+
+
+        $("#help").click(function(){
+            $("#write_helper").css("display", "block");  
+        });
+        $("#close_helper").click(function(){
+            $("#write_helper").css("display", "none");  
+        });
+        $("#letter_to_name").on('keydown', function(e){
+            $("#letter_to_name").css('width', '200');
+        });
+
+
+        step2Css($("#step2_emotion"));
+
     });
-    $("#close_helper").click(function(){
-        $("#write_helper").css("display", "none");  
-    });
-    $("#letter_to_name").on('keydown', function(e){
-        $("#letter_to_name").css('width', '200');
-    });
+
+    function step2Css(text){
+
+        let value = text.text();
+        console.log(value);
+        switch(value){
+            case "# 고마움":{
+                $("#step2").addClass("thanks");
+            }
+            case "# 미안함":{
+                $("#step2").addClass("sorry");
+            }
+            case "# 축하/응원":{
+                $("#step2").addClass("celebration");
+            }
+            case "# 사랑":{
+                $("#step2").addClass("love");
+            }
+            case "# 안부":{
+                $("#step2").addClass("say");
+            }
+        }
+    }
+
+
 
 </script>

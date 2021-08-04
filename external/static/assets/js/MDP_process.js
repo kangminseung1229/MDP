@@ -468,7 +468,7 @@ function checkProcess(){
         return false;
     }
 
-    else if($("input:checkbox[name=step6_emotion_check]:checked").length == 0){
+    else if($("input:checkbox[name=step6_emotion_check:checked").length == 0){
         swiper.slideTo(5);
         alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
         return false;

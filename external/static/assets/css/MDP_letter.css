@@ -77,7 +77,7 @@
 }
 #step2{
     color:#fff;
-    background-color:#85C247;
+    /* background-color:#85C247; */
 }
 .green{
     background-color:#F2F8EB;
@@ -404,4 +404,30 @@
 }
 #close_helper:hover{
     cursor:pointer;
+}
+
+
+/* 공통단어 */
+.common{
+    background-color: #F5D53F;
+}
+/* 고마움 */
+.thanks{
+    background-color: #85C247;
+}
+/* 미안함 */
+.sorry{
+    background-color: #6BA7DB;
+}
+/* 축하응원 */
+.celebration{
+    background-color: #EC6A37;
+}
+/* 사랑 */
+.love{
+    background-color: #DB4D96;
+}
+/* 안부 */
+.say{
+    background-color: #E83B4D;
 }

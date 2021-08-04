@@ -112,7 +112,7 @@ public class MDP_MainController {
     }
 
     @PostMapping("/letter")
-    public String letterPost(Model model, String step1Me, String step1Text,
+    public String letterPost(Model model,HttpServletRequest request, String step1Me, String step1Text,
     String feeling, String step3_textbox1, String step3_textbox2, String step3_textbox3, String step3_textbox4,
     String step3_textbox5, String step3_textbox6, String step3_textbox7, String step3_textbox8, String step3_textbox9, 
     String step4Text1, String step4Text2, String step4Text3, String step4Text4, 
@@ -138,7 +138,9 @@ public class MDP_MainController {
         model.addAttribute("step5Text2", step5Text2);
         model.addAttribute("step5Text3", step5Text3);
         model.addAttribute("step5Text4", step5Text4);
-        model.addAttribute("step6_emotion_check", step6_emotion_check);
+
+        String[] arr = request.getParameterValues("step6_emotion_check");
+        model.addAttribute("step6_emotion_check", arr);
         return "MDP/letter";
     }
 
