@@ -6,33 +6,22 @@
     <div id="fin_wrapper">
         
         <div id="letter">
-            <img src="/img/MDP/letter.png" class="letter_botttom"> 
-            
-            <div class ="letter_wrapper">
-                
-                <div class = "letter_to">
-                    <p style="display: inline; white-space: nowrap;">TO.</p><p id = "letter_to_name">최지원</p>
+            <div id="letter_background">
+                <div id="letter_to">
+                    <span>TO.</span><span id = "letter_to_name" th:text="${letterTo}"></span>
                 </div>
-
-                <div id = "letter_img">
-                    <img src="" id="target" alt="" class="letter_botttom"> 
+                <div id="letter_image"></div>
+                <div id="letter_textarea">
+                    1아민삼너임너ㅏㅅㅁㄶㅁㄴ온멓ㄹ이ㅏ솯놈ㄴ아소머ㅏㅗㅎㅇ마노ㅓㅇ흉마ㅓ슈어나ㅗ나ㅓ뫃ㅁ아알노뎌ㅑㅗㅁ넝휴ㅓㅏㅁㅇㄴ와먼ㅅ나런ㅁ루ㅏㄹㄴㅁ고
                 </div>
-                <textarea id="letter_textarea"></textarea>
-                <div class = "letter_from">
-                    <p style=" display: inline; white-space: nowrap;">FROM.</p><p id = "letter_from_name">김가영</p>
+                <div id="letter_from">
+                    <span>FROM.</span><span style="margin-left:20px;">최지원</span>
                 </div>
-                <!-- <div id = "wave_shape">
-                    <div class="letter_thinkus">THINKUS</div>
-                    <div class='wave-top'></div>
-                    <div class="wave-mid"></div>
-                </div> -->
-
             </div>
-            <div class ="letter_background"></div>
-
+            <div style="width:100%; height:20px; position:relative;height:28.5px;">
+                <img src="/img/MDP/letter.png" style="max-width:100%; position:relative; top:-275px;">   
+            </div>
         </div>
-
-
         <div id="fin_paragraph">
             <p>
                 편지가 완성되었습니다.<br>

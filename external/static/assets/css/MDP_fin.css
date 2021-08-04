@@ -77,89 +77,50 @@
 /* 편지 작성 */
 
 #letter{
-    width:500px;
+    width:45%;
+    height:auto;
+    background-color:#043383;
+    padding-top:0.1px;
     margin:0 auto;
-    background-color: #113576;
-    height:600px;
-    /* height:auto; */
-    z-index: -1;
-    position: relative;
-    text-align: center;
 }
 
-.letter_wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width:450px;
+#letter_background{
+    border:1px solid #fff;
+    width:90%;
     margin:0 auto;
-    height:550px;
-    border-radius: 15px;
-    z-index: 3;
-    text-align: center;
-    display: inline-block;
+    margin-top:30px;
+    background-color:#fff;
+    position:relative;
+    z-index:1;
 }
 
-.letter_background{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width:450px;
-    margin:0 auto;
-    background-color: white;
-    height:550px;
-    border-radius: 15px;
-    z-index: -1;
-    text-align: center;
-    display: inline-block;
-}
-.letter_botttom{
-    height: auto;
-    width: 500px;
-    z-index: 2;
-    position: absolute; 
-    right: 0px; 
-    bottom: 0px;
-}
-
-.letter_to{
-    color: #13356F;
-    font-family: gmarket_medium;
-    margin-left: 40px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    font-size: 19px;
-    float: left;
+#letter_to{
+    margin-left:45px;
+    margin-top:30px;
+    font-size:17px;
+    font-family:gmarket_medium;
+    color:#113576;
 }
 
 
 #letter_to_name{
-    width: 100px;
-    text-decoration: underline 2px #13356F;
-    text-underline-position:under;
-    display: inline; 
-    margin-left: 20px;
+    margin-left:20px;
 }
 
-
-#letter_img{
-    width: 330px;
-    height: 200px;
-    border: none;
-    border-radius: 15px;
-    display: inline-block;
+#letter_image{
+    width:80%;
+    height:200px;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:20px;
     background-color: #E0EAF7;
+    border-radius:15px;
 }
 
 #letter_textarea{
-    width: 330px;
-    height: 200px;
-    border: none;
-    font-size: 17px;
-    font-family: gmarket_medium;
-    margin-top: 10px;;
+    width:80%;
+    margin:0 auto;
+    margin-bottom:20px;
     background-attachment: local;
     background-image:
         linear-gradient(to right, white 10px, transparent 10px),
@@ -171,23 +132,22 @@
 }
 
 
-.letter_from{
-    color: #13356F;
-    font-family: gmarket_medium;
-    margin-right: 40px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 19px;
-    float: right;
+#letter_from{
+    text-align:right;
+    margin-right:45px;
+    margin-bottom:30px;
+    font-size:17px;
+    font-family:gmarket_medium;
+    color:#113576;
 }
 
 
 #letter_from_name{
-    width: 100px;
     text-decoration: underline 2px #13356F;
     text-underline-position:under;
-    display: inline; 
+    /* display: inline;  */
     margin-left: 20px;
+    float:left;
     
 
 }
@@ -255,3 +215,5 @@
     border-radius: 0 0 15px 15px;
     border: 1px solid #13356F;
 }
+
+

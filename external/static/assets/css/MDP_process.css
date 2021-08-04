@@ -218,10 +218,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 10px;
-    display:none;
-    left: 600px;
-    top: 460px;
-    position: absolute;
+    /* display:none; */
+    
+    font-family: gmarket_medium;
+    color: #043383;
 }
 .next:hover {
     background-color: #fff;
@@ -284,22 +284,3 @@
 }
 
 
-
-#step1 {
-    /* display: none; */
-}
-#step2 {
-    /* display: none; */
-}
-#step3 {
-    /* display: none; */
-}
-#step4 {
-    /* display: none; */
-}
-#step5 {
-    /* display: none; */
-}
-#step6 {
-    /* display: none; */
-}

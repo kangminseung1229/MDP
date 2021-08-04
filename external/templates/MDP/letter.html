@@ -13,34 +13,34 @@
             <div>
                 <div id="one">
                     <div class="hashtag" id="step2">
-                        #고마움
+                        <span th:text="|# ${feeling}|"></span>
                     </div>
                     <div class="hashtag green">
-                        #해시태그
+                        <span th:text="|# ${step3_textbox1}|"></span>
                     </div>
                     <div class="hashtag blue">
-                        #해시태그
+                        <span th:text="|# ${step3_textbox2}|"></span>
                     </div>
                     <div class="hashtag yellow">
-                        #해시태그
+                        <span th:text="|# ${step3_textbox3}|"></span>
                     </div>
                     <div class="hashtag green">
-                        #해
+                        <span th:text="|# ${step3_textbox4}|"></span>
                     </div>
                     <div class="hashtag blue">
-                        #해
+                        <span th:text="|# ${step3_textbox5}|"></span>
                     </div>
                     <div class="hashtag yellow">
-                        #해시태그
+                        <span th:text="|# ${step3_textbox6}|"></span>
                     </div>
                     <div class="hashtag green">
-                        #해
+                        <span th:text="|# ${step3_textbox7}|"></span>
                     </div>
                     <div class="hashtag blue">
-                        #해
+                        <span th:text="|# ${step3_textbox8}|"></span>
                     </div>
                     <div class="hashtag yellow">
-                        #해시태그
+                        <span th:text="|# ${step3_textbox9}|"></span>
                     </div>
                 </div>
                 <div id="two">
@@ -48,25 +48,27 @@
                         <div class="second_div left">
                             그때 나는 무엇을 보았나요?  👀
                             <div class="inner_div">
-                                나는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~을 보았다
+                                <span th:text="${step4Text1}"></span>
                             </div>
                         </div>
                         <div class="second_div right">
                             그때 나는 무엇을 들었나요? 👂
-                            <div class="inner_div">나는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~을 들었다
+                            <div class="inner_div">
+                                <span th:text="${step4Text2}"></span>
                             </div>
                         </div>
                     </div>
                     <div class="second_wrapper">
                         <div class="second_div left">
                             그때 나는 어떤 말과 행동을 하였나요? 👄
-                            <div class="inner_div">나는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~을 했다
+                            <div class="inner_div">
+                                <span th:text="${step4Text3}"></span>
                             </div>
                         </div>
                         <div class="second_div right">
                             그때 나는 무엇을 생각하고 느꼈나요? 🤔
                             <div class="inner_div">
-                                나는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~을 생각했다
+                                <span th:text="${step4Text4}"></span>
                             </div>
                         </div>
                     </div>
@@ -77,7 +79,7 @@
                             이 에피소드를 통해<br>그 친구에게 어떤 마음이 들었나요?
                         </div>
                         <div class="third_answer">
-                            나는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~을 마음이 들었다
+                            <span th:text="${step5Text1}"></span>
                         </div>  
                     </div>
                     <div class="third_wrapper">
@@ -85,7 +87,7 @@
                             왜 그렇게 생각했나요?
                         </div>
                         <div class="third_answer">
-                            나는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 때문이다
+                            <span th:text="${step5Text2}"></span>
                         </div>  
                     </div>
                     <div class="third_wrapper">
@@ -93,7 +95,7 @@
                             왜 그런 마음이 들었나요?
                         </div>
                         <div class="third_answer">
-                            나는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 때문이다
+                            <span th:text="${step5Text3}"></span>
                         </div>  
                     </div>
                     <div class="third_wrapper">
@@ -101,7 +103,7 @@
                             왜 그렇게 느꼈나요?
                         </div>
                         <div class="third_answer">
-                            나는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 때문이다
+                            <span th:text="${step5Text4}"></span>
                         </div>  
                     </div>
                 </div>
@@ -109,7 +111,7 @@
                     <table id = "letter_select_word">
                         <tr>
                             <td>
-                                <div class="emotion_card_common" >긍정적인</div>
+                                <div class="emotion_card_common" ><span th:text="${step6_emotion_check}"></span></div>
                             </td>
                         </tr>
                       
@@ -168,21 +170,26 @@
                 &ensp;편지 작성을 시작하기 어렵다면 물음표를 눌러 보세요.
             </div>
             <div id="letter">
-                <img src="/img/MDP/twinkle.png" class="twinkle">
-                <div class = "letter_to">
-                    <p style="display: inline; white-space: nowrap;">TO.</p><p id = "letter_to_name">최지원</p>
-                </div>
+                <form th:action="@{/MDP/fin}" method="POST">
+                    <img src="/img/MDP/twinkle.png" class="twinkle">
+                    <div class = "letter_to">
+                        <!-- <p style="display: inline; white-space: nowrap;">TO.</p><span id = "letter_to_name" name="letterTo" th:text="${step1Text}" style="width:100px;"></span> -->
+                        <p style="display: inline; white-space: nowrap;">TO.</p><input type="text" id = "letter_to_name" name="letterTo" th:value="${step1Text}" style="width:100px;">
 
-                <div id = "letter_img"></div>
-                <textarea id="letter_textarea"></textarea>
-                <div class = "letter_from">
-                    <p style=" display: inline; white-space: nowrap;">FROM.</p><p id = "letter_from_name">김가영</p>
-                </div>
-                <div id = "wave_shape">
-                    <div class="letter_thinkus">THINKUS</div>
-                    <div class='wave-top'></div>
-                    <div class="wave-mid"></div>
-                </div>
+                    </div>
+                    <div id = "letter_img"></div>
+                    <textarea id="letter_textarea" name="letterText"></textarea>
+                    <div class = "letter_from">
+                        <p style=" display: inline; white-space: nowrap;">FROM.</p><span id = "letter_from_name" name="letterFrom" th:text="${step1Me}"></span>
+                    </div>
+                    <div id = "wave_shape">
+                        <div class="letter_thinkus">THINKUS</div>
+                        <div class='wave-top'></div>
+                        <div class="wave-mid"></div>
+                    </div>
+                    <input type="submit">
+                </form>
+                
             </div>
             
     </div>
@@ -193,8 +200,12 @@
 <script>
     $("#help").click(function(){
         $("#write_helper").css("display", "block");  
-    })
+    });
     $("#close_helper").click(function(){
         $("#write_helper").css("display", "none");  
-    })
+    });
+    $("#letter_to_name").on('keydown', function(e){
+        $("#letter_to_name").css('width', '200');
+    });
+
 </script>

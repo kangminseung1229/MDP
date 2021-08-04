@@ -1,6 +1,8 @@
 package com.example.demo.MDP;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.ServletException;
@@ -19,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -109,10 +112,33 @@ public class MDP_MainController {
     }
 
     @PostMapping("/letter")
-    public String letterPost(Model model) throws IOException, ServletException {
-        
-        // model.addAttribute("filetag", step2Fileupload);        
-
+    public String letterPost(Model model, String step1Me, String step1Text,
+    String feeling, String step3_textbox1, String step3_textbox2, String step3_textbox3, String step3_textbox4,
+    String step3_textbox5, String step3_textbox6, String step3_textbox7, String step3_textbox8, String step3_textbox9, 
+    String step4Text1, String step4Text2, String step4Text3, String step4Text4, 
+    String step5Text1, String step5Text2, String step5Text3, String step5Text4, @ModelAttribute ArrayList<String> step6_emotion_check
+    ) throws IOException, ServletException {
+        model.addAttribute("step1Me", step1Me);
+        model.addAttribute("step1Text", step1Text);
+        model.addAttribute("feeling", feeling);
+        model.addAttribute("step3_textbox1", step3_textbox1);
+        model.addAttribute("step3_textbox2", step3_textbox2);
+        model.addAttribute("step3_textbox3", step3_textbox3);
+        model.addAttribute("step3_textbox4", step3_textbox4);
+        model.addAttribute("step3_textbox5", step3_textbox5);
+        model.addAttribute("step3_textbox6", step3_textbox6);
+        model.addAttribute("step3_textbox7", step3_textbox7);
+        model.addAttribute("step3_textbox8", step3_textbox8);
+        model.addAttribute("step3_textbox9", step3_textbox9);
+        model.addAttribute("step4Text1", step4Text1);
+        model.addAttribute("step4Text2", step4Text2);
+        model.addAttribute("step4Text3", step4Text3);
+        model.addAttribute("step4Text4", step4Text4);
+        model.addAttribute("step5Text1", step5Text1);
+        model.addAttribute("step5Text2", step5Text2);
+        model.addAttribute("step5Text3", step5Text3);
+        model.addAttribute("step5Text4", step5Text4);
+        model.addAttribute("step6_emotion_check", step6_emotion_check);
         return "MDP/letter";
     }
 
@@ -122,6 +148,15 @@ public class MDP_MainController {
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
         checkID.checkPermissions(response,permission);
+
+        return "MDP/fin";
+    }
+
+    @PostMapping("/fin")
+    public String finPost(Model model, String letterTo, String letterText, String letterFrom) throws IOException, ServletException {
+        model.addAttribute("letterTo", letterTo);
+        model.addAttribute("letterText", letterText);
+        model.addAttribute("letterFrom", letterFrom);
 
         return "MDP/fin";
     }
