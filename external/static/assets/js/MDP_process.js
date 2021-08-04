@@ -1,9 +1,10 @@
 
 $(document).ready(function(){
     
-    let swiper = new Swiper(".entireSwiper", {
+    swiper = new Swiper(".entireSwiper", {
     
         // autoHeight : true,
+        // calculateHeight:true,
         allowTouchMove : false,
         // allowSlideNext:false,
         // allowSlidePrev:false,
@@ -18,6 +19,7 @@ $(document).ready(function(){
                 console.log();
                 num = this.realIndex+1;
                 $("input:radio[id="+num+"]").prop('checked', true);
+                $('html, body').scrollTop(0);
             }
         },
         keyboard: {
@@ -25,12 +27,17 @@ $(document).ready(function(){
             onlyInViewport: false,
             pageUpDown:false
           }
-      });
+    });
+    $('.swiper-button-next').addClass( "disabled" );
+    $('.swiper-button-prev').addClass( "disabled" );
+    //   임시로 페이지로 고정
+    $('html, body').scrollTop(0);
+    swiper.slideTo(0);
 
-    //   임시로 6페이지로 고정
-    swiper.slideTo(5);
-  
-    $("input:radio[name=menu]").click(function()
+    for(let i =2; i<=6;i++){
+        $("#"+i).attr("disabled", "disabled");
+    }
+    $("input:radio[name=menu]").change(function()
     {
         console.log("AAAAAA")
         let menu = $('input:radio[name="menu"]:checked').val();
@@ -64,82 +71,71 @@ $(document).ready(function(){
     });
     
     
-    process1();
+    step1();
+    step2();
+    step3();
+    step4();
+    step5();
 
     
     
 
 });
 
-function process1(){
 
+
+//****step1 Java Script****
+function step1(){
+
+    let nowStage;
+    // 모든 Textbox hide
     $("#step1_next").hide();
     for(let i =2; i<10; i++){
         $("#step1_textbox"+i).hide();
     }
-
-    $("#step1_textbox1").keyup(function(){
-        step1();
-    });
-
-    $("#step1_textbox2").keyup(function(){
-        step2();
-    });
-
-    $("#step1_textbox3").keyup(function(){
-        step2();
-    });
-
-    $("#step1_textbox4").keyup(function(){
-        step2();
-    });
-
-    $("#step1_textbox5").keyup(function(){
-        step3();
-    });
-
-    $("#step1_textbox6").keyup(function(){
-        step3();
-    });
-
-    $("#step1_textbox7").keyup(function(){
-        step3();
-    });
-
-    $("#step1_textbox8").keyup(function(){
-        step3();
-    });
-
-    $("#step1_textbox9").keyup(function(){
-        step3();
-    });
-
     
-    function step1(){
+    // 사용자가 텍스트 박스 입력시 단계별로 fade out
+    onkeyUpFunc(1,stage1);
+    onkeyUpFunc(2,stage2);
+    onkeyUpFunc(3,stage2);
+    onkeyUpFunc(4,stage2);
+    onkeyUpFunc(5,stage3);
+    onkeyUpFunc(6,stage3);
+    onkeyUpFunc(7,stage3);
+    onkeyUpFunc(8,stage3);
+    onkeyUpFunc(9,stage3);
+    step1Next();
+    
+    function onkeyUpFunc(num,func) {
+        $("#step1_textbox"+num).keyup(function(){
+            func();
+        });
+    }
+
+    // step1 : stage1
+    function stage1(){
         if(  $("#step1_textbox1").val().length > 0 ){
-            
+            nowStage = 1;
             console.log("A")
             $('#stage2').fadeIn(600);
             $('#step1_shape_num2').fadeIn(600);
 
             // TextBox
-            $('#step1_textbox2').fadeIn(600);
-            $('#step1_textbox3').fadeIn(600);
-            $('#step1_textbox4').fadeIn(600);
-
+            for(let i =2; i<=4; i++){
+                $('#step1_textbox'+i).fadeIn(600);
+            }
             // effect 해제
             $('#step1_shape_num1').removeClass( "step1_shape" );
-            $('#step1_shape_num2').addClass( "step2_shape" ) ;
+            $('#step1_shape_num2').addClass( "step2_shape" );
 
-            $('#step1_textbox1').addClass( "textbox1_class" ) ;
+            $('#step1_textbox1').addClass( "textbox1_class" );
             
             
         }
     }
-
-
-    function step2() { 
-
+    // step1 : stage2
+    function stage2() { 
+        nowStage = 2;
         if( $("#step1_textbox2").val().length>0 &&  
             $("#step1_textbox3").val().length >0 &&  
             $("#step1_textbox4").val().length>0){
@@ -148,65 +144,76 @@ function process1(){
                 $('#step1_shape_num3').fadeIn(600);
 
                 // TextBox
-                $('#step1_textbox5').fadeIn(600);
-                $('#step1_textbox6').fadeIn(600);
-                $('#step1_textbox7').fadeIn(600);
-                $('#step1_textbox8').fadeIn(600);
-                $('#step1_textbox9').fadeIn(600);
+                for(let i =5; i<=9; i++){
+                    $('#step1_textbox'+i).fadeIn(600);
+                }
 
                 // effect 해제
                 $('#step1_shape_num2').removeClass( "step2_shape" );
                 $('#step1_shape_num3').addClass( "step3_shape" ) ;
 
-                $('#step1_textbox2').addClass( "textbox2_4_class" ) ;
-                $('#step1_textbox3').addClass( "textbox2_4_class" ) ;
-                $('#step1_textbox4').addClass( "textbox2_4_class" ) ;
+                for(let i =2; i<=4; i++){
+                    $('#step1_textbox'+i).addClass( "textbox2_4_class" );
+                }
 
         }
     }
-
-    function step3() { 
- 
+    // step1 : stage3
+    function stage3() { 
+        nowStage = 3;
         if( $("#step1_textbox5").val().length>0 &&  $("#step1_textbox6").val().length >0 &&  
             $("#step1_textbox7").val().length>0 && $("#step1_textbox8").val().length>0 &&  
             $("#step1_textbox9").val().length >0 ){
 
-
             $('#step1_shape_num3').removeClass( "step3_shape" );  
         
-            $('#step1_textbox5').addClass( "textbox5_9_class" ) ;
-            $('#step1_textbox6').addClass( "textbox5_9_class" ) ;
-            $('#step1_textbox7').addClass( "textbox5_9_class" ) ;
-            $('#step1_textbox8').addClass( "textbox5_9_class" ) ;
-            $('#step1_textbox9').addClass( "textbox5_9_class" ) ;
+            for(let i =5; i<=9; i++){
+                $('#step1_textbox'+i).addClass( "textbox5_9_class" );
+            }
             
             $('#step1_next').fadeIn(600);
-
             
-
         }
     }
 
-    $("#step1_next").click(function(){
-        step4();
-    });
+    // next 버튼 함수
+    function step1Next(){
+        $("#step1_next").click(function(){
 
-    function step4(){
-
+            if( $("#step1_textbox5").val().length>0 &&  $("#step1_textbox6").val().length >0 &&  
+            $("#step1_textbox7").val().length>0 && $("#step1_textbox8").val().length>0 &&  
+            $("#step1_textbox9").val().length >0 ){
+                if(nowStage == 3){
+                    stage4();
+                    console.log("stage4");
+                }
+                else if(nowStage == 4) {
+                    swiper.slideTo(1);
+                    $('#step1_next').fadeOut(600);
+                    console.log("step2");
+                    $("#2").removeAttr("disabled");        
+                    
+                }
+            }
+        });
+    }
+    
+    // step1 : stage4
+    function stage4(){
+        nowStage = 4;
         if($("#step1_textbox1").val().length>0 &&  $("#step1_textbox2").val().length >0 &&  
             $("#step1_textbox3").val().length>0 && $("#step1_textbox4").val().length>0 &&  
             $("#step1_textbox5").val().length >0 && $("#step1_textbox6").val().length>0 &&  
             $("#step1_textbox7").val().length >0 &&  $("#step1_textbox8").val().length>0 &&
             $("#step1_textbox9").val().length>0 ){
             
-                console.log("4")
+                console.log("4");
                 $('#stage1').fadeOut(600);
                 $('#stage2').fadeOut(600);
                 $('#stage3').fadeOut(600);
-                $('#next').fadeOut(600)
+                $('#step1_next').fadeOut(600)
 
                 $('#stage4').delay(600).fadeIn(600);
-                
 
                 $("#step1_textbox1").prop("readonly",true);
                 $("#step1_textbox1").prop("width","auto");
@@ -215,17 +222,254 @@ function process1(){
                     let textbox = "step1_textbox"+i;
                     $("#"+textbox).prop("type","radio");
                     $("#"+textbox).after("<label class ="+textbox+" id = step1_label"+i+">"+$("#"+textbox).val()+"</label>");
+                    console.log(i);
                 }
                 
-
+                $("input[name = step1Text]").click(function(){
+                    step1Next("step2");
+                    $('#step1_next').fadeIn(600);
+                });
+               
                 
-                
-            
-            
-            }
+        }
+    }
+}
 
-        
+
+//****step2 Java Script****
+function step2(){
+
+    $("#step2_next").hide();
+    $(".step2_emotion_wrapper").hide();
+
+    // 파일 업로드가 되었을 경우
+    $("#fileupload").change(function(){
+        const imgPath=document.querySelector('#fileupload').files[0];
+        const reader = new FileReader();
+        reader.addEventListener("load", function(){
+            localStorage["target"]=reader.result;
+        }, false);
+        if(imgPath){
+            reader.readAsDataURL(imgPath);
+        }
+        let img=document.getElementById('target');
+        img.src=localStorage["target"];
+
+        if($("#target").attr("src")!=null){
+            $(".input_image").css("background-color", "white");
+            $(".input_image").css("border", "none");
+            $("#fileupload").css("display", "none");
+        }
+
+        $(".step2_emotion_wrapper").fadeIn(600);
+
+    });
+
+    $("input[name = feeling]").click(function(){
+        $("#step2_next").fadeIn(600);
+    });
+
+    
+    step2Next();
+    
+
+    // next 버튼 함수
+    function step2Next(){
+        $("#step2_next").click(function(){
+            swiper.slideTo(2);
+            $('#step2_next').fadeOut(600);
+            $("#3").removeAttr("disabled");        
+        });
     }
 
-  
+    function send(param) {  
+
+        if ($("#"+param).val() == undefined ) {
+            alert(param +'이 없습니다.');
+        }
+
+    }
+
+}
+
+//****step3 Java Script****
+function step3(){
+
+    $('#step3_next').hide();
+    for(let i=2; i<10; i++){
+        $("#step3_"+i).hide();
+    }
+    onkeyUpFunc(1);
+    onkeyUpFunc(2);
+    onkeyUpFunc(3);
+    onkeyUpFunc(4);
+    onkeyUpFunc(5);
+    onkeyUpFunc(6);
+    onkeyUpFunc(7);
+    onkeyUpFunc(8);
+
+    function onkeyUpFunc(num) {
+        $("#step3_textbox"+num).keyup(function(){
+            if($("#step3_textbox"+num).val().length>1){
+                let box = num+1;
+                let classRemove = num%3;
+                $("#step3_"+box).fadeIn(600);
+                
+                if(classRemove == 1)
+                    $("#step3_textbox"+num).removeClass("step3_shape_green");  
+                else if(classRemove == 2)
+                    $("#step3_textbox"+num).removeClass("step3_shape_blue");  
+                else
+                    $("#step3_textbox"+num).removeClass("step3_shape_yellow");  
+
+                if($("#step3_textbox1").val().length>0 &&  $("#step3_textbox2").val().length >0 &&  
+                $("#step3_textbox3").val().length>0 && $("#step3_textbox4").val().length>0 &&  
+                $("#step3_textbox5").val().length >0 && $("#step3_textbox6").val().length>0 &&  
+                $("#step3_textbox7").val().length >0 &&  $("#step3_textbox8").val().length>0)
+                    $('#step3_next').fadeIn(600);
+            }
+        });
+    }
+
+    $("#step3_next").click(function(){
+
+        if($("#step3_textbox1").val().length>0 &&  $("#step3_textbox2").val().length >0 &&  
+                $("#step3_textbox3").val().length>0 && $("#step3_textbox4").val().length>0 &&  
+                $("#step3_textbox5").val().length >0 && $("#step3_textbox6").val().length>0 &&  
+                $("#step3_textbox7").val().length >0 &&  $("#step3_textbox8").val().length>0 &&  
+                $("#step3_textbox9").val().length>0)
+        {
+            swiper.slideTo(3);
+            $('#step3_next').fadeOut(600);
+            $("#4").removeAttr("disabled");        
+        }
+       
+    });
+}
+
+//****step4 Java Script****
+function step4(){
+    
+
+    $('#step4_next').hide();
+    
+    for(let i = 1; i <=4; i++){
+        $('textarea[name=step4Text'+i+']').keyup(function() {
+            // 텍스트영역의 길이를 체크
+            var textLength1 = $("textarea[name=step4Text1]").val().length;
+            var textLength2 = $("textarea[name=step4Text2]").val().length;
+            var textLength3 = $("textarea[name=step4Text3]").val().length;
+            var textLength4 = $("textarea[name=step4Text4]").val().length;
+            
+            if(textLength1 > 0 && textLength2 > 0 && textLength3 > 0 && textLength4 > 0)
+                $('#step4_next').fadeIn(600);
+             
+        });
+    }
+
+    $("#step4_next").click(function(){
+
+        var textLength1 = $("textarea[name=step4Text1]").val().length;
+        var textLength2 = $("textarea[name=step4Text2]").val().length;
+        var textLength3 = $("textarea[name=step4Text3]").val().length;
+        var textLength4 = $("textarea[name=step4Text4]").val().length;
+            
+        if(textLength1 > 0 && textLength2 > 0 && textLength3 > 0 && textLength4 > 0)
+        {
+            swiper.slideTo(4);
+            $('#step4_next').fadeOut(600);
+            $("#5").removeAttr("disabled");       
+        }
+
+             
+        
+    });
+    
+}
+
+//****step5 Java Script****
+function step5(){
+    
+    
+    $('#step5_next').hide();
+   
+    for(let i=2; i<5; i++){
+        $("#step5_question"+i).hide();
+        $("#step5_answer"+i).hide();
+    };
+    
+    $("#step5_answer1").keyup(function(){
+        if($("#step5_answer1").val().length>1){
+            $('#step5_answer1').removeClass( "step5_answer1_focus" );
+            $("#step5_question2").fadeIn(600);
+            $("#step5_answer2").delay(300).fadeIn(600);
+        }
+    });
+
+    step5Keyup(2);
+    step5Keyup(3);
+
+    $("#step5_answer4").keyup(function(){
+        if($("#step5_answer4").val().length>1) 
+            $('#step5_next').fadeIn(600);
+    });
+
+    $('#step5_next').click(function(){
+        if($("#step5_answer1").val().length>1 && $("#step5_answer2").val().length>1 &&
+            $("#step5_answer3").val().length>1 && $("#step5_answer4").val().length>1 ) 
+        {
+            swiper.slideTo(5);
+            $('#step5_next').fadeOut(600);
+            $("#6").removeAttr("disabled");    
+            // $('.swiper-button-next').removeClass( "disabled" );
+            // $('.swiper-button-prev').removeClass( "disabled" );        
+        }
+
+                
+    });
+
+    function step5Keyup(num){
+        $("#step5_answer"+num).keyup(function(){
+            if($("#step5_answer"+num).val().length>1){
+                num++;
+                $("#step5_question"+num).fadeIn(600);
+                $("#step5_answer"+num).delay(300).fadeIn(600);
+                
+            }
+        });
+    }
+    
+}
+
+function checkProcess(){
+
+    if($("#step3_textbox1").val().length == 0 ||  $("#step3_textbox2").val().length >0 ||  
+    $("#step3_textbox3").val().length==0 || $("#step3_textbox4").val().length==0 ||  
+    $("#step3_textbox5").val().length ==0 || $("#step3_textbox6").val().length==0 ||  
+    $("#step3_textbox7").val().length ==0 ||  $("#step3_textbox8").val().length==0 ||  
+    $("#step3_textbox9").val().length==0 ){
+        swiper.slideTo(2);
+        alert('03.그 사람과 나는 : 아직 답하지 못한 질문이 있어요');
+        return false;
+    }
+
+    else if($("textarea[name=step4Text1]").val().length == 0 || $("textarea[name=step4Text2]").val().length  == 0 ||
+    $("textarea[name=step4Text3]").val().length  == 0 || $("textarea[name=step4Text4]").val().length  == 0 ){
+        swiper.slideTo(3);
+        alert('04.그때의 나는 : 아직 답하지 못한 질문이 있어요');
+        return false;
+    }
+
+    else if($("#step5_answer1").val().length==0 || $("#step5_answer2").val().length==0 ||
+    $("#step5_answer3").val().length==0 || $("#step5_answer4").val().length==0){
+        swiper.slideTo(4);
+        alert('05.그때의 내 마음은 : 아직 답하지 못한 질문이 있어요');
+        return false;
+    }
+
+    else if($("input:checkbox[name=step6_emotion_check]:checked").length == 0){
+        swiper.slideTo(5);
+        alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
+        return false;
+    }
 }

@@ -201,14 +201,6 @@
 }
 
 
-/* 공통단어 */
-.emotion_card_common{
-    color: #F5D53F;
-}
-/* .emotion_card_common:hover{
-    opacity: 0.7;
-} */
-
 
 input[type="checkbox"] + div {
     width: 117px;
@@ -247,6 +239,14 @@ input[type="checkbox"]{
     opacity: 0; 
     /* overflow: hidden;
     clip:rect(0,0,0,0); */
+}
+
+/* 공통단어 */
+.emotion_card_common{
+    color: #F5D53F;
+}
+.emotion_card_common:hover{
+    opacity: 0.7;
 }
 
 
@@ -305,6 +305,7 @@ input[type="checkbox"]{
 
 .emotion-swiper-button-next {
     color: #043383 !important;
+    top: 100px !important;
     /* display: none !important; */
 }
 .emotion-swiper-button-prev {
@@ -393,4 +394,109 @@ input[type="checkbox"]{
     width: 627px;
 }
 
+.animate_common{
+    animation: pulseAnim_common 2s infinite;
+    animation-delay: 0.2s;
+}
+
+@keyframes pulseAnim_common{
+    0% {
+        box-shadow: 0 0 0 0 rgb(255, 221, 2);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(245, 209, 7, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 209, 7, 0);
+    }
+}
+
+.animate_thanks{
+    animation: pulseAnim_thanks 2s infinite;
+    animation-delay: 0.4s;
+}
+
+@keyframes pulseAnim_thanks{
+    0% {
+        box-shadow: 0 0 0 0 rgb(76, 218, 33);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(7, 245, 39, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(7, 245, 39, 0);
+    }
+}
+
+.animate_sorry{
+    animation: pulseAnim_sorry 2s infinite;
+    animation-delay: 0.6s;
+}
+
+
+@keyframes pulseAnim_sorry{
+    0% {
+        box-shadow: 0 0 0 0 rgb(7, 130, 245);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(7, 197, 245, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(7, 197, 245, 0);
+    }
+}
+
+.animate_celebration{
+    animation: pulseAnim_celebration 2s infinite;
+    animation-delay: 0.8s;
+}
+
+
+@keyframes pulseAnim_celebration{
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 75, 7, 1.0);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(7, 197, 245, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(7, 197, 245, 0);
+    }
+}
+
+.animate_love{
+    animation: pulseAnim_love 2s infinite;
+    animation-delay: 1.0s;
+}
+
+
+@keyframes pulseAnim_love{
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 7, 166, 1.0);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(7, 197, 245, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(7, 197, 245, 0);
+    }
+}
+
+.animate_say{
+    animation: pulseAnim_say 2s infinite;
+    animation-delay: 1.2s;
+}
+
+
+@keyframes pulseAnim_say{
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 7, 27, 1.0);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(7, 197, 245, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(7, 197, 245, 0);
+    }
+}
 

@@ -1,5 +1,5 @@
-emotionArray = []
-checkedId = []
+emotionArray = new Array();
+checkedId = new Array();
 Emotion = function(str,table,class_name){
     this.str =  str;
     this.table = table;
@@ -86,7 +86,7 @@ $(document).ready(function(){
         emotionArray.push(emo);
     
     })
-    
+
     let emotionSwiper = new Swiper(".emotionSwiper", {
     
         autoHeight : true,
@@ -96,6 +96,7 @@ $(document).ready(function(){
                 let num = this.realIndex+1;
                 $("input[id=emotion"+num+"]").prop('checked', true);
                 console.log(num);
+                
             }
         },
         keyboard: {
@@ -104,14 +105,20 @@ $(document).ready(function(){
             pageUpDown:false
           },
     });
-    console.log(emotionArray[0].class_name);
-    
-    let select = [];
-    let tag=[];
+
+    $(".emotionSwiper").hide();
+    $(".step6_container_select").hide();
+    $("#step6_next").hide();
+
     let idNum = 0;
+    let firstCount = false;
     emotionArray.forEach(function(value){
         value.id_name.forEach(function(nameValue){
-            $("#"+nameValue).click(function(){
+            $("#"+nameValue).change(function(){
+                
+                $(".step6_container_select").fadeIn(600);
+                $("#step6_next").delay(300).fadeIn(600);
+
                 let click_value = $("#"+nameValue).val();
                 let checked = $("#"+nameValue).is(':checked');
                 console.log(checked);
@@ -162,9 +169,13 @@ $(document).ready(function(){
     function deleteEmotion(emotion){
         
         if($(emotion).prop('tagName')=="INPUT"){
+            
             checkedId.forEach(function(value){
+                         
                 if($("#"+value).text()== emotion.val() && emotion.val() != ""){
                     emotion = $("#"+value);
+                    console.log($("#"+value).text());
+                    console.log(emotion.val());     
                     return false;
                 }
             });
@@ -192,6 +203,7 @@ $(document).ready(function(){
            
 
         });
+
         
     }
     
@@ -212,20 +224,17 @@ $(document).ready(function(){
     }
     
 
-    function removeSelect(select,click_value){
-        let searchNum = select.indexOf(click_value);
-        
-        if(searchNum >= 0){
-            select.splice(searchNum,1);
-        }
-        return select;
-    }
-    
-    
-
-
-    $("input:radio[name=step6_emotion_category]").click(function()
+    $("input:radio[name=step6_emotion_category]").change(function()
     {
+        $("#emotion_common").removeClass("animate_common");
+        $("#emotion_thanks").removeClass("animate_thanks");
+        $("#emotion_sorry").removeClass("animate_sorry");
+        $("#emotion_celebration").removeClass("animate_celebration");
+        $("#emotion_love").removeClass("animate_love");
+        $("#emotion_say").removeClass("animate_say");
+
+        $(".emotionSwiper").fadeIn(600);
+        
         let emotion_radio = $('input:radio[name="step6_emotion_category"]:checked').val();
         
         switch(emotion_radio){
@@ -256,6 +265,8 @@ $(document).ready(function(){
         }
     });
 
+    
+
 
 });
 
@@ -274,3 +285,4 @@ function checkValue(num){
     }
     
 }
+

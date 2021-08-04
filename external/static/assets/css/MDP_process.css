@@ -252,11 +252,13 @@
     top:190px;
 }
 
+.swiper-slide{height:1px}
+.swiper-slide-active { height:auto}
 .entireSwiper-swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
-
+    
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -282,5 +284,28 @@
     color: #043383 !important;
     /* display: none !important; */
 }
+.swiper-button-next.disabled {
+    display: none !important;
+}
+.swiper-button-prev.disabled {
+    display: none !important;
+}
 
-
+#step1 {
+    /* display: none; */
+}
+#step2 {
+    /* display: none; */
+}
+#step3 {
+    /* display: none; */
+}
+#step4 {
+    /* display: none; */
+}
+#step5 {
+    /* display: none; */
+}
+#step6 {
+    /* display: none; */
+}
