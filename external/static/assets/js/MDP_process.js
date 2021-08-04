@@ -443,11 +443,12 @@ function step5(){
 
 function checkProcess(){
 
-    if($("#step3_textbox1").val().length == 0 ||  $("#step3_textbox2").val().length >0 ||  
+    if($("#step3_textbox1").val().length == 0 ||  $("#step3_textbox2").val().length == 0 ||  
     $("#step3_textbox3").val().length==0 || $("#step3_textbox4").val().length==0 ||  
     $("#step3_textbox5").val().length ==0 || $("#step3_textbox6").val().length==0 ||  
     $("#step3_textbox7").val().length ==0 ||  $("#step3_textbox8").val().length==0 ||  
     $("#step3_textbox9").val().length==0 ){
+        
         swiper.slideTo(2);
         alert('03.그 사람과 나는 : 아직 답하지 못한 질문이 있어요');
         return false;
