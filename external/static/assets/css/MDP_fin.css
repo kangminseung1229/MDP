@@ -105,6 +105,11 @@
 
 #letter_to_name{
     margin-left:20px;
+    text-decoration: underline 2px #13356F;
+    border:none;
+    font-size: 17px;
+    font-family: gmarket_medium;
+    color:#13356F;
 }
 
 #letter_image{
@@ -129,6 +134,7 @@
     line-height: 31px;
     padding: 8px 10px;
     resize: none;
+    word-break:break-all;
 }
 
 
@@ -143,13 +149,15 @@
 
 
 #letter_from_name{
+    margin-left:20px;
     text-decoration: underline 2px #13356F;
-    text-underline-position:under;
-    /* display: inline;  */
-    margin-left: 20px;
-    float:left;
-    
+}
 
+#letter_bottom{
+    width:100%;
+    height:20px;
+    position:relative;
+    height:28.5px;
 }
 
 #wave_shape{
