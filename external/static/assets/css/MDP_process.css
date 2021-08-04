@@ -218,10 +218,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 10px;
-    display:none;
-    left: 600px;
-    top: 460px;
-    position: absolute;
+    /* display:none; */
+    
+    font-family: gmarket_medium;
+    color: #043383;
 }
 .next:hover {
     background-color: #fff;
@@ -252,11 +252,13 @@
     top:190px;
 }
 
+.swiper-slide{height:1px}
+.swiper-slide-active { height:auto}
 .entireSwiper-swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
-
+    
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -282,8 +284,12 @@
     color: #043383 !important;
     /* display: none !important; */
 }
-
-
+.swiper-button-next.disabled {
+    display: none !important;
+}
+.swiper-button-prev.disabled {
+    display: none !important;
+}
 
 #step1 {
     /* display: none; */

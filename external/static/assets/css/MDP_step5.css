@@ -48,6 +48,8 @@
 }
 #step5_answer1:focus{
     outline:none;
+    cursor: pointer;
+    animation: pulseAnim_step5-1 2s infinite;
 }
 #step5_answer1:after {
     border-top:15px solid #DDEDF9;
@@ -124,6 +126,8 @@
 }
 #step5_answer2:focus{
     outline:none;
+    cursor: pointer;
+    animation: pulseAnim_step5-2 2s infinite;
 }
 #step5_answer2:after {
     border-top:15px solid #FFF8D2;
@@ -201,6 +205,8 @@
 }
 #step5_answer3:focus{
     outline:none;
+    cursor: pointer;
+    animation: pulseAnim_step5-3 2s infinite;
 }
 #step5_answer3:after {
     border-top:15px solid #F2F8EB;
@@ -278,6 +284,8 @@
 }
 #step5_answer4:focus{
     outline:none;
+    cursor: pointer;
+    animation: pulseAnim_step5-4 2s infinite;
 }
 #step5_answer4:after {
     border-top:15px solid #DDEDF9;

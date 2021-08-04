@@ -7,6 +7,9 @@
     <div id="process_wrapper">
         <nav th:replace = "fragments/MDP_process_fragment :: nav"></nav>
         
+        <form  th:action="@{/MDP/letter}"  method="get" onsubmit="return checkProcess();" >
+
+        
         <div class="swiper-container entireSwiper">
             <div class="content swiper-wrapper">
 
@@ -32,7 +35,7 @@
                             <div id="step1_shape_num1" class="step1_shape"></div>
                             <div id="step1_shape_num2"></div>
                             <div id="step1_shape_num3"></div>
-                            <div id="step1_next" class="next" style="left: 600px; top: 460px;">NEXT</div>   
+                            <div id="step1_next" class="next" style="position: absolute; left: 600px; top: 460px;">NEXT</div>   
                         </div>                      
                     </div> 
                 </div>
@@ -51,23 +54,27 @@
                                 <img src="" id="target" alt="" style="max-width:500px; max-height:250px;">
                             </div>
                         </div>
-                        <p style="padding-top:3%;">
-                            그 사람에게 내가 전하고 싶은 감정을 선택해주세요
-                        </p>
-                        <div id="radio_wrapper">
-                                <label class="feeling"><input type="radio" name="feeling" value="고마움"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp;
-                                <label class="feeling"><input type="radio" name="feeling" value="미안함"><span id="sorry">미안함</span></label>&emsp;&emsp;&emsp;
-                                <label class="feeling"><input type="radio" name="feeling" value="축하/응원"><span id="cheer">축하/응원</span></label>&emsp;&emsp;&emsp;
-                                <label class="feeling"><input type="radio" name="feeling" value="사랑"><span id="love">사랑</span></label>&emsp;&emsp;&emsp;
-                                <label class="feeling"><input type="radio" name="feeling" value="안부"><span id="hello">안부</span></label>
-                            </form>
+                        <div class = "step2_emotion_wrapper">
+                            <p style="padding-top:3%;">
+                                그 사람에게 내가 전하고 싶은 감정을 선택해주세요
+                            </p>
+                            <div id="radio_wrapper">
+                                    <label class="feeling"><input type="radio" name="feeling" value="고마움"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp;
+                                    <label class="feeling"><input type="radio" name="feeling" value="미안함"><span id="sorry">미안함</span></label>&emsp;&emsp;&emsp;
+                                    <label class="feeling"><input type="radio" name="feeling" value="축하/응원"><span id="cheer">축하/응원</span></label>&emsp;&emsp;&emsp;
+                                    <label class="feeling"><input type="radio" name="feeling" value="사랑"><span id="love">사랑</span></label>&emsp;&emsp;&emsp;
+                                    <label class="feeling"><input type="radio" name="feeling" value="안부"><span id="hello">안부</span></label>
+                                </form>
+                            </div>
                         </div>
+                        
+                        <div id="step2_next" class="next" style="margin-top: 30px;">NEXT</div>
                     </div>   
                 </div>
 
                 <!-- step3 -->
                 <div class="swiper-slide">
-                    <div id="step3" style="height:700px;">
+                    <div id="step3" >
                         <p class="explain">
                             마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
                             주어진 질문에 답하며 우리의 추억을 떠올려 보세요.
@@ -117,6 +124,7 @@
                             <input class="step3_textbox step3_shape_yellow" type="text" id="step3_textbox9">&ensp;
                             <span class="text_end">이다.</span>
                         </div>
+                        <div id="step3_next" class="next" style="margin-top: 30px;">NEXT</div>
                     </div>
                 </div>
 
@@ -132,36 +140,38 @@
                                 <div class="step4_quest">
                                     그때 나는 무엇을 보았나요? 👀
                                 </div>
-                                <textarea class="step4_textbox"></textarea>                      
+                                <textarea class="step4_textbox" name="step4Text1" id="step4Text1" ></textarea>                      
                             </div>
                             <div class="step4_main" id="ear">
                                 <div class="step4_quest">
                                     그때 나는 무엇을 들었나요? 👂
                                 </div>
-                                <textarea class="step4_textbox"></textarea>                             
+                                <textarea class="step4_textbox" name="step4Text2" id="step4Text2"></textarea>                             
                             </div>
                             <div class="step4_main" id="talk">
                                 <div class="step4_quest">
                                     그때 나는 어떤 말과 행동을 하였나요? 👄
                                 </div>
-                                <textarea class="step4_textbox"></textarea>                              
+                                <textarea class="step4_textbox" name="step4Text3" id="step4Text3"></textarea>                              
                             </div>
                             <div class="step4_main" id="think">
                                 <div class="step4_quest">
                                     그때 나는 무엇을 생각하고 느꼈나요? 🤔
                                 </div>
-                                <textarea class="step4_textbox"></textarea>                           
+                                <textarea class="step4_textbox" name="step4Text4" id="step4Text4"></textarea>                           
                             </div>
                             <div id="center">
                                 나
-                            </div>                   
+                            </div>                                 
                         </div>
+
+                        <div id="step4_next" class="next" style="margin-top: 30px;">NEXT</div>
                     </div>
                 </div>
 
                 <!-- step5 -->
                 <div class="swiper-slide entireSwiper-swiper-slide">
-                    <div id="step5" style="height:1200px;">
+                    <div id="step5" >
                         <p class="explain">
                             마음을 전하고 싶은 그 사람과 나는 현재 어떤 관계인가요?<br>
                             주어진 질문에 답하며 우리의 추억을 떠올려 보세요.
@@ -173,7 +183,7 @@
                             </tr>
                             <tr class="step5_1">
                                 <td>
-                                    <textarea id = "step5_answer1" class="step5_answer1_focus" ></textarea>
+                                    <textarea id = "step5_answer1"  ></textarea>
                                 </td>   
                             </tr>
                             <tr class="step5_2">
@@ -181,7 +191,7 @@
                             </tr>
                             <tr class="step5_2">
                                 <td>
-                                    <textarea id = "step5_answer2" class="step5_answer2_focus" ></textarea>
+                                    <textarea id = "step5_answer2" ></textarea>
                                 </td>
                             </tr>
                             <tr class="step5_3">
@@ -189,7 +199,7 @@
                             </tr>
                             <tr class="step5_3">
                                 <td>
-                                    <textarea id = "step5_answer3" class="step5_answer3_focus" ></textarea>
+                                    <textarea id = "step5_answer3" ></textarea>
                                 </td>
                             </tr>
                             <tr class="step5_4">
@@ -197,10 +207,11 @@
                             </tr>
                             <tr class="step5_4">
                                 <td>
-                                    <textarea id = "step5_answer4" class="step5_answer4_focus" ></textarea>
+                                    <textarea id = "step5_answer4" ></textarea>
                                 </td>
                             </tr>
                         </table>
+                        <div id="step5_next" class="next" style="margin-top: 30px;">NEXT</div>
                     </div>
                 </div>
 
@@ -220,33 +231,33 @@
                             <table style="display:inline-block;">
                                 <tr>
                                     <td class="step6_container_td">
-                                        <input type="radio" id="emotion1" value ="1" name="step6_emotion_category" checked=true></input>
-                                        <span id = emotion_common ></span>
+                                        <input type="radio" id="emotion1" value ="1" name="step6_emotion_category"></input>
+                                        <span id = emotion_common class = "animate_common"></span>
                                         <div class = emotion_text id = emotion_common_text>공통단어</div>   
                                     </td>
                                     <td class="step6_container_td">
                                         <input type="radio" id="emotion2" value ="2" name="step6_emotion_category"></input>
-                                        <span id = emotion_thanks ></span>
+                                        <span id = emotion_thanks class="animate_thanks" ></span>
                                         <div  class = emotion_text id = emotion_thanks_text>고마움</div> 
                                     </td>
                                     <td class="step6_container_td">
                                         <input type="radio" id="emotion3" value ="3" name="step6_emotion_category"></input>
-                                        <span id = emotion_sorry ></span>
+                                        <span id = emotion_sorry class="animate_sorry"></span>
                                         <div  class = emotion_text id = emotion_sorry_text>미안함</div> 
                                     </td>
                                     <td class="step6_container_td">
                                         <input type="radio" id="emotion4" value ="4" name="step6_emotion_category"></input>
-                                        <span id = emotion_celebration ></span>
+                                        <span id = emotion_celebration class="animate_celebration"></span>
                                         <div  class = emotion_text id = emotion_celebration_text>축하응원</div> 
                                     </td>
                                     <td class="step6_container_td">
                                         <input type="radio" id="emotion5" value ="5" name="step6_emotion_category"></input>
-                                        <span id = emotion_love ></span>
+                                        <span id = emotion_love class="animate_love" ></span>
                                         <div  class = emotion_text id = emotion_love_text>사랑</div> 
                                     </td>
                                     <td class="step6_container_td">
                                         <input type="radio" id="emotion6" value ="6" name="step6_emotion_category"></input>
-                                        <span id = emotion_say ></span>    
+                                        <span id = emotion_say class="animate_say"></span>    
                                         <div  class = emotion_text id = emotion_say_text>안부</div> 
                                     </td>
                                 </tr>
@@ -275,21 +286,6 @@
                             </div>
                         </div>
                         
-<!-- 
-                        <div id="step6_container">
-                            
-                        <table>
-                            <tr>
-                                <td>
-                                    <input type = "checkbox" name = "emotion_card_common" id ="emotion_card_common" value="감사한"></input>
-                                    <label class = "emotion_card_text emotion_card_common" for ="emotion_card_common" >감사한</label>
-                                </td>
-                            </tr>
-                        </table>
-                            
-                            
-                           
-                        </div> -->
                         <div class="step6_container_select">
                             <div style="width: 700px;">
                                 <span id = "select_word_text1">내가 선택한 감정단어</span>
@@ -298,15 +294,18 @@
                             
                             <table id = "select_word"></table>
                         </div>
+                        <input type="submit" id="step6_next" style="margin-top: 30px;" class="next" value="편지쓰러가기"></input> 
+
                     </div>
+                    
                 </div>
             </div> <!-- content swiper-wrapper -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            <!-- <div class="swiper-pagination"></div> -->
         </div>
         
-        
+    </form>
     </div>
 </body>
 </html>
@@ -315,49 +314,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/assets/js/anime.min.js"></script>
     <script src = "/assets/js/MDP_process.js"></script>
-    <script src = "/assets/js/MDP_process_step3.js"></script>
-    <script src = "/assets/js/MDP_process_step5.js"></script>
     <script src = "/assets/js/MDP_process_step6.js"></script>
+    
 
     <!-- swiper -->
     
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <script>
-        $("#fileupload").change(function(){
-            const imgPath=document.querySelector('#fileupload').files[0];
-            const reader = new FileReader();
-            reader.addEventListener("load", function(){
-                localStorage["target"]=reader.result;
-            }, false);
-            if(imgPath){
-                reader.readAsDataURL(imgPath);
-            }
-            let img=document.getElementById('target');
-            img.src=localStorage["target"];
-
-            if($("#target").attr("src")!=null){
-                $(".input_image").css("background-color", "white");
-                $(".input_image").css("border", "none");
-                $("#fileupload").css("display", "none");
-            }
-        });
-
-         
-
-        function send(param) {  
-
-            if ($("#"+param).val() == undefined ) {
-                alert(param +'이 없습니다.');
-            }
-
-
-        }
-
-        
-
-
-    
-    </script>
 
 </footer>
