@@ -113,13 +113,15 @@
 }
 
 #letter_image{
-    width:80%;
+    /* width:80%;
     height:200px;
     margin:0 auto;
     margin-top:20px;
     margin-bottom:20px;
     background-color: #E0EAF7;
-    border-radius:15px;
+    border-radius:15px; */
+    text-align:center;
+    background-color:#fff;
 }
 
 #letter_textarea{

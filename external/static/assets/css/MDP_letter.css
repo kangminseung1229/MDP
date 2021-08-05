@@ -210,7 +210,8 @@
     margin:0 auto;
     margin-top:5px;
     border:1px solid #13356F;
-    height:636px;
+    /* height:636px; */
+    height:auto;
     border-radius: 15px;
     position: relative;
     text-align: center;
@@ -240,12 +241,13 @@
 
 
 #letter_img{
-    width: 330px;
+    /* width: 330px;
     height: 200px;
     border: none;
     border-radius: 15px;
     display: inline-block;
-    background-color: #E0EAF7;
+    background-color: #E0EAF7; */
+    background-color:#fff;
 }
 
 #letter_textarea{

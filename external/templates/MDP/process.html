@@ -58,13 +58,31 @@
                                 <p style="padding-top:3%;">
                                     그 사람에게 내가 전하고 싶은 감정을 선택해주세요
                                 </p>
-                                <div id="radio_wrapper">
+                                <input type="hidden" id="feeling" name="feeling" value="">
+                                <div id="radio_wrapper" style="height:105px;">
+                                    <div class="feel" id="thanks" onclick="feelingCheck('고마움');">
+                                        고마움
+                                    </div>
+                                    <div class="feel" id="sorry" onclick="feelingCheck('미안함');" style="margin-left:50px;">
+                                        미안함
+                                    </div>
+                                    <div class="feel" id="cheer" onclick="feelingCheck('축하/응원');" style="margin-left:50px;">
+                                        축하/응원
+                                    </div>
+                                    <div class="feel" id="love" onclick="feelingCheck('사랑');" style="margin-left:50px;">
+                                        사랑
+                                    </div>
+                                    <div class="feel" id="hello" onclick="feelingCheck('안부');" style="margin-left:50px;">
+                                        안부
+                                    </div>
+                                </div>
+                                <!-- <div id="radio_wrapper">
                                         <label for="thanks" class="feeling"><input type="radio" id="thanks" name="feeling" value="고마움"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp;
                                         <label for="sorry" class="feeling"><input type="radio" id="sorry" name="feeling" value="미안함"><span id="sorry">미안함</span></label>&emsp;&emsp;&emsp;
                                         <label for="cheer" class="feeling"><input type="radio" id="cheer" name="feeling" value="축하/응원"><span id="cheer">축하/응원</span></label>&emsp;&emsp;&emsp;
                                         <label for="love" class="feeling"><input type="radio" id="love" name="feeling" value="사랑"><span id="love">사랑</span></label>&emsp;&emsp;&emsp;
                                         <label for="hello" class="feeling"><input type="radio" id="hello" name="feeling" value="안부"><span id="hello">안부</span></label>
-                                </div>
+                                </div> -->
                             </div>
                             
                             <div id="step2_next" class="next" style="margin-top: 30px;">NEXT</div>
@@ -319,5 +337,48 @@
     <!-- swiper -->
     
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        function feelingCheck(id){
+            $("#feeling").val(id);
+            console.log($("#feeling").val());
+        }
+
+
+        $("#thanks").click(function(){
+            $("#thanks").css("background-color", "rgba(133, 194, 71, 0.2)");
+            $("#sorry").css("background-color", "#fff");
+            $("#cheer").css("background-color", "#fff");
+            $("#love").css("background-color", "#fff");
+            $("#hello").css("background-color", "#fff");
+        });
+        $("#sorry").click(function(){
+            $("#thanks").css("background-color", "#fff");
+            $("#sorry").css("background-color", "rgba(107, 167, 219, 0.2)");
+            $("#cheer").css("background-color", "#fff");
+            $("#love").css("background-color", "#fff");
+            $("#hello").css("background-color", "#fff");
+        });
+        $("#cheer").click(function(){
+            $("#thanks").css("background-color", "#fff");
+            $("#sorry").css("background-color", "#fff");
+            $("#cheer").css("background-color", "rgba(236, 106, 55, 0.2)");
+            $("#love").css("background-color", "#fff");
+            $("#hello").css("background-color", "#fff");
+        });
+        $("#love").click(function(){
+            $("#thanks").css("background-color", "#fff");
+            $("#sorry").css("background-color", "#fff");
+            $("#cheer").css("background-color", "#fff");
+            $("#love").css("background-color", "rgba(219, 77, 150, 0.2)");
+            $("#hello").css("background-color", "#fff");
+        });
+        $("#hello").click(function(){
+            $("#thanks").css("background-color", "#fff");
+            $("#sorry").css("background-color", "#fff");
+            $("#cheer").css("background-color", "#fff");
+            $("#love").css("background-color", "#fff");
+            $("#hello").css("background-color", "rgba(232, 59, 77, 0.2)");
+        });
+    </script>
 
 </footer>

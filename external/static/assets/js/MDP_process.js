@@ -259,7 +259,7 @@ function step2(){
         setTimeout(function(){
             $("#target").prop("src",localStorage["target"]);
             console.log(localStorage["target"]);
-        }, 10)
+        }, 50)
         
         if($("#target").attr("src")!=null){
             $(".input_image").css("background-color", "white");
@@ -290,7 +290,7 @@ function step2(){
     });
 
 
-    $("input[name = feeling]").click(function(){
+    $(".feel").click(function(){
         $("#step2_next").fadeIn(600);
     });
 

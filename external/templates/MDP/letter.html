@@ -169,15 +169,16 @@
                 <div id="help">?</div>
                 &ensp;편지 작성을 시작하기 어렵다면 물음표를 눌러 보세요.
             </div>
-            <div id="letter">
-                <form th:action="@{/MDP/fin}" method="POST">
+            <form th:action="@{/MDP/fin}" method="POST">
+                <div id="letter">
                     <img src="/img/MDP/twinkle.png" class="twinkle">
                     <div class = "letter_to">
-                        <!-- <p style="display: inline; white-space: nowrap;">TO.</p><span id = "letter_to_name" name="letterTo" th:text="${step1Text}" style="width:100px;"></span> -->
+                    <!-- <p style="display: inline; white-space: nowrap;">TO.</p><span id = "letter_to_name" name="letterTo" th:text="${step1Text}" style="width:100px;"></span> -->
                         <p style="display: inline; white-space: nowrap;">TO.</p><input type="text" id = "letter_to_name" name="letterTo" th:value="${step1Text}" style="width:100px;">
-
                     </div>
-                    <div id = "letter_img"></div>
+                    <div id = "letter_img">
+                        <img src="" id="target" alt="" style="max-width:330px; max-height:200px;">
+                    </div>
                     <textarea id="letter_textarea" name="letterText"></textarea>
                     <div class = "letter_from">
                         <p style=" display: inline; white-space: nowrap;">FROM.</p><span id = "letter_from_name" name="letterFrom" th:text="${step1Me}"></span>
@@ -187,11 +188,10 @@
                         <div class='wave-top'></div>
                         <div class="wave-mid"></div>
                     </div>
-                    <input type="submit">
-                </form>
-                
-            </div>
-            
+                </div>  
+                <input type="submit">
+            </form>
+                     
     </div>
 </body>
 </html>
@@ -207,5 +207,5 @@
     $("#letter_to_name").on('keydown', function(e){
         $("#letter_to_name").css('width', '200');
     });
-
+    $("#target").prop("src",localStorage["target"]);
 </script>

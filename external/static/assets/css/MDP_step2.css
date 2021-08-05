@@ -15,6 +15,14 @@
     height:auto;
     text-align:center;
 }
+.feel{
+    cursor:pointer;
+    border-radius:50%;
+    line-height:100px;
+    float:left;
+    width:100px;
+    height:100px;
+}
 .feeling input[type='radio']{
     display:none;
 }
@@ -29,59 +37,43 @@
     cursor:pointer;
     font-size:16px;
 }
-.feeling input[type="radio"] + #thanks{
+#thanks{
     border: 1.5px solid rgb(133, 194, 71);
     color:rgb(133, 194, 71);
     transition-duration:0.5s;
 }
-.feeling input[type="radio"] + #sorry{
+#sorry{
     border: 1.5px solid rgb(107, 167, 219);
     color:rgb(107, 167, 219);
     transition-duration:0.5s;
 }
-.feeling input[type="radio"] + #cheer{
+#cheer{
     border: 1.5px solid rgb(236, 106, 55);
     color:rgb(236, 106, 55);
     transition-duration:0.5s;
 }
-.feeling input[type="radio"] + #love{
+#love{
     border: 1.5px solid rgb(219, 77, 150);
     color:rgb(219, 77, 150);
     transition-duration:0.5s;
 }
-.feeling input[type="radio"] + #hello{
+#hello{
     border: 1.5px solid rgb(232, 59, 77);
     color:rgb(232, 59, 77);
     transition-duration:0.5s;
 }
-#radio_wrapper input[type="radio"]:hover + #thanks{
+#thanks:hover{
     background-color: rgba(133, 194, 71, 0.2);
 }
-#radio_wrapper input[type="radio"]:hover + #sorry{
+#sorry:hover{
     background-color: rgba(107, 167, 219, 0.2);
 }
-#radio_wrapper input[type="radio"]:hover + #cheer{
+#cheer:hover{
     background-color: rgba(236, 106, 55, 0.2);
 }
-#radio_wrapper input[type="radio"]:hover + #love{
+#love:hover{
     background-color: rgba(219, 77, 150, 0.2);
 }
-#radio_wrapper input[type="radio"]:hover + #hello{
-    background-color: rgba(232, 59, 77, 0.2);
-}
-
-#radio_wrapper input[type="radio"]:checked + #thanks{
-    background-color: rgba(133, 194, 71, 0.2);
-}
-#radio_wrapper input[type="radio"]:checked + #sorry{
-    background-color: rgba(107, 167, 219, 0.2);
-}
-#radio_wrapper input[type="radio"]:checked + #cheer{
-    background-color: rgba(236, 106, 55, 0.2);
-}
-#radio_wrapper input[type="radio"]:checked + #love{
-    background-color: rgba(219, 77, 150, 0.2);
-}
-#radio_wrapper input[type="radio"]:checked + #hello{
+#hello:hover{
     background-color: rgba(232, 59, 77, 0.2);
 }

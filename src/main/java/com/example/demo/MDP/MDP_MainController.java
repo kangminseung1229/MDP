@@ -118,6 +118,7 @@ public class MDP_MainController {
         model.addAttribute("step1Text", step1Text);
         String feeling = request.getParameter("feeling");
         model.addAttribute("feeling", feeling);
+        System.out.println("---"+feeling+"---");
         String step3_textbox1 = request.getParameter("step3_textbox1");
         model.addAttribute("step3_textbox1", step3_textbox1);
         String step3_textbox2 = request.getParameter("step3_textbox2");
