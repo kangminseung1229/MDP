@@ -153,8 +153,8 @@ public class MDP_MainController {
         model.addAttribute("step5Text3", step5Text3);
         String step5Text4 = request.getParameter("step5Text4");
         model.addAttribute("step5Text4", step5Text4);
-        String step6_emotion_check = request.getParameter("step6_emotion_check");
-        model.addAttribute("step6_emotion_check", step6_emotion_check);
+        String step6_emotion_result = request.getParameter("step6_emotion_result");
+        model.addAttribute("step6_emotion_result", step6_emotion_result);
         
 
         return "MDP/letter";

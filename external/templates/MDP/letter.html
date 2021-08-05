@@ -13,7 +13,7 @@
             <div>
                 <div id="one">
                     <div class="hashtag" id="step2">
-                        <span th:text="|# ${feeling}|"></span>
+                        <span id = "step2_emotion" th:text="|# ${feeling}|"></span>
                     </div>
                     <div class="hashtag green">
                         <span th:text="|# ${step3_textbox1}|"></span>
@@ -108,13 +108,8 @@
                     </div>
                 </div>
                 <div class="step6_container_select">
+                    <span id = "step6_emotion_result" th:text="${step6_emotion_result}" style="display: none;"></span>
                     <table id = "letter_select_word">
-                        <tr>
-                            <td>
-                                <div class="emotion_card_common"><span th:text="${step6_emotion_check}"></span></div>
-                            </td>
-                        </tr>
-                      
                     </table>
                 </div>
             </div>
@@ -188,24 +183,148 @@
                         <div class='wave-top'></div>
                         <div class="wave-mid"></div>
                     </div>
-                </div>  
-                <input type="submit">
-            </form>
-                     
+                    <input class="next" type="submit">
+                </form>
+                
+            </div>
+            
     </div>
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-    $("#help").click(function(){
-        $("#write_helper").css("display", "block");  
-    });
-    $("#close_helper").click(function(){
-        $("#write_helper").css("display", "none");  
-    });
-    $("#letter_to_name").on('keydown', function(e){
-        $("#letter_to_name").css('width', '200');
+    var common=["진심의","의지되는","감사한","걱정스러운","기억에 남는",
+                "친절한","안심이 되는","그리운","배려하는","위로의","재미있는",
+                "빛나는","건강한","밝은","기대되는","행복한","든든한","아름다운",
+                "따스한","보고싶은","편안한","신나는"];
+    var thanks=["찬란한","정감 있는","나를 위한","감동적인","베푸는",
+                "인자한","설레는","벅차는","보답하는","사려깊은"];
+    var sorry=["늦었지만","이제라도","사과하는","슬픈","마음 아픈",
+                "죄송한","눈물나는","속상한","안타까운","안쓰러운"];
+    var celebration=["긍정적인","뿌듯한","믿음직한","따뜻한","열정적인",
+                    "활발한","생기 넘치는","매력적인","부지런한"];
+    var love=["응원하는","여유로운","하나뿐인","사랑스러운","오랫동안",
+                "풍부한","간직하고 싶은","고운","부드러운","감싸주는"];
+    var say=["화사한","아련한","씁쓸한","단단한","외로운",
+                "궁금한","다시 예전처럼","포근한","잔잔한","끈끈한"];
+    var emotionList = [common,thanks,sorry,celebration,love,say];
+
+    $(document).ready(function(){
+
+
+        $("#help").click(function(){
+            $("#write_helper").css("display", "block");  
+        });
+        $("#close_helper").click(function(){
+            $("#write_helper").css("display", "none");  
+        });
+        $("#letter_to_name").on('keydown', function(e){
+            $("#letter_to_name").css('width', '200');
+        });
+
+        step2Css($("#step2_emotion").text());
+
+        let emotionValue = $("#step6_emotion_result").text().split('|');
+
+        emotionList.forEach(function(value,index){
+
+            value.forEach(function(subValue,subIndex){
+                emotionValue.forEach(function(emoValue,emoIndex){
+
+                    if(subValue == emoValue){
+                        addStep6(emoValue,index);
+                        
+                    }
+
+
+                });
+            });
+
+        });
+
+
     });
     $("#target").prop("src",localStorage["target"]);
+
+    function step2Css(text){
+
+        // let value = text.text();
+        // console.log(value);
+       
+        switch(text){
+            case "# 고마움":{
+                $("#step2").addClass("thanks");
+                break;
+            }
+            case "# 미안함":{
+                $("#step2").addClass("sorry");
+                break;
+            }
+            case "# 축하/응원":{
+                $("#step2").addClass("celebration");
+                break;
+            }
+            case "# 사랑":{
+                $("#step2").addClass("love");
+                break;
+            }
+            case "# 안부":{
+                $("#step2").addClass("say");
+                break;
+            }
+        }
+    }
+
+
+    function addStep6(emotion,index){
+        let last_node_count = $("#letter_select_word").children().last().children().length;
+        console.log(last_node_count);
+        if(last_node_count>=4 || last_node_count == 0){
+            $("#letter_select_word").append('<tr class = "select_tr">');
+        }
+        let class_result;
+        switch(index){
+            case 0:{
+                class_result = "emotion_card_common";
+               
+                break;
+            }
+            case 1:{
+                class_result = "emotion_card_thanks";
+                break;
+            }
+            case 2:{
+                class_result = "emotion_card_sorry";
+                break;
+            }
+            case 3:{
+                class_result = "emotion_card_celebration";
+                break;
+            }
+            case 4:{
+                class_result = "emotion_card_love";
+                break;
+            }
+            case 5:{
+                class_result = "emotion_card_say";
+                break;
+            }
+        }
+
+        
+        let label = $('<div/>', {
+            value : emotion
+        });
+        label.addClass("eventNone");
+        label.addClass(class_result);
+        label.addClass("emotion_card_text");
+        label.html(emotion);
+       
+        console.log($("#letter_select_word").children().last().append("<td>").children().last().append(label));
+        
+
+    }
+
+
 </script>
