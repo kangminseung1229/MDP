@@ -112,35 +112,52 @@ public class MDP_MainController {
     }
 
     @PostMapping("/letter")
-    public String letterPost(Model model,HttpServletRequest request, String step1Me, String step1Text,
-    String feeling, String step3_textbox1, String step3_textbox2, String step3_textbox3, String step3_textbox4,
-    String step3_textbox5, String step3_textbox6, String step3_textbox7, String step3_textbox8, String step3_textbox9, 
-    String step4Text1, String step4Text2, String step4Text3, String step4Text4, 
-    String step5Text1, String step5Text2, String step5Text3, String step5Text4, @ModelAttribute ArrayList<String> step6_emotion_check
-    ) throws IOException, ServletException {
+    public String letterPost(HttpServletRequest request, Model model){
+        String step1Me = request.getParameter("step1Me");
         model.addAttribute("step1Me", step1Me);
+        String step1Text = request.getParameter("step1Text");
         model.addAttribute("step1Text", step1Text);
+        String feeling = request.getParameter("feeling");
         model.addAttribute("feeling", feeling);
+        System.out.println("---"+feeling+"---");
+        String step3_textbox1 = request.getParameter("step3_textbox1");
         model.addAttribute("step3_textbox1", step3_textbox1);
+        String step3_textbox2 = request.getParameter("step3_textbox2");
         model.addAttribute("step3_textbox2", step3_textbox2);
+        String step3_textbox3 = request.getParameter("step3_textbox3");
         model.addAttribute("step3_textbox3", step3_textbox3);
+        String step3_textbox4 = request.getParameter("step3_textbox4");
         model.addAttribute("step3_textbox4", step3_textbox4);
+        String step3_textbox5 = request.getParameter("step3_textbox5");
         model.addAttribute("step3_textbox5", step3_textbox5);
+        String step3_textbox6 = request.getParameter("step3_textbox6");
         model.addAttribute("step3_textbox6", step3_textbox6);
+        String step3_textbox7 = request.getParameter("step3_textbox7");
         model.addAttribute("step3_textbox7", step3_textbox7);
+        String step3_textbox8 = request.getParameter("step3_textbox8");
         model.addAttribute("step3_textbox8", step3_textbox8);
+        String step3_textbox9 = request.getParameter("step3_textbox9");
         model.addAttribute("step3_textbox9", step3_textbox9);
+        String step4Text1 = request.getParameter("step4Text1");
         model.addAttribute("step4Text1", step4Text1);
+        String step4Text2 = request.getParameter("step4Text2");
         model.addAttribute("step4Text2", step4Text2);
+        String step4Text3 = request.getParameter("step4Text3");
         model.addAttribute("step4Text3", step4Text3);
+        String step4Text4 = request.getParameter("step4Text4");
         model.addAttribute("step4Text4", step4Text4);
+        String step5Text1 = request.getParameter("step5Text1");
         model.addAttribute("step5Text1", step5Text1);
+        String step5Text2 = request.getParameter("step5Text2");
         model.addAttribute("step5Text2", step5Text2);
+        String step5Text3 = request.getParameter("step5Text3");
         model.addAttribute("step5Text3", step5Text3);
+        String step5Text4 = request.getParameter("step5Text4");
         model.addAttribute("step5Text4", step5Text4);
+        String step6_emotion_result = request.getParameter("step6_emotion_result");
+        model.addAttribute("step6_emotion_result", step6_emotion_result);
+        
 
-        String[] arr = request.getParameterValues("step6_emotion_check");
-        model.addAttribute("step6_emotion_check", arr);
         return "MDP/letter";
     }
 

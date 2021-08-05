@@ -177,6 +177,7 @@
     padding: 10px;
     border-radius: 15px;
     width: 510px;
+    margin-top: -30px;
 }
 
 
@@ -430,4 +431,36 @@
 /* 안부 */
 .say{
     background-color: #E83B4D;
+}
+
+.eventNone{
+    pointer-events: none;
+}
+
+.next {
+    border: 1px solid #043383;
+    text-align: center;
+    /* margin:0 auto; */
+    width: 180px;
+
+    float: right;
+    background-color: #fff;
+    border-radius: 45px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    /* display:none; */
+    margin-top: 10px;
+    font-family: gmarket_medium;
+    color: #043383;
+}
+.next:hover {
+    background-color: #fff;
+    box-shadow: 0 15px 20p #fff;
+    color: #043383;
+    transform: translateY(-4px);
 }

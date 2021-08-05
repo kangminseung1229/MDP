@@ -32,11 +32,11 @@ $(document).ready(function(){
     $('.swiper-button-prev').addClass( "disabled" );
     //   임시로 페이지로 고정
     $('html, body').scrollTop(0);
-    swiper.slideTo(5);
+    swiper.slideTo(0);
 
-    // for(let i =2; i<=6;i++){
-    //     $("#"+i).attr("disabled", "disabled");
-    // }
+    for(let i =2; i<=6;i++){
+        $("#"+i).attr("disabled", "disabled");
+    }
     $("input:radio[name=menu]").change(function()
     {
         console.log("AAAAAA")
@@ -443,6 +443,24 @@ function step5(){
 
 function checkProcess(){
 
+    let checkString="";
+    let count = 0;
+    $('input:checkbox[name=step6_emotion_check]').each(function() {
+
+        if(this.checked){
+
+            if(count==0)
+                checkString = this.value;
+            else{
+                checkString = checkString + "|" + this.value;
+                
+            }
+            count++;
+            
+        }
+        $("#step6_emotion_result").val(checkString);
+    });
+
     if($("#step3_textbox1").val().length == 0 ||  $("#step3_textbox2").val().length == 0 ||  
     $("#step3_textbox3").val().length==0 || $("#step3_textbox4").val().length==0 ||  
     $("#step3_textbox5").val().length ==0 || $("#step3_textbox6").val().length==0 ||  
@@ -473,4 +491,8 @@ function checkProcess(){
         alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
         return false;
     }
+
+    
+  
+
 }
