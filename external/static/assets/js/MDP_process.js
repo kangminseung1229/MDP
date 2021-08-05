@@ -34,9 +34,11 @@ $(document).ready(function(){
     $('html, body').scrollTop(0);
     swiper.slideTo(0);
 
-    for(let i =2; i<=6;i++){
-        $("#"+i).attr("disabled", "disabled");
-    }
+    //순서대로 하는 거 
+
+    // for(let i =2; i<=6;i++){
+    //     $("#"+i).attr("disabled", "disabled");
+    // }
     $("input:radio[name=menu]").change(function()
     {
         console.log("AAAAAA")
@@ -253,8 +255,12 @@ function step2(){
             reader.readAsDataURL(imgPath);
         }
         let img=document.getElementById('target');
-        img.src=localStorage["target"];
-
+        // img.src=localStorage["target"];
+        setTimeout(function(){
+            $("#target").prop("src",localStorage["target"]);
+            console.log(localStorage["target"]);
+        }, 10)
+        
         if($("#target").attr("src")!=null){
             $(".input_image").css("background-color", "white");
             $(".input_image").css("border", "none");
@@ -263,7 +269,26 @@ function step2(){
 
         $(".step2_emotion_wrapper").fadeIn(600);
 
+        // const fileupload=document.getElementById("fileupload");
+        // const imgData = getBase64Image("fileupload");
+        // localStorage.setItem("imgData", imgData);
+
+        // function getBase64Image(img){
+        //     var canvas=document.createElement("canvas");
+        //     canvas.width=img.width;
+        //     canvas.height=img.height;
+
+        //     var ctx=canvas.getContext("2d");
+        //     ctx.drawImage(img, 0, 0);
+        //     var dataURL=canvas.toDataURL("image/png");
+        //     return dataURL.replace(/^data:image\/(png|jpg); base64,/,"");
+            
+        // }
+        // var dataImage=localStorage.getItem('imgData');
+        // fileupload=document.getElementById("target");
+        // fileupload.src="data:image/png;base64,"+dataImage;
     });
+
 
     $("input[name = feeling]").click(function(){
         $("#step2_next").fadeIn(600);
@@ -441,36 +466,36 @@ function step5(){
     
 }
 
-function checkProcess(){
+// function checkProcess(){
 
-    if($("#step3_textbox1").val().length == 0 ||  $("#step3_textbox2").val().length == 0 ||  
-    $("#step3_textbox3").val().length==0 || $("#step3_textbox4").val().length==0 ||  
-    $("#step3_textbox5").val().length ==0 || $("#step3_textbox6").val().length==0 ||  
-    $("#step3_textbox7").val().length ==0 ||  $("#step3_textbox8").val().length==0 ||  
-    $("#step3_textbox9").val().length==0 ){
+//     if($("#step3_textbox1").val().length == 0 ||  $("#step3_textbox2").val().length == 0 ||  
+//     $("#step3_textbox3").val().length==0 || $("#step3_textbox4").val().length==0 ||  
+//     $("#step3_textbox5").val().length ==0 || $("#step3_textbox6").val().length==0 ||  
+//     $("#step3_textbox7").val().length ==0 ||  $("#step3_textbox8").val().length==0 ||  
+//     $("#step3_textbox9").val().length==0 ){
         
-        swiper.slideTo(2);
-        alert('03.그 사람과 나는 : 아직 답하지 못한 질문이 있어요');
-        return false;
-    }
+//         swiper.slideTo(2);
+//         alert('03.그 사람과 나는 : 아직 답하지 못한 질문이 있어요');
+//         return false;
+//     }
 
-    else if($("textarea[name=step4Text1]").val().length == 0 || $("textarea[name=step4Text2]").val().length  == 0 ||
-    $("textarea[name=step4Text3]").val().length  == 0 || $("textarea[name=step4Text4]").val().length  == 0 ){
-        swiper.slideTo(3);
-        alert('04.그때의 나는 : 아직 답하지 못한 질문이 있어요');
-        return false;
-    }
+//     else if($("textarea[name=step4Text1]").val().length == 0 || $("textarea[name=step4Text2]").val().length  == 0 ||
+//     $("textarea[name=step4Text3]").val().length  == 0 || $("textarea[name=step4Text4]").val().length  == 0 ){
+//         swiper.slideTo(3);
+//         alert('04.그때의 나는 : 아직 답하지 못한 질문이 있어요');
+//         return false;
+//     }
 
-    else if($("#step5_answer1").val().length==0 || $("#step5_answer2").val().length==0 ||
-    $("#step5_answer3").val().length==0 || $("#step5_answer4").val().length==0){
-        swiper.slideTo(4);
-        alert('05.그때의 내 마음은 : 아직 답하지 못한 질문이 있어요');
-        return false;
-    }
+//     else if($("#step5_answer1").val().length==0 || $("#step5_answer2").val().length==0 ||
+//     $("#step5_answer3").val().length==0 || $("#step5_answer4").val().length==0){
+//         swiper.slideTo(4);
+//         alert('05.그때의 내 마음은 : 아직 답하지 못한 질문이 있어요');
+//         return false;
+//     }
 
-    else if($("input:checkbox[name=step6_emotion_check]:checked").length == 0){
-        swiper.slideTo(5);
-        alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
-        return false;
-    }
-}
+//     else if($("input:checkbox[name=step6_emotion_check]:checked").length == 0){
+//         swiper.slideTo(5);
+//         alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
+//         return false;
+//     }
+// }

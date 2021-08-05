@@ -7,7 +7,7 @@
     <div id="process_wrapper">
         <nav th:replace = "fragments/MDP_process_fragment :: nav"></nav>
         
-        <form th:action="@{/MDP/letter}" method="POST"  onsubmit="return checkProcess();">
+        <form th:action="@{/MDP/letter}" method="POST"  onsubmit="return checkProcess();" autocomplete="off">
 
         
             <div class="swiper-container entireSwiper">
@@ -59,12 +59,11 @@
                                     그 사람에게 내가 전하고 싶은 감정을 선택해주세요
                                 </p>
                                 <div id="radio_wrapper">
-                                        <label class="feeling"><input type="radio" name="feeling" value="고마움"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp;
-                                        <label class="feeling"><input type="radio" name="feeling" value="미안함"><span id="sorry">미안함</span></label>&emsp;&emsp;&emsp;
-                                        <label class="feeling"><input type="radio" name="feeling" value="축하/응원"><span id="cheer">축하/응원</span></label>&emsp;&emsp;&emsp;
-                                        <label class="feeling"><input type="radio" name="feeling" value="사랑"><span id="love">사랑</span></label>&emsp;&emsp;&emsp;
-                                        <label class="feeling"><input type="radio" name="feeling" value="안부"><span id="hello">안부</span></label>
-                                    </form>
+                                        <label for="thanks" class="feeling"><input type="radio" id="thanks" name="feeling" value="고마움"><span id="thanks">고마움</span></label>&emsp;&emsp;&emsp;
+                                        <label for="sorry" class="feeling"><input type="radio" id="sorry" name="feeling" value="미안함"><span id="sorry">미안함</span></label>&emsp;&emsp;&emsp;
+                                        <label for="cheer" class="feeling"><input type="radio" id="cheer" name="feeling" value="축하/응원"><span id="cheer">축하/응원</span></label>&emsp;&emsp;&emsp;
+                                        <label for="love" class="feeling"><input type="radio" id="love" name="feeling" value="사랑"><span id="love">사랑</span></label>&emsp;&emsp;&emsp;
+                                        <label for="hello" class="feeling"><input type="radio" id="hello" name="feeling" value="안부"><span id="hello">안부</span></label>
                                 </div>
                             </div>
                             
