@@ -34,7 +34,7 @@ Emotion.prototype.add = function(table,class_name){
                 type : "checkbox",
                 name : "step6_emotion_check"
             });
-        let label = $('<div/>', {
+        let label = $('<label/>', {
                 value : value,
                 for:class_name+index
             });
@@ -136,92 +136,10 @@ $(document).ready(function(){
                     });
                 });
                
-            })
-        })
+            });
+        });
     });
 
-    // 내가 선택한 감정단어 : 추가
-    function addEmotion(emotion,idNum){
-        let last_node_count = $("#select_word").children().last().children().length;
-        console.log(last_node_count);
-        if(last_node_count>=5 || last_node_count == 0){
-            $("#select_word").append('<tr class = "select_tr">');
-        }
-        emotionArray.forEach(function(arrValue){
-            let class_result = arrValue.classSearch(emotion);
-            console.log(class_result);
-            if(class_result != false){
-                let label = $('<div/>', {
-                    value : emotion,
-                    id : "select"+idNum
-                });
-                label.addClass(class_result);
-                label.addClass("emotion_card_text");
-                label.html(emotion);
-                checkedId.push("select"+idNum);
-                console.log($("#select_word").children().last().append("<td>").children().last().append(label));
-            }
-        });
-       
-
-    }
-    // 내가 선택한 감정단어 : 삭제
-    function deleteEmotion(emotion){
-        
-        if($(emotion).prop('tagName')=="INPUT"){
-            
-            checkedId.forEach(function(value){
-                         
-                if($("#"+value).text()== emotion.val() && emotion.val() != ""){
-                    emotion = $("#"+value);
-                    console.log($("#"+value).text());
-                    console.log(emotion.val());     
-                    return false;
-                }
-            });
-        }
-        
-        let last_node_count = $("#select_word").children().last().children().length;
-        emotion.parent().remove();
-        findRemove(emotion.text());
-        if(last_node_count == 0)
-            $("#select_word").children().last().remove();
-
-        $("#select_word").children().each(function(index,item){
-            let count = $(item).children().length;
-            if(count < 5){
-                let preLength = $(this).next().children().length;
-                if(5-count <= preLength){
-                    let needCount = 5-count;
-                    $(this).next().children().each(function(index2,item2){
-                        if(index2 >= needCount)
-                            return false;
-                        $(item2).insertAfter($(item).children().last());
-                    });
-                }
-            }
-           
-
-        });
-
-        
-    }
-    
-    // 내가 선택한 감정단어 : 체크박스 해제
-    function findRemove(emotion){
-        
-        emotionArray.forEach(function(value){
-
-            value.id_name.forEach(function(nameValue){
-                let search = $("#"+nameValue);
-                if(search.val() == emotion){
-                    search.prop('checked', false);
-                }
-            });
-            
-        });
-        
-    }
     
 
     $("input:radio[name=step6_emotion_category]").change(function()
@@ -271,18 +189,85 @@ $(document).ready(function(){
 });
 
 
-
-
-function checkValue(num){
-    for(let i =0; i<emotionArray.length; i++){
-        $("input:checkbox[name="+emotionArray[i].class_name+"]").click(function(){
-            let select = [];
-            $("input[name="+emotionArray[i].class_name+"]:checked").each(function(index){
-                select.push($(this).val());
+// 내가 선택한 감정단어 : 추가
+function addEmotion(emotion,idNum){
+    let last_node_count = $("#select_word").children().last().children().length;
+    console.log(last_node_count);
+    if(last_node_count>=5 || last_node_count == 0){
+        $("#select_word").append('<tr class = "select_tr">');
+    }
+    emotionArray.forEach(function(arrValue){
+        let class_result = arrValue.classSearch(emotion);
+        console.log(class_result);
+        if(class_result != false){
+            let label = $('<div/>', {
+                value : emotion,
+                id : "select"+idNum
             });
-            
+            label.addClass(class_result);
+            label.addClass("emotion_card_text");
+            label.html(emotion);
+            checkedId.push("select"+idNum);
+            console.log($("#select_word").children().last().append("<td>").children().last().append(label));
+        }
+    });
+   
+
+}
+// 내가 선택한 감정단어 : 삭제
+function deleteEmotion(emotion){
+    
+    if($(emotion).prop('tagName')=="INPUT"){
+        
+        checkedId.forEach(function(value){
+                     
+            if($("#"+value).text()== emotion.val() && emotion.val() != ""){
+                emotion = $("#"+value);
+                console.log($("#"+value).text());
+                console.log(emotion.val());     
+                return false;
+            }
         });
     }
     
+    let last_node_count = $("#select_word").children().last().children().length;
+    emotion.parent().remove();
+    findRemove(emotion.text());
+    if(last_node_count == 0)
+        $("#select_word").children().last().remove();
+
+    $("#select_word").children().each(function(index,item){
+        let count = $(item).children().length;
+        if(count < 5){
+            let preLength = $(this).next().children().length;
+            if(5-count <= preLength){
+                let needCount = 5-count;
+                $(this).next().children().each(function(index2,item2){
+                    if(index2 >= needCount)
+                        return false;
+                    $(item2).insertAfter($(item).children().last());
+                });
+            }
+        }
+       
+
+    });
+
+    
 }
 
+// 내가 선택한 감정단어 : 체크박스 해제
+function findRemove(emotion){
+    
+    emotionArray.forEach(function(value){
+
+        value.id_name.forEach(function(nameValue){
+            let search = $("#"+nameValue);
+            if(search.val() == emotion){
+                search.prop('checked', false);
+            }
+        });
+        
+    });
+    
+}

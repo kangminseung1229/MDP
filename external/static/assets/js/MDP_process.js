@@ -32,11 +32,11 @@ $(document).ready(function(){
     $('.swiper-button-prev').addClass( "disabled" );
     //   임시로 페이지로 고정
     $('html, body').scrollTop(0);
-    swiper.slideTo(0);
+    swiper.slideTo(5);
 
-    for(let i =2; i<=6;i++){
-        $("#"+i).attr("disabled", "disabled");
-    }
+    // for(let i =2; i<=6;i++){
+    //     $("#"+i).attr("disabled", "disabled");
+    // }
     $("input:radio[name=menu]").change(function()
     {
         console.log("AAAAAA")
