@@ -171,10 +171,19 @@ public class MDP_MainController {
     }
 
     @PostMapping("/fin")
-    public String finPost(Model model, String letterTo, String letterText, String letterFrom) throws IOException, ServletException {
+    public String finPost(Model model, HttpServletRequest request){
+
+        String letterTo=request.getParameter("letterTo");
         model.addAttribute("letterTo", letterTo);
+
+        String letterText=request.getParameter("letterText");
         model.addAttribute("letterText", letterText);
+        
+        String letterFrom=request.getParameter("letterFrom");
         model.addAttribute("letterFrom", letterFrom);
+
+        System.out.println(letterTo);
+        System.out.println(letterFrom);
 
         return "MDP/fin";
     }
