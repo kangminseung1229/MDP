@@ -6,8 +6,8 @@ $(document).ready(function(){
         // autoHeight : true,
         // calculateHeight:true,
         allowTouchMove : false,
-        // allowSlideNext:false,
-        // allowSlidePrev:false,
+        // allowSlideNext:true,
+        // allowSlidePrev:true,
 
         navigation: {
             nextEl: ".swiper-button-next",
@@ -32,13 +32,12 @@ $(document).ready(function(){
     $('.swiper-button-prev').addClass( "disabled" );
     //   임시로 페이지로 고정
     $('html, body').scrollTop(0);
-    swiper.slideTo(0);
+    // swiper.slideTo(2);
 
     //순서대로 하는 거 
-
-    for(let i =2; i<=6;i++){
-        $("#"+i).attr("disabled", "disabled");
-    }
+    // for(let i =2; i<=6;i++){
+    //     $("#"+i).attr("disabled", "disabled");
+    // }
     $("input:radio[name=menu]").change(function()
     {
         console.log("AAAAAA")
@@ -46,26 +45,34 @@ $(document).ready(function(){
         
         switch(menu){
             case "1": {
+                $('html, body').scrollTop(0);
                 swiper.slideTo(0);
                 break;
             }
             case "2": {
+                $('html, body').scrollTop(0);
                 swiper.slideTo(1);
                 break;
             }
             case "3": {
+                $('html, body').scrollTop(0);
                 swiper.slideTo(2);
+                // $("#step3_textbox1").focus();
                 break;
             }
             case "4": {
+                $('html, body').scrollTop(0);
                 swiper.slideTo(3);
                 break;
             }
             case "5": {
+                $('html, body').scrollTop(0);
                 swiper.slideTo(4);
+                // $("#step5_answer1").focus();
                 break;
             }
             case "6": {
+                $('html, body').scrollTop(0);
                 swiper.slideTo(5);
                 break;
             }
@@ -301,6 +308,7 @@ function step2(){
     // next 버튼 함수
     function step2Next(){
         $("#step2_next").click(function(){
+            // $("#step3_textbox1").focus();
             swiper.slideTo(2);
             $('#step2_next').fadeOut(600);
             $("#3").removeAttr("disabled");        
@@ -321,9 +329,9 @@ function step2(){
 function step3(){
 
     $('#step3_next').hide();
-    for(let i=2; i<10; i++){
-        $("#step3_"+i).hide();
-    }
+    // for(let i=2; i<10; i++){
+    //     $("#step3_"+i).hide();
+    // }
     onkeyUpFunc(1);
     onkeyUpFunc(2);
     onkeyUpFunc(3);
@@ -332,27 +340,18 @@ function step3(){
     onkeyUpFunc(6);
     onkeyUpFunc(7);
     onkeyUpFunc(8);
+    onkeyUpFunc(9);
 
     function onkeyUpFunc(num) {
         $("#step3_textbox"+num).keyup(function(){
-            if($("#step3_textbox"+num).val().length>1){
-                let box = num+1;
-                let classRemove = num%3;
-                $("#step3_"+box).fadeIn(600);
-                
-                if(classRemove == 1)
-                    $("#step3_textbox"+num).removeClass("step3_shape_green");  
-                else if(classRemove == 2)
-                    $("#step3_textbox"+num).removeClass("step3_shape_blue");  
-                else
-                    $("#step3_textbox"+num).removeClass("step3_shape_yellow");  
-
-                if($("#step3_textbox1").val().length>0 &&  $("#step3_textbox2").val().length >0 &&  
-                $("#step3_textbox3").val().length>0 && $("#step3_textbox4").val().length>0 &&  
-                $("#step3_textbox5").val().length >0 && $("#step3_textbox6").val().length>0 &&  
-                $("#step3_textbox7").val().length >0 &&  $("#step3_textbox8").val().length>0)
-                    $('#step3_next').fadeIn(600);
-            }
+         
+            if($("#step3_textbox1").val().length>0 &&  $("#step3_textbox2").val().length >0 &&  
+            $("#step3_textbox3").val().length>0 && $("#step3_textbox4").val().length>0 &&  
+            $("#step3_textbox5").val().length >0 && $("#step3_textbox6").val().length>0 &&  
+            $("#step3_textbox7").val().length >0 &&  $("#step3_textbox8").val().length>0 &&
+            $("#step3_textbox9").val().length>0)
+                $('#step3_next').fadeIn(600);
+           
         });
     }
 
@@ -366,7 +365,7 @@ function step3(){
         {
             swiper.slideTo(3);
             $('#step3_next').fadeOut(600);
-            $("#4").removeAttr("disabled");        
+            // $("#4").removeAttr("disabled");        
         }
        
     });
@@ -401,6 +400,7 @@ function step4(){
             
         if(textLength1 > 0 && textLength2 > 0 && textLength3 > 0 && textLength4 > 0)
         {
+            // $("#step5_answer1").focus();
             swiper.slideTo(4);
             $('#step4_next').fadeOut(600);
             $("#5").removeAttr("disabled");       
@@ -418,27 +418,40 @@ function step5(){
     
     $('#step5_next').hide();
    
-    for(let i=2; i<5; i++){
-        $("#step5_question"+i).hide();
-        $("#step5_answer"+i).hide();
-    };
+    // for(let i=2; i<5; i++){
+    //     $("#step5_question"+i).hide();
+    //     $("#step5_answer"+i).hide();
+    // };
     
-    $("#step5_answer1").keyup(function(){
-        if($("#step5_answer1").val().length>1){
-            $('#step5_answer1').removeClass( "step5_answer1_focus" );
-            $("#step5_question2").fadeIn(600);
-            $("#step5_answer2").delay(300).fadeIn(600);
-        }
-    });
+    // $("#step5_answer1").keyup(function(){
+    //     if($("#step5_answer1").val().length>1){
+    //         $('#step5_answer1').removeClass( "step5_answer1_focus" );
+    //         $("#step5_question2").fadeIn(600);
+    //         $("#step5_answer2").delay(300).fadeIn(600);
+    //     }
+    // });
 
-    step5Keyup(2);
-    step5Keyup(3);
+    // step5Keyup(2);
+    // step5Keyup(3);
 
-    $("#step5_answer4").keyup(function(){
-        if($("#step5_answer4").val().length>1) 
-            $('#step5_next').fadeIn(600);
-    });
+    // $("#step5_answer4").keyup(function(){
+    //     if($("#step5_answer4").val().length>1) 
+    //         $('#step5_next').fadeIn(600);
+    // });
+    checkStep5(1);
+    checkStep5(2);
+    checkStep5(3);
+    checkStep5(4);
 
+    function checkStep5(num){
+        $("#step5_answer"+num).keyup(function(){
+            if($("#step5_answer1").val().length>1 && $("#step5_answer2").val().length>1 &&
+            $("#step5_answer3").val().length>1 && $("#step5_answer4").val().length>1 ) {
+                $('#step5_next').fadeIn(600);
+            }
+        });
+    }
+   
     $('#step5_next').click(function(){
         if($("#step5_answer1").val().length>1 && $("#step5_answer2").val().length>1 &&
             $("#step5_answer3").val().length>1 && $("#step5_answer4").val().length>1 ) 
@@ -478,20 +491,38 @@ function checkProcess(){
                 checkString = this.value;
             else{
                 checkString = checkString + "|" + this.value;
-                
             }
             count++;
-            
         }
         $("#step6_emotion_result").val(checkString);
     });
+
+    // if( $("#step1_textbox1").val().length == 0 || $("#step1_textbox2").val().length == 0 || 
+    // $("#step1_textbox3").val().length == 0 ||  $("#step1_textbox4").val().length == 0 || 
+    // $("#step1_textbox5").val().length == 0 ||  $("#step1_textbox6").val().length == 0 || 
+    // $("#step1_textbox7").val().length == 0 || $("#step1_textbox8").val().length == 0 || 
+    // $("#step1_textbox9").val().length == 0 || 
+    //  $('input:radio[name=step1Text]').checked() == false ){
+    //     swiper.slideTo(0);
+    //     alert('01.받는 사람 : 아직 답하지 못한 질문이 있어요');
+    //     return false;
+    // }
+
+    // if(  $("#feeling").val() == "" ){
+
+    //     swiper.slideTo(0);
+    //     alert('02.되돌아 보며 : 아직 답하지 못한 질문이 있어요');
+    //     return false;
+    // }
+
+
 
     if($("#step3_textbox1").val().length == 0 ||  $("#step3_textbox2").val().length == 0 ||  
     $("#step3_textbox3").val().length==0 || $("#step3_textbox4").val().length==0 ||  
     $("#step3_textbox5").val().length ==0 || $("#step3_textbox6").val().length==0 ||  
     $("#step3_textbox7").val().length ==0 ||  $("#step3_textbox8").val().length==0 ||  
     $("#step3_textbox9").val().length==0 ){
-        
+        // $("#step3_textbox1").focus();
         swiper.slideTo(2);
         alert('03.그 사람과 나는 : 아직 답하지 못한 질문이 있어요');
         return false;
@@ -507,6 +538,7 @@ function checkProcess(){
     else if($("#step5_answer1").val().length==0 || $("#step5_answer2").val().length==0 ||
     $("#step5_answer3").val().length==0 || $("#step5_answer4").val().length==0){
         swiper.slideTo(4);
+        // $("#step5_answer1").focus();
         alert('05.그때의 내 마음은 : 아직 답하지 못한 질문이 있어요');
         return false;
     }
