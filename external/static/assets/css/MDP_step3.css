@@ -2,19 +2,31 @@
     color:black;
     margin:0 auto;
     border-radius:10px;
-    width:100%;
+    width:700px;
     height:50px;
-    margin-bottom:10px;
-    font-size:14px;
+    margin-bottom:60px;
+    font-size:18px;
     line-height:20px;
     text-align:left;
-    padding-top:10px;
-    padding-left:250px;
+    /* padding-top:10px; */
+    /* padding-left:250px; */
     /* padding-right:20px; */
     vertical-align: middle;
+    margin-bottom: 20px;
 }
 .num{
-    font-size:11px;
+    font-family:gmarket_light;
+    font-size:15px;
+    width:600px;
+    height:auto;
+}
+.explain{
+    margin-top:60px;
+    margin-bottom:40px;
+    font-size:18px;
+}
+.textWrapper{
+    width:700px;
 }
 
 .text_end{
@@ -28,8 +40,9 @@
     font-family:gmarket_medium;
     height:30px;
     border-radius:10px;
-    padding-left: 10px;
+    margin-left:10px;
     margin-right:-30px;
+    display:inline-block;
 }
 .step3_textbox:focus{
     outline: none;
@@ -38,14 +51,30 @@
     background-color:#F2F8EB;
 
 }
+.green .step3_textbox:focus{
+    /* background-color:#F2F8EB; */
+    cursor: pointer;
+    animation: pulseAnim_step3_green 2s infinite;
+
+}
 .blue .step3_textbox{
     background-color:#DDEDF9;
 }
+
+.blue .step3_textbox:focus{
+    cursor: pointer;
+    animation: pulseAnim_step3_blue 2s infinite;
+}
+
 .yellow .step3_textbox{
     background-color:#FFF8D2;
 }
+.yellow .step3_textbox:focus{
+    cursor: pointer;
+    animation: pulseAnim_step3_yellow 2s infinite;
+}
 
-.step3_shape_green {
+.step3_shape_green:focus{
     cursor: pointer;
     animation: pulseAnim_step3_green 2s infinite;
 }
@@ -99,29 +128,29 @@
 
 
 #step3_textbox1{
-    width:480px;
+    width:456px;
 }
 #step3_textbox2{
-    width:511px;
+    width:479px;
 }
 #step3_textbox3{
-    width:484px;
+    width:444px;
 }
 #step3_textbox4{
-    width:415px;
+    width:355px;
 }
 #step3_textbox5{
-    width:453px;
+    width:400px;
 }
 #step3_textbox6{
-    width:480px;
+    width:439px;
 }
 #step3_textbox7{
-    width:494px;
+    width:456px;
 }
 #step3_textbox8{
-    width:511px;
+    width:479px;
 }
 #step3_textbox9{
-    width:411px;
+    width:349px;
 }

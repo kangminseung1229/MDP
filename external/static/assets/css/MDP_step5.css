@@ -1,8 +1,9 @@
 .step5_text_wrapper{
     height: auto; 
-    width:100%;
+    width:600px;
     /* border: 2px solid blue; */
     margin-top: 30px;
+    margin-left:50px;
 }
 
 /* Step5-1 */
@@ -14,7 +15,7 @@
     border-radius: 20px;
     float: left;
     padding-top: 20px;
-    margin-left:-30px;
+    margin-left:-50px;
 }
 #step5_question1:after {
     border-top:15px solid #DDEDF9;
@@ -26,7 +27,10 @@
     top:10px;
     left:-15px;
 }
-
+#step5{
+    width:700px;
+    height:auto;
+}
 
 #step5_answer1{
     position:relative;
