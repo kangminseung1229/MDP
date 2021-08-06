@@ -45,9 +45,9 @@ public class MDP_MainController {
 
     @GetMapping("/main")
     public String main(HttpServletRequest request,Model model) {
-        // HttpSession session = request.getSession();
-        // String permission = (String) session.getAttribute("permission");
-        // model.addAttribute("loginOut",permission);
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+        model.addAttribute("loginOut",permission);
         return "MDP/main";
     }
 
