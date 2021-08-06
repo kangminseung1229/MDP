@@ -16,7 +16,6 @@ $(document).ready(function(){
         
         on: {
             activeIndexChange: function () {
-                console.log();
                 num = this.realIndex+1;
                 $("input:radio[id="+num+"]").prop('checked', true);
                 $('html, body').scrollTop(0);
@@ -40,7 +39,6 @@ $(document).ready(function(){
     // }
     $("input:radio[name=menu]").change(function()
     {
-        console.log("AAAAAA")
         let menu = $('input:radio[name="menu"]:checked').val();
         
         switch(menu){
@@ -125,7 +123,6 @@ function step1(){
     function stage1(){
         if(  $("#step1_textbox1").val().length > 0 ){
             nowStage = 1;
-            console.log("A")
             $('#stage2').fadeIn(600);
             $('#step1_shape_num2').fadeIn(600);
 
@@ -148,7 +145,6 @@ function step1(){
         if( $("#step1_textbox2").val().length>0 &&  
             $("#step1_textbox3").val().length >0 &&  
             $("#step1_textbox4").val().length>0){
-                console.log("abc")
                 $('#stage3').fadeIn(600);
                 $('#step1_shape_num3').fadeIn(600);
 
@@ -194,12 +190,10 @@ function step1(){
             $("#step1_textbox9").val().length >0 ){
                 if(nowStage == 3){
                     stage4();
-                    console.log("stage4");
                 }
                 else if(nowStage == 4) {
                     swiper.slideTo(1);
                     $('#step1_next').fadeOut(600);
-                    console.log("step2");
                     $("#2").removeAttr("disabled");        
                     
                 }
@@ -216,7 +210,6 @@ function step1(){
             $("#step1_textbox7").val().length >0 &&  $("#step1_textbox8").val().length>0 &&
             $("#step1_textbox9").val().length>0 ){
             
-                console.log("4");
                 $('#stage1').fadeOut(600);
                 $('#stage2').fadeOut(600);
                 $('#stage3').fadeOut(600);
@@ -231,7 +224,6 @@ function step1(){
                     let textbox = "step1_textbox"+i;
                     $("#"+textbox).prop("type","radio");
                     $("#"+textbox).after("<label class ="+textbox+" id = step1_label"+i+">"+$("#"+textbox).val()+"</label>");
-                    console.log(i);
                 }
                 
                 $("input[name = step1Text]").click(function(){
@@ -265,7 +257,6 @@ function step2(){
         // img.src=localStorage["target"];
         setTimeout(function(){
             $("#target").prop("src",localStorage["target"]);
-            console.log(localStorage["target"]);
         }, 50)
         
         if($("#target").attr("src")!=null){

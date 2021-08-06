@@ -246,9 +246,6 @@
     $("#target").prop("src",localStorage["target"]);
 
     function step2Css(text){
-
-        // let value = text.text();
-        // console.log(value);
        
         switch(text){
             case "# 고마움":{
@@ -277,7 +274,6 @@
 
     function addStep6(emotion,index){
         let last_node_count = $("#letter_select_word").children().last().children().length;
-        console.log(last_node_count);
         if(last_node_count>=4 || last_node_count == 0){
             $("#letter_select_word").append('<tr class = "select_tr">');
         }
@@ -319,9 +315,6 @@
         label.addClass("emotion_card_text");
         label.html(emotion);
        
-        console.log($("#letter_select_word").children().last().append("<td>").children().last().append(label));
-        
-
     }
 
 
