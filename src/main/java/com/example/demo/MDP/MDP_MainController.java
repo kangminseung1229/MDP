@@ -48,7 +48,6 @@ public class MDP_MainController {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
-        System.out.println(permission);
         return "MDP/main";
     }
 
@@ -109,7 +108,6 @@ public class MDP_MainController {
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
         checkID.checkPermissions(response,permission);
-        System.out.println("///"+permission+"///");
         return "MDP/letter";
     }
 
@@ -121,7 +119,6 @@ public class MDP_MainController {
         model.addAttribute("step1Text", step1Text);
         String feeling = request.getParameter("feeling");
         model.addAttribute("feeling", feeling);
-        System.out.println("---"+feeling+"---");
         String step3_textbox1 = request.getParameter("step3_textbox1");
         model.addAttribute("step3_textbox1", step3_textbox1);
         String step3_textbox2 = request.getParameter("step3_textbox2");
@@ -185,8 +182,6 @@ public class MDP_MainController {
         String letterFrom=request.getParameter("letterFrom");
         model.addAttribute("letterFrom", letterFrom);
 
-        System.out.println(letterTo);
-        System.out.println(letterFrom);
 
         return "MDP/fin";
     }
