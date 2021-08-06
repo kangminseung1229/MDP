@@ -37,6 +37,12 @@
 
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
     localStorage.clear();
+    var per=$('.logout').text();
+    if(per==""){
+        $(".logout").text("LOGIN");
+        $(".logout").attr("onclick", "location.href='MDP/login'")
+    }
 </script>

@@ -68,4 +68,15 @@
 
     });
     $("#target").prop("src",localStorage["target"]);
+
+    $("#copy").click(function(){
+        const valOfDiv = document.getElementById("letter_textarea").textContent;
+        const textArea=document.createElement('textarea');
+        document.body.appendChild(textArea);
+        textArea.value=valOfDiv;
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert("텍스트가 복사되었습니다.")
+    });
 </script>

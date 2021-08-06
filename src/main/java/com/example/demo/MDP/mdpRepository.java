@@ -38,5 +38,8 @@ public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     void updateUser(String user, String code);
 
     Long countByCodeAndUserIsNull(String code);
+
+    // @Query(value = "SELECT id FROM mdpPurchaseCode WHERE (CODE=:code OR USER=:code) AND USER IS NOT NULL", nativeQuery = true)
+    mdpPurchaseCode findFirstByCodeOrUserAndUserIsNotNull(String code, String user);
     
 }    
