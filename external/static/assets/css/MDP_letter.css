@@ -228,25 +228,21 @@
 
 
 #letter_to_name{
+    width:200px;
     text-decoration: underline 2px #13356F;
     text-underline-position:under;
-    display: inline; 
+    /* display: inline;  */
     margin-left: 20px;
     font-family: gmarket_medium;
     border:none;
     font-size: 19px;
     color:#13356F;
-    width:auto;
+    
 }
 
 
 #letter_img{
-    /* width: 330px;
-    height: 200px;
-    border: none;
-    border-radius: 15px;
-    display: inline-block;
-    background-color: #E0EAF7; */
+    text-align:center;
     background-color:#fff;
 }
 
@@ -280,15 +276,15 @@
 
 
 #letter_from_name{
-    width: 100px;
-    height:20px;
+    width:200px;
     text-decoration: underline 2px #13356F;
     text-underline-position:under;
-    display: inline; 
+    /* display: inline;  */
     margin-left: 20px;
-    border:none;   
-    resize:none;
-    font-family:gmarket_medium;
+    font-family: gmarket_medium;
+    border:none;
+    font-size: 19px;
+    color:#13356F;
 }
 
 #wave_shape{

@@ -15,7 +15,7 @@
                 </div>
                 <div id="letter_textarea" th:text="${letterText}"></div>
                 <div id="letter_from">
-                    <span>FROM.</span><span id = "letter_from_name">최지원</span>
+                    <span>FROM.</span><span id = "letter_from_name" th:text="${letterFrom}"></span>
                 </div>
             </div>
             <div id="letter_bottom">
@@ -39,26 +39,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script type="text/javascript">
-    // function PrintDiv(div){
-    //     div = div[0]
-    //     html2canvas(div).then(function(canvas){
-    //         var myImage = canvas.toDataURL();
-    //         downloadURI(myImage, "letter.png") 
-    //     });
-    // }
-
-    // function downloadURI(uri, name){
-    //     var link = document.createElement("a")
-    //     link.download = name;
-    //     link.href = uri;
-    //     document.body.appendChild(link);
-    //     link.click();
-    // }
-
-    // $('#save_image').click(function(){
-    //     console.log("********************");
-    //     PrintDiv($("#letter"));
-    // });
 
     $("#save_image").on("click", function(){
         html2canvas(document.querySelector("#letter"), {scrollY: -window.scrollY}).then(function(canvas){
@@ -85,11 +65,7 @@
                 window.open(uri);
             }
         }
-        // var x=new XMLHttpRequest();
-        // x.open("GET", url, true);
-        // x.responseType='blob';
-        // x.onload=function(e){downlaod(x.response, "", d_type);}
-        // x.send();
+
     });
     $("#target").prop("src",localStorage["target"]);
 </script>

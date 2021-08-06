@@ -113,15 +113,9 @@
 }
 
 #letter_image{
-    /* width:80%;
-    height:200px;
-    margin:0 auto;
-    margin-top:20px;
-    margin-bottom:20px;
-    background-color: #E0EAF7;
-    border-radius:15px; */
     text-align:center;
     background-color:#fff;
+    margin-top:20px;
 }
 
 #letter_textarea{
@@ -153,6 +147,10 @@
 #letter_from_name{
     margin-left:20px;
     text-decoration: underline 2px #13356F;
+    border:none;
+    font-size: 17px;
+    font-family: gmarket_medium;
+    color:#13356F;
 }
 
 #letter_bottom{
@@ -183,7 +181,6 @@
     letter-spacing:3px;
     margin-left: -50px;
     margin-top: -20px;
-   
 }
 .wave-top {
 
