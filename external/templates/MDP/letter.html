@@ -314,7 +314,8 @@
         label.addClass(class_result);
         label.addClass("emotion_card_text");
         label.html(emotion);
-       
+
+        $("#letter_select_word").children().last().append("<td>").children().last().append(label);
     }
 
 
