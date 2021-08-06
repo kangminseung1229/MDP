@@ -267,24 +267,6 @@ function step2(){
 
         $(".step2_emotion_wrapper").fadeIn(600);
 
-        // const fileupload=document.getElementById("fileupload");
-        // const imgData = getBase64Image("fileupload");
-        // localStorage.setItem("imgData", imgData);
-
-        // function getBase64Image(img){
-        //     var canvas=document.createElement("canvas");
-        //     canvas.width=img.width;
-        //     canvas.height=img.height;
-
-        //     var ctx=canvas.getContext("2d");
-        //     ctx.drawImage(img, 0, 0);
-        //     var dataURL=canvas.toDataURL("image/png");
-        //     return dataURL.replace(/^data:image\/(png|jpg); base64,/,"");
-            
-        // }
-        // var dataImage=localStorage.getItem('imgData');
-        // fileupload=document.getElementById("target");
-        // fileupload.src="data:image/png;base64,"+dataImage;
     });
 
 

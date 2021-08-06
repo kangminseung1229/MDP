@@ -45,9 +45,9 @@ public class MDP_MainController {
 
     @GetMapping("/main")
     public String main(HttpServletRequest request,Model model) {
-        HttpSession session = request.getSession();
-        String permission = (String) session.getAttribute("permission");
-        model.addAttribute("loginOut",permission);
+        // HttpSession session = request.getSession();
+        // String permission = (String) session.getAttribute("permission");
+        // model.addAttribute("loginOut",permission);
         return "MDP/main";
     }
 
@@ -59,9 +59,11 @@ public class MDP_MainController {
     @PostMapping("/login")
     public String logined(HttpServletRequest request, String user,Model model) {
 
+        //사용자가 아무것도 입력하지 않았을 때
         if(user==""){
             return "redirect:login";
         }
+        //로그인 성공
         if(checkID.checked(request, user)){
             return main(request, model);
         }
@@ -84,6 +86,7 @@ public class MDP_MainController {
     @PostMapping("/join")
     public String joinPost(HttpServletRequest request, String user, String code, Model model) {
 
+        //회원가입 성공
         if(checkID.checkJoin(request, user, code)){
             mdpRepo.updateUser(user, code);
             return "MDP/login";
