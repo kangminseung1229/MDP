@@ -20,21 +20,37 @@ public class checkID {
     saRepository saRepo;
 
     public boolean checked(HttpServletRequest request, String user){
-        boolean result = false;
-        System.out.println(result);
-        if(Repo.countByUser(user)>0){
-            HttpSession session = request.getSession();
-            session.setAttribute("permission", "LOGOUT");
-            result=true;
-        }
-        else if(Repo.countByCode(user)>0){
-            if(Repo.findByCode(user).get().getUser()!=null){
-                HttpSession session = request.getSession();
-                session.setAttribute("permission", "LOGOUT");
-                result=true;
-            }
-        }
+        // boolean result = false;
+        // System.out.println(result);
+        // if(Repo.countByUser(user)>0){
+        //     HttpSession session = request.getSession();
+        //     session.setAttribute("permission", "LOGOUT");
+        //     result=true;
+        // }
+        // else if(Repo.countByCode(user)>0){
+        //     if(Repo.findByCode(user).get().getUser()!=null){
+        //         HttpSession session = request.getSession();
+        //         session.setAttribute("permission", "LOGOUT");
+        //         result=true;
+        //     }
+        // }
         
+        // return result;
+
+        boolean result = false;
+        HttpSession session = request.getSession();
+        mdpPurchaseCode mdp = Repo.findFirstByCodeOrUserAndUserIsNotNull(user, user);
+        Long id = mdp.getId();
+
+        //로그인 성공
+        if(id >0){
+            session.setAttribute("permission", "LOGOUT");
+            result = true;            
+        }
+        else {
+            session.setAttribute("permission", "LOGIN");
+        }
+
         return result;
         
     }

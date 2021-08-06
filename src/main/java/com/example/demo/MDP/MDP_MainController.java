@@ -21,7 +21,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,6 +48,7 @@ public class MDP_MainController {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
+        System.out.println(permission);
         return "MDP/main";
     }
 
@@ -60,6 +60,9 @@ public class MDP_MainController {
     @PostMapping("/login")
     public String logined(HttpServletRequest request, String user,Model model) {
 
+        if(user==""){
+            return "redirect:login";
+        }
         if(checkID.checked(request, user)){
             return main(request, model);
         }
