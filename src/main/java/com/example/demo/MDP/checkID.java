@@ -39,11 +39,12 @@ public class checkID {
 
         boolean result = false;
         HttpSession session = request.getSession();
-        mdpPurchaseCode mdp = Repo.findFirstByCodeOrUserAndUserIsNotNull(user, user);
-        Long id = mdp.getId();
+        // mdpPurchaseCode mdp = Repo.findFirstByCodeOrUserAndUserIsNotNull(user, user);
+        // Long id = mdp.getId();
+        Long count=Repo.countByUserOrCodeAndUserIsNotNull(user, user);
 
         //로그인 성공
-        if(id >0){
+        if(count >0){
             session.setAttribute("permission", "LOGOUT");
             result = true;            
         }

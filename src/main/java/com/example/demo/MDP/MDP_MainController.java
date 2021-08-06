@@ -1,6 +1,7 @@
 package com.example.demo.MDP;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -57,7 +58,7 @@ public class MDP_MainController {
     }
 
     @PostMapping("/login")
-    public String logined(HttpServletRequest request, String user,Model model) {
+    public String logined(HttpServletRequest request, String user,Model model, HttpServletResponse response) throws IOException {
 
         //사용자가 아무것도 입력하지 않았을 때
         if(user==""){
@@ -67,8 +68,14 @@ public class MDP_MainController {
         if(checkID.checked(request, user)){
             return main(request, model);
         }
-        else
+        else{
+            response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('아이디/구매코드가 존재하지 않습니다.');history.go(-1);</script>");
+            out.flush();
+
             return "redirect:login";
+        }
     }
         
 

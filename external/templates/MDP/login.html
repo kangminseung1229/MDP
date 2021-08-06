@@ -31,3 +31,12 @@
     </div>
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $("input[type=submit]").click(function(){
+        var result=$("input[type=text]").val();
+        if(!result){
+            alert("아이디 혹은 구매코드를 입력하세요.")
+        }        
+    });
+</script>
