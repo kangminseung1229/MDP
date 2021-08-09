@@ -87,7 +87,7 @@ $(document).ready(function(){
     
     })
 
-    let emotionSwiper = new Swiper(".emotionSwiper", {
+    emotionSwiper = new Swiper(".emotionSwiper", {
     
         autoHeight : true,
         allowTouchMove : false,
@@ -183,6 +183,22 @@ $(document).ready(function(){
         }
     });
 
+    $(".emotion_category").click(function(){
+        $("#emotion_1").removeClass("animate_common");
+        $("#emotion_2").removeClass("animate_thanks");
+        $("#emotion_3").removeClass("animate_sorry");
+        $("#emotion_4").removeClass("animate_celebration");
+        $("#emotion_5").removeClass("animate_love");
+        $("#emotion_6").removeClass("animate_say");
+
+        $(".emotionSwiper").fadeIn(600);
+    });
+
+  
+    for(let i =1; i<7; i++){
+        clickCategory(i);
+    }
+
     
 
 
@@ -270,4 +286,62 @@ function findRemove(emotion){
         
     });
     
+}
+
+// 감정 카테고리 클릭
+function clickCategory(idName){
+    $("#emotion_"+idName).click(function(){
+        emotion_radio = $("#emotion_"+idName).attr("value");
+        
+        switch(emotion_radio){
+            case "1": {
+                emotionSwiper.slideTo(0);
+                removeClass(1);
+                break;
+            }
+            case "2": {
+                emotionSwiper.slideTo(1);
+                removeClass(2);
+                break;
+            }
+            case "3": {
+                emotionSwiper.slideTo(2);
+                removeClass(3);
+                break;
+            }
+            case "4": {
+                emotionSwiper.slideTo(3);
+                removeClass(4);
+                break;
+            }
+            case "5": {
+                emotionSwiper.slideTo(4);
+                removeClass(5);
+                break;
+            }
+            case "6": {
+                emotionSwiper.slideTo(5);
+                removeClass(6);
+                break;
+            }
+        }
+    });
+    
+    function removeClass(num){
+        
+        for(let i =1; i <=6; i++){
+            
+            if(i == num){
+                $("#emotion_"+num).addClass("emotion_checked");
+                $("#emotion_text_"+num).addClass("emotion_checked_text");
+                console.log(num);
+            }
+            else{
+                $("#emotion_"+i).removeClass("emotion_checked");
+                $("#emotion_text_"+i).removeClass("emotion_checked_text");
+            }
+
+        }
+    }
+            
 }
