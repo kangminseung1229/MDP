@@ -113,6 +113,46 @@
                     </table>
                 </div>
             </div>
+            <!-- <div id="write_helper">
+                <div id="close_helper">
+                    x
+                </div>
+                <div class="help_title">
+                    가벼운 인사말로 시작해 보세요
+                </div>    
+                <div class="help_example">
+                    예시)<br>
+                    - 안녕 오랜만이야, 잘 지내고 있지?<br>
+                    - 안녕하세요 저 00 입니다. 잘 지내고 계신가요?
+                </div>
+                <div class="help_title">
+                    에피소드로 이야기를 시작해요
+                </div>
+                <div class="help_example">
+                    예시)<br>
+                    - 그때 기억나니? 편지를 쓰려다 보니 너와 함께 했던 이때가 기억났어.<br>
+                    - 널 보면 항상 그 자리에 서 있는 나무가 떠올라.
+                </div>
+                <div class="help_title">
+                    에피소드를 좀 더 자세히 풀어내요
+                </div>
+                <div class="help_example">
+                    예시)<br>
+                    - 제가 굉장히 걱정하면서 어렵게 꺼낸 이야기를 잘 들어주셨던게 기억이 나요.<br>
+                    - 그때 너랑 나랑 정말 다르면서도 비슷하다고 생각했어.
+                </div>
+                <div class="help_title">
+                    전하고 싶은 솔직한 감정을 꺼내요
+                </div>
+                <div class="help_example">
+                    예시)<br>
+                    - 말로 표현하지는 못했지만 언제나 날 응원해 주는 너에게 고마움을 느끼고 있어.<br>
+                    - 돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.
+                </div>
+            </div> -->
+        </div>
+        
+        <!-- <div id="letter_updown"> -->
             <div id="write_helper">
                 <div id="close_helper">
                     x
@@ -150,9 +190,6 @@
                     - 돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.
                 </div>
             </div>
-        </div>
-        
-        <!-- <div id="letter_updown"> -->
 
         </div>
         <div id="letter_right">
@@ -176,7 +213,7 @@
                     <textarea id="letter_textarea" name="letterText"></textarea>
                     <div class = "letter_from">
                         <!-- <p style=" display: inline; white-space: nowrap;">FROM.</p><span id = "letter_from_name" name="letterFrom" th:text="${step1Me}" th:value="${step1Me}"></span> -->
-                        <p style="display: inline; white-space: nowrap;">FROM.</p><input type="text" id = "letter_from_name" name="letterFrom" th:value="${step1Me}" style="width:60px;">
+                        <p style="display: inline; white-space: nowrap;">FROM.</p><input type="text" id = "letter_from_name" name="letterFrom" th:value="${step1Me}" style="width:75px;">
                     </div>
                     <div id = "wave_shape">
                         <div class="letter_thinkus">THINKUS</div>
@@ -187,6 +224,7 @@
                 </form>
                 
             </div>
+            
             
     </div>
 </body>
@@ -215,9 +253,11 @@
 
         $("#help").click(function(){
             $("#write_helper").css("display", "block");  
+            $("#letter_left").css("opacity", 0.3);
         });
         $("#close_helper").click(function(){
             $("#write_helper").css("display", "none");  
+            $("#letter_left").css("opacity", 1);
         });
         $("#letter_to_name").css('width', '200');
 
@@ -317,6 +357,6 @@
 
         $("#letter_select_word").children().last().append("<td>").children().last().append(label);
     }
-
+    
 
 </script>

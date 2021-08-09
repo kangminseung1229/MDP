@@ -1,6 +1,10 @@
 /* ******* */
-.explain{
+.paragraph{
+    height: 100px;
+    width: auto;
+    text-align: center;
     line-height:30px;
+    font-size:20px;
 }
 .nav-wrapper {
     width: 1200px;
@@ -291,21 +295,3 @@
     display: none !important;
 }
 
-#step1 {
-    /* display: none; */
-}
-#step2 {
-    /* display: none; */
-}
-#step3 {
-    /* display: none; */
-}
-#step4 {
-    /* display: none; */
-}
-#step5 {
-    /* display: none; */
-}
-#step6 {
-    /* display: none; */
-}
