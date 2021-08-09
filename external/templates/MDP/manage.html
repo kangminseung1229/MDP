@@ -8,7 +8,7 @@
                 <a th:if="${loginOut} == 'admin'"><img src="/img/MDP/logo.png"></a>
                 <a th:if="${loginOut} != 'admin'" href='MDP/main'><img src="/img/MDP/logo.png"></a>
             </div>
-            <div class="logout" onclick="location.href='MDP/adminLogout'" th:text="LOGOUT"></div>
+            <div class="logout" onclick="location.href='/MDP/adminLogout'" th:text="LOGOUT"></div>
 
         </div>
     </div>
@@ -21,7 +21,7 @@
                 <div class="group">
                     <div style="color:white; font-size:30px; font-family: gmarket_bold;">관리자 페이지</div>
                     <br>
-                    <input type="radio" name="menu" id="rb1" value="1" checked = "true" onclick="location.href='MDP/manage'"/>
+                    <input type="radio" name="menu" id="rb1" value="1" checked = "true" onclick="location.href='manage'"/>
                     <label for="rb1" >구매코드 관리</label><br>
                     
                 </div>
@@ -31,7 +31,7 @@
         <div class="content">
 
             <div id = "codeManage">
-                <div onclick="location.href='MDP/manage'" style="margin-top:50px; margin-bottom: 30px; width:100%; color:#043383; font-size:30px; font-family: gmarket_bold; text-align: center;">구매코드 관리</div>
+                <div style="margin-top:50px; margin-bottom: 30px; width:100%; color:#043383; font-size:30px; font-family: gmarket_bold; text-align: center;">구매코드 관리</div>
                 <div>  
                     <div style="text-align:left; padding-left:10px; width: 300px; display: table-cell">아이디(user) 검색</div>
                     <div style=" text-align:left;padding-left:70px; width: 300px; display: table-cell">구매코드 추가</div>
@@ -43,7 +43,7 @@
                         <input name = "count" type ="number" class="search_textbox" min="1">
                         <input id = "addButton" type="submit" class="searchbtn" value="추가" >
                     </form>
-                    <button class="searchbtn" style="float: right; " onclick="location.href='MDP/manage'">새로고침</button>
+                    <button class="searchbtn" style="float: right; " onclick="location.href='manage'">새로고침</button>
                 </div>
                 
                 <table>
