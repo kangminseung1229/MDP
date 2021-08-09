@@ -319,34 +319,65 @@
                             <div class="swiper-container emotionSwiper">
                                 <div class="swiper-wrapper step6_container">
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_common"></table>
+                                        <!-- <table id = "emotion_card_table_common"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_common">
+                                            <th:block th:each="item : ${common}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_common" th:check=false th:id="${item}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_thanks"></table>
+                                        <!-- <table id = "emotion_card_table_thanks"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_thanks">
+                                            <th:block th:each="item : ${thanks}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_thanks" th:check=false th:id="${item}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_sorry"></table>
+                                        <!-- <table id = "emotion_card_table_sorry"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_sorry">
+                                            <th:block th:each="item : ${sorry}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_sorry" th:check=false th:id="${item}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_celebration"></table>
+                                        <!-- <table id = "emotion_card_table_celebration"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_celebration">
+                                            <th:block th:each="item : ${celebration}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_celebration" th:check=false th:id="${item}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_love"></table>
+                                        <!-- <table id = "emotion_card_table_love"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_love">
+                                            <th:block th:each="item : ${love}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_love" th:check=false th:id="${item}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_say"></table>
+                                        <!-- <table id = "emotion_card_table_say"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_say">
+                                            <th:block th:each="item : ${say}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_say" th:check=false th:id="${item}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <input type="text" id = "step6_emotion_result" name="step6_emotion_result" style="display: none;"  value="1"></input>
-                            <div class="step6_container_select">
+                            <div  class="step6_container_select" >
                                 <div style="width: 700px;">
                                     <span id = "select_word_text1">내가 선택한 감정단어</span>
                                     <span id = "select_word_text2">감정단어를 클릭하면 지울 수 있어요.</span>
                                 </div>
-                                
-                                <table id = "select_word"></table>
+
+                                <div class="emotion_card_table select_word"></div>
                             </div>
+                    
                             <input type="submit" id="step6_next" style="margin-top: 30px;" class="next" value="편지쓰러가기"></input> 
     
                         </div>
