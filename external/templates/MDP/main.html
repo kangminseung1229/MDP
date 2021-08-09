@@ -28,8 +28,8 @@
                     상대방에게 내 마음을 전하는 것이 한층 쉬워질 거에요.<br>
                 </p>
             </div>
-            <input class="start_btn" type="button" th:if="${loginOut} == 'LOGOUT'" onclick="location.href='process'" value= 'START'></input>
-            <input id="loginCheck" class="start_btn" type="button" th:if="${loginOut} != 'LOGOUT'" onclick="location.href='MDP/login'" value= 'START'></input>
+            <input class="start_btn" type="button" th:if="${loginOut} == 'LOGOUT'" onclick="location.href='/MDP/process'" value= 'START'></input>
+            <input id="loginCheck" class="start_btn" type="button" th:if="${loginOut} != 'LOGOUT'" onclick="location.href='/MDP/login'" value= 'START'></input>
         </div>
     </div>
 </div> 
