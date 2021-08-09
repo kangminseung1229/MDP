@@ -31,7 +31,7 @@ $(document).ready(function(){
     $('.swiper-button-prev').addClass( "disabled" );
     //   임시로 페이지로 고정
     $('html, body').scrollTop(0);
-    // swiper.slideTo(2);
+    swiper.slideTo(5);
 
     //순서대로 하는 거 
     // for(let i =2; i<=6;i++){
@@ -516,11 +516,11 @@ function checkProcess(){
         return false;
     }
 
-    else if($("input:checkbox[name=step6_emotion_check:checked").length == 0){
-        swiper.slideTo(5);
-        alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
-        return false;
-    }
+    // else if($("input:checkbox[name=step6_emotion_check:checked").length == 0){
+    //     swiper.slideTo(5);
+    //     alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
+    //     return false;
+    // }
 
     
   

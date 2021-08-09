@@ -17,29 +17,6 @@
 
 /* 감정 카테고리 라디오 버튼 */
 
-.step6_container_td input[type='radio']{
-    display:none;
-    z-index:3;
-    text-align: center;
-    /* display:inline-block;  */
-    position: absolute;
-    opacity: 0;
-    width: 60px;
-    height: 60px;
-    
-}
-.step6_container_td input[type="radio"] + label{
-    display:inline-block;
-    background:none;
-    border-radius:50%;
-    text-align-last:center;
-    width: 60px;
-    height: 60px;
-    line-height:100px;
-    cursor:pointer;
-    font-size:16px;
-    z-index:-1;
-}
 .emotion_text{
     margin-top: 10px;
     width: 70px;
@@ -47,140 +24,69 @@
     color: #7E7E7F;
 }
 
-/* 공통단어 */
-.step6_container_td input[type="radio"] + label{
+.emotion_category{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #F5D53F;
     opacity: 0.3;
-    transition:all 0.15s;
     cursor:pointer;
-    
+    display: inline-block;
 } 
 
-.step6_container_td input[type="radio"]:hover + #emotion_common{
+.emotion_category:hover{
     opacity: 1.0;
+    
 }
 
-.step6_container_td input[type="radio"]:checked + #emotion_common {
+.emotion_category:active {
     opacity: 1;
     transform: scale(1.2);
 }
 
-.step6_container_td input[type="radio"]:checked ~ #emotion_common_text{
+.emotion_category:active ~ #emotion_common_text{
     color: black;
+} 
+
+/* 클릭 후 css */
+.emotion_checked {
+    opacity: 1;
+    transform: scale(1.2);
 }
 
+.emotion_checked_text{
+    color: black;
+} 
 
+
+/* 공통단어 */
+#emotion_1{
+    background-color: #F5D53F;
+    transition:all 0.15s;
+} 
 /* 고마움 */
-.step6_container_td input[type="radio"] + #emotion_thanks{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    opacity: 0.3;
+ #emotion_2{
     background-color: #85C247;
     transition:all 0.15s;
-    cursor:pointer;
 }
-
-.step6_container_td input[type="radio"]:hover  + #emotion_thanks{
-    opacity: 1.0;
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_thanks{
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-.step6_container_td input[type="radio"]:checked ~ #emotion_thanks_text{
-    color: black;
-}
-
 /* 미안함 */
-.step6_container_td input[type="radio"] + #emotion_sorry{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#emotion_3{
     background-color: #6BA7DB;
-    opacity: 0.3;
     transition:all 0.15s;
-    cursor:pointer;
 }
-.step6_container_td input[type="radio"]:hover  + #emotion_sorry{
-    opacity: 1.0;
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_sorry{
-   opacity: 1;
-   transform: scale(1.2);
-}
-.step6_container_td input[type="radio"]:checked ~ #emotion_sorry_text{
-    color: black;
-}
-
 /* 축하응원 */
-.step6_container_td input[type="radio"] + #emotion_celebration{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#emotion_4{
     background-color: #EC6A37;
-    opacity: 0.3;
     transition:all 0.15s;
-    cursor:pointer;
 }
-.step6_container_td input[type="radio"]:hover  + #emotion_celebration{
-    opacity: 1.0;
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_celebration{
-    opacity: 1;
-    transform: scale(1.2);
-}
-.step6_container_td input[type="radio"]:checked ~ #emotion_celebration_text{
-    color: black;
-}
-
 /* 사랑 */
-.step6_container_td input[type="radio"] + #emotion_love{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#emotion_5{
     background-color: #DB4D96;
-    opacity: 0.3;
     transition:all 0.15s;
-    cursor:pointer;
 }
-.step6_container_td input[type="radio"]:hover  + #emotion_love{
-    opacity: 1.0;
-    
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_love{
-    opacity: 1;
-    transform: scale(1.2);
-    
-}
-.step6_container_td input[type="radio"]:checked ~ #emotion_love_text{
-    color: black;
-}
-
-
 /* 안부 */
-.step6_container_td input[type="radio"] +#emotion_say{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#emotion_6{
     background-color: #E83B4D;
-    opacity: 0.3;
     transition:all 0.15s;
-    cursor:pointer;
-}
-.step6_container_td input[type="radio"]:hover  + #emotion_say{
-    opacity: 1.0;
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_say{
-    opacity: 1.0;
-    transform: scale(1.2);
-}
-.step6_container_td input[type="radio"]:checked ~ #emotion_say_text{
-    color: black;
 }
 
 
