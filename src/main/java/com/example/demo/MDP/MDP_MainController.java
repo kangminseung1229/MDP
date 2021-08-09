@@ -296,5 +296,11 @@ public class MDP_MainController {
 
         
     }
+    @GetMapping("/adminLogout")
+    public String adminLogout(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "MDP/adminLogin";        
+    }
 
 }
