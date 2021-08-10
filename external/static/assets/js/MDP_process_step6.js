@@ -28,33 +28,6 @@ $(document).ready(function(){
 
     idNum = 0;
     let firstCount = false;
-    // emotionArray.forEach(function(value){
-    //     value.id_name.forEach(function(nameValue){
-    //         $("#"+nameValue).change(function(){
-                
-    //             $(".step6_container_select").fadeIn(600);
-    //             $("#step6_next").delay(300).fadeIn(600);
-
-    //             let click_value = $("#"+nameValue).val();
-    //             let checked = $("#"+nameValue).is(':checked');
-    //             console.log(checked);
-    //             if(checked){
-    //                 addEmotion(click_value,idNum);
-    //                 idNum++;
-    //             }
-    //             else{  
-    //                 console.log(click_value);
-    //                 deleteEmotion($("#"+nameValue));
-    //             }
-    //             checkedId.forEach(function(value){
-    //                 $("#"+value).click(function(){
-    //                     deleteEmotion($("#"+value));
-    //                 });
-    //             });
-               
-    //         });
-    //     });
-    // });
 
     
 
@@ -134,6 +107,7 @@ $('.emotion_card_text').on('click', function() {
     }
     // 감정단어 추가
     else{
+        console.log($(this));
         addEmotion($(this).clone());
         $(this).addClass("emotion_card_text_checked");
         $(this).prop("check",true);
@@ -150,28 +124,32 @@ function addEmotion(emotion){
     checkedId.push(emotion);
     console.log($(".select_word").append(emotion));
 
+    // 내가 선택한 감정단어 클릭시 지우기
     $(emotion).click(function(){
         deleteEmotion(emotion);
         let smaeID= $(emotion).prop("id");
         $("#"+smaeID).prop("check",false);
         $("#"+smaeID).removeClass("emotion_card_text_checked");
+        console.log(smaeID);
     });
 
 }
 // 내가 선택한 감정단어 : 삭제
 function deleteEmotion(emotion){
-    if($(emotion).prop('tagName')=="INPUT"){
+    // if($(emotion).prop('tagName')=="INPUT"){
         
-        checkedId.forEach(function(value){
+        
+    // }
+
+    // checkedId.forEach(function(value){
                      
-            if($("#"+value).text()== emotion.val() && emotion.val() != ""){
-                emotion = $("#"+value);
-                console.log($("#"+value).text());
-                console.log(emotion.val());     
-                return false;
-            }
-        });
-    }
+    //     if($("#"+value).text()== emotion.val() && emotion.val() != ""){
+    //         emotion = $("#"+value);
+    //         console.log($("#"+value).text());
+    //         console.log(emotion.val());     
+    //         return false;
+    //     }
+    // });
 
     $(".select_word").children().each(function(index,item){
        

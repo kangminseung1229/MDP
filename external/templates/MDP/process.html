@@ -322,7 +322,7 @@
                                         <!-- <table id = "emotion_card_table_common"></table> -->
                                         <div class="emotion_card_table emotion_card_table_common">
                                             <th:block th:each="item : ${common}">
-                                                <div th:text="${item}" class="emotion_card_text emotion_card_common" th:check=false th:id="${item}"></div>
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_common" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
                                             </th:block>
                                         </div>
                                     </div>
@@ -330,7 +330,7 @@
                                         <!-- <table id = "emotion_card_table_thanks"></table> -->
                                         <div class="emotion_card_table emotion_card_table_thanks">
                                             <th:block th:each="item : ${thanks}">
-                                                <div th:text="${item}" class="emotion_card_text emotion_card_thanks" th:check=false th:id="${item}"></div>
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_thanks" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
                                             </th:block>
                                         </div>
                                     </div>
@@ -338,7 +338,7 @@
                                         <!-- <table id = "emotion_card_table_sorry"></table> -->
                                         <div class="emotion_card_table emotion_card_table_sorry">
                                             <th:block th:each="item : ${sorry}">
-                                                <div th:text="${item}" class="emotion_card_text emotion_card_sorry" th:check=false th:id="${item}"></div>
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_sorry" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
                                             </th:block>
                                         </div>
                                     </div>
@@ -346,7 +346,7 @@
                                         <!-- <table id = "emotion_card_table_celebration"></table> -->
                                         <div class="emotion_card_table emotion_card_table_celebration">
                                             <th:block th:each="item : ${celebration}">
-                                                <div th:text="${item}" class="emotion_card_text emotion_card_celebration" th:check=false th:id="${item}"></div>
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_celebration" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
                                             </th:block>
                                         </div>
                                     </div>
@@ -354,7 +354,7 @@
                                         <!-- <table id = "emotion_card_table_love"></table> -->
                                         <div class="emotion_card_table emotion_card_table_love">
                                             <th:block th:each="item : ${love}">
-                                                <div th:text="${item}" class="emotion_card_text emotion_card_love" th:check=false th:id="${item}"></div>
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_love" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
                                             </th:block>
                                         </div>
                                     </div>
@@ -362,7 +362,7 @@
                                         <!-- <table id = "emotion_card_table_say"></table> -->
                                         <div class="emotion_card_table emotion_card_table_say">
                                             <th:block th:each="item : ${say}">
-                                                <div th:text="${item}" class="emotion_card_text emotion_card_say" th:check=false th:id="${item}"></div>
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_say" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
                                             </th:block>
                                         </div>
                                     </div>

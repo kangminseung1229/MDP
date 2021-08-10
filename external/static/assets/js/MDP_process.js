@@ -454,21 +454,38 @@ function step5(){
 
 function checkProcess(){
 
-    let checkString="";
+    let checkString=[];
     let count = 0;
-    $('input:checkbox[name=step6_emotion_check]').each(function() {
 
-        if(this.checked){
+    $(".select_word").children().each(function(index,item){
+       
+        // if($(emotion).prop("id") == $(item).prop("id")){
+        //     $(item).remove();
+        // }
 
-            if(count==0)
-                checkString = this.value;
+        if(count==0)
+                checkString =  $(item).text();
             else{
-                checkString = checkString + "|" + this.value;
+                checkString = checkString + "|" + $(item).text();
             }
             count++;
-        }
-        $("#step6_emotion_result").val(checkString);
     });
+    $("#step6_emotion_result").val(checkString);
+
+
+    // $('input:checkbox[name=step6_emotion_check]').each(function() {
+
+    //     if(this.checked){
+
+    //         if(count==0)
+    //             checkString = this.value;
+    //         else{
+    //             checkString = checkString + "|" + this.value;
+    //         }
+    //         count++;
+    //     }
+    //     $("#step6_emotion_result").val(checkString);
+    // });
 
     // if( $("#step1_textbox1").val().length == 0 || $("#step1_textbox2").val().length == 0 || 
     // $("#step1_textbox3").val().length == 0 ||  $("#step1_textbox4").val().length == 0 || 
