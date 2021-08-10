@@ -284,34 +284,34 @@
                                 <table style="display:inline-block;">
                                     <tr>
                                         <td class="step6_container_td">
-                                            <input type="radio" id="emotion1" value ="1" name="step6_emotion_category"></input>
-                                            <label id = emotion_common for = "emotion1" class = "animate_common"></label>
-                                            <div class = emotion_text id = emotion_common_text>공통단어</div>   
+                                            <!-- <input type="radio" id="emotion1" value ="1" name="step6_emotion_category"></input> -->
+                                            <div id = emotion_1 value = "1" class = "emotion_category animate_common"></div>
+                                            <div class = emotion_text id = emotion_text_1>공통단어</div>   
                                         </td>
                                         <td class="step6_container_td">
-                                            <input type="radio" id="emotion2" value ="2" name="step6_emotion_category"></input>
-                                            <label id = emotion_thanks for = "emotion2" class="animate_thanks" ></label>
-                                            <div  class = emotion_text id = emotion_thanks_text>고마움</div> 
+                                            <!-- <input type="radio" id="emotion2" value ="2" name="step6_emotion_category"></input> -->
+                                            <label id = emotion_2 value = "2" class="emotion_category animate_thanks" ></label>
+                                            <div  class = emotion_text id = emotion_text_2>고마움</div> 
                                         </td>
                                         <td class="step6_container_td">
-                                            <input type="radio" id="emotion3" value ="3" name="step6_emotion_category"></input>
-                                            <label id = emotion_sorry for = "emotion3" class="animate_sorry"></label>
-                                            <div  class = emotion_text id = emotion_sorry_text>미안함</div> 
+                                            <!-- <input type="radio" id="emotion3" value ="3" name="step6_emotion_category"></input> -->
+                                            <label id = emotion_3 value = "3" class="emotion_category animate_sorry"></label>
+                                            <div  class = emotion_text id = emotion_text_3>미안함</div> 
                                         </td>
                                         <td class="step6_container_td">
-                                            <input type="radio" id="emotion4" value ="4" name="step6_emotion_category"></input>
-                                            <label id = emotion_celebration for = "emotion4" class="animate_celebration"></label>
-                                            <div  class = emotion_text id = emotion_celebration_text>축하응원</div> 
+                                            <!-- <input type="radio" id="emotion4" value ="4" name="step6_emotion_category"></input> -->
+                                            <label id = emotion_4 value = "4" class="emotion_category animate_celebration"></label>
+                                            <div  class = emotion_text id = emotion_text_4>축하응원</div> 
                                         </td>
                                         <td class="step6_container_td">
-                                            <input type="radio" id="emotion5" value ="5" name="step6_emotion_category"></input>
-                                            <label id = emotion_love for = "emotion5" class="animate_love" ></label>
-                                            <div  class = emotion_text id = emotion_love_text>사랑</div> 
+                                            <!-- <input type="radio" id="emotion5" value ="5" name="step6_emotion_category"></input> -->
+                                            <label id = emotion_5 value = "5" class="emotion_category animate_love" ></label>
+                                            <div  class = emotion_text id = emotion_text_5>사랑</div> 
                                         </td>
                                         <td class="step6_container_td">
-                                            <input type="radio" id="emotion6" value ="6" name="step6_emotion_category"></input>
-                                            <label id = emotion_say for = "emotion6" class="animate_say"></label>    
-                                            <div  class = emotion_text id = emotion_say_text>안부</div> 
+                                            <!-- <input type="radio" id="emotion6" value ="6" name="step6_emotion_category"></input> -->
+                                            <label id = emotion_6 value = "6" class="emotion_category animate_say"></label>    
+                                            <div  class = emotion_text id = emotion_text_6>안부</div> 
                                         </td>
                                     </tr>
                                 </table>
@@ -319,34 +319,65 @@
                             <div class="swiper-container emotionSwiper">
                                 <div class="swiper-wrapper step6_container">
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_common"></table>
+                                        <!-- <table id = "emotion_card_table_common"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_common">
+                                            <th:block th:each="item : ${common}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_common" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_thanks"></table>
+                                        <!-- <table id = "emotion_card_table_thanks"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_thanks">
+                                            <th:block th:each="item : ${thanks}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_thanks" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_sorry"></table>
+                                        <!-- <table id = "emotion_card_table_sorry"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_sorry">
+                                            <th:block th:each="item : ${sorry}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_sorry" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_celebration"></table>
+                                        <!-- <table id = "emotion_card_table_celebration"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_celebration">
+                                            <th:block th:each="item : ${celebration}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_celebration" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_love"></table>
+                                        <!-- <table id = "emotion_card_table_love"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_love">
+                                            <th:block th:each="item : ${love}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_love" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <table id = "emotion_card_table_say"></table>
+                                        <!-- <table id = "emotion_card_table_say"></table> -->
+                                        <div class="emotion_card_table emotion_card_table_say">
+                                            <th:block th:each="item : ${say}">
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_say" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <input type="text" id = "step6_emotion_result" name="step6_emotion_result" style="display: none;"  value="1"></input>
-                            <div class="step6_container_select">
+                            <div  class="step6_container_select" >
                                 <div style="width: 700px;">
                                     <span id = "select_word_text1">내가 선택한 감정단어</span>
                                     <span id = "select_word_text2">감정단어를 클릭하면 지울 수 있어요.</span>
                                 </div>
-                                
-                                <table id = "select_word"></table>
+
+                                <div class="emotion_card_table select_word"></div>
                             </div>
+                    
                             <input type="submit" id="step6_next" style="margin-top: 30px;" class="next" value="편지쓰러가기"></input> 
     
                         </div>

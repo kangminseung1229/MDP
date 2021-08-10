@@ -17,29 +17,6 @@
 
 /* 감정 카테고리 라디오 버튼 */
 
-.step6_container_td input[type='radio']{
-    display:none;
-    z-index:3;
-    text-align: center;
-    /* display:inline-block;  */
-    position: absolute;
-    opacity: 0;
-    width: 60px;
-    height: 60px;
-    
-}
-.step6_container_td input[type="radio"] + label{
-    display:inline-block;
-    background:none;
-    border-radius:50%;
-    text-align-last:center;
-    width: 60px;
-    height: 60px;
-    line-height:100px;
-    cursor:pointer;
-    font-size:16px;
-    z-index:-1;
-}
 .emotion_text{
     margin-top: 10px;
     width: 70px;
@@ -47,140 +24,69 @@
     color: #7E7E7F;
 }
 
-/* 공통단어 */
-.step6_container_td input[type="radio"] + label{
+.emotion_category{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #F5D53F;
     opacity: 0.3;
-    transition:all 0.15s;
     cursor:pointer;
-    
+    display: inline-block;
 } 
 
-.step6_container_td input[type="radio"]:hover + #emotion_common{
+.emotion_category:hover{
     opacity: 1.0;
+    
 }
 
-.step6_container_td input[type="radio"]:checked + #emotion_common {
+.emotion_category:active {
     opacity: 1;
     transform: scale(1.2);
 }
 
-.step6_container_td input[type="radio"]:checked ~ #emotion_common_text{
+.emotion_category:active ~ #emotion_common_text{
     color: black;
+} 
+
+/* 클릭 후 css */
+.emotion_checked {
+    opacity: 1;
+    transform: scale(1.2);
 }
 
+.emotion_checked_text{
+    color: black;
+} 
 
+
+/* 공통단어 */
+#emotion_1{
+    background-color: #F5D53F;
+    transition:all 0.15s;
+} 
 /* 고마움 */
-.step6_container_td input[type="radio"] + #emotion_thanks{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    opacity: 0.3;
+ #emotion_2{
     background-color: #85C247;
     transition:all 0.15s;
-    cursor:pointer;
 }
-
-.step6_container_td input[type="radio"]:hover  + #emotion_thanks{
-    opacity: 1.0;
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_thanks{
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-.step6_container_td input[type="radio"]:checked ~ #emotion_thanks_text{
-    color: black;
-}
-
 /* 미안함 */
-.step6_container_td input[type="radio"] + #emotion_sorry{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#emotion_3{
     background-color: #6BA7DB;
-    opacity: 0.3;
     transition:all 0.15s;
-    cursor:pointer;
 }
-.step6_container_td input[type="radio"]:hover  + #emotion_sorry{
-    opacity: 1.0;
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_sorry{
-   opacity: 1;
-   transform: scale(1.2);
-}
-.step6_container_td input[type="radio"]:checked ~ #emotion_sorry_text{
-    color: black;
-}
-
 /* 축하응원 */
-.step6_container_td input[type="radio"] + #emotion_celebration{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#emotion_4{
     background-color: #EC6A37;
-    opacity: 0.3;
     transition:all 0.15s;
-    cursor:pointer;
 }
-.step6_container_td input[type="radio"]:hover  + #emotion_celebration{
-    opacity: 1.0;
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_celebration{
-    opacity: 1;
-    transform: scale(1.2);
-}
-.step6_container_td input[type="radio"]:checked ~ #emotion_celebration_text{
-    color: black;
-}
-
 /* 사랑 */
-.step6_container_td input[type="radio"] + #emotion_love{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#emotion_5{
     background-color: #DB4D96;
-    opacity: 0.3;
     transition:all 0.15s;
-    cursor:pointer;
 }
-.step6_container_td input[type="radio"]:hover  + #emotion_love{
-    opacity: 1.0;
-    
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_love{
-    opacity: 1;
-    transform: scale(1.2);
-    
-}
-.step6_container_td input[type="radio"]:checked ~ #emotion_love_text{
-    color: black;
-}
-
-
 /* 안부 */
-.step6_container_td input[type="radio"] +#emotion_say{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+#emotion_6{
     background-color: #E83B4D;
-    opacity: 0.3;
     transition:all 0.15s;
-    cursor:pointer;
-}
-.step6_container_td input[type="radio"]:hover  + #emotion_say{
-    opacity: 1.0;
-}
-.step6_container_td input[type="radio"]:checked  + #emotion_say{
-    opacity: 1.0;
-    transform: scale(1.2);
-}
-.step6_container_td input[type="radio"]:checked ~ #emotion_say_text{
-    color: black;
 }
 
 
@@ -199,108 +105,53 @@
     line-height: 50px;
     font-size: 15px;
     text-align: center;
+    /* display: inline-block; */
+    margin: 0 0px 5px 5px;
+    float: left;
+    /* box-shadow: 1px 1px 3px 1px #dadce0; */
 }
-
-
-
-input[type="checkbox"] + label {
-    display:inline-block;
-    width: 117px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #113576;
-    font-family: gmarket_bold;
-    transition-property:opacity;
-    opacity: 1.0;
-    transition:all 0.15s;
-    border: none;
-    line-height: 50px;
-    font-size: 15px;
-    text-align: center;
-    box-shadow: 1px 1px 3px 1px #dadce0;
-}
-input[type="checkbox"]:checked + label {
-    opacity: 0.7;
-    box-shadow: 1px 1px 3px 1px #dadce0 inset;
-}
-input[type="checkbox"]:hover + label {
-    opacity: 0.7;
-    
-}
-input[type="checkbox"]:active + label {
+.emotion_card_text:active {
     transform: translateY(4px);
     
 }
-
-input[type="checkbox"]{
-    /* margin-left:-58px; */
-    width: 117px;
-    height: 50px;
-    z-index:3;
-    position: absolute;
-    opacity: 0; 
-    /* overflow: hidden;
-    clip:rect(0,0,0,0); */
+/* 체크 되었을 때 */
+.emotion_card_text_checked {
+    opacity: 0.7;
+    box-shadow: 1px 1px 3px 1px #dadce0 inset;
+}
+.emotion_card_text:hover {
+    opacity: 0.7;
+    
 }
 
 /* 공통단어 */
 .emotion_card_common{
     color: #F5D53F;
 }
-.emotion_card_common:hover{
-    opacity: 0.7;
-}
-
-
-
 /* 고마움 */
-
-
 .emotion_card_thanks{
     color: #85C247;
 }
-
-.emotion_card_thanks:hover{
-    opacity: 0.7;
-}
-
 /* 미안함 */
-
-
 .emotion_card_sorry{
     color: #6BA7DB;
 }
-.emotion_card_sorry:hover{
-    opacity: 0.7;
-}
-
 /* 축하응원 */
-
 .emotion_card_celebration{
     color: #EC6A37;
 }
-.emotion_card_celebration:hover{
-    opacity: 0.7;
-}
 /* 사랑 */
-
 .emotion_card_love{
     color: #DB4D96;
-}
-.emotion_card_love:hover{
-    opacity: 0.7;
 }
 /* 안부 */
 .emotion_card_say{
     color: #E83B4D;
 }
-.emotion_card_say:hover{
-    opacity: 0.7;
-}
 
 /* 감정카드 Swiper */
 .emotionSwiper{
-    width: 627px;
+    width: 650px;
     height: auto;
     margin-top: -20px;
 }
@@ -318,62 +169,44 @@ input[type="checkbox"]{
 
 
 
-/* 감정 카드 */
-
-#emotion_card_table_common{
+/* 감정 카드 선택 Background*/
+.emotion_card_table{
     display:inline-block;
-    background-color:#FDF8E0;
-    padding: 10px;
-    border-radius: 15px;
-    
-}
-#emotion_card_table_thanks{
-    display:inline-block;
-    background-color:#DBEDC8;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-#emotion_card_table_sorry{
-    display:inline-block;
-    background-color: #D3E5F4;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-#emotion_card_table_celebration{  
-    display:inline-block;
-    background-color: #F9D3C3;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-
-#emotion_card_table_love{
-    display:inline-block;
-    background-color: #F4CAE0;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-
-#emotion_card_table_say{
-    display:inline-block;
-    background-color: #F8C5CA;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-
-.step6_container_select{
+    padding-top: 9px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    border-radius: 13px;
+    width: 620px;
     height: auto;
-    width: 100%;
-    margin: auto;
     text-align: center;
-    margin-top: 40px;
 }
-#select_word{
-    margin-top: 10px;
+
+.emotion_card_table_common{
+    background-color:#FDF8E0;
+}
+.emotion_card_table_thanks{
+    background-color:#DBEDC8;
+}
+.emotion_card_table_sorry{
+    background-color: #D3E5F4;
+}
+.emotion_card_table_celebration{  
+    background-color: #F9D3C3;
+}
+.emotion_card_table_love{
+    background-color: #F4CAE0;
+}
+.emotion_card_table_say{
+    background-color: #F8C5CA;
+}
+
+/* .step6_swiper-slide{
+    width: 100%;
+} */
+.step6_container_select{
+    width: 100%; 
+    height: auto;  
+    margin-top: 40px
 }
 #select_word_text1{
     float: left;
@@ -388,12 +221,9 @@ input[type="checkbox"]{
     font-size: 12px;
     color: #7E7E7F;
 }
-#select_word{
-    display:inline-block;
+.select_word{
     background-color: #E0EAF7;
-    padding: 10px;
-    border-radius: 15px;
-    width: 627px;
+    margin-top: 10px;
 }
 
 .animate_common{
