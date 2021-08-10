@@ -31,7 +31,7 @@ $(document).ready(function(){
     $('.swiper-button-prev').addClass( "disabled" );
     //   임시로 페이지로 고정
     $('html, body').scrollTop(0);
-    // swiper.slideTo(2);
+    swiper.slideTo(0);
 
     //순서대로 하는 거 
     // for(let i =2; i<=6;i++){
@@ -454,21 +454,38 @@ function step5(){
 
 function checkProcess(){
 
-    let checkString="";
+    let checkString=[];
     let count = 0;
-    $('input:checkbox[name=step6_emotion_check]').each(function() {
 
-        if(this.checked){
+    $(".select_word").children().each(function(index,item){
+       
+        // if($(emotion).prop("id") == $(item).prop("id")){
+        //     $(item).remove();
+        // }
 
-            if(count==0)
-                checkString = this.value;
+        if(count==0)
+                checkString =  $(item).text();
             else{
-                checkString = checkString + "|" + this.value;
+                checkString = checkString + "|" + $(item).text();
             }
             count++;
-        }
-        $("#step6_emotion_result").val(checkString);
     });
+    $("#step6_emotion_result").val(checkString);
+
+
+    // $('input:checkbox[name=step6_emotion_check]').each(function() {
+
+    //     if(this.checked){
+
+    //         if(count==0)
+    //             checkString = this.value;
+    //         else{
+    //             checkString = checkString + "|" + this.value;
+    //         }
+    //         count++;
+    //     }
+    //     $("#step6_emotion_result").val(checkString);
+    // });
 
     // if( $("#step1_textbox1").val().length == 0 || $("#step1_textbox2").val().length == 0 || 
     // $("#step1_textbox3").val().length == 0 ||  $("#step1_textbox4").val().length == 0 || 
@@ -516,11 +533,11 @@ function checkProcess(){
         return false;
     }
 
-    else if($("input:checkbox[name=step6_emotion_check:checked").length == 0){
-        swiper.slideTo(5);
-        alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
-        return false;
-    }
+    // else if($("input:checkbox[name=step6_emotion_check:checked").length == 0){
+    //     swiper.slideTo(5);
+    //     alert('06.감정단어 : 하나 이상 단어카드를 선택해주세요');
+    //     return false;
+    // }
 
     
   
