@@ -44,10 +44,10 @@
         html2canvas(document.querySelector("#letter"), {scrollY: -window.scrollY}).then(function(canvas){
             if(canvas.msToBlob){
                 var blob = canvas.msToBlob();
-                window.navigator.msSaveBlob(blob, "capture.jpeg");
+                window.navigator.msSaveBlob(blob, "capture.jpg");
             }
             else{
-                saveAs(canvas.toDataURL(), "capture.jpeg");
+                saveAs(canvas.toDataURL(), "capture.jpg");
             }
         });
 
