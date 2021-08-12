@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/MDP_main_fragment :: top('main')"></head>
-
 <body>
 <header th:replace="fragments/MDP_main_fragment :: header"></header>
 <div id="main_blue">
     <div id="wrapper">
+
         <div id="main_logo">
             <img src="/img/MDP/main_logo_white.png">
         </div>    
+        
         <div class="updown"></div>
+
         <div id="main_exp">
             <div id="main_text">
                 <p>
@@ -34,12 +36,14 @@
     </div>
 </div> 
 <footer th:replace="fragments/MDP_main_fragment :: footer('main')"></footer>
-
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+    //localStrorage 비우기
     localStorage.clear();
+
+    //로그아웃 상태일시 logout 버튼에 LOGIN 글자가 출력되고, 해당 버튼을 클릭했을 때 login 화면으로 이동
     var per=$('.logout').text();
     if(per==""){
         $(".logout").text("LOGIN");

@@ -2,12 +2,10 @@
     margin:0 auto;
     display:table;
     width:1200px;
-
     position: absolute; left: 50%; top: 50%; 
     transform: translate(-50%, -50%); 
     text-align:center;
     background-color: #fff;
-    /* height: 40vmax; */
 }
 #join_logo{
     width:49%;
@@ -97,6 +95,25 @@
     outline:none;
     color:black;
 }
+#join_ok{
+    margin:0 auto;
+    text-align:left;
+    margin-top:1%;
+    line-height:25px;
+    font-size:13px;
+    font-family:gmarket_medium;
+}
+#join_ok input{
+    width:280px;
+    height:30px;
+    border:1px solid #043383;
+    margin:0 auto;
+    color:black;
+}
+#join_ok input:focus{
+    outline:none;
+    color:black;
+}
 #join_button [type="submit"]{
     border:1.5px solid #043383;
     background-color:#fff;
@@ -122,7 +139,6 @@
     font-family: 'gmarket_medium';
     src: url('../css/fonts/GmarketSansMedium.otf') format('opentype');
 }
-/* GmarketSansLight */
 @font-face {
     font-family: 'gmarket_light';
     src: url('../css/fonts/GmarketSansLight.otf') format('opentype');

@@ -20,18 +20,19 @@
         <link th:if = "${top == 'manage'}" rel="stylesheet" content-type="text/css" href="/assets/css/MDP_manage.css">
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         
-     
-        
     </head>
     
     <header th:fragment="header()">
-        <div id = top>
-            <div id=top_wrapper>
-                <div id=image_wrapper>
-                    <a th:if="${loginOut} == 'admin'"><img src="/img/MDP/logo.png"></a>
-                    <a th:if="${loginOut} != 'admin'" href='main'><img src="/img/MDP/logo.png"></a>
+        <div id = "top">
+            <div id="top_wrapper">
+                <div id="image_wrapper">
+                    <a th:if="${loginOut} == 'admin'"><img src="/img/MDP/logo_2.png"></a>
+                    <a th:if="${loginOut} != 'admin'" href='main'><img src="/img/MDP/logo_2.png"></a>
                 </div>
-                <div class="logout" onclick="location.href='/MDP/logout'" th:text="${session.permission}"></div>
+                <div class="logout" onclick="location.href='/MDP/logout'" th:text="${session.permission}" style="float:right;"></div>
+                <div style="float:right; margin-right:20px; margin-top:20px; font-family:gmarket_medium; text-decoration: underline 2px;">
+                    <span th:text="${user}"></span>
+                </div>
             </div>
         </div>
     </header>
@@ -51,13 +52,5 @@
                 <span>개인정보처리방침</span>
             </div>
         </div>
-
     </footer>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $('#checkLogin').css("display", "none");
-    })    
-
-</script>

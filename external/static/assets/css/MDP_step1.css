@@ -14,35 +14,19 @@
     border-radius:5px;
     padding:2px 2px 2px 2px;
 }
-
 #step1_2 {
-  
     display: none;
-    /* z-index: -1; */
-    
 }
 #step1_3 {
-   
     display: none;
-  
-    
 }
-
-
-/* textbox outer */
-
 .textbox_shapes{
     position: relative;
-    /* border: solid 1px #ff00ea; */
     width: 550px;
     height: 550px;
     display: inline-block; 
     margin-top:30px;
-    
 }
-
-/* textbox */
-
 .step1_textbox{
     font-family: gmarket_medium;
     font-size: 20px;
@@ -51,37 +35,28 @@
 }
 .step1_textbox::placeholder{
     text-align: center;
-    
 }
 .step1_textbox:focus{
     outline: none;
     text-align: center;
-    
 }
-
 .step1_textbox1{
     width: 70px;
     position:absolute; 
     top:50%; left:50%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
 }
-
-
 .textbox1_class{
     background-color: #FDF9E3;
     border: none;
 }
-
 .step1_textbox2{
     width: 70px;
     position:absolute; 
     top:33%; left:50%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
-  
 }
 
 .step1_textbox3{
@@ -89,79 +64,58 @@
     position:absolute; 
     top:55%; left:32%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
 }
-
 .step1_textbox4{
     width: 70px;
     position:absolute; 
     top:65%; left:60%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
 }
-
 .textbox2_4_class{
     background-color: #DDEDF9;
     border: none;
 }
-
 .step1_textbox5{
     width: 70px;
     position:absolute; 
     top:15%; left:50%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
 }
-
 .step1_textbox6{
     width: 70px;
     position:absolute; 
     top:45%; left:14%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
 }
-
 .step1_textbox7{
     width: 70px;
     position:absolute; 
     top:80%; left:30%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
 }
-
 .step1_textbox8{
     width: 70px;
     position:absolute; 
     top:80%; left:70%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
 }
-
 .step1_textbox9{
     width: 70px;
     position:absolute; 
     top:45%; left:86%;
     transform: translate(-50%,-50%);
-    /* z-index: 2; */
     text-align: center;
 }
-
 .textbox5_9_class{
     background-color: #F2F8EB;
     border: none;
 }
-
-
-
-/* stage1 자신 */
-
-
 #step1_shape_num1{
     width: 100px;
     height: 100px;
@@ -171,14 +125,12 @@
     top:50%; left:50%;
     transform: translate(-50%,-50%);
     z-index: -1;
-   
 }
 
 .step1_shape{
     cursor: pointer;
     animation: pulseAnim_step1 2s infinite;
 }
-
 @keyframes pulseAnim_step1{
     0% {
         box-shadow: 0 0 0 0 rgba(255, 210, 7, 0.753);
@@ -203,12 +155,10 @@
     transform: translate(-50%,-50%);
     z-index: -2;
 }
-
 .step2_shape{
     cursor: pointer;
     animation: pulseAnim_step2 2s infinite;
 }
-
 @keyframes pulseAnim_step2{
     0% {
         box-shadow: 0 0 0 0 rgba(29, 113, 248, 0.4);
@@ -233,12 +183,10 @@
     transform: translate(-50%,-50%);
     z-index: -3;
 }
-
 .step3_shape{
     cursor: pointer;
     animation: pulseAnim_step3 2s infinite;
 }
-
 @keyframes pulseAnim_step3{
     0% {
         box-shadow: 0 0 0 0 rgba(117, 248, 29, 0.4);
@@ -250,8 +198,6 @@
         box-shadow: 0 0 0 0 rgba(117, 248, 29, 0);
     }
 }
-
-
 #stage2{
     display: none;
 }
@@ -260,25 +206,16 @@
 }
 #stage4{
     display: none;
-    /* position: absolute; */
     padding-top: 45px;
-    /* margin-bottom: 53px; */
-
 }
-
-
-
 .textbox_shapes input[type="radio"] {
     position: absolute;
     opacity: 0;
     z-index: 2;
-    /* visibility:hidden; */
     text-align: center;
     display:inline-block; 
 }
-
 .textbox_shapes label {
-
     line-height: 2em;
     cursor: pointer;
     color: #043383;
@@ -287,7 +224,6 @@
     z-index: -1;
     text-align: center;
     display:inline-block; 
-    /* padding: 0 10px 0 10px; */
     width: auto;
     height: 2em;
 }
@@ -305,55 +241,39 @@
     color: #043383;
     font-family: gmarket_medium;
     font-size: 20px;
-    
-    
 }
-
 .textbox_shapes input[type="radio"] + label::before {
     border-radius: 0.5em;
-   
 } 
-
 .textbox_shapes input[type="radio"]:hover + label {
     color: #ffffff;
-    
 }
 .textbox_shapes input[type="radio"]:hover + label:before {
     background: #043383;
-    
 }
-
 .textbox_shapes input[type="radio"]:active + label:before {
     transform: translateY(4px);
-    
 }
-
 
 /* Checked */
 .textbox_shapes input[type="radio"]:checked + label {
     color: #ffffff;
 }
-
 .textbox_shapes input[type="radio"]:checked + label:before {
     top: 0;
     width: 100%;
     height: 2em;
     background: #043383;
-   
 } 
 
 /* Transition */
-
 .textbox_shapes label,
 label::before {
     transition: .25s all ease;
 } 
-
 #step{
-    /* position:fixed; */
     margin:0 auto;
     margin-left:250px;
-    /* margin-top:70px; */
     z-index:-4;
     text-align: center;
     line-height:200%;
@@ -362,7 +282,6 @@ label::before {
     font-size:14px;
     height:auto;
 }
-
 .group input[type="radio"] {
     position: absolute;
     opacity: 0;
@@ -371,13 +290,10 @@ label::before {
     text-align: center;
     display:inline-block; 
 }
-
 .group label {
     position: relative;
-    
     padding-left: 10px;
     padding-right: 10px;
-
     margin-bottom: 10px;
     line-height: 32px;
     cursor: pointer;
@@ -388,7 +304,6 @@ label::before {
     text-align: center;
     display:inline-block; 
 }
-
 .group label:before {
     box-sizing: border-box;
     content: " ";
@@ -404,7 +319,6 @@ label::before {
     background: #043383;
     z-index: -1;
 }
-
 .group input[type="radio"] + label::before {
     border-radius: 0.5em;
    
@@ -412,10 +326,8 @@ label::before {
 
 /* Checked */
 .group input[type="radio"]:checked + label {
-    /* padding-left: 1em; */
     color: #043383;
 }
-
 .group input[type="radio"]:checked + label:before {
     top: 0;
     width: 100%;
@@ -432,10 +344,8 @@ label::before {
     transition: .25s all ease;
 }
 #step{
-    /* position:fixed; */
     margin:0 auto;
     margin-left:250px;
-    /* margin-top:70px; */
     z-index:-4;
     text-align: center;
     line-height:200%;

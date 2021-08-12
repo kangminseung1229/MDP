@@ -19,28 +19,10 @@ public class checkID {
     @Autowired
     saRepository saRepo;
 
+    //로그인 성공 확인 함수
     public boolean checked(HttpServletRequest request, String user){
-        // boolean result = false;
-        // System.out.println(result);
-        // if(Repo.countByUser(user)>0){
-        //     HttpSession session = request.getSession();
-        //     session.setAttribute("permission", "LOGOUT");
-        //     result=true;
-        // }
-        // else if(Repo.countByCode(user)>0){
-        //     if(Repo.findByCode(user).get().getUser()!=null){
-        //         HttpSession session = request.getSession();
-        //         session.setAttribute("permission", "LOGOUT");
-        //         result=true;
-        //     }
-        // }
-        
-        // return result;
-
         boolean result = false;
         HttpSession session = request.getSession();
-        // mdpPurchaseCode mdp = Repo.findFirstByCodeOrUserAndUserIsNotNull(user, user);
-        // Long id = mdp.getId();
         Long count=Repo.countByUserOrCodeAndUserIsNotNull(user, user);
 
         //로그인 성공
@@ -51,21 +33,20 @@ public class checkID {
         else {
             session.setAttribute("permission", "LOGIN");
         }
-
         return result;
-        
     }
     
+    //권한 확인 함수
     public void checkPermissions(HttpServletResponse response,String permission) throws IOException,ServletException{
-
         if(permission != "LOGOUT"){
             response.sendRedirect("/MDP/login");
         }
     }
 
+    //회원가입 확인 함수
     public boolean checkJoin(HttpServletRequest request, String user, String code){
         boolean result = false;
-
+        //코드가 있는지, 해당 코드가 사용중인지, 아이디가 중복인지 확인
         if(Repo.countByCode(code)>0 && (Repo.countByCodeAndUserIsNull(code) >0) && (Repo.countByUser(user)==0)){
             HttpSession session = request.getSession();
             session.setAttribute("permission", "permission");
@@ -73,9 +54,8 @@ public class checkID {
         }
         
         return result;
-        
     }
-
+    //관리자 회원가입
     public boolean sacheckJoin(String user){
         boolean result = false;
 
@@ -84,7 +64,5 @@ public class checkID {
         }
         
         return result;
-        
     }
-
 }

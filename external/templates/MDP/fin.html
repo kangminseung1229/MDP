@@ -4,7 +4,7 @@
 <body>
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="fin_wrapper">
-        
+
         <div id="letter">
             <div id="letter_background">
                 <div id="letter_to">
@@ -22,24 +22,27 @@
                 <img src="/img/MDP/letter.png" style="max-width:100%; position:relative; top:-275px;">   
             </div>
         </div>
+
         <div id="fin_paragraph">
             <p>
                 편지가 완성되었습니다.<br>
                 소중한 사람에게 전달해보아요 :)
             </p>
         </div>
+
         <div id="fin_btn_wrapper">
-            <button class="fin_btn" id="copy">복사하기</button>
+            <button class="fin_btn" id="copy">편지 복사하기</button>
             <button class="fin_btn" id="save_image">이미지로 저장하기</button>
             <input type="button" class="fin_btn" id="to_first" onclick="location.href='MDP/main'" value="첫페이지로 돌아가기">
         </div>
+
     </div>
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script type="text/javascript">
-
+    // 버튼 클릭시 편지를 jpg 형식으로 저장
     $("#save_image").on("click", function(){
         html2canvas(document.querySelector("#letter"), {scrollY: -window.scrollY}).then(function(canvas){
             if(canvas.msToBlob){
@@ -67,8 +70,11 @@
         }
 
     });
+
+    //브라우저에 저장된 이미지 호출
     $("#target").prop("src",localStorage["target"]);
 
+    //버튼 클릭시 편지 텍스트 클립보드에 복사
     $("#copy").click(function(){
         const valOfDiv = document.getElementById("letter_textarea").textContent;
         const textArea=document.createElement('textarea');
@@ -77,6 +83,5 @@
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert("텍스트가 복사되었습니다.")
     });
 </script>

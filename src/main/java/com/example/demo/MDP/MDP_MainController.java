@@ -2,8 +2,6 @@ package com.example.demo.MDP;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import javax.servlet.ServletException;
@@ -26,7 +24,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @Controller
 @RequestMapping("MDP")
 public class MDP_MainController {
@@ -43,12 +40,18 @@ public class MDP_MainController {
     @Autowired
     private checkID checkID;
 
-
     @GetMapping("/main")
-    public String main(HttpServletRequest request,Model model) {
+    public String main(HttpServletRequest request,Model model, String user) {
+
+        //세션 검사
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
+
+        //로그인시 사용자 아이디 출력
+        if(permission=="LOGOUT"){
+            model.addAttribute("user", user);
+        }
         return "MDP/main";
     }
 
@@ -66,7 +69,7 @@ public class MDP_MainController {
         }
         //로그인 성공
         if(checkID.checked(request, user)){
-            return main(request, model);
+            return main(request, model, user);
         }
         else{
             response.setContentType("text/html; charset=UTF-8");
@@ -78,9 +81,10 @@ public class MDP_MainController {
         }
     }
         
-
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, Model model){
+
+        //로그아웃시 세션 삭제
         HttpSession session = request.getSession();
         session.invalidate();
         return "MDP/login";        
@@ -90,6 +94,7 @@ public class MDP_MainController {
     public String join() {
         return "MDP/join";
     }
+
     @PostMapping("/join")
     public String joinPost(HttpServletRequest request, String user, String code, Model model) {
 
@@ -105,6 +110,7 @@ public class MDP_MainController {
     @GetMapping("/process")
     public String process(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException  {
 
+        //세션 체크
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
@@ -129,7 +135,6 @@ public class MDP_MainController {
 
         String[] say = {"화사한","아련한","씁쓸한","단단한","외로운",
         "궁금한","다시 예전처럼","포근한","잔잔한","끈끈한"};
-
         
         model.addAttribute("common", common);
         model.addAttribute("thanks", thanks);
@@ -143,6 +148,8 @@ public class MDP_MainController {
 
     @GetMapping("/letter")
     public String letter(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
+        
+        //세션 쳌,
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
@@ -152,55 +159,47 @@ public class MDP_MainController {
 
     @PostMapping("/letter")
     public String letterPost(HttpServletRequest request, Model model){
-        String step1Me = request.getParameter("step1Me");
-        model.addAttribute("step1Me", step1Me);
-        String step1Text = request.getParameter("step1Text");
-        model.addAttribute("step1Text", step1Text);
-        String feeling = request.getParameter("feeling");
-        model.addAttribute("feeling", feeling);
-        String step3_textbox1 = request.getParameter("step3_textbox1");
-        model.addAttribute("step3_textbox1", step3_textbox1);
-        String step3_textbox2 = request.getParameter("step3_textbox2");
-        model.addAttribute("step3_textbox2", step3_textbox2);
-        String step3_textbox3 = request.getParameter("step3_textbox3");
-        model.addAttribute("step3_textbox3", step3_textbox3);
-        String step3_textbox4 = request.getParameter("step3_textbox4");
-        model.addAttribute("step3_textbox4", step3_textbox4);
-        String step3_textbox5 = request.getParameter("step3_textbox5");
-        model.addAttribute("step3_textbox5", step3_textbox5);
-        String step3_textbox6 = request.getParameter("step3_textbox6");
-        model.addAttribute("step3_textbox6", step3_textbox6);
-        String step3_textbox7 = request.getParameter("step3_textbox7");
-        model.addAttribute("step3_textbox7", step3_textbox7);
-        String step3_textbox8 = request.getParameter("step3_textbox8");
-        model.addAttribute("step3_textbox8", step3_textbox8);
-        String step3_textbox9 = request.getParameter("step3_textbox9");
-        model.addAttribute("step3_textbox9", step3_textbox9);
-        String step4Text1 = request.getParameter("step4Text1");
-        model.addAttribute("step4Text1", step4Text1);
-        String step4Text2 = request.getParameter("step4Text2");
-        model.addAttribute("step4Text2", step4Text2);
-        String step4Text3 = request.getParameter("step4Text3");
-        model.addAttribute("step4Text3", step4Text3);
-        String step4Text4 = request.getParameter("step4Text4");
-        model.addAttribute("step4Text4", step4Text4);
-        String step5Text1 = request.getParameter("step5Text1");
-        model.addAttribute("step5Text1", step5Text1);
-        String step5Text2 = request.getParameter("step5Text2");
-        model.addAttribute("step5Text2", step5Text2);
-        String step5Text3 = request.getParameter("step5Text3");
-        model.addAttribute("step5Text3", step5Text3);
-        String step5Text4 = request.getParameter("step5Text4");
-        model.addAttribute("step5Text4", step5Text4);
-        String step6_emotion_result = request.getParameter("step6_emotion_result");
-        model.addAttribute("step6_emotion_result", step6_emotion_result);
-        
+
+        //step1
+        model.addAttribute("step1Me", request.getParameter("step1Me"));
+        model.addAttribute("step1Text", request.getParameter("step1Text"));
+
+        //step2
+        model.addAttribute("feeling", request.getParameter("feeling"));
+
+        //step3
+        model.addAttribute("step3_textbox1", request.getParameter("step3_textbox1"));
+        model.addAttribute("step3_textbox2", request.getParameter("step3_textbox2"));
+        model.addAttribute("step3_textbox3", request.getParameter("step3_textbox3"));
+        model.addAttribute("step3_textbox4", request.getParameter("step3_textbox4"));
+        model.addAttribute("step3_textbox5", request.getParameter("step3_textbox5"));
+        model.addAttribute("step3_textbox6", request.getParameter("step3_textbox6"));
+        model.addAttribute("step3_textbox7", request.getParameter("step3_textbox7"));
+        model.addAttribute("step3_textbox8", request.getParameter("step3_textbox8"));
+        model.addAttribute("step3_textbox9", request.getParameter("step3_textbox9"));
+
+        //step4
+        model.addAttribute("step4Text1", request.getParameter("step4Text1"));
+        model.addAttribute("step4Text2", request.getParameter("step4Text2"));
+        model.addAttribute("step4Text3", request.getParameter("step4Text3"));
+        model.addAttribute("step4Text4", request.getParameter("step4Text4"));
+
+        //step5
+        model.addAttribute("step5Text1", request.getParameter("step5Text1"));
+        model.addAttribute("step5Text2", request.getParameter("step5Text2"));
+        model.addAttribute("step5Text3", request.getParameter("step5Text3"));
+        model.addAttribute("step5Text4", request.getParameter("step5Text4"));
+
+        //step6
+        model.addAttribute("step6_emotion_result", request.getParameter("step6_emotion_result"));
 
         return "MDP/letter";
     }
 
     @GetMapping("/fin")
     public String fin(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
+        
+        //세션 체크
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
@@ -212,23 +211,17 @@ public class MDP_MainController {
     @PostMapping("/fin")
     public String finPost(Model model, HttpServletRequest request){
 
-        String letterTo=request.getParameter("letterTo");
-        model.addAttribute("letterTo", letterTo);
-
-        String letterText=request.getParameter("letterText");
-        model.addAttribute("letterText", letterText);
-        
-        String letterFrom=request.getParameter("letterFrom");
-        model.addAttribute("letterFrom", letterFrom);
-
+        model.addAttribute("letterTo", request.getParameter("letterTo"));
+        model.addAttribute("letterText", request.getParameter("letterText"));
+        model.addAttribute("letterFrom", request.getParameter("letterFrom"));
 
         return "MDP/fin";
     }
 
-
     @GetMapping("admin/manage")
     public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
 
+        //페이징
         Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 1);
         int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
@@ -242,6 +235,8 @@ public class MDP_MainController {
 
     @GetMapping("admin/search")
     public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText, @PageableDefault(size = 15) Pageable pageable){
+        
+        //아이디 검색
         Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText,pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
         int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
@@ -281,7 +276,7 @@ public class MDP_MainController {
     }
 
 
-    // 관리자페이지컨트롤러
+    // 관리자 페이지 컨트롤러
 
     @GetMapping("/adminLogin")
     public String adminLogin(){
@@ -294,18 +289,16 @@ public class MDP_MainController {
     }
 
     @PostMapping("/adminJoin")
-    public String admin_join(SecurityAdmins sa) {
-        
-        // String encodedpw = pwEncoder.encode(sa.getPassword());
-        // sa.setPassword(encodedpw);
-        // sa.setEnabled(true);
+    public String admin_join(SecurityAdmins sa, String code) {
 
-        // SecurityRole sr = new SecurityRole();
-        // sr.setId(1l);
-        // sa.getRoles().add(sr);
-        // saRepo.save(sa);
-        // return "redirect:adminLogin";
+        //승인코드 검사
+        System.out.println(code);
+        if((code.equals("mdp2021"))==false){
+            System.out.println(code == "mdp2021");
+            return "redirect:adminJoin";
+        }
 
+        //비밀번호 암호화
         String encodedpw = pwEncoder.encode(sa.getPassword());
         sa.setPassword(encodedpw);
         sa.setEnabled(true);
@@ -320,11 +313,8 @@ public class MDP_MainController {
         else{
             return "redirect:adminJoin";
         }
-        
-
-
-        
     }
+
     @GetMapping("/adminLogout")
     public String adminLogout(HttpServletRequest request, Model model){
         HttpSession session = request.getSession();

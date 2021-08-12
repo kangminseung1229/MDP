@@ -2,7 +2,6 @@ checkedId = new Array();
 
 $(document).ready(function(){
 
-
     emotionSwiper = new Swiper(".emotionSwiper", {
     
         autoHeight : true,
@@ -28,8 +27,6 @@ $(document).ready(function(){
 
     idNum = 0;
     let firstCount = false;
-
-    
 
     $("input:radio[name=step6_emotion_category]").change(function()
     {
@@ -83,13 +80,9 @@ $(document).ready(function(){
         $(".emotionSwiper").fadeIn(600);
     });
 
-  
     for(let i =1; i<7; i++){
         clickCategory(i);
     }
-
-    
-
 
 });
 
@@ -99,6 +92,7 @@ $('.emotion_card_text').on('click', function() {
     
     $(".step6_container_select").fadeIn(600);
     $("#step6_next").delay(300).fadeIn(600);
+
     // 감정단어 삭제
     if(isChecked){
         deleteEmotion(this);
@@ -111,11 +105,8 @@ $('.emotion_card_text').on('click', function() {
         addEmotion($(this).clone());
         $(this).addClass("emotion_card_text_checked");
         $(this).prop("check",true);
-        
     }
-   
 });
-
 
 // 내가 선택한 감정단어 : 추가
 function addEmotion(emotion){
@@ -136,23 +127,7 @@ function addEmotion(emotion){
 }
 // 내가 선택한 감정단어 : 삭제
 function deleteEmotion(emotion){
-    // if($(emotion).prop('tagName')=="INPUT"){
-        
-        
-    // }
-
-    // checkedId.forEach(function(value){
-                     
-    //     if($("#"+value).text()== emotion.val() && emotion.val() != ""){
-    //         emotion = $("#"+value);
-    //         console.log($("#"+value).text());
-    //         console.log(emotion.val());     
-    //         return false;
-    //     }
-    // });
-
     $(".select_word").children().each(function(index,item){
-       
         if($(emotion).prop("id") == $(item).prop("id")){
             $(item).remove();
         }
@@ -211,8 +186,6 @@ function clickCategory(idName){
                 $("#emotion_"+i).removeClass("emotion_checked");
                 $("#emotion_text_"+i).removeClass("emotion_checked_text");
             }
-
         }
     }
-            
 }

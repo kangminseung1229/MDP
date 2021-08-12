@@ -23,8 +23,6 @@ public class SecurityAdmins {
     private String password;
     private boolean enabled;
 
-
-
     @ManyToMany // N : N 관계  
     @JoinTable( //AdminsRole Table
         name = "AdminsRole",
@@ -32,6 +30,5 @@ public class SecurityAdmins {
         inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     List<SecurityRole> roles = new ArrayList<>(); //null point error    
-    
-    
+
 }

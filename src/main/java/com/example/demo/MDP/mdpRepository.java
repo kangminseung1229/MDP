@@ -1,7 +1,5 @@
 package com.example.demo.MDP;
 
-import java.util.Optional;
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.domain.Page;
@@ -11,36 +9,24 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-
-
 @Repository
 public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     
-    
     long countByCode(String code);
-    
-    Optional<mdpPurchaseCode> findByCode(String code);
 
     Page<mdpPurchaseCode> findByUser(String user, Pageable pageable);
-
-
     Page<mdpPurchaseCode> findAll(Pageable pageable);
     Page<mdpPurchaseCode> findByOrderByIdDesc(Pageable pageable);
 
+    Long countByCodeAndUserIsNull(String code);
+    Long countByUser(String user);
+    Long countByUserOrCodeAndUserIsNotNull(String code, String user);
+
     @Query(value="SELECT id FROM mdpPurchaseCode order by id desc limit 1", nativeQuery = true )
     long lastColumn();
-
-    Long countByUser(String user);
 
     @Transactional
     @Modifying
     @Query(value="UPDATE mdpPurchaseCode SET USER=:user WHERE CODE=:code", nativeQuery = true )
     void updateUser(String user, String code);
-
-    Long countByCodeAndUserIsNull(String code);
-
-    // @Query(value = "SELECT id FROM mdpPurchaseCode WHERE (CODE=:code OR USER=:code) AND USER IS NOT NULL", nativeQuery = true)
-    // mdpPurchaseCode findFirstByCodeOrUserAndUserIsNotNull(String code, String user);
-    Long countByUserOrCodeAndUserIsNotNull(String code, String user);
-    
 }    

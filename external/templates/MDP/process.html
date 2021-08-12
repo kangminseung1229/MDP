@@ -6,10 +6,8 @@
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="process_wrapper">
         <nav th:replace = "fragments/MDP_process_fragment :: nav"></nav>
-        
         <form th:action="@{/MDP/letter}" method="POST"  onsubmit="return checkProcess();" autocomplete="off">
 
-        
             <div class="swiper-container entireSwiper">
                 <div class="content swiper-wrapper">
     
@@ -39,7 +37,6 @@
                             </div>                      
                         </div> 
                     </div>
-    
     
                     <!-- step2 -->
                     <div class="swiper-slide entireSwiper-swiper-slide">
@@ -100,7 +97,7 @@
                                 <div class="num">01</div>
                                 <div class = "textWrapper">
                                     <span>우리가 처음 만났던 때</span>
-                                    <input class="step3_textbox step3_shape_green" type="text" name="step3_textbox1" id="step3_textbox1">&ensp;
+                                    <input class="step3_textbox step3_shape_green" type="text" name="step3_textbox1" id="step3_textbox1">
                                     <span class="text_end">이다.</span>
                                 </div>
                             </div>
@@ -109,7 +106,7 @@
                                 <div class="num">02</div>
                                 <div class = "textWrapper">
                                     <span>이 사람의 첫인상은</span>
-                                    <input class="step3_textbox" type="text" name="step3_textbox2" id="step3_textbox2">&ensp;
+                                    <input class="step3_textbox" type="text" name="step3_textbox2" id="step3_textbox2">
                                     <span class="text_end">이다.</span>
                                 </div>
                             </div>
@@ -118,7 +115,7 @@
                                 <div class="num">03</div>
                                 <div class = "textWrapper">
                                     <span>생각하면 떠오르는 색은</span>
-                                        <input class="step3_textbox" type="text" name="step3_textbox3" id="step3_textbox3">&ensp;
+                                        <input class="step3_textbox" type="text" name="step3_textbox3" id="step3_textbox3">
                                         <span class="text_end">이다.</span>
                                 </div>
                             </div>
@@ -127,7 +124,7 @@
                                 <div class="num">04</div>
                                 <div class = "textWrapper">
                                     <span>지난 날들 중, 가장 재미있었던 일은</span>
-                                        <input class="step3_textbox" type="text" name="step3_textbox4" id="step3_textbox4">&ensp;
+                                        <input class="step3_textbox" type="text" name="step3_textbox4" id="step3_textbox4">
                                         <span class="text_end">이다.</span>
                                 </div>
                             </div>
@@ -136,7 +133,7 @@
                                 <div class="num">05</div>
                                 <div class = "textWrapper">
                                     <span>가장 진지했던 이야기 주제는</span>
-                                    <input class="step3_textbox" type="text" name="step3_textbox5" id="step3_textbox5">&ensp;
+                                    <input class="step3_textbox" type="text" name="step3_textbox5" id="step3_textbox5">
                                     <span class="text_end">이다.</span>
                                 </div>
                             </div>
@@ -145,7 +142,7 @@
                                 <div class="num">06</div>
                                 <div class = "textWrapper">
                                     <span>가장 마음이 쓰이는 날은</span>
-                                    <input class="step3_textbox" type="text" name="step3_textbox6" id="step3_textbox6">&ensp;
+                                    <input class="step3_textbox" type="text" name="step3_textbox6" id="step3_textbox6">
                                     <span class="text_end">이다.</span>
                                 </div>
                             </div>
@@ -154,7 +151,7 @@
                                 <div class="num">07</div>
                                 <div class = "textWrapper">
                                     <span>이 사람의 반전 매력은</span>
-                                    <input class="step3_textbox" type="text" name="step3_textbox7" id="step3_textbox7">&ensp;
+                                    <input class="step3_textbox" type="text" name="step3_textbox7" id="step3_textbox7">
                                     <span class="text_end">이다.</span>
                                 </div>
                             </div>
@@ -163,7 +160,7 @@
                                 <div class="num">08</div>
                                 <div class = "textWrapper">
                                     <span>우리 둘의 공통점은</span>
-                                    <input class="step3_textbox" type="text" name="step3_textbox8" id="step3_textbox8">&ensp;
+                                    <input class="step3_textbox" type="text" name="step3_textbox8" id="step3_textbox8">
                                     <span class="text_end">이다.</span>
                                 </div>
                             </div>
@@ -172,7 +169,7 @@
                                 <div class="num">09</div>
                                 <div class = "textWrapper">
                                     <span>나에게 한 말 중 가장 인상 깊은 말은</span>
-                                    <input class="step3_textbox" type="text" name="step3_textbox9" id="step3_textbox9">&ensp;
+                                    <input class="step3_textbox" type="text" name="step3_textbox9" id="step3_textbox9">
                                     <span class="text_end">이다.</span>
                                 </div>
                             </div> 
@@ -285,32 +282,26 @@
                                 <table style="display:inline-block;">
                                     <tr>
                                         <td class="step6_container_td">
-                                            <!-- <input type="radio" id="emotion1" value ="1" name="step6_emotion_category"></input> -->
                                             <div id = emotion_1 value = "1" class = "emotion_category animate_common"></div>
                                             <div class = emotion_text id = emotion_text_1>공통단어</div>   
                                         </td>
                                         <td class="step6_container_td">
-                                            <!-- <input type="radio" id="emotion2" value ="2" name="step6_emotion_category"></input> -->
                                             <label id = emotion_2 value = "2" class="emotion_category animate_thanks" ></label>
                                             <div  class = emotion_text id = emotion_text_2>고마움</div> 
                                         </td>
                                         <td class="step6_container_td">
-                                            <!-- <input type="radio" id="emotion3" value ="3" name="step6_emotion_category"></input> -->
                                             <label id = emotion_3 value = "3" class="emotion_category animate_sorry"></label>
                                             <div  class = emotion_text id = emotion_text_3>미안함</div> 
                                         </td>
                                         <td class="step6_container_td">
-                                            <!-- <input type="radio" id="emotion4" value ="4" name="step6_emotion_category"></input> -->
                                             <label id = emotion_4 value = "4" class="emotion_category animate_celebration"></label>
                                             <div  class = emotion_text id = emotion_text_4>축하응원</div> 
                                         </td>
                                         <td class="step6_container_td">
-                                            <!-- <input type="radio" id="emotion5" value ="5" name="step6_emotion_category"></input> -->
                                             <label id = emotion_5 value = "5" class="emotion_category animate_love" ></label>
                                             <div  class = emotion_text id = emotion_text_5>사랑</div> 
                                         </td>
                                         <td class="step6_container_td">
-                                            <!-- <input type="radio" id="emotion6" value ="6" name="step6_emotion_category"></input> -->
                                             <label id = emotion_6 value = "6" class="emotion_category animate_say"></label>    
                                             <div  class = emotion_text id = emotion_text_6>안부</div> 
                                         </td>
@@ -320,7 +311,6 @@
                             <div class="swiper-container emotionSwiper">
                                 <div class="swiper-wrapper step6_container">
                                     <div class="swiper-slide">
-                                        <!-- <table id = "emotion_card_table_common"></table> -->
                                         <div class="emotion_card_table emotion_card_table_common">
                                             <th:block th:each="item : ${common}">
                                                 <div th:text="${item}" class="emotion_card_text emotion_card_common" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
@@ -328,7 +318,6 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <!-- <table id = "emotion_card_table_thanks"></table> -->
                                         <div class="emotion_card_table emotion_card_table_thanks">
                                             <th:block th:each="item : ${thanks}">
                                                 <div th:text="${item}" class="emotion_card_text emotion_card_thanks" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
@@ -336,7 +325,6 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <!-- <table id = "emotion_card_table_sorry"></table> -->
                                         <div class="emotion_card_table emotion_card_table_sorry">
                                             <th:block th:each="item : ${sorry}">
                                                 <div th:text="${item}" class="emotion_card_text emotion_card_sorry" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
@@ -344,7 +332,6 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <!-- <table id = "emotion_card_table_celebration"></table> -->
                                         <div class="emotion_card_table emotion_card_table_celebration">
                                             <th:block th:each="item : ${celebration}">
                                                 <div th:text="${item}" class="emotion_card_text emotion_card_celebration" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
@@ -352,7 +339,6 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <!-- <table id = "emotion_card_table_love"></table> -->
                                         <div class="emotion_card_table emotion_card_table_love">
                                             <th:block th:each="item : ${love}">
                                                 <div th:text="${item}" class="emotion_card_text emotion_card_love" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
@@ -360,7 +346,6 @@
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <!-- <table id = "emotion_card_table_say"></table> -->
                                         <div class="emotion_card_table emotion_card_table_say">
                                             <th:block th:each="item : ${say}">
                                                 <div th:text="${item}" class="emotion_card_text emotion_card_say" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
@@ -384,10 +369,9 @@
                         </div>
                         
                     </div>
-                </div> <!-- content swiper-wrapper -->
+                </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <!-- <div class="swiper-pagination"></div> -->
             </div>
         
     </form>
@@ -400,11 +384,9 @@
     <script src="/assets/js/anime.min.js"></script>
     <script src = "/assets/js/MDP_process.js"></script>
     <script src = "/assets/js/MDP_process_step6.js"></script>
-    <!-- <script src = "/assets/js/MDP_process_step6_test.js"></script> -->
     
 
     <!-- swiper -->
-    
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         function feelingCheck(id){

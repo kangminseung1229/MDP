@@ -9,8 +9,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 
-
-
 @Data
 @Entity
 public class mdpPurchaseCode {

@@ -4,26 +4,17 @@
     margin: auto;
     text-align: center;
 }
-
 .step6_container_td{
     padding: 20px;
 }
 
-/* .step6_emotion_category_wrapper{
-    width: 60px; 
-    height: 60px;
-} */
-
-
 /* 감정 카테고리 라디오 버튼 */
-
 .emotion_text{
     margin-top: 10px;
     width: 70px;
     height: auto;
     color: #7E7E7F;
 }
-
 .emotion_category{
     width: 50px;
     height: 50px;
@@ -32,17 +23,14 @@
     cursor:pointer;
     display: inline-block;
 } 
-
 .emotion_category:hover{
     opacity: 1.0;
     
 }
-
 .emotion_category:active {
     opacity: 1;
     transform: scale(1.2);
 }
-
 .emotion_category:active ~ #emotion_common_text{
     color: black;
 } 
@@ -52,11 +40,9 @@
     opacity: 1;
     transform: scale(1.2);
 }
-
 .emotion_checked_text{
     color: black;
 } 
-
 
 /* 공통단어 */
 #emotion_1{
@@ -89,9 +75,7 @@
     transition:all 0.15s;
 }
 
-
 /**** 감정카드 ****/
-
 .emotion_card_text{
     width: 117px;
     height: 50px;
@@ -105,14 +89,11 @@
     line-height: 50px;
     font-size: 15px;
     text-align: center;
-    /* display: inline-block; */
     margin: 0 0px 5px 5px;
     float: left;
-    /* box-shadow: 1px 1px 3px 1px #dadce0; */
 }
 .emotion_card_text:active {
     transform: translateY(4px);
-    
 }
 /* 체크 되었을 때 */
 .emotion_card_text_checked {
@@ -121,7 +102,6 @@
 }
 .emotion_card_text:hover {
     opacity: 0.7;
-    
 }
 
 /* 공통단어 */
@@ -155,7 +135,6 @@
     height: auto;
     margin-top: -20px;
 }
-
 .emotion-swiper-button-next {
     color: #043383 !important;
     top: 100px !important;
@@ -165,9 +144,6 @@
     color: #043383 !important;
     /* display: none !important; */
 }
-
-
-
 
 /* 감정 카드 선택 Background*/
 .emotion_card_table{
@@ -180,7 +156,6 @@
     height: auto;
     text-align: center;
 }
-
 .emotion_card_table_common{
     background-color:#FDF8E0;
 }
@@ -199,10 +174,6 @@
 .emotion_card_table_say{
     background-color: #F8C5CA;
 }
-
-/* .step6_swiper-slide{
-    width: 100%;
-} */
 .step6_container_select{
     width: 100%; 
     height: auto;  
@@ -212,7 +183,6 @@
     float: left;
     padding-left: 40px;
     font-size: 18px;
-    
 }
 #select_word_text2{
     float: left;
@@ -225,12 +195,10 @@
     background-color: #E0EAF7;
     margin-top: 10px;
 }
-
 .animate_common{
     animation: pulseAnim_common 2s infinite;
     animation-delay: 0.2s;
 }
-
 @keyframes pulseAnim_common{
     0% {
         box-shadow: 0 0 0 0 rgb(255, 221, 2);
@@ -242,12 +210,10 @@
         box-shadow: 0 0 0 0 rgba(245, 209, 7, 0);
     }
 }
-
 .animate_thanks{
     animation: pulseAnim_thanks 2s infinite;
     animation-delay: 0.4s;
 }
-
 @keyframes pulseAnim_thanks{
     0% {
         box-shadow: 0 0 0 0 rgb(76, 218, 33);
@@ -259,13 +225,10 @@
         box-shadow: 0 0 0 0 rgba(7, 245, 39, 0);
     }
 }
-
 .animate_sorry{
     animation: pulseAnim_sorry 2s infinite;
     animation-delay: 0.6s;
 }
-
-
 @keyframes pulseAnim_sorry{
     0% {
         box-shadow: 0 0 0 0 rgb(7, 130, 245);
@@ -277,13 +240,10 @@
         box-shadow: 0 0 0 0 rgba(7, 197, 245, 0);
     }
 }
-
 .animate_celebration{
     animation: pulseAnim_celebration 2s infinite;
     animation-delay: 0.8s;
 }
-
-
 @keyframes pulseAnim_celebration{
     0% {
         box-shadow: 0 0 0 0 rgba(245, 75, 7, 1.0);
@@ -295,13 +255,10 @@
         box-shadow: 0 0 0 0 rgba(7, 197, 245, 0);
     }
 }
-
 .animate_love{
     animation: pulseAnim_love 2s infinite;
     animation-delay: 1.0s;
 }
-
-
 @keyframes pulseAnim_love{
     0% {
         box-shadow: 0 0 0 0 rgba(245, 7, 166, 1.0);
@@ -313,13 +270,10 @@
         box-shadow: 0 0 0 0 rgba(7, 197, 245, 0);
     }
 }
-
 .animate_say{
     animation: pulseAnim_say 2s infinite;
     animation-delay: 1.2s;
 }
-
-
 @keyframes pulseAnim_say{
     0% {
         box-shadow: 0 0 0 0 rgba(245, 7, 27, 1.0);
@@ -331,4 +285,3 @@
         box-shadow: 0 0 0 0 rgba(7, 197, 245, 0);
     }
 }
-

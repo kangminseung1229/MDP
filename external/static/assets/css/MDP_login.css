@@ -43,7 +43,6 @@
     top: 45%;
     transform: translateY(-50%);
 }
-
 #login_form_wrapper input[type="text"],input[type="password"]{
     font-family:gmarket_light;
 }
@@ -83,7 +82,6 @@
     font-family: gmarket_medium;
     line-height:30px;
 }
-
 #join{
     border:1.5px solid #043383;
     background-color:#fff;
@@ -96,7 +94,6 @@
     font-size: 13px;
     font-family: gmarket_medium;
 }
-
 #join:hover{
     background-color:#043383;
     color:#fff;
@@ -117,9 +114,6 @@
     background-color:#043383;
     color:#fff;
 }
-
-
-
 @font-face {
     font-family: 'gmarket_medium';
     src: url('../css/fonts/GmarketSansMedium.otf') format('opentype');
@@ -128,13 +122,10 @@
     font-family:'brandon_bld';
     src: url('../css/fonts/Brandon_bld.otf') format('opentype');
 }
-
-/* GmarketSansLight */
 @font-face {
     font-family: 'gmarket_light';
     src: url('../css/fonts/GmarketSansLight.otf') format('opentype');
 }
-
 #login_form{
     margin:0 auto;
     margin-top: 10px;

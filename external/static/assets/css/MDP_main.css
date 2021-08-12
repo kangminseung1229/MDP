@@ -12,23 +12,22 @@ body{
 }
 #top_wrapper{
     margin:0 auto;
-    padding-top:1%;
-    padding-bottom:1%;
     width:1200px;
-
-    height: auto;
+    height:60px;
+    margin-top: 5px;
 }
 #image_wrapper{
-   
     display: inline-block;
-    margin-top: -10px;
+    height:60px;
 }
-
+#image_wrapper img{
+    margin:0 auto;
+    margin-top:15px;
+}
 .logout{
     float: right;
     display: block;
     font-size:10px;
-    margin-top: 5px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -37,6 +36,7 @@ body{
     border:1.5px solid #043383;
     border-radius:45px;
     color:#043383;
+    margin-top:16px;
     transition-duration:0.5s;
 }
 .logout:hover{
@@ -57,12 +57,10 @@ body{
     margin:0 auto;
     display:table;
     width:1200px;
-
     position: absolute; left: 50%; top: 50%; 
     transform: translate(-50%, -50%); 
     text-align:center;
     background-color: #043383;
-    
 }
 #main_logo{
     width:49%;
@@ -76,8 +74,6 @@ body{
 }
 #main_logo img{
     margin-left:-170px;
-    /* width:49%; */
-    /* height:auto; */
     vertical-align:middle;
     padding-left:25%;
 }
@@ -134,7 +130,6 @@ body{
     color: white;
     transform: translateY(-4px);
 }
-
 #footer{
     margin:0 auto;
     margin-top:10%;

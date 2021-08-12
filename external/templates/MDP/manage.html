@@ -9,27 +9,24 @@
                 <a th:if="${loginOut} != 'admin'" href='/MDP/admin/manage'><img src="/img/MDP/logo.png"></a>
             </div>
             <div class="logout" onclick="location.href='/MDP/adminLogout'" th:text="LOGOUT"></div>
-
         </div>
     </div>
 
     <div id="process_wrapper">
         <div class="process_div">
             <div class="process_div2" >
-                <img src = "/img/MDP/main_logo_white_process.png"  class="process_logo" >
+                <img src = "/img/MDP/main_logo_white_process.png" class="process_logo" >
                 <hr id = "horizontal_line">          
                 <div class="group">
                     <div style="color:white; font-size:30px; font-family: gmarket_bold;">관리자 페이지</div>
                     <br>
                     <input type="radio" name="menu" id="rb1" value="1" checked = "true" onclick="location.href='/MDP/admin/manage'"/>
                     <label for="rb1" >구매코드 관리</label><br>
-                    
                 </div>
             </div>
         </div>
 
         <div class="content">
-
             <div id = "codeManage">
                 <div style="margin-top:50px; margin-bottom: 30px; width:100%; color:#043383; font-size:30px; font-family: gmarket_bold; text-align: center;">구매코드 관리</div>
                 <div>  
@@ -43,11 +40,11 @@
                         <input name = "count" type ="number" class="search_textbox" min="1">
                         <input id = "addButton" type="submit" class="searchbtn" value="추가" >
                     </form>
-                    <button class="searchbtn" style="float: right; " onclick="location.href='/MDP/admin/manage'">새로고침</button>
+                    <button class="searchbtn" style="float: right;" onclick="location.href='/MDP/admin/manage'">새로고침</button>
                 </div>
                 
                 <table>
-                    <tr >
+                    <tr>
                         <td style="background-color:#043383;color:white;">id</td>
                         <td style="background-color:#043383;color:white;">code</td>
                         <td style="background-color:#043383;color:white;">user</td>
@@ -59,48 +56,29 @@
                         <td th:text="${row.user}">user</td>
                         <td th:text="${row.dateTime}">dateTime</td>
                     </tr>
-
                 </table>
 
+                <!-- 페이징 -->
                 <div class="Board-pagination">
-
                     <ul class="pagination justify-content-center">
-
                     <li class="page-item disabled">
                         <a class="page-link" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
                         th:href="@{/MDP/admin/manage(    page=${list.pageable.pageNumber -1 }, searchText=${param.searchText}    )   }"
                         tabindex="-1" aria-disabled="true">Previous</a>
                     </li>
-
                     <li class="page-item" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
                         th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link"
                         th:href="@{/MDP/admin/manage(page=${i-1}, searchText=${param.searchText})}" th:text="${i}">1</a></li>
-
                     <li class="page-item">
                         <a class="page-link" th:classappend="${list.totalPages == list.pageable.pageNumber+1} ? 'disabled'"
                         th:href="@{/MDP/admin/manage(page=${list.pageable.pageNumber +1 }, searchText=${param.searchText})}">Next</a>
                     </li>
                     </ul>
-
-
                 </div>
-
             </div>
-
-
-        </div>
-        
-   
-
-
         </div>
     
     </div>
-
-    
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-   
-</script>

@@ -1,7 +1,6 @@
 .step5_text_wrapper{
     height: auto; 
     width:600px;
-    /* border: 2px solid blue; */
     margin-top: 30px;
     margin-left:50px;
 }
@@ -31,7 +30,6 @@
     width:700px;
     height:auto;
 }
-
 #step5_answer1{
     position:relative;
     margin-top: 18px;
@@ -66,12 +64,10 @@
     left:385px;
     z-index: -1;
 }
-
 .step5_answer1_focus{
     cursor: pointer;
     animation: pulseAnim_step5-1 2s infinite;
 }
-
 @keyframes pulseAnim_step5-1{
     0% {
         box-shadow: 0 0 0 0 rgba(29, 124, 248, 0.4);
@@ -84,9 +80,7 @@
     }
 }
 
-
 /* Step5-2 */
-
 #step5_question2 {
     position:relative;
     margin-left:-40px;
@@ -97,7 +91,6 @@
     text-align: center;
     line-height: 100px;
     float: left;
-    
 }
 #step5_question2:after {
     border-top:15px solid #FFF8D2;
@@ -109,9 +102,7 @@
     top:10px;
     left:-15px;
 }
-
 #step5_answer2{
-    /* display: none; */
     position:relative;
     margin-right: -30px;
     margin-top: 18px;
@@ -143,13 +134,10 @@
     top:10px;
     left:385px;
 }
-
-
 .step5_answer2_focus{
     cursor: pointer;
     animation: pulseAnim_step5-2 2s infinite;
 }
-
 @keyframes pulseAnim_step5-2{
     0% {
         box-shadow: 0 0 0 0 rgba(255, 210, 7, 0.753);
@@ -162,11 +150,8 @@
     }
 }
 
-
 /* Step5-3 */
-
 #step5_question3 {
-    /* display: none; */
     position:relative;
     margin-left:-30px;
     width:400px;
@@ -176,7 +161,6 @@
     text-align: center;
     line-height: 100px;
     float: left;
-    
 }
 #step5_question3:after {
     border-top:15px solid #F2F8EB;
@@ -188,9 +172,7 @@
     top:10px;
     left:-15px;
 }
-
 #step5_answer3{
-    /* display: none; */
     position:relative;
     margin-right: -30px;
     margin-top: 18px;
@@ -222,13 +204,10 @@
     top:10px;
     left:385px;
 }
-
-
 .step5_answer3_focus{
     cursor: pointer;
     animation: pulseAnim_step5-3 2s infinite;
 }
-
 @keyframes pulseAnim_step5-3{
     0% {
         box-shadow: 0 0 0 0 rgba(117, 248, 29, 0.4);
@@ -242,9 +221,7 @@
 }
 
 /* Step5-4 */
-
 #step5_question4 {
-    /* display: none; */
     position:relative;
     margin-left:-30px;
     width:400px;
@@ -267,9 +244,7 @@
     font-family: gmarket_medium;
     font-size: 15px;
 }
-
 #step5_answer4{
-    /* display: none; */
     position:relative;
     margin-right: -30px;
     margin-top: 18px;
@@ -301,12 +276,10 @@
     top:10px;
     left:385px;
 }
-
 .step5_answer4_focus{
     cursor: pointer;
     animation: pulseAnim_step5-4 2s infinite;
 }
-
 @keyframes pulseAnim_step5-4{
     0% {
         box-shadow: 0 0 0 0 rgba(29, 124, 248, 0.4);

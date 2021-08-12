@@ -4,7 +4,6 @@
     padding-top:70px;
     left:0;
     right:0;
-    
 }
 .process_div{
     background-color: #043383;
@@ -43,13 +42,10 @@
     text-align: center;
     display:inline-block; 
 }
-
 .group label {
     position: relative;
-    
     padding-left: 10px;
     padding-right: 10px;
-
     margin-bottom: 10px;
     line-height: 32px;
     cursor: pointer;
@@ -60,7 +56,6 @@
     text-align: center;
     display:inline-block; 
 }
-
 .group label:before {
     box-sizing: border-box;
     content: " ";
@@ -76,18 +71,13 @@
     background: #043383;
     z-index: -1;
 }
-
 .group input[type="radio"] + label::before {
     border-radius: 0.5em;
-   
 }
-
 /* Checked */
 .group input[type="radio"]:checked + label {
-    /* padding-left: 1em; */
     color: #043383;
 }
-
 .group input[type="radio"]:checked + label:before {
     top: 0;
     width: 100%;
@@ -95,7 +85,6 @@
     border: 2px solid #ffffff;
     background: #ffffff;
 }
-
 /* Transition */
 .group label,
 label::before {
@@ -104,10 +93,8 @@ label::before {
     transition: .25s all ease;
 }
 #step{
-    /* position:fixed; */
     margin:0 auto;
     margin-left:250px;
-    /* margin-top:70px; */
     z-index:-4;
     text-align: center;
     line-height:200%;
@@ -120,7 +107,6 @@ label::before {
     border:3px solid pink;
 }
 .content{
-    /* border:3px solid red; */
     width:950px;
     float:right;
     text-align: center;
@@ -132,7 +118,6 @@ label::before {
 }
 #next{
     border:1px solid #043383;
-    /* display: none; */
     text-align:center;
     margin:0 auto;
     width:10vw;
@@ -147,7 +132,6 @@ label::before {
     padding-top:1%;
     padding-bottom:1%;
     margin-bottom:10px;
-    /* display:none; */
 }
 #next:hover{
     background-color: #fff;
@@ -170,7 +154,6 @@ label::before {
     padding-top:1%;
     padding-bottom:1%;   
 }
-
 table{ 
     border-collapse: collapse; 
     text-align: center; 
@@ -178,7 +161,7 @@ table{
     margin : 20px 10px;
     width: 100%;
 }
-th { 
+th{ 
     width: 150px; 
     padding: 10px; 
     font-weight: bold;
@@ -190,14 +173,11 @@ td {
     vertical-align: top; 
     border: 1px solid #ccc; 
 }
-
-
 .page-item{
     display: inline-block;
     color:#043383;
     
 }
-
 .search_textbox{
     width: 300px;
     font-size: 25px;
@@ -206,14 +186,11 @@ td {
     border: 1px solid #ccc; 
     float: left;
 }
-
 .searchbtn{
     border: 1px solid #ccc; 
     background-color: white;
-    /* display: inline-block; */
     font-family: gmarket_medium;
     float: left;
     margin-left : 10px;
     height: 32px;
-    
 }
