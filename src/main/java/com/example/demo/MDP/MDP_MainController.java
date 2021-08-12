@@ -41,17 +41,13 @@ public class MDP_MainController {
     private checkID checkID;
 
     @GetMapping("/main")
-    public String main(HttpServletRequest request,Model model, String user) {
+    public String main(HttpServletRequest request,Model model) {
 
         //세션 검사
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
 
-        //로그인시 사용자 아이디 출력
-        if(permission=="LOGOUT"){
-            model.addAttribute("user", user);
-        }
         return "MDP/main";
     }
 
@@ -69,7 +65,7 @@ public class MDP_MainController {
         }
         //로그인 성공
         if(checkID.checked(request, user)){
-            return main(request, model, user);
+            return main(request, model);
         }
         else{
             response.setContentType("text/html; charset=UTF-8");
