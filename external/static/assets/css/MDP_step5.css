@@ -4,6 +4,9 @@
     margin-top: 30px;
     margin-left:50px;
 }
+.step5_text_wrapper{
+    display: inline-block;
+}
 
 /* Step5-1 */
 #step5_question1 {
@@ -14,7 +17,7 @@
     border-radius: 20px;
     float: left;
     padding-top: 20px;
-    margin-left:-50px;
+    /* margin-left:-50px; */
 }
 #step5_question1:after {
     border-top:15px solid #DDEDF9;
@@ -248,7 +251,7 @@
     position:relative;
     margin-right: -30px;
     margin-top: 18px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     width:370px;
     height:70px;
     background:#DDEDF9;

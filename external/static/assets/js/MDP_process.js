@@ -424,6 +424,25 @@ function checkProcess(){
     });
     $("#step6_emotion_result").val(checkString);
 
+    if( $("#step1_textbox1").val().length == 0 || $("#step1_textbox2").val().length == 0 || 
+    $("#step1_textbox3").val().length == 0 ||  $("#step1_textbox4").val().length == 0 || 
+    $("#step1_textbox5").val().length == 0 ||  $("#step1_textbox6").val().length == 0 || 
+    $("#step1_textbox7").val().length == 0 || $("#step1_textbox8").val().length == 0 || 
+    $("#step1_textbox9").val().length == 0 || $('input:radio[name=step1Text]').is(":checked") == false  ){
+        swiper.slideTo(0);
+        alert('01.받는 사람 : 아직 답하지 못한 질문이 있어요');
+        return false;
+    }
+
+    if(  $("#feeling").val() == "" ){
+
+        swiper.slideTo(1);
+        alert('02.되돌아 보며 : 아직 답하지 못한 질문이 있어요');
+        return false;
+    }
+
+
+
     if($("#step3_textbox1").val().length == 0 ||  $("#step3_textbox2").val().length == 0 ||  
     $("#step3_textbox3").val().length==0 || $("#step3_textbox4").val().length==0 ||  
     $("#step3_textbox5").val().length ==0 || $("#step3_textbox6").val().length==0 ||  

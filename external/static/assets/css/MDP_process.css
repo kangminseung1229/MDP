@@ -1,6 +1,6 @@
 /* ******* */
 .paragraph{
-    height: 100px;
+    height: auto;
     width: auto;
     text-align: center;
     line-height:27px;
@@ -207,11 +207,11 @@
 }
 
 .next {
-    border: 1px solid #043383;
+    border: 1px solid #0c0c0e;
     text-align: center;
-    /* margin:0 auto; */
     width: 180px;
-
+    font-family: gmarket_medium;
+    font-size: 15px;
     float: right;
     background-color: #fff;
     border-radius: 45px;
@@ -232,6 +232,14 @@
     box-shadow: 0 15px 20p #fff;
     color: #043383;
     transform: translateY(-4px);
+}
+
+.next_wrapper{
+    width: 100%;
+    height: auto; 
+    position: absolute; 
+    
+    left: -125px;
 }
 #step_title {
     /* margin-left:50px;

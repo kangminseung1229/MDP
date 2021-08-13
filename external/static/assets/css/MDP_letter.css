@@ -7,6 +7,7 @@ body{
     width:1200px;
     height:auto;
     margin-bottom:100px;
+    /* border: 2px solid gray; */
 }
 #letter_top{
     margin:0 auto;
@@ -17,7 +18,7 @@ body{
 #letter_title{
     background-color:#043384;
     border-radius:45px;
-    width:150px;
+    width:200px;
     height:40px;
     line-height:40px;
     font-size:14px;
@@ -27,38 +28,60 @@ body{
 }
 #letter_left{
     float:left;
-    width:45%;
-    margin-left:2%;
-    margin-right:50px;
-    border-right:2px solid #043383;
-    padding-right:50px;
-    margin-bottom:100px;
+    width:700px;;
+    height:auto;
+    /* margin-left:2%; */
+    /* margin-right:50px; */
 
+    /* 중간 마크 */
+    /* border-right:2px solid #043383; */
+    /* border:2px solid #043383; */
+    padding: 0px 35px 0px 15px;
+    margin-bottom: 15px;    
+    /* display: inline-block; */
+
+    /* 가이드 */
+    /* opacity: 0.3; */
+}
+#letter_right{
+    display: inline-block;
+    text-align: center;
+    width:443px;
+    height:auto;
+    display: inline;
+    position: fixed;
+    margin-top:70px;
+    /* border: 2px solid red; */
+    /* display: inline-block; */
 }
 #one{
-    width:96%;
+    width: 700px;
     margin:0 auto;
+    margin-bottom: 15px;
     display:inline-block;
     height:auto;
-    border-bottom:1px solid #E5E5EB;
-    margin:15px 2% 0px 2%;
+    /* border-bottom:1px solid #E5E5EB; */
+    /* margin:15px 2% 0px 2%; */
+    /* border: 2px solid red; */
 }
 #two{
     padding-bottom:10px;
-    width:96%;
+    width: 700px;
     margin:0 auto;
+    margin-bottom: 15px;
     display:inline-block;
     height:auto;
     border-bottom:1px solid #E5E5EB;
-    margin:10px 2% 0px 2%;
+    /* margin:10px 2% 0px 2%; */
 }
 #three{
-    width:96%;
+    width: 700px;
     margin:0 auto;
+    margin-bottom: 15px;
     display:inline-block;
     height:auto;
     border-bottom:1px solid #E5E5EB;
-    margin:0px 2% 0px 2%;
+    /* margin:0px 2% 0px 2%; */
     padding-bottom:10px;
 }
 #four{
@@ -98,7 +121,7 @@ body{
     width:50%;
     margin-bottom:8px;
     text-align:center;
-    font-size:12px;
+    font-size:14px;
     color:#043383;
     font-family:gmarket_medium;
 }
@@ -110,8 +133,9 @@ body{
 }
 .second_wrapper{
     width:100%;
-    display:inline-block;
+    display:flex;
     height:auto;
+
 }
 .inner_div{
     background-color:#DDEDF9;
@@ -131,34 +155,53 @@ body{
     margin-top:10px;
 }
 .third_quest{
-    font-size:13px;
-    text-align:center;
-    width:40%;
-    float:left;
-    font-family:gmarket_medium;
+    line-height: 20px;
+    font-family: gmarket_medium;
     color:#043383;
-    align-items:center;
+    font-size: 14px;
+    /* margin: 0 auto; */
+}
+.third_quest_wrapper{
+    /* border:2px solid blue;  */
+    width: 250px;
+    /* height: 50px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.third_answer_wrapper{
+    
+    border-radius:10px;
+    /* border:2px solid blue;  */
+    width: 444px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.third_yellow{
+    background-color:#FDF9E3;
+}
+.third_blue{
+    background-color:#DDEDF9;
+}
+.third_green{
+    background-color:#F2F8EB;
 }
 .third_answer{
-    background-color:#DDEDF9;
-    width:58%;
+    width: 423px;
     border-radius:10px;
     margin-left:5px;
     height:auto;
     line-height: 20px;
      word-break:break-all;
     align-items:center;
-    font-size:13px;
+    font-size:14px;
     font-family:gmarket_medium;
     padding:5px 5px 5px 5px;
 }
-#letter_right{
-    display:inline-block;
-    width:400px;
-    height:auto;
-    margin-top:-70px;
 
-}
 #letter_updown{
     border: 2px solid #043383;
     background-color:#043383;
@@ -171,22 +214,28 @@ body{
     text-align:center;
     font-size:14px;
     line-height:20px;
+    margin-bottom: 15px;
 }
 #letter_select_word{
-    display:inline-block;
+    display: inline-block;
     background-color: #E0EAF7;
     padding: 10px;
+    width: 723px;
+    height: auto;
+
     border-radius: 15px;
-    width: 510px;
-    margin-top: -30px;
+    box-shadow: 0px 0px 30px 1px rgb(0 0 0 / 5%);
+  
 }
 #letter_help{
     margin:0 auto;
     margin-top:10px;
-    margin-bottom:10px;
     font-size:12px;
     font-family:gmarket_medium;
     color:#726F6F;
+    width: 400px;
+    height: auto;
+    display: inline-block;
 }
 #help{
     float:left;
@@ -207,6 +256,7 @@ body{
     margin-top:5px;
     border:1px solid #13356F;
     /* height:636px; */
+    box-shadow: 0px 0px 30px 1px rgb(0 0 0 / 5%);
     height:auto;
     border-radius: 15px;
     position: relative;
@@ -419,6 +469,7 @@ body{
     margin-top: 10px;
     font-family: gmarket_medium;
     color: #043383;
+    float: right
 }
 .next:hover {
     background-color: #fff;
@@ -427,8 +478,8 @@ body{
     transform: translateY(-4px);
 }
 .letter_emotion_card_text{
-    width: 117px;
-    height: 50px;
+    width: 113px;
+    height: 47px;
     border-radius: 10px;
     background: #113576;
     font-family: gmarket_bold;
