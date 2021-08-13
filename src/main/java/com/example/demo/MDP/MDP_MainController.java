@@ -2,8 +2,6 @@ package com.example.demo.MDP;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import javax.servlet.ServletException;
