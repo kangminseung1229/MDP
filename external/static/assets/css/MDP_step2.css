@@ -8,12 +8,11 @@
     height:250px;
 }
 #radio_wrapper{
-    width:100%;
     margin:0 auto;
     margin-top:20px;
-    /* margin-top:7%; */
     height:auto;
-    text-align:center;
+    display: inline-block;
+
 }
 .feel{
     cursor:pointer;
@@ -76,4 +75,9 @@
 }
 #hello:hover{
     background-color: rgba(232, 59, 77, 0.2);
+}
+
+.step2_emotion_wrapper{
+    width: 100%;
+    text-align: center;
 }
