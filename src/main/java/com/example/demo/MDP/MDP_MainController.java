@@ -145,7 +145,7 @@ public class MDP_MainController {
     @GetMapping("/letter")
     public String letter(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException {
         
-        //세션 쳌,
+        //세션 체크
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
@@ -243,7 +243,6 @@ public class MDP_MainController {
         
         return "MDP/manage";
     }
-
 
     @GetMapping("admin/add")
     public String add(Model model, @RequestParam int count){
