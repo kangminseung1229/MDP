@@ -6,6 +6,7 @@
 }
 .step5_text_wrapper{
     display: inline-block;
+    
 }
 
 /* Step5-1 */
@@ -17,7 +18,8 @@
     border-radius: 20px;
     float: left;
     padding-top: 20px;
-    /* margin-left:-50px; */
+    line-height:30px;
+    margin-left:-30px;
 }
 #step5_question1:after {
     border-top:15px solid #DDEDF9;
@@ -288,7 +290,7 @@
         box-shadow: 0 0 0 0 rgba(29, 124, 248, 0.4);
     }
     70% {
-        box-shadow: 0 0 0 10px rgba(29, 124, 248, 0);
+        box-shadow: 0 0 0 10px rga(29, 124, 248, 0);
     }
     100% {
         box-shadow: 0 0 0 0 rgba(29, 124, 248, 0);
