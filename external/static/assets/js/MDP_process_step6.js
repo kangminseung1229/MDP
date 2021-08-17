@@ -89,6 +89,7 @@ $(document).ready(function(){
 $('.emotion_card_text').on('click', function() {
     let idx = $(this).prop("id");
     let isChecked = $(this).prop("check");
+    $("html").animate({scrollTop:150}, 400);
     
     $(".step6_container_select").fadeIn(600);
     $("#step6_next").delay(300).fadeIn(600);
