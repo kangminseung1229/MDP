@@ -727,7 +727,7 @@ animation-name: slideDownUp
     }
   }
   
-  #guide2:hover {
+  /* #guide2:hover {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
@@ -735,3 +735,7 @@ animation-name: slideDownUp
     animation-name: bounce;
     transform-origin: center bottom
   }
+
+  #guide3:hover .slideDownUp{
+
+  } */

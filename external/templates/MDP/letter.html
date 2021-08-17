@@ -84,8 +84,8 @@
                                     그때 너랑 나랑 정말 다르면서도 비슷하다고 생각했어.</div>   
                             </div>
                         </div>
-                        <div class="letter_shadow guide_wrapper">
-                            <div id = "guide4" class="guide_tittle">😉 전하고 싶은 솔직한 감정을 꺼내요</div>
+                        <div id = "guide4" class="letter_shadow guide_wrapper">
+                            <div class="guide_tittle">😉 전하고 싶은 솔직한 감정을 꺼내요</div>
                             <div class="guide_sub">
                                 <div >
                                     예시)<br>
@@ -326,8 +326,6 @@
                 console.log(checkVal);
                 $("#guide_button").prop("check",false);
                 $(".guide_wrapper_parent").addClass("slideDownUp");
-                // $(".guide_wrapper_two").fadeOut(600);
-                // $(".guide_wrapper_parent").addClass("slideDownUp");
                 $(".guide_wrapper_two").fadeOut(600);
             }
         });
@@ -343,11 +341,36 @@
             $(".guide_wrapper_parent").addClass("slideUpDown");
             
         }
+        $("#guide2").hover(
+            function () {
+            $(this).addClass("animated swing");
 
-        // $("#guide1").hover(function(){
-        //     console.log("hover");
-        //     $("#guide1").addClass("shake");
-        // });
+            },
+            function () {
+            $(this).removeClass("animated swing");
+            }
+        );
+
+        $("#guide3").hover(
+            function () {
+            $(this).addClass("animated rubberBand");
+
+            },
+            function () {
+            $(this).removeClass("animated rubberBand");
+            }
+        );
+
+        $("#guide4").hover(
+            function () {
+            $(this).addClass("animated jello");
+            },
+            function () {
+            $(this).removeClass("animated jello");
+            }
+        );
+
+        
        
     });
     $("#target").prop("src",localStorage["target"]);
