@@ -122,7 +122,6 @@ function step1(){
 
             $('#step1_textbox1').addClass( "textbox1_class" );
             
-            
         }
     }
     // step1 : stage2
@@ -135,7 +134,7 @@ function step1(){
                 $('#step1_shape_num3').fadeIn(600);
 
                 // TextBox
-                for(let i =5; i<=9; i++){
+                for(let i=5; i<=9; i++){
                     $('#step1_textbox'+i).fadeIn(600);
                 }
 
@@ -146,7 +145,6 @@ function step1(){
                 for(let i =2; i<=4; i++){
                     $('#step1_textbox'+i).addClass( "textbox2_4_class" );
                 }
-
         }
     }
     // step1 : stage3

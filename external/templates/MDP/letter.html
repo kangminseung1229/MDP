@@ -4,103 +4,55 @@
 <body>
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="letter_wrapper">
-        
-        <!-- <div id="letter_top">
-            <div id="letter_title">
-                편지쓰기
-            </div>
-        </div> -->
-        <!-- <div id="write_helper">
-            <div id="close_helper">
-                x
-            </div>
-            <div class="help_title">
-                가벼운 인사말로 시작해 보세요
-            </div>    
-            <div class="help_example">
-                예시)<br>
-                - 안녕 오랜만이야, 잘 지내고 있지?<br>
-                - 안녕하세요 저 00 입니다. 잘 지내고 계신가요?
-            </div>
-            <div class="help_title">
-                에피소드로 이야기를 시작해요
-            </div>
-            <div class="help_example">
-                예시)<br>
-                - 그때 기억나니? 편지를 쓰려다 보니 너와 함께 했던 이때가 기억났어.<br>
-                - 널 보면 항상 그 자리에 서 있는 나무가 떠올라.
-            </div>
-            <div class="help_title">
-                에피소드를 좀 더 자세히 풀어내요
-            </div>
-            <div class="help_example">
-                예시)<br>
-                - 제가 굉장히 걱정하면서 어렵게 꺼낸 이야기를 잘 들어주셨던게 기억이 나요.<br>
-                - 그때 너랑 나랑 정말 다르면서도 비슷하다고 생각했어.
-            </div>
-            <div class="help_title">
-                전하고 싶은 솔직한 감정을 꺼내요
-            </div>
-            <div class="help_example">
-                예시)<br>
-                - 말로 표현하지는 못했지만 언제나 날 응원해 주는 너에게 고마움을 느끼고 있어.<br>
-                - 돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.
-            </div>
-        </div> -->
        
         <div id="letter_left">
             <div id = "guide_wrapper_parent" class="guide_wrapper_parent">
-               <button id = "guide_button" class="guide_button" th:check=false >> 편지쓰기 가이드</button>
+               <button id = "guide_button" class="guide_button" th:check=false> 편지쓰기 가이드</button>
                
                <div class="guide_wrapper_two">
                     <div style="display: flex; flex-direction: row; margin-bottom: 13px;">
                         <div id = "guide1" class="letter_shadow guide_wrapper" style="margin-right:13px;">
-                            <div class="guide_tittle"><span id = "hand">🖐</span> 가벼운 인사말로 시작해 보세요</div>
+                            <div class="guide_title" style="margin-top:-15px;">🖐 가벼운 인사말로 시작해 보세요</div>
                             <div class="guide_sub">
-                                <div >
-                                    예시)<br>
-                                    안녕 오랜만이야, 잘 지내고 있지?<br>
-                                    안녕하세요 저 00 입니다. 잘 지내고 계신가요?</div>   
+                                <div>
+                                    - 안녕 오랜만이야, 잘 지내고 있지?<br><br>
+                                    - 안녕하세요 저 00 입니다. 잘 지내고 계신가요?
+                                </div>   
                             </div>
                         </div>
                         <div id = "guide2" class="letter_shadow guide_wrapper">
-                            <div class="guide_tittle">💭 에피소드로 이야기를 시작해요</div>
+                            <div class="guide_title">💭 에피소드로 이야기를 시작해요</div>
                             <div class="guide_sub">
-                                <div >
-                                    예시)<br>
-                                    그때 기억나니?<br>
-                                        편지를 쓰려다 보니 너와 함께 했던 이때가 기억났어.<br>
-                                    널 보면 항상 그 자리에 서 있는 나무가 떠올라.</div>   
+                                <div>
+                                    - 그때 기억나니? 편지를 쓰려다 보니 너와 함께 했던 이때가 기억났어.<br><br>
+                                    - 널 보면 항상 그 자리에 서 있는 나무가 떠올라.
+                                </div>   
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: row;">
                         <div id = "guide3" class="letter_shadow guide_wrapper"  style="margin-right:13px;">
-                            <div class="guide_tittle">😏 에피소드를 좀 더 자세히 풀어내요</div>
+                            <div class="guide_title">😏 에피소드를 좀 더 자세히 풀어내요</div>
                             <div class="guide_sub">
-                                <div >
-                                    예시)<br>
-                                    제가 굉장히 걱정하면서 어렵게 꺼낸 이야기를 잘 들어주셨던게 기억이 나요.<br>
-                                    그때 너랑 나랑 정말 다르면서도 비슷하다고 생각했어.</div>   
+                                <div>
+                                    - 제가 굉장히 걱정하면서 어렵게 꺼낸 이야기를 잘 들어주셨던게 기억이 나요.<br><br>
+                                    - 그때 너랑 나랑 정말 다르면서도 비슷하다고 생각했어.
+                                </div>   
                             </div>
                         </div>
-                        <div class="letter_shadow guide_wrapper">
-                            <div id = "guide4" class="guide_tittle">😉 전하고 싶은 솔직한 감정을 꺼내요</div>
+                        <div id="guide4" class="letter_shadow guide_wrapper">
+                            <div class="guide_title">😉 전하고 싶은 솔직한 감정을 꺼내요</div>
                             <div class="guide_sub">
-                                <div >
-                                    예시)<br>
-                                    말로 표현하지는 못했지만 언제나 날 응원해 주는 너에게 고마움을 느끼고 있어.<br>
-                                    돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.</div>   
+                                <div>
+                                    - 말로 표현하지는 못했지만 언제나 날 응원해 주는 너에게 고마움을 느끼고 있어.<br><br>
+                                    - 돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.
+                                </div>   
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
-        
-            
-            
-            <!-- <hr style="border: solid 1px grey;"> -->
-
                 
             <div id="one"class="letter_shadow">
                 <div class="hashtag" id="step2">
@@ -298,8 +250,6 @@
                         addStep6(emoValue,index);
                         
                     }
-
-
                 });
             });
 
@@ -309,30 +259,23 @@
         guideChecked();
 
         $("#guide_button").click(function(){
-            console.log("A")
             let checkVal =  $("#guide_button").prop("check");
 
             if(checkVal!=true){
-                console.log(checkVal);
                 guideChecked();
-                
-                
             }
             else{
                 $("#guide_button").removeClass("guide_button_check");
                 $("#guide_button").addClass("guide_button");
                 $("#guide_button").html("> 편지쓰기 가이드");
                 $(".guide_wrapper_parent").removeClass("slideUpDown");
-                console.log(checkVal);
                 $("#guide_button").prop("check",false);
                 $(".guide_wrapper_parent").addClass("slideDownUp");
-                // $(".guide_wrapper_two").fadeOut(600);
-                // $(".guide_wrapper_parent").addClass("slideDownUp");
                 $(".guide_wrapper_two").fadeOut(600);
             }
         });
 
-
+        //편지쓰기 가이드 오픈했을 때
         function guideChecked(){
             $("#guide_button").removeClass("guide_button");
             $("#guide_button").addClass("guide_button_check");
@@ -343,11 +286,6 @@
             $(".guide_wrapper_parent").addClass("slideUpDown");
             
         }
-
-        // $("#guide1").hover(function(){
-        //     console.log("hover");
-        //     $("#guide1").addClass("shake");
-        // });
        
     });
     $("#target").prop("src",localStorage["target"]);

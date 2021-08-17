@@ -14,11 +14,11 @@
                     <!-- step1 -->
                     <div class=" swiper-slide entireSwiper-swiper-slide">
                         <div id="step1" >
-                            <div class="paragraph">
+                            <div class="paragraph" style="height:100px;">
                                 <p id = "stage1" style="margin-bottom:10px;"><span id="hl_yello">노란색 칸</span>에 자신의 이름을 써보세요.</p> 
                                 <p id = "stage2" style="margin-top:10px; margin-bottom:10px;">그리고 떠오르는 세 사람의 이름을 <span id="hl_blue">파란색 칸</span>에 써보세요.</p>
                                 <p id = "stage3" style="margin-top:10px;">다음에 떠오르는 다섯 사람의 이름은 <span id="hl_green">초록색 칸</span>에 써보세요.</p>
-                                <p id = "stage4" >이 중 오늘 마음을 전하고 싶은 한 사람을 클릭해주세요.</p>
+                                <p id = "stage4">이 중 오늘 마음을 전하고 싶은 한 사람을 클릭해주세요.</p>
                             </div>
                             <div class = "textbox_shapes">
                                 <input id="step1_textbox1" class="step1_textbox1 step1_textbox" type="text" tabIndex="1" placeholder="이름" name="step1Me">
@@ -38,7 +38,6 @@
                                 <div id="step1_next" class="next" >NEXT</div>   
                             </div>                  
                         </div> 
-                        
                     </div>
     
                     <!-- step2 -->
@@ -230,7 +229,7 @@
                             </p>
                             <div class="step5_text_wrapper">
                                 <div class="step5_1" >
-                                    <div id = "step5_question1" >이 에피소드를 통해</br>그 친구에게 어떤 마음이 들었나요?
+                                    <div id = "step5_question1">이 에피소드를 통해</br>그 친구에게 어떤 마음이 들었나요?
                                     </div>
                                 </div>
                                 <div class="step5_1">
@@ -268,6 +267,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <!-- step6 -->
                     <div class="swiper-slide entireSwiper-swiper-slide">
                         <div id="step6" style=" width: 100%;">
@@ -436,6 +436,39 @@
             $("#love").css("background-color", "#fff");
             $("#hello").css("background-color", "rgba(232, 59, 77, 0.2)");
         });
+
+        $("#step3_textbox2").focus(function(){
+            $("html").animate({scrollTop:50}, 400);
+        });
+        $("#step3_textbox3").focus(function(){
+            $("html").animate({scrollTop:100}, 400);
+        });
+        $("#step3_textbox4").focus(function(){
+            $("html").animate({scrollTop:150}, 400);
+        });
+        $("#step3_textbox5").focus(function(){
+            $("html").animate({scrollTop:200}, 400);
+        });
+        $("#step3_textbox6").focus(function(){
+            $("html").animate({scrollTop:250}, 400);
+        });
+        $("#step3_textbox7").focus(function(){
+            $("html").animate({scrollTop:300}, 400);
+        });
+        $("#step3_textbox8").focus(function(){
+            $("html").animate({scrollTop:350}, 400);
+        });
+        $("#step3_textbox9").focus(function(){
+            $("html").animate({scrollTop:400}, 400);
+        });
+
+        $("#step5_answer2").focus(function(){
+            $("html").animate({scrollTop:300}, 400);
+        });
+        $("#step5_answer3").focus(function(){
+            $("html").animate({scrollTop:600}, 400);
+        });
+
     </script>
 
 </footer>
