@@ -74,15 +74,16 @@ body{
 
 /* 편지 작성 */
 #letter{
-    width:45%;
+    width:490px;
     height:auto;
     background-color:#043383;
     padding-top:0.1px;
     margin:0 auto;
-    margin-top:0;
+    display: none;
+    /* position: absolute; */
+    z-index: 1;
 }
-
-#letter_background{
+.letter_background{
     border:1px solid #fff;
     width:90%;
     margin:0 auto;
@@ -91,12 +92,15 @@ body{
     position:relative;
     z-index:1;
 }
-#letter_to{
-    margin-left:45px;
-    margin-top:30px;
+.letter_font{
     font-size:17px;
     font-family:gmarket_medium;
     color:#113576;
+}
+.letter_to{
+    margin-left:45px;
+    margin-top:30px;
+   
 }
 #letter_to_name{
     margin-left:20px;
@@ -106,7 +110,7 @@ body{
     font-family: gmarket_medium;
     color:#13356F;
 }
-#letter_image{
+.letter_image{
     text-align:center;
     background-color:#fff;
     margin-top:20px;
@@ -133,11 +137,8 @@ body{
     margin-left:20px;
     text-decoration: underline 2px #13356F;
     border:none;
-    font-size: 17px;
-    font-family: gmarket_medium;
-    color:#13356F;
 }
-#letter_bottom{
+.letter_bottom{
     width:100%;
     height:20px;
     position:relative;
@@ -198,15 +199,140 @@ body{
     border: 1px solid #13356F;
 }
 
-/* @keyframes motion{
-    0%{
-        margin-top:0px;
+/* 편지봉투 */
+.envelope{
+    width: 500px;
+    height: auto;
+    
+   
+
+    /* position: absolute; */
+    z-index: 15;
+    /* animation: pulseAnim_envelope 2s infinite; */
+    /* margin-top:200px; */
+}
+
+@keyframes pulseAnim_envelope{
+    0% {
+        box-shadow: 0 0 0 0 rgba(163, 163, 163, 0.4);
     }
-    100%{
-        margin-top:100px;
+    70% {
+        box-shadow: 0 0 0 10px rgba(8, 5, 148, 0);
     }
+    100% {
+        box-shadow: 0 0 0 0 rgba(8, 5, 148, 0);
+    }
+}
+.envelope_parents{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+    /* border: 2px solid blue; */
+    flex-direction: column;
+    margin-top: 147px;
+}
+.envelope_wrapper_front{
+    position: absolute;
+    width: 502px;
+    
+}
+
+.envelope_wrapper_back{
+    position: absolute;
+    transform: rotateY(180deg);
+}
+.envelope{ 
+    background-color: transparent;
+    width: 502px;
+    height: 362px;
+}
+.envelope_inner{
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 502px;
+    height: 362px;
+}
+
+.envelope_wrapper_front, .envelope_wrapper_back {
+    /* position: absolute;
+    width: 100%;
+    height: 100%; */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.envelope:hover .envelope_inner{
+    transform: rotateY(180deg);
+}
+.envelope_back_next{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: none;
+    position: relative;
+}
+  
+  
+.letter_to_position{
+    position: absolute;
+    left: 338px;
+    top: 211px;
+}
+
+.letter_from_position{
+    position: absolute;
+    left: 307px;
+    top: 246px;
+}
+
+.toFrom_wrapper{
+    position: absolute;
+    left: 637px;
+    top: 560px;
+}
+
+.arrive_letter{
+    margin-top: 50px;
+    text-align: center;
+    font-family: gmarket_medium;
+    font-size: 20px;
+    color: #043384;
+    line-height: 32px;
+}
+
+#fin_buttons{
+    margin-bottom: 100px;
+}
+
+.envelope_last{
+    /* margin-top: 100px; */
+    width: 502px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview{
+    transform: translate(0px, -50px);
+    transition-duration: 0.7s;
+}
+
+
+/* #letter_fin{
+    display: none;
+    margin-top: 535px;
 } */
-/* #letter:hover{
-    animation:motion 0.3s linear 0s infinite alternate;
-    margin-top:0;
-} */
+
+.privew_letter{
+    
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width:490px;
+    height:auto;
+    background-color:#043383;
+    padding-top:0.1px;
+    margin:0 auto;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    margin-top:-550px;
+}
