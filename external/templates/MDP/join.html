@@ -2,29 +2,29 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/MDP_main_fragment :: top('join')"></head>
 <body>
-    <div id="join_wrapper">
+    <div class="login_wrapper">
 
-        <div id="join_logo">
+        <div class="login_logo">
             <img src="/img/MDP/main_logo.png">
         </div>    
 
         <div id="updown"></div>
 
-        <div id="join_form_wrapper">
-            <div id="join_icon">
+        <div class="login_form_wrapper">
+            <div class="login_icon">
                 JOIN
             </div>
             <form th:href="@{/MDP/join}" method="POST">
-                <div id="join_id">
-                    <span id="star">*</span> 아이디<br>
+                <div class="login_text"  style="text-align:left;">
+                    <span class="star">*</span> 아이디<br>
                     <input type="text" name="user" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
                 </div>
-                <div id="join_code">
-                    <span id="star">*</span> 구매코드<br>
-                    <input type="text" name="code" size="15" placeholder=" 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
+                <div class="login_text" style="text-align:left;">
+                    <span class="star">*</span> 구매코드<br>
+                    <input type="text" th:value="${user}" name="code" size="15" placeholder=" 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
                 </div>
-                <div id="join_button" >
-                    <input type="submit" onclick="location.href='MDP/login'" id="join" value="회원가입"/>
+                <div class="button_wrapper" style="margin-top: 15px;">
+                    <input type="submit" class="button_login" onclick="location.href='joinPost'" id="join" value="회원가입"/>
                 </div>
             </form>
         </div>

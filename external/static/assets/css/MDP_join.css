@@ -135,15 +135,3 @@
 #star{
     color:red;
 }
-@font-face {
-    font-family: 'gmarket_medium';
-    src: url('../css/fonts/GmarketSansMedium.otf') format('opentype');
-}
-@font-face {
-    font-family: 'gmarket_light';
-    src: url('../css/fonts/GmarketSansLight.otf') format('opentype');
-}
-@font-face {
-    font-family: 'gmarket_bold';
-    src: url('../css/fonts/GmarketSansBold.otf') format('opentype');
-}

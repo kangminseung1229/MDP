@@ -32,12 +32,6 @@ public class MDP_MainController {
     private mdpRepository mdpRepo;
 
     @Autowired
-    private PasswordEncoder pwEncoder;
-
-    @Autowired
-    private saRepository saRepo;
-
-    @Autowired
     private checkID checkID;
 
     @GetMapping("/main")
@@ -64,9 +58,15 @@ public class MDP_MainController {
             return "redirect:login";
         }
         //로그인 성공
-        if(checkID.checked(request, user)){
+        if(checkID.checked(request, user)=="true"){
             return main(request, model);
         }
+        //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우
+        else if(checkID.checked(request, user)=="join"){
+            return join(request,model);
+            // return "MDP/join";    
+        }
+        // 로그인 실패
         else{
             response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter();
@@ -87,20 +87,44 @@ public class MDP_MainController {
     }
 
     @GetMapping("/join")
-    public String join() {
+    public String join(HttpServletRequest request, Model model) {
+
+        model.addAttribute("user", request.getParameter("user"));
+        // 로그인에서 
         return "MDP/join";
     }
 
     @PostMapping("/join")
-    public String joinPost(HttpServletRequest request, String user, String code, Model model) {
-
+    public String joinPost(HttpServletRequest request,HttpServletResponse response, String user, String code, Model model) throws IOException {
+        
+        //사용자가 아무것도 입력하지 않았을 때
+        if(user=="" || code==""){
+            return "redirect:join";
+        }
         //회원가입 성공
-        if(checkID.checkJoin(request, user, code)){
+        String joinChecked = checkID.checkJoin(request, user, code);
+
+        if(joinChecked == "true"){
+            
             mdpRepo.updateUser(user, code);
-            return "MDP/login";
+            return main(request, model);
         }  
-        else
-            return "MDP/join";
+        else {
+            String text;
+            if(joinChecked == "overlap")
+                text = "이미 존재하는 아이디입니다. 다른 아이디를 입력해주세요.";
+            else if(joinChecked == "used")
+                text = "이미 회원가입된 구매코드입니다.";
+            else
+                text = "존재하지 않는 구매코드입니다.";
+
+            
+            response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert("+text+");history.go(-1);</script>");
+            out.flush();
+            return "redirect:join";
+        }
     }
 
     @GetMapping("/process")
@@ -271,50 +295,6 @@ public class MDP_MainController {
     }
 
 
-    // 관리자 페이지 컨트롤러
-
-    @GetMapping("/adminLogin")
-    public String adminLogin(){
-        return "MDP/adminLogin";
-    }
-
-    @GetMapping("/adminJoin")
-    public String admin_join(){
-        return "MDP/adminJoin";
-    }
-
-    @PostMapping("/adminJoin")
-    public String admin_join(SecurityAdmins sa, String code) {
-
-        //승인코드 검사
-        System.out.println(code);
-        if((code.equals("mdp2021"))==false){
-            System.out.println(code == "mdp2021");
-            return "redirect:adminJoin";
-        }
-
-        //비밀번호 암호화
-        String encodedpw = pwEncoder.encode(sa.getPassword());
-        sa.setPassword(encodedpw);
-        sa.setEnabled(true);
-
-        SecurityRole sr = new SecurityRole();
-        if(checkID.sacheckJoin(sa.getUsername())){
-            sr.setId(1l);
-            sa.getRoles().add(sr);
-            saRepo.save(sa);
-            return "redirect:adminLogin";
-        }
-        else{
-            return "redirect:adminJoin";
-        }
-    }
-
-    @GetMapping("/adminLogout")
-    public String adminLogout(HttpServletRequest request, Model model){
-        HttpSession session = request.getSession();
-        session.invalidate();
-        return "MDP/adminLogin";        
-    }
+    
 
 }

@@ -4,25 +4,25 @@
     
 </head>
 <body>
-    <div id="login_wrapper">
+    <div class="login_wrapper">
 
-        <div id="login_logo">
+        <div class="login_logo">
             <img src="/img/MDP/main_logo.png">
         </div>    
 
         <div id="updown"></div>
 
-        <div id="login_form_wrapper">
-            <div id="login_icon">
+        <div class="login_form_wrapper">
+            <div class="login_icon">
                 LOGIN
             </div>
             <form th:action="@{/MDP/login}" method ="POST">
-                <div id="login_form">
+                <div class="login_text" style="margin-bottom: 20px;">
                     <input type="text" name="user" id="id" size="15" placeholder=" 아이디 혹은 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디 혹은 구매코드'">
                 </div>
-                <div id="button_wrapper">
-                    <input id="login" type="submit" value="로그인"></div>
-                    <input id="join" type="button" onclick="location.href='join'" value= '회원가입'></input>
+                <div class="button_wrapper">
+                    <input id="login" class="button_login" type="submit" value="로그인"></div>
+                    <!-- <input id="join" class="button_login" type="button" onclick="location.href='join'" value= '회원가입'></input> -->
                 </div>
             </form>
         </div>
