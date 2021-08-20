@@ -24,6 +24,14 @@ body{
     margin:0 auto;
     margin-top:15px;
 }
+#userid{
+    float:right;
+    margin-right:20px;
+    margin-top:17px;
+    font-size:15px;
+    font-family:gmarket_medium;
+
+}
 .logout{
     float: right;
     display: block;
