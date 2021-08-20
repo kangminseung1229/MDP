@@ -264,11 +264,11 @@ public class MDP_MainController {
         //페이징
         Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
 
-        // int startPage = Math.max(1, page.getPageable().getPageNumber() - 1);
-        // int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 5);
         int startPage;
         int endPage;
 
+        //한 번에 뜨는 페이지의 개수가 5개 혹은 그 미만으로 뜨게 하기 위한 조건문
+        //현재 페이지가 1,2인 경우 총 페이지가 5미만일 때는 마지막 페이지까지, 총 페이지가 5 이상일 때는 5까지 출력
         if(page.getPageable().getPageNumber()<2){
             startPage=1;
             if(page.getTotalPages()<5){
@@ -277,15 +277,15 @@ public class MDP_MainController {
             else
                 endPage=5;
         }
+        //현재 페이지가 3이상인 경우 첫페이지는 현재페이지-2, 마지막 페이지는 총 페이지의 개수 혹은 현재 페이지+3 중 작은 값
         else{
             startPage=page.getPageable().getPageNumber() - 1;
             endPage=Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
         }
-        System.out.println("현재: "+page.getPageable().getPageNumber());
-        System.out.println("총: "+page.getTotalPages());
 
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
+        model.addAttribute("total", page.getTotalPages()); //총 페이지 수
         model.addAttribute("pages", page.getPageable().getPageNumber()); // 현재 페이지
         model.addAttribute("list", page);
         
@@ -316,7 +316,6 @@ public class MDP_MainController {
         for(int i=0; i<count; i++){
             String pc = "THINKUS_";
             mp.setId(Long.valueOf(i+last+1l)); //id 설정
-            // mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(10000))); 
             for(int j=0; j<5; j++){
                 int rd=random.nextInt(2);
                 char ch=(char)((Math.random()*26)+65);
