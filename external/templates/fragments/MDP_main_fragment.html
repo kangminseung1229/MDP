@@ -26,8 +26,7 @@
         <div id = "top">
             <div id="top_wrapper">
                 <div id="image_wrapper">
-                    <a th:if="${loginOut} == 'admin'"><img src="/img/MDP/logo_2.png"></a>
-                    <a th:if="${loginOut} != 'admin'" href='/MDP/main'><img src="/img/MDP/logo_2.png"></a>
+                    <a href='/MDP/main'><img  src="/img/MDP/logo_2.png"></a>
                 </div>
                 <div class="logout" onclick="location.href='/MDP/logout'" th:text="${session.permission}"></div>
                 <div class="user_icon center" th:if="${user} != null" >
@@ -38,9 +37,6 @@
                         </div>
                     </div>
                     <div class="userid half-highlight" th:text="${user}"></div>
-                </div>
-                
-                    
                 </div>
             </div>
         </div>

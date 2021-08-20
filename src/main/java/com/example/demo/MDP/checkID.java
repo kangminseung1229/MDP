@@ -25,20 +25,20 @@ public class checkID {
         HttpSession session = request.getSession();
         Long joinCount=Repo.countByUserOrCodeAndUserIsNotNull(user, user);
         Long codeCount=Repo.countByCode(user);
+
         //로그인 성공
         if(joinCount >0){   
             session.setAttribute("permission", "LOGOUT");
-            if(Repo.countByCode(user)>0){
-                result="codeLogin";
-            }
-            else if(Repo.countByUser(user)>0){
-                result="idLogin";
-            }
-            // result = "true";            
+            
+            if(Repo.countByCode(user)>0)    //사용자가 입력한 값이 코드일 경우
+                session.setAttribute("user", Repo.findUser(user));  //Session에 user를 저장
+            else if(Repo.countByUser(user)>0)   //사용자가 입력한 값이 아이디일 경우
+                session.setAttribute("user", user);
+            result = "true";            
         }
         else {
             if(codeCount > 0)   //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우
-                result = "join";    
+                result = "join";    //회원가입을 해야함으로 join return
             else
                 session.setAttribute("permission", "LOGIN");    //맞지 않은 구매코드 및 아이디를 입력한 경우
         }

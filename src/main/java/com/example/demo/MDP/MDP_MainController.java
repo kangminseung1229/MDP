@@ -36,16 +36,17 @@ public class MDP_MainController {
     private checkID checkID;
 
     @GetMapping("/main")
-    public String main(HttpServletRequest request,Model model, String user) {
+    public String main(HttpServletRequest request,Model model) {
 
         //세션 검사
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
+        String user = (String) session.getAttribute("user");
         model.addAttribute("loginOut",permission);
         model.addAttribute("user", user);
 
         return "MDP/main";
-    }
+    } 
 
     @GetMapping("/login")
     public String login(HttpServletRequest request) {
@@ -66,11 +67,8 @@ public class MDP_MainController {
         if(code==""){
             return "redirect:login";
         }
-        if(checkID.checked(request, code)=="codeLogin") { //로그인 성공
-            return main(request, model, mdpRepo.findUser(code));
-        }
-        else if(checkID.checked(request, code)=="idLogin"){
-            return main(request, model,code);
+        if(checkID.checked(request, code)=="true") { //로그인 성공
+            return main(request, model);
         }
         else if(checkID.checked(request, code)=="join") { //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우
             return join(request,model,"join");
@@ -129,6 +127,9 @@ public class MDP_MainController {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
+        String user = (String) session.getAttribute("user");
+        model.addAttribute("user", user);
+
         checkID.checkPermissions(response,permission);
 
         String[] common = {"진심의","의지되는","감사한","걱정스러운","기억에 남는",
@@ -168,12 +169,25 @@ public class MDP_MainController {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
+        String user = (String) session.getAttribute("user");
+        model.addAttribute("user", user);
+
         checkID.checkPermissions(response,permission);
         return "MDP/letter";
     }
 
     @PostMapping("/letter")
-    public String letterPost(HttpServletRequest request, Model model){
+    public String letterPost(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException{
+
+        //세션 체크
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+
+        checkID.checkPermissions(response,permission);
+        
+        model.addAttribute("loginOut",permission);
+        String user = (String) session.getAttribute("user");
+        model.addAttribute("user", user);
 
         //step1
         model.addAttribute("step1Me", request.getParameter("step1Me"));
@@ -218,14 +232,25 @@ public class MDP_MainController {
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
+        String user = (String) session.getAttribute("user");
+        model.addAttribute("user", user);
+
         checkID.checkPermissions(response,permission);
 
         return "MDP/fin";
     }
 
     @PostMapping("/fin")
-    public String finPost(Model model, HttpServletRequest request){
+    public String finPost(HttpServletRequest request,HttpServletResponse response,Model model) throws IOException, ServletException{
+        //세션 체크
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+        checkID.checkPermissions(response,permission);
 
+        model.addAttribute("loginOut",permission);
+        String user = (String) session.getAttribute("user");
+        model.addAttribute("user", user);
+        
         model.addAttribute("letterTo", request.getParameter("letterTo"));
         model.addAttribute("letterText", request.getParameter("letterText"));
         model.addAttribute("letterFrom", request.getParameter("letterFrom"));
