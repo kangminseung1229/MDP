@@ -24,6 +24,9 @@ body{
     margin:0 auto;
     margin-top:15px;
 }
+.user{
+    display: inline-block;
+}
 .logout{
     float: right;
     display: block;

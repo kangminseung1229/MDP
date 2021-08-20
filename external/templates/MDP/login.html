@@ -16,9 +16,9 @@
             <div class="login_icon">
                 LOGIN
             </div>
-            <form th:action="@{/MDP/login}" method ="POST">
+            <form th:action="@{/MDP/login}" method ="POST" >
                 <div class="login_text" style="margin-bottom: 20px;">
-                    <input type="text" name="user" id="id" size="15" placeholder=" 아이디 혹은 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디 혹은 구매코드'">
+                    <input type="text" name="code" id="id" size="15" placeholder=" 아이디 혹은 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디 혹은 구매코드'">
                 </div>
                 <div class="button_wrapper">
                     <input id="login" class="button_login" type="submit" value="로그인"></div>

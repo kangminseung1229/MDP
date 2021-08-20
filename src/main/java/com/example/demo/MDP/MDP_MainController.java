@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.registry.infomodel.User;
 
 import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
 import com.example.demo.MDP.MDP_Security_DTO.SecurityRole;
@@ -35,12 +36,13 @@ public class MDP_MainController {
     private checkID checkID;
 
     @GetMapping("/main")
-    public String main(HttpServletRequest request,Model model) {
+    public String main(HttpServletRequest request,Model model,String user) {
 
         //세션 검사
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
+        model.addAttribute("user",user);
 
         return "MDP/main";
     }
@@ -51,23 +53,17 @@ public class MDP_MainController {
     }
 
     @PostMapping("/login")
-    public String logined(HttpServletRequest request, String user,Model model, HttpServletResponse response) throws IOException {
+    public String logined(HttpServletRequest request, String code,Model model, HttpServletResponse response) throws IOException {
 
         //사용자가 아무것도 입력하지 않았을 때
-        if(user==""){
+        if(code==""){
             return "redirect:login";
         }
-        //로그인 성공
-        if(checkID.checked(request, user)=="true"){
-            return main(request, model);
-        }
-        //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우
-        else if(checkID.checked(request, user)=="join"){
-            return join(request,model);
-            // return "MDP/join";    
-        }
-        // 로그인 실패
-        else{
+        if(checkID.checked(request, code)=="true") { //로그인 성공
+            return main(request, model,code);
+        } else if(checkID.checked(request, code)=="join") { //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우
+            return join(request,model,"join");
+        } else { // 로그인 실패
             response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter();
             out.println("<script>alert('아이디/구매코드가 존재하지 않습니다.');history.go(-1);</script>");
@@ -87,43 +83,30 @@ public class MDP_MainController {
     }
 
     @GetMapping("/join")
-    public String join(HttpServletRequest request, Model model) {
-
-        model.addAttribute("user", request.getParameter("user"));
-        // 로그인에서 
-        return "MDP/join";
+    public String join(HttpServletRequest request, Model model,String alert) {
+        model.addAttribute("code", request.getParameter("code"));
+        model.addAttribute("alert",alert);
+        
+        return "/MDP/join";
     }
 
     @PostMapping("/join")
     public String joinPost(HttpServletRequest request,HttpServletResponse response, String user, String code, Model model) throws IOException {
         
+        String alert;
         //사용자가 아무것도 입력하지 않았을 때
         if(user=="" || code==""){
-            return "redirect:join";
+            alert = "아이디와 구매코드를 입력해주세요";
+            return join(request,model,alert);
         }
         //회원가입 성공
         String joinChecked = checkID.checkJoin(request, user, code);
 
         if(joinChecked == "true"){
-            
             mdpRepo.updateUser(user, code);
-            return main(request, model);
-        }  
-        else {
-            String text;
-            if(joinChecked == "overlap")
-                text = "이미 존재하는 아이디입니다. 다른 아이디를 입력해주세요.";
-            else if(joinChecked == "used")
-                text = "이미 회원가입된 구매코드입니다.";
-            else
-                text = "존재하지 않는 구매코드입니다.";
-
-            
-            response.setContentType("text/html; charset=UTF-8");
-            PrintWriter out = response.getWriter();
-            out.println("<script>alert("+text+");history.go(-1);</script>");
-            out.flush();
-            return "redirect:join";
+            return "MDP/login";
+        } else {
+            return join(request,model,joinChecked);
         }
     }
 

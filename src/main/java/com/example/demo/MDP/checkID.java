@@ -56,8 +56,6 @@ public class checkID {
             if(Repo.countByCodeAndUserIsNull(code) >0){
                 //아이디가 중복인지 확인
                 if(Repo.countByUser(user)==0){
-                    HttpSession session = request.getSession();
-                    session.setAttribute("permission", "LOGOUT");   //Session 로그인
                     result="true";
                     System.out.println("true");
                 }
