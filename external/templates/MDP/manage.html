@@ -3,11 +3,10 @@
 <head th:replace="fragments/MDP_main_fragment :: top('manage')"></head>
 <body>
     <div id = top>
-        <div id=top_wrapper>
-            <div id=image_wrapper>
-                <!-- <a th:if="${loginOut} == 'admin'"><img src="/img/MDP/logo.png"></a>
-                <a th:if="${loginOut} != 'admin'" href='/MDP/admin/manage'><img src="/img/MDP/logo.png"></a> -->
-                <a href='/MDP/main'><img src="/img/MDP/logo.png"></a>
+        <div id="top_wrapper">
+            <div id="image_wrapper">
+                <a th:if="${loginOut} == 'admin'"><img src="/img/MDP/logo_2.png"></a>
+                <a th:if="${loginOut} != 'admin'" href='/MDP/main'><img src="/img/MDP/logo_2.png"></a>
             </div>
             <div class="logout" onclick="location.href='/adminLogout'" th:text="LOGOUT"></div>
         </div>
@@ -62,17 +61,26 @@
                 <!-- 페이징 -->
                 <div class="Board-pagination">
                     <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
+                        th:href="@{/MDP/admin/manage(    page=${0}, searchText=${param.searchText}    )   }"
+                        tabindex="-1" aria-disabled="true">«</a>
+                    </li>
                     <li class="page-item disabled">
                         <a class="page-link" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
                         th:href="@{/MDP/admin/manage(    page=${list.pageable.pageNumber -1 }, searchText=${param.searchText}    )   }"
-                        tabindex="-1" aria-disabled="true">Previous</a>
+                        tabindex="-1" aria-disabled="true">◀</a>
                     </li>
                     <li class="page-item" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
-                        th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link"
-                        th:href="@{/MDP/admin/manage(page=${i-1}, searchText=${param.searchText})}" th:text="${i}">1</a></li>
+                        th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link" id="num" 
+                        th:href="@{/MDP/admin/manage(page=${i-1}, searchText=${param.searchText})}" th:text="${i}" th:value="${pages}">1</a></li>
                     <li class="page-item">
                         <a class="page-link" th:classappend="${list.totalPages == list.pageable.pageNumber+1} ? 'disabled'"
-                        th:href="@{/MDP/admin/manage(page=${list.pageable.pageNumber +1 }, searchText=${param.searchText})}">Next</a>
+                        th:href="@{/MDP/admin/manage(page=${list.pageable.pageNumber +1 }, searchText=${param.searchText})}">▶</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" th:classappend="${list.totalPages == list.pageable.pageNumber+1} ? 'disabled'"
+                        th:href="@{/MDP/admin/manage(page=${list.totalPages-1}, searchText=${param.searchText})}">»</a>
                     </li>
                     </ul>
                 </div>
@@ -83,3 +91,12 @@
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    //현재 페이지값 받아오기 -> 현재페이지 폰트 굵게 설정
+    // function getParameterByName(name){
+    //     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    //     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search);
+    //     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    // }
+
+</script>

@@ -19,6 +19,13 @@ public class checkID {
     @Autowired
     saRepository saRepo;
 
+    // public boolean checkIdOrCode(String user){
+    //     boolean result = false;
+    //     Long count=Repo.
+        
+
+    //     return result;
+    // }
     //로그인 성공 확인 함수
     public String checked(HttpServletRequest request, String user){
         String result = "false";
@@ -49,7 +56,6 @@ public class checkID {
     //회원가입 확인 함수
     public String checkJoin(HttpServletRequest request, String user, String code){
         String result = "false";
-        System.out.println("AAA");
         //코드가 있는지 
         if(Repo.countByCode(code)>0){
             //해당 코드가 사용중인지
@@ -57,7 +63,6 @@ public class checkID {
                 //아이디가 중복인지 확인
                 if(Repo.countByUser(user)==0){
                     result="true";
-                    System.out.println("true");
                 }
                 else
                     result="overlap";

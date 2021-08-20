@@ -36,13 +36,13 @@ public class MDP_MainController {
     private checkID checkID;
 
     @GetMapping("/main")
-    public String main(HttpServletRequest request,Model model,String user) {
+    public String main(HttpServletRequest request,Model model, String user) {
 
         //세션 검사
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         model.addAttribute("loginOut",permission);
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
 
         return "MDP/main";
     }
@@ -61,9 +61,12 @@ public class MDP_MainController {
         }
         if(checkID.checked(request, code)=="true") { //로그인 성공
             return main(request, model,code);
-        } else if(checkID.checked(request, code)=="join") { //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우
+        }
+        else if(checkID.checked(request, code)=="join") { //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우
             return join(request,model,"join");
-        } else { // 로그인 실패
+            // return "MDP/join";    
+        }
+        else { // 로그인 실패
             response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter();
             out.println("<script>alert('아이디/구매코드가 존재하지 않습니다.');history.go(-1);</script>");
@@ -231,6 +234,7 @@ public class MDP_MainController {
 
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
+        model.addAttribute("pages", page.getPageable().getPageNumber());
         model.addAttribute("list", page);
         
         return "MDP/manage";
@@ -243,7 +247,6 @@ public class MDP_MainController {
         Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText,pageable);
         int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
         int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
-
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
         model.addAttribute("list", page);
@@ -259,9 +262,20 @@ public class MDP_MainController {
         long last=mdpRepo.lastColumn();
 
         for(int i=0; i<count; i++){
-
+            String pc = "THINKUS_";
             mp.setId(Long.valueOf(i+last+1l)); //id 설정
-            mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(10000))); 
+            // mp.setCode("THINKUS_"+String.format("%05d",random.nextInt(10000))); 
+            for(int j=0; j<5; j++){
+                int rd=random.nextInt(2);
+                char ch=(char)((Math.random()*26)+65);
+                if(rd==1){
+                    pc=pc.concat(Integer.toString(random.nextInt(10)));
+                }
+                else{
+                    pc=pc.concat(Character.toString(ch));
+                }
+            }
+            mp.setCode(pc);
             
             //중복 제거
             if(mdpRepo.countByCode(mp.getCode())>0){
