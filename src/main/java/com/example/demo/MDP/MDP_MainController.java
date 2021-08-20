@@ -48,8 +48,15 @@ public class MDP_MainController {
     }
 
     @GetMapping("/login")
-    public String login() {
-        return "MDP/login";
+    public String login(HttpServletRequest request) {
+        //세션 검사
+        HttpSession session = request.getSession();
+        String permission = (String) session.getAttribute("permission");
+
+        if(permission == "LOGOUT")
+            return "MDP/main";
+        else
+            return "MDP/login";
     }
 
     @PostMapping("/login")
@@ -60,16 +67,13 @@ public class MDP_MainController {
             return "redirect:login";
         }
         if(checkID.checked(request, code)=="codeLogin") { //로그인 성공
-            // model.addAttribute("user", mdpRepo.findUser(code));
             return main(request, model, mdpRepo.findUser(code));
         }
         else if(checkID.checked(request, code)=="idLogin"){
-            // model.addAttribute("user", code);
             return main(request, model,code);
         }
         else if(checkID.checked(request, code)=="join") { //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우
             return join(request,model,"join");
-            // return "MDP/join";    
         }
         else { // 로그인 실패
             response.setContentType("text/html; charset=UTF-8");
