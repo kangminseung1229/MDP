@@ -140,9 +140,9 @@ label::before {
     color:#043383;
     font-size:14px;
     height:auto;
-    position: fixed;
     margin-left: 255px;
-}
+    position:absolute;
+    z-index:-1;
 }
 #next{
     border:1px solid #043383;
