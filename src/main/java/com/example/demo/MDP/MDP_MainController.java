@@ -234,12 +234,30 @@ public class MDP_MainController {
 
         //페이징
         Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
-        int startPage = Math.max(1, page.getPageable().getPageNumber() - 1);
-        int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
+
+        // int startPage = Math.max(1, page.getPageable().getPageNumber() - 1);
+        // int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 5);
+        int startPage;
+        int endPage;
+
+        if(page.getPageable().getPageNumber()<2){
+            startPage=1;
+            if(page.getTotalPages()<5){
+                endPage=page.getTotalPages();
+            }
+            else
+                endPage=5;
+        }
+        else{
+            startPage=page.getPageable().getPageNumber() - 1;
+            endPage=Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
+        }
+        System.out.println("현재: "+page.getPageable().getPageNumber());
+        System.out.println("총: "+page.getTotalPages());
 
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
-        model.addAttribute("pages", page.getPageable().getPageNumber());
+        model.addAttribute("pages", page.getPageable().getPageNumber()); // 현재 페이지
         model.addAttribute("list", page);
         
         return "MDP/manage";

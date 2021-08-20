@@ -11,8 +11,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
-    
-    String findByUser(String user);
 
     Page<mdpPurchaseCode> findByUser(String user, Pageable pageable);
     Page<mdpPurchaseCode> findAll(Pageable pageable);

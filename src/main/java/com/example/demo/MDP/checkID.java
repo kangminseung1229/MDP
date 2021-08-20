@@ -19,12 +19,6 @@ public class checkID {
     @Autowired
     saRepository saRepo;
 
-    public boolean checkIdOrCode(String user){
-        boolean result = false;
-        Long count=Repo.countByUserOrCodeAndUserIsNotNull(user, user);
-
-        return result;
-    }
     //로그인 성공 확인 함수
     public String checked(HttpServletRequest request, String user){
         String result = "false";
