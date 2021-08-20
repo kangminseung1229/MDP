@@ -30,7 +30,18 @@
                     <a th:if="${loginOut} != 'admin'" href='main'><img src="/img/MDP/logo_2.png"></a>
                 </div>
                 <div class="logout" onclick="location.href='/MDP/logout'" th:text="${session.permission}"></div>
-                <div id="userid" th:text="|👤 ${user}|"></div>
+                <div class="user_icon center" th:if="${user} != null" >
+                    <div style="display: inline-block; margin-right:7px;">
+                        <div class="center" style="flex-direction: column;">
+                            <div class="user_head"></div>
+                            <div class="user_body"></div>    
+                        </div>
+                    </div>
+                    <div class="userid half-highlight" th:text="${user}"></div>
+                </div>
+                
+                    
+                </div>
             </div>
         </div>
     </header>
