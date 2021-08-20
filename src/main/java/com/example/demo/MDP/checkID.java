@@ -19,13 +19,12 @@ public class checkID {
     @Autowired
     saRepository saRepo;
 
-    // public boolean checkIdOrCode(String user){
-    //     boolean result = false;
-    //     Long count=Repo.
-        
+    public boolean checkIdOrCode(String user){
+        boolean result = false;
+        Long count=Repo.countByUserOrCodeAndUserIsNotNull(user, user);
 
-    //     return result;
-    // }
+        return result;
+    }
     //로그인 성공 확인 함수
     public String checked(HttpServletRequest request, String user){
         String result = "false";
@@ -35,7 +34,13 @@ public class checkID {
         //로그인 성공
         if(joinCount >0){   
             session.setAttribute("permission", "LOGOUT");
-            result = "true";            
+            if(Repo.countByCode(user)>0){
+                result="codeLogin";
+            }
+            else if(Repo.countByUser(user)>0){
+                result="idLogin";
+            }
+            // result = "true";            
         }
         else {
             if(codeCount > 0)   //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우

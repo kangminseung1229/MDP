@@ -59,7 +59,12 @@ public class MDP_MainController {
         if(code==""){
             return "redirect:login";
         }
-        if(checkID.checked(request, code)=="true") { //로그인 성공
+        if(checkID.checked(request, code)=="codeLogin") { //로그인 성공
+            // model.addAttribute("user", mdpRepo.findUser(code));
+            return main(request, model, mdpRepo.findUser(code));
+        }
+        else if(checkID.checked(request, code)=="idLogin"){
+            // model.addAttribute("user", code);
             return main(request, model,code);
         }
         else if(checkID.checked(request, code)=="join") { //맞는 구매코드를 입력했는데 회원가입이 안되어있는 경우

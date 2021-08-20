@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
     
+    String findByUser(String user);
 
     Page<mdpPurchaseCode> findByUser(String user, Pageable pageable);
     Page<mdpPurchaseCode> findAll(Pageable pageable);
@@ -24,6 +25,9 @@ public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
 
     @Query(value="SELECT id FROM mdpPurchaseCode order by id desc limit 1", nativeQuery = true )
     long lastColumn();
+
+    @Query(value="SELECT user FROM mdpPurchaseCode WHERE CODE=:user", nativeQuery = true )
+    String findUser(String user);
 
     @Transactional
     @Modifying
