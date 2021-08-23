@@ -132,6 +132,7 @@ public class MDP_MainController {
 
         checkID.checkPermissions(response,permission);
 
+        //step6용 단어배열
         String[] common = {"진심의","의지되는","감사한","걱정스러운","기억에 남는",
         "친절한","안심이 되는","그리운","배려하는","위로의","재미있는",
         "빛나는","건강한","밝은","기대되는","행복한","든든한","아름다운",

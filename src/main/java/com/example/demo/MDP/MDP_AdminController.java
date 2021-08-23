@@ -27,7 +27,6 @@ public class MDP_AdminController {
     @Autowired
     private checkID checkID;
     
-    // 관리자 페이지 컨트롤러
     @GetMapping("/adminLogin")
     public String adminLogin(){
         return "MDP/adminLogin";
@@ -42,9 +41,7 @@ public class MDP_AdminController {
     public String admin_join(SecurityAdmins sa, String code) {
 
         //승인코드 검사
-        System.out.println(code);
         if((code.equals("mdp2021"))==false){
-            System.out.println(code == "mdp2021");
             return "redirect:adminJoin";
         }
 

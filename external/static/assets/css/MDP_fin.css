@@ -203,13 +203,7 @@ body{
 .envelope{
     width: 500px;
     height: auto;
-    
-   
-
-    /* position: absolute; */
     z-index: 15;
-    /* animation: pulseAnim_envelope 2s infinite; */
-    /* margin-top:200px; */
 }
 
 @keyframes pulseAnim_envelope{
@@ -229,14 +223,12 @@ body{
     justify-content: center;
     align-items: center;
     width: 1200px;
-    /* border: 2px solid blue; */
     flex-direction: column;
     margin-top: 147px;
 }
 .envelope_wrapper_front{
     position: absolute;
     width: 502px;
-    
 }
 
 .envelope_wrapper_back{
@@ -257,9 +249,6 @@ body{
 }
 
 .envelope_wrapper_front, .envelope_wrapper_back {
-    /* position: absolute;
-    width: 100%;
-    height: 100%; */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
@@ -271,26 +260,21 @@ body{
     display: none;
     position: relative;
 }
-  
-  
 .letter_to_position{
     position: absolute;
     left: 338px;
     top: 211px;
 }
-
 .letter_from_position{
     position: absolute;
     left: 307px;
     top: 246px;
 }
-
 .toFrom_wrapper{
     position: absolute;
     left: 637px;
     top: 560px;
 }
-
 .arrive_letter{
     /* margin-top: 50px; */
     text-align: center;
@@ -299,12 +283,10 @@ body{
     color: #043384;
     line-height: 32px;
 }
-
 #fin_buttons{
     margin: -45px 0px 100px 0px;
     display: none;
 }
-
 .envelope_last{
     margin: 100px 0px 0px 0px;
     width: 502px;
@@ -312,20 +294,11 @@ body{
     justify-content: center;
     align-items: center;
 }
-
 .preview{
     transform: translate(0px, -50px);
     transition-duration: 0.7s;
 }
-
-
-/* #letter_fin{
-    display: none;
-    margin-top: 535px;
-} */
-
 .privew_letter{
-    
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width:490px;
     height:auto;
