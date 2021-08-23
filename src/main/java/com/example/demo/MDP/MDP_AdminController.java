@@ -2,9 +2,12 @@ package com.example.demo.MDP;
 
 import org.springframework.ui.Model;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.example.demo.MDP.MDP_Security_DTO.SecurityAdmins;
@@ -48,10 +51,13 @@ public class MDP_AdminController {
     }
 
     @PostMapping("/join")
-    public String admin_join(SecurityAdmins sa, String code) {
-
+    public String admin_join(SecurityAdmins sa, String code, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
         //승인코드 검사
         if((code.equals("mdp2021"))==false){
+            out.println("<script>alert('승인코드가 옳지 않습니다');history.go(-1);</script>");
+            out.flush();
             return "redirect:join";
         }
 
@@ -68,6 +74,8 @@ public class MDP_AdminController {
             return "redirect:login";
         }
         else{
+            out.println("<script>alert('이미 존재하는 아이디입니다');history.go(-1);</script>");
+            out.flush();
             return "redirect:join";
         }
     }
