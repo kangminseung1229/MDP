@@ -2,6 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/MDP_main_fragment :: top('manage')"></head>
 <body>
+    <!-- 관리자 헤더 -->
     <div id = top>
         <div id="top_wrapper">
             <div id="image_wrapper">
@@ -21,7 +22,7 @@
             </div>
         </div>
     </div>
-
+    <!-- 관리자 네비게이션바 -->
     <div id="process_wrapper">
         <div class="process_div">
             <div class="process_div2" >
@@ -52,7 +53,8 @@
                     </form>
                     <button class="searchbtn" style="float: right; margin-right:-8px;" onclick="location.href='/MDP/admin/manage'">새로고침</button>
                 </div>
-                
+
+                <!-- 사용자 인덱스, 아이디, 코드 출력 -->
                 <table>
                     <tr>
                         <td style="background-color:#043383;color:white;">id</td>
@@ -94,8 +96,9 @@
                 </div>
             </div>
         </div>
-        <div id="pages" th:value="${pages}"></div>
-        <div id="total" th:value="${total}"></div>
+        <!-- js에 값 전달 위한 임시 div -->
+        <div id="pages" style="display:none;" th:value="${pages}"></div>
+        <div id="total" style="display:none;" th:value="${total}"></div>
     
     </div>
 </body>
@@ -105,20 +108,22 @@
 
     var pages=$("#pages").attr("value");
     var total=$("#total").attr("value");
-    
+
+    //마지막 페이지일 때 오른쪽 버튼 비활성화
     if((parseInt(pages)+1)==total){
         $("#right_btn").css("pointer-events", "none");
         $("#right_btn").css("color", "#BDBDBD");
         $("#right_max").css("pointer-events", "none");
         $("#right_max").css("color", "#BDBDBD");
     }
+    //첫번째 페이지일 때 왼쪽 버튼 비활성화
     if((parseInt(pages)+1)==1){
         $("#left_btn").css("pointer-events", "none");
         $("#left_btn").css("color", "#BDBDBD");
         $("#left_max").css("pointer-events", "none");
         $("#left_max").css("color", "#BDBDBD");
     }
-
+    //현재 페이지 폰트 굵게
     let pp=parseInt(pages)+1;
     if(pp==$("#num"+pp).text()){
         $("#num"+pp).css("font-weight", "bolder");
