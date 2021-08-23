@@ -77,8 +77,6 @@
 
     $(document).ready(function(){
 
-        $("#fin_buttons").hide();
-
         $("#envelope_root").click(function(){
             $("#envelope_root").hide();
             $(".envelope_back_next").show();
@@ -87,7 +85,8 @@
             $("#letter").addClass("preview");
             $("#letter").addClass("privew_letter");
             $(".arrive_letter").html("편지지를 클릭해주세요");
-            $(".envelope_last").css("margin-top","100px");
+            $(".arrive_letter").css("margin-top","50px");
+            // $(".envelope_last").css("margin-top","100px");
         });
 
         $("#letter").click(function(){

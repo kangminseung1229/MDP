@@ -292,7 +292,7 @@ body{
 }
 
 .arrive_letter{
-    margin-top: 50px;
+    /* margin-top: 50px; */
     text-align: center;
     font-family: gmarket_medium;
     font-size: 20px;
@@ -301,11 +301,12 @@ body{
 }
 
 #fin_buttons{
-    margin-bottom: 100px;
+    margin: -45px 0px 100px 0px;
+    display: none;
 }
 
 .envelope_last{
-    /* margin-top: 100px; */
+    margin: 100px 0px 0px 0px;
     width: 502px;
     display: flex;
     justify-content: center;

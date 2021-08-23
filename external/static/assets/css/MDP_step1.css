@@ -57,6 +57,7 @@
     top:33%; left:50%;
     transform: translate(-50%,-50%);
     text-align: center;
+    display: none;
 }
 
 .step1_textbox3{
@@ -65,6 +66,7 @@
     top:55%; left:32%;
     transform: translate(-50%,-50%);
     text-align: center;
+    display: none;
 }
 .step1_textbox4{
     width: 70px;
@@ -72,6 +74,7 @@
     top:65%; left:60%;
     transform: translate(-50%,-50%);
     text-align: center;
+    display: none;
 }
 .textbox2_4_class{
     background-color: #DDEDF9;
@@ -83,6 +86,7 @@
     top:15%; left:50%;
     transform: translate(-50%,-50%);
     text-align: center;
+    display: none;
 }
 .step1_textbox6{
     width: 70px;
@@ -90,6 +94,7 @@
     top:45%; left:14%;
     transform: translate(-50%,-50%);
     text-align: center;
+    display: none;
 }
 .step1_textbox7{
     width: 70px;
@@ -97,6 +102,7 @@
     top:80%; left:30%;
     transform: translate(-50%,-50%);
     text-align: center;
+    display: none;
 }
 .step1_textbox8{
     width: 70px;
@@ -104,6 +110,7 @@
     top:80%; left:70%;
     transform: translate(-50%,-50%);
     text-align: center;
+    display: none;
 }
 .step1_textbox9{
     width: 70px;
@@ -111,6 +118,7 @@
     top:45%; left:86%;
     transform: translate(-50%,-50%);
     text-align: center;
+    display: none;
 }
 .textbox5_9_class{
     background-color: #F2F8EB;
