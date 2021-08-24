@@ -20,16 +20,14 @@
             </div>
             <form th:action="@{/MDP/login}" method="POST">
                 <div class="login_text" style="margin-bottom: 20px;">
-                    <input type="text" name="code" id="id" size="15" placeholder=" 아이디 혹은 구매코드"
-                        onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디 혹은 구매코드'">
+                    <input type="text" name="code" id="id" size="15" placeholder=" 아이디 혹은 구매 코드"
+                        onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디 혹은 구매 코드'">
                 </div>
                 <div class="button_wrapper">
-                    <input id="login" class="button_login" type="submit" value="로그인"></div>
-                <!-- <input id="join" class="button_login" type="button" onclick="location.href='join'" value= '회원가입'></input> -->
+                    <input id="login" class="button_login" type="submit" value="로그인">
+                </div>
         </div>
         </form>
-    </div>
-
     </div>
 </body>
 
@@ -40,7 +38,7 @@
     $("input[type=submit]").click(function () {
         var result = $("input[type=text]").val();
         if (!result) {
-            alert("아이디 혹은 구매코드를 입력하세요.")
+            alert("아이디 혹은 구매 코드를 입력하세요.")
         }
     });
 </script>

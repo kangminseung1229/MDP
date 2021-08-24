@@ -13,7 +13,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 /**
  * SuccessHandler
  */
-public class SuccessHandler implements AuthenticationSuccessHandler{
+public class SuccessHandler implements AuthenticationSuccessHandler {
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -23,10 +23,7 @@ public class SuccessHandler implements AuthenticationSuccessHandler{
         HttpSession session = request.getSession();
         session.setAttribute("greeting", authentication.getName() + "님, 환영합니다.");
         response.sendRedirect("/MDPadmin/manage");
-        
+
     }
 
-
-    
-    
 }

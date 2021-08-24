@@ -56,7 +56,7 @@ public class MDP_AdminController {
         PrintWriter out = response.getWriter();
         // 승인코드 검사
         if ((code.equals("mdp2021")) == false) {
-            out.println("<script>alert('승인코드가 옳지 않습니다');history.go(-1);</script>");
+            out.println("<script>alert('승인코드가 옳지 않습니다');history.go(-1);</script>"); //승인코드가 틀릴 경우 alert창 발생
             out.flush();
             return "redirect:join";
         }
@@ -67,6 +67,8 @@ public class MDP_AdminController {
         sa.setEnabled(true);
 
         SecurityRole sr = new SecurityRole();
+        
+        //아이디 중복검사
         if (checkID.sacheckJoin(sa.getUsername())) {
             sr.setId(1l);
             sa.getRoles().add(sr);
@@ -117,11 +119,43 @@ public class MDP_AdminController {
             @PageableDefault(size = 15) Pageable pageable) {
 
         // 아이디 검색
-        Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText, pageable);
-        int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
-        int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+        // Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText, pageable);
+        Page<mdpPurchaseCode> page = mdpRepo.manageSearch(searchText, pageable);
+
+        // int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
+        // int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
+        // model.addAttribute("startPage", startPage);
+        // model.addAttribute("endPage", endPage);
+        // model.addAttribute("list", page);
+
+        int startPage;
+        int endPage;
+
+        // 한 번에 뜨는 페이지의 개수가 5개 혹은 그 미만으로 뜨게 하기 위한 조건문
+        // 현재 페이지가 1,2인 경우 총 페이지가 5미만일 때는 마지막 페이지까지, 총 페이지가 5 이상일 때는 5까지 출력
+        if (page.getPageable().getPageNumber() < 2) {
+            startPage = 1;
+            if (page.getTotalPages() < 5) {
+                if(page.getTotalPages()==0){
+                    System.out.println("===");
+                    endPage=1;
+                }
+                else{
+                    endPage = page.getTotalPages();
+                }
+            } else
+                endPage = 5;
+        }
+        // 현재 페이지가 3이상인 경우 첫페이지는 현재페이지-2, 마지막 페이지는 총 페이지의 개수 혹은 현재 페이지+3 중 작은 값
+        else {
+            startPage = page.getPageable().getPageNumber() - 1;
+            endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
+        }
+
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
+        model.addAttribute("total", page.getTotalPages()); // 총 페이지 수
+        model.addAttribute("pages", page.getPageable().getPageNumber()); // 현재 페이지
         model.addAttribute("list", page);
 
         return "admin/manage";
