@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 $(document).ready(function(){
     // Swiper 객체 생성
     swiper = new Swiper(".entireSwiper", {
         // Swiper 속성 설정
         allowTouchMove : false,
-=======
-$(document).ready(function () {
-
-    swiper = new Swiper(".entireSwiper", {
-
-        allowTouchMove: false,
->>>>>>> 5efb4d38d9b81942f5e9928f383c011346019852
 
         navigation: {
             nextEl: ".swiper-button-next",
@@ -30,7 +22,6 @@ $(document).ready(function () {
             pageUpDown: false
         }
     });
-<<<<<<< HEAD
     // Swiper 내비게이션 버튼 비활성화
     $('.swiper-button-next').addClass( "disabled" );
     $('.swiper-button-prev').addClass( "disabled" );
@@ -46,19 +37,6 @@ $(document).ready(function () {
         
         switch(menu){
             case "1": { //Step1 받는 사람
-=======
-    $('.swiper-button-next').addClass("disabled");
-    $('.swiper-button-prev').addClass("disabled");
-    //   임시로 페이지로 고정
-    $('html, body').scrollTop(0);
-    swiper.slideTo(0);
-
-    $("input:radio[name=menu]").change(function () {
-        let menu = $('input:radio[name="menu"]:checked').val();
-
-        switch (menu) {
-            case "1": {
->>>>>>> 5efb4d38d9b81942f5e9928f383c011346019852
                 $('html, body').scrollTop(0);
                 swiper.slideTo(0);
                 break;
