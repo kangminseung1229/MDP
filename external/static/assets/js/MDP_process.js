@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    
+    // Swiper 객체 생성
     swiper = new Swiper(".entireSwiper", {
-    
+        // Swiper 속성 설정
         allowTouchMove : false,
 
         navigation: {
@@ -22,43 +22,46 @@ $(document).ready(function(){
             pageUpDown:false
           }
     });
+    // Swiper 내비게이션 버튼 비활성화
     $('.swiper-button-next').addClass( "disabled" );
     $('.swiper-button-prev').addClass( "disabled" );
-    //   임시로 페이지로 고정
+    
+    // 첫번째 Swiper 제일 상단
     $('html, body').scrollTop(0);
     swiper.slideTo(0);
 
+    // 라디오 메뉴 버튼 클릭시 Swiper 연동
     $("input:radio[name=menu]").change(function()
     {
         let menu = $('input:radio[name="menu"]:checked').val();
         
         switch(menu){
-            case "1": {
+            case "1": { //Step1 받는 사람
                 $('html, body').scrollTop(0);
                 swiper.slideTo(0);
                 break;
             }
-            case "2": {
+            case "2": { //Step2 되돌아 보며
                 $('html, body').scrollTop(0);
                 swiper.slideTo(1);
                 break;
             }
-            case "3": {
+            case "3": { //Step3 그 사람과 나는
                 $('html, body').scrollTop(0);
                 swiper.slideTo(2);
                 break;
             }
-            case "4": {
+            case "4": { //Step4 그때의 나는
                 $('html, body').scrollTop(0);
                 swiper.slideTo(3);
                 break;
             }
-            case "5": {
+            case "5": { //Step5 그때의 내 마음은
                 $('html, body').scrollTop(0);
                 swiper.slideTo(4);
                 break;
             }
-            case "6": {
+            case "6": { //Step6 감정단어
                 $('html, body').scrollTop(0);
                 swiper.slideTo(5);
                 break;
@@ -80,11 +83,6 @@ $(document).ready(function(){
 function step1(){
 
     let nowStage;
-    // 모든 Textbox hide
-    $("#step1_next").hide();
-    for(let i =2; i<10; i++){
-        $("#step1_textbox"+i).hide();
-    }
     
     // 사용자가 텍스트 박스 입력시 단계별로 fade out
     onkeyUpFunc(1,stage1);
@@ -98,6 +96,7 @@ function step1(){
     onkeyUpFunc(9,stage3);
     step1Next();
     
+// 텍스트박스 텍스트 검사
     function onkeyUpFunc(num,func) {
         $("#step1_textbox"+num).keyup(function(){
             func();
@@ -132,7 +131,7 @@ function step1(){
                 $('#stage3').fadeIn(600);
                 $('#step1_shape_num3').fadeIn(600);
 
-                // TextBox
+                // TextBox 나타나기
                 for(let i=5; i<=9; i++){
                     $('#step1_textbox'+i).fadeIn(600);
                 }
@@ -152,13 +151,14 @@ function step1(){
         if( $("#step1_textbox5").val().length>0 &&  $("#step1_textbox6").val().length >0 &&  
             $("#step1_textbox7").val().length>0 && $("#step1_textbox8").val().length>0 &&  
             $("#step1_textbox9").val().length >0 ){
-
+            
+            // effect 해제
             $('#step1_shape_num3').removeClass( "step3_shape" );  
-        
+            
             for(let i =5; i<=9; i++){
                 $('#step1_textbox'+i).addClass( "textbox5_9_class" );
             }
-            
+            // 다음단계 넘어가기
             $('#step1_next').fadeIn(600);
             
         }
@@ -176,17 +176,16 @@ function step1(){
                 }
                 else if(nowStage == 4) {
                     swiper.slideTo(1);
-                    $('#step1_next').fadeOut(600);
                     $("#2").removeAttr("disabled");        
-                    
                 }
             }
         });
     }
     
-    // step1 : stage4
+    // step1 : stage4 8개의 사람 중 편지를 전하고자 하는 사람 선택
     function stage4(){
         nowStage = 4;
+        // 
         if($("#step1_textbox1").val().length>0 &&  $("#step1_textbox2").val().length >0 &&  
             $("#step1_textbox3").val().length>0 && $("#step1_textbox4").val().length>0 &&  
             $("#step1_textbox5").val().length >0 && $("#step1_textbox6").val().length>0 &&  
@@ -209,6 +208,7 @@ function step1(){
                     $("#"+textbox).after("<label class ="+textbox+" id = step1_label"+i+">"+$("#"+textbox).val()+"</label>");
                 }
                 
+                // 한 사람 선택이 되면 
                 $("input[name = step1Text]").click(function(){
                     step1Next("step2");
                     $('#step1_next').fadeIn(600);
@@ -264,7 +264,6 @@ function step2(){
     function step2Next(){
         $("#step2_next").click(function(){
             swiper.slideTo(2);
-            $('#step2_next').fadeOut(600);
             $("#3").removeAttr("disabled");        
         });
     }
@@ -316,7 +315,6 @@ function step3(){
                 $("#step3_textbox9").val().length>0)
         {
             swiper.slideTo(3);
-            $('#step3_next').fadeOut(600);
         }
        
     });
@@ -352,7 +350,6 @@ function step4(){
         if(textLength1 > 0 && textLength2 > 0 && textLength3 > 0 && textLength4 > 0)
         {
             swiper.slideTo(4);
-            $('#step4_next').fadeOut(600);
             $("#5").removeAttr("disabled");       
         }
 
@@ -387,7 +384,6 @@ function step5(){
             $("#step5_answer3").val().length>1 && $("#step5_answer4").val().length>1 ) 
         {
             swiper.slideTo(5);
-            $('#step5_next').fadeOut(600);
             $("#6").removeAttr("disabled");    
         }
 

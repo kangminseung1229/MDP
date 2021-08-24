@@ -190,17 +190,23 @@ body{
 /* GmarketSansLight */
 @font-face {
     font-family: 'gmarket_light';
-    src: url('../css/fonts/GmarketSansLight.otf') format('opentype');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
     font-family: 'gmarket_medium';
-    src: url('../css/fonts/GmarketSansMedium.otf') format('opentype');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
     font-family: 'gmarket_bold';
-    src: url('../css/fonts/GmarketSansBold.otf') format('opentype');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-@font-face {
+/* @font-face {
     font-family: 'brandon_bold';
     src: url('../css/fonts/Brandon_bld.otf') format('opentype');
 }
@@ -211,4 +217,4 @@ body{
 @font-face {
     font-family: 'brandon_light';
     src: url('../css/fonts/Brandon_light.otf') format('opentype');
-}
+} */
