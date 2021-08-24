@@ -33,18 +33,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/test/**").permitAll()
 				.antMatchers("/.well-known/pki-validation/*").permitAll()
                 .antMatchers("/MDP/*").permitAll()
+                .antMatchers("/MDPadmin/*").permitAll()
                 .anyRequest().authenticated()
 				.and()
 			.formLogin()
 				.loginPage("/") //login form 전송시 오는 곳 -> postmapping login 에 해당한다.
                 // .defaultSuccessUrl("/sessionIns")
                 .successHandler(new SuccessHandler())
-                .failureUrl("/MDP/adminLogin")
+                .failureUrl("/MDPadmin/login")
 				.permitAll()
 				.and()
 			.logout()
                 .logoutUrl("/adminLogout")
-                .logoutSuccessUrl("/MDP/adminLogin")
+                .logoutSuccessUrl("/MDPadmin/login")
                 // .logoutSuccessUrl("/?logout")
 				.permitAll()
                 .and()
@@ -68,7 +69,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             + " ON AR.role_id = SR.id "
             + " where SA.username = ?");
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {

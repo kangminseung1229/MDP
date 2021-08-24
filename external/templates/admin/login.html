@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-rity">
+
+<head th:replace="fragments/MDP_main_fragment :: top('login')"></head>
+
+<body>
+
+    <div class="login_wrapper">
+        <div class="login_logo">
+            <img src="/img/MDP/main_logo.png">
+        </div>
+
+        <div id="updown"></div>
+
+        <div class="login_form_wrapper">
+
+            <div class="login_icon">
+                ADMIN LOGIN
+            </div>
+
+            <!-- 로그인 안되어있는 경우 -->
+            <div sec:authorize="isAnonymous()">
+                <form th:action="@{/}" method="POST">
+                    <div style="margin-bottom: 30px;">
+                        <div class="login_text" style="text-align:left;">
+                            <span>아이디</span><br>
+                            <input type="text" name="username" id="id" size="15" placeholder="아이디"
+                                onfocus="this.placeholder=''" onblur="this.placeholder='아이디'">
+                        </div>
+                        <div class="login_text" style="text-align:left;">
+                            <span>비밀번호</span><br>
+                            <input type="password" name="password" id="id" size="15" placeholder="비밀번호"
+                                onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'">
+                        </div>
+                    </div>
+
+                    <div class="button_wrapper">
+                        <input id="login" class="button_login" type="submit" value="관리자 로그인">
+                        <input id="join" class="button_login" type="button" onclick="location.href='/MDPadmin/join'"
+                            value='관리자 회원가입'></input>
+                    </div>
+                </form>
+            </div>
+
+
+
+            <!-- 로그인되어있는 경우 -->
+            <div sec:authorize="isAuthenticated">
+
+                <div class="login_text" style="display: inline-block; text-align:center;">
+                    <span sec:authentication="name">사용자이름</span> 님
+                    <span>권한이 인증되었습니다</span><br>
+
+                </div>
+                <div class="button_wrapper">
+                    <button class="button_login" onclick="location.href='/adminLogout'">로그아웃</button>
+                    <button class="button_login" type="button" onclick="location.href='/MDPadmin/manage'">관리자
+                        페이지</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
