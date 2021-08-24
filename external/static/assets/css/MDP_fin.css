@@ -14,7 +14,7 @@ body{
     font-family:gmarket_medium;
     font-size:15px;
     color: #043384;
-    line-height:20px;
+    line-height:30px;
 }
 #fin_btn_wrapper{
     padding-top:10px;
@@ -280,7 +280,7 @@ body{
     font-family: gmarket_medium;
     font-size: 20px;
     color: #043384;
-    line-height: 32px;
+    line-height: 30px;
 }
 #fin_buttons{
     margin: -45px 0px 100px 0px;

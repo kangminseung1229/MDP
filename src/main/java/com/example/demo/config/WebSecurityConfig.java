@@ -36,9 +36,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/MDPadmin/*").permitAll()
                 .anyRequest().authenticated()
 				.and()
-			.formLogin()
-				.loginPage("/") //login form 전송시 오는 곳 -> postmapping login 에 해당한다.
-                // .defaultSuccessUrl("/sessionIns")
+            .formLogin()
+                //login form 전송시 오는 곳 -> postmapping login 에 해당한다.
+				.loginPage("/")
                 .successHandler(new SuccessHandler())
                 .failureUrl("/MDPadmin/login")
 				.permitAll()
@@ -46,7 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.logout()
                 .logoutUrl("/adminLogout")
                 .logoutSuccessUrl("/MDPadmin/login")
-                // .logoutSuccessUrl("/?logout")
 				.permitAll()
                 .and()
             .csrf().disable();
