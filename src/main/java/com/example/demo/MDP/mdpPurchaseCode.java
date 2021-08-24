@@ -15,11 +15,11 @@ public class mdpPurchaseCode {
 
     @Id
     private Long id;
-    
+
     private String code;
     private String user;
 
     @UpdateTimestamp
     private Date dateTime;
-    
+
 }

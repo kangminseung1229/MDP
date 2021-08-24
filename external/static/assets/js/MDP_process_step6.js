@@ -1,24 +1,24 @@
 checkedId = new Array();
 
-$(document).ready(function(){
+$(document).ready(function () {
 
     emotionSwiper = new Swiper(".emotionSwiper", {
-    
-        autoHeight : true,
-        allowTouchMove : false,
+
+        autoHeight: true,
+        allowTouchMove: false,
         on: {
             activeIndexChange: function () {
-                let num = this.realIndex+1;
-                $("input[id=emotion"+num+"]").prop('checked', true);
+                let num = this.realIndex + 1;
+                $("input[id=emotion" + num + "]").prop('checked', true);
                 console.log(num);
-                
+
             }
         },
         keyboard: {
             enabled: false,
             onlyInViewport: false,
-            pageUpDown:false
-          },
+            pageUpDown: false
+        },
     });
 
     $(".emotionSwiper").hide();
@@ -28,8 +28,7 @@ $(document).ready(function(){
     idNum = 0;
     let firstCount = false;
 
-    $("input:radio[name=step6_emotion_category]").change(function()
-    {
+    $("input:radio[name=step6_emotion_category]").change(function () {
         $("#emotion_common").removeClass("animate_common");
         $("#emotion_thanks").removeClass("animate_thanks");
         $("#emotion_sorry").removeClass("animate_sorry");
@@ -38,10 +37,10 @@ $(document).ready(function(){
         $("#emotion_say").removeClass("animate_say");
 
         $(".emotionSwiper").fadeIn(600);
-        
+
         let emotion_radio = $('input:radio[name="step6_emotion_category"]:checked').val();
-        
-        switch(emotion_radio){
+
+        switch (emotion_radio) {
             case "1": {
                 emotionSwiper.slideTo(0);
                 break;
@@ -69,7 +68,7 @@ $(document).ready(function(){
         }
     });
 
-    $(".emotion_category").click(function(){
+    $(".emotion_category").click(function () {
         $("#emotion_1").removeClass("animate_common");
         $("#emotion_2").removeClass("animate_thanks");
         $("#emotion_3").removeClass("animate_sorry");
@@ -80,67 +79,67 @@ $(document).ready(function(){
         $(".emotionSwiper").fadeIn(600);
     });
 
-    for(let i =1; i<7; i++){
+    for (let i = 1; i < 7; i++) {
         clickCategory(i);
     }
 
 });
 
-$('.emotion_card_text').on('click', function() {
+$('.emotion_card_text').on('click', function () {
     let idx = $(this).prop("id");
     let isChecked = $(this).prop("check");
-    $("html").animate({scrollTop:150}, 400);
-    
+    $("html").animate({ scrollTop: 150 }, 400);
+
     $(".step6_container_select").fadeIn(600);
     $("#step6_next").delay(300).fadeIn(600);
 
     // 감정단어 삭제
-    if(isChecked){
+    if (isChecked) {
         deleteEmotion(this);
         $(this).removeClass("emotion_card_text_checked");
-        $(this).prop("check",false);
+        $(this).prop("check", false);
     }
     // 감정단어 추가
-    else{
+    else {
         console.log($(this));
         addEmotion($(this).clone());
         $(this).addClass("emotion_card_text_checked");
-        $(this).prop("check",true);
+        $(this).prop("check", true);
     }
 });
 
 // 내가 선택한 감정단어 : 추가
-function addEmotion(emotion){
+function addEmotion(emotion) {
     let last_node_count = $("#select_word").children().last().children().length;
     console.log(last_node_count);
     checkedId.push(emotion);
     console.log($(".select_word").append(emotion));
 
     // 내가 선택한 감정단어 클릭시 지우기
-    $(emotion).click(function(){
+    $(emotion).click(function () {
         deleteEmotion(emotion);
-        let smaeID= $(emotion).prop("id");
-        $("#"+smaeID).prop("check",false);
-        $("#"+smaeID).removeClass("emotion_card_text_checked");
+        let smaeID = $(emotion).prop("id");
+        $("#" + smaeID).prop("check", false);
+        $("#" + smaeID).removeClass("emotion_card_text_checked");
         console.log(smaeID);
     });
 
 }
 // 내가 선택한 감정단어 : 삭제
-function deleteEmotion(emotion){
-    $(".select_word").children().each(function(index,item){
-        if($(emotion).prop("id") == $(item).prop("id")){
+function deleteEmotion(emotion) {
+    $(".select_word").children().each(function (index, item) {
+        if ($(emotion).prop("id") == $(item).prop("id")) {
             $(item).remove();
         }
     });
 }
 
 // 감정 카테고리 클릭
-function clickCategory(idName){
-    $("#emotion_"+idName).click(function(){
-        emotion_radio = $("#emotion_"+idName).attr("value");
-        
-        switch(emotion_radio){
+function clickCategory(idName) {
+    $("#emotion_" + idName).click(function () {
+        emotion_radio = $("#emotion_" + idName).attr("value");
+
+        switch (emotion_radio) {
             case "1": {
                 emotionSwiper.slideTo(0);
                 removeClass(1);
@@ -173,19 +172,19 @@ function clickCategory(idName){
             }
         }
     });
-    
-    function removeClass(num){
-        
-        for(let i =1; i <=6; i++){
-            
-            if(i == num){
-                $("#emotion_"+num).addClass("emotion_checked");
-                $("#emotion_text_"+num).addClass("emotion_checked_text");
+
+    function removeClass(num) {
+
+        for (let i = 1; i <= 6; i++) {
+
+            if (i == num) {
+                $("#emotion_" + num).addClass("emotion_checked");
+                $("#emotion_text_" + num).addClass("emotion_checked_text");
                 console.log(num);
             }
-            else{
-                $("#emotion_"+i).removeClass("emotion_checked");
-                $("#emotion_text_"+i).removeClass("emotion_checked_text");
+            else {
+                $("#emotion_" + i).removeClass("emotion_checked");
+                $("#emotion_text_" + i).removeClass("emotion_checked_text");
             }
         }
     }

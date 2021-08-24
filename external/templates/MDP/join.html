@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/MDP_main_fragment :: top('join')"></head>
+
 <body>
     <div class="login_wrapper">
 
         <div class="login_logo">
             <img src="/img/MDP/main_logo.png">
-        </div>    
+        </div>
 
         <div id="updown"></div>
 
@@ -14,27 +16,31 @@
             <div class="login_icon">
                 JOIN
             </div>
-            <div style="font-family:gmarket_medium; font-size:15px; margin: 30px 0px 15px 0px; line-height:20px; color: #252424;">
+            <div
+                style="font-family:gmarket_medium; font-size:15px; margin: 30px 0px 15px 0px; line-height:20px; color: #252424;">
                 <div th:if="${alert} == 'overlap'">이미 존재하는 아이디입니다.<br> 다른 아이디를 입력해주세요.</div>
                 <div th:if="${alert} == 'used'">이미 회원가입된 구매코드입니다.</div>
                 <div th:if="${alert} == 'false'">존재하지 않는 구매코드입니다.</div>
                 <div th:if="${alert} == 'join'">회원가입하지 않은 구매코드입니다.<br>회원가입을 진행해주세요.</div>
             </div>
             <form th:action="@{/MDP/join}" method="POST">
-                <div class="login_text"  style="text-align:left;">
+                <div class="login_text" style="text-align:left;">
                     <span class="star">*</span> 아이디<br>
-                    <input type="text" name="user" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
+                    <input type="text" name="user" size="15" placeholder=" 아이디" onfocus="this.placeholder=''"
+                        onblur="this.placeholder=' 아이디'">
                 </div>
                 <div class="login_text" style="text-align:left;">
                     <span class="star">*</span> 구매코드<br>
-                    <input type="text" th:value="${code}" name="code" size="15" placeholder=" 구매코드" onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
+                    <input type="text" th:value="${code}" name="code" size="15" placeholder=" 구매코드"
+                        onfocus="this.placeholder=''" onblur="this.placeholder=' 구매코드'">
                 </div>
                 <div class="button_wrapper" style="margin-top: 15px;">
-                    <input type="submit" class="button_login" id="join" value="회원가입"/>
+                    <input type="submit" class="button_login" id="join" value="회원가입" />
                 </div>
             </form>
         </div>
-        
+
     </div>
 </body>
+
 </html>

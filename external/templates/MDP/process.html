@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/MDP_main_fragment :: top('process')">
 </head>
+
 <body>
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="process_wrapper">
-        <nav th:replace = "fragments/MDP_process_fragment :: nav"></nav>
-        <form th:action="@{/MDP/letter}" method="POST"  onsubmit="return checkProcess();" autocomplete="off">
+        <nav th:replace="fragments/MDP_process_fragment :: nav"></nav>
+        <form th:action="@{/MDP/letter}" method="POST" onsubmit="return checkProcess();" autocomplete="off">
 
             <div class="swiper-container entireSwiper">
                 <div class="content swiper-wrapper">
-    
+
                     <!-- step1 -->
                     <div class=" swiper-slide entireSwiper-swiper-slide">
-                        <div id="step1" >
+                        <div id="step1">
                             <div class="paragraph" style="height:100px;">
-                                <p id = "stage1" style="margin-bottom:10px;"><span id="hl_yello">노란색 칸</span>에 자신의 이름을 써보세요.</p> 
-                                <p id = "stage2" style="margin-top:10px; margin-bottom:10px;">그리고 떠오르는 세 사람의 이름을 <span id="hl_blue">파란색 칸</span>에 써보세요.</p>
-                                <p id = "stage3" style="margin-top:10px;">다음에 떠오르는 다섯 사람의 이름은 <span id="hl_green">초록색 칸</span>에 써보세요.</p>
-                                <p id = "stage4">이 중 오늘 마음을 전하고 싶은 한 사람을 클릭해주세요.</p>
+                                <p id="stage1" style="margin-bottom:10px;"><span id="hl_yello">노란색 칸</span>에 자신의 이름을
+                                    써보세요.</p>
+                                <p id="stage2" style="margin-top:10px; margin-bottom:10px;">그리고 떠오르는 세 사람의 이름을 <span
+                                        id="hl_blue">파란색 칸</span>에 써보세요.</p>
+                                <p id="stage3" style="margin-top:10px;">다음에 떠오르는 다섯 사람의 이름은 <span id="hl_green">초록색
+                                        칸</span>에 써보세요.</p>
+                                <p id="stage4">이 중 오늘 마음을 전하고 싶은 한 사람을 클릭해주세요.</p>
                             </div>
-                            <div class = "textbox_shapes">
-                                <input id="step1_textbox1" class="step1_textbox1 step1_textbox" type="text" tabIndex="1" placeholder="이름" name="step1Me">
-                                <input id="step1_textbox2" class="step1_textbox2 step1_textbox" type="text" tabIndex="2" placeholder="이름" name="step1Text">
-                                <input id="step1_textbox3" class="step1_textbox3 step1_textbox" type="text" tabIndex="3" placeholder="이름" name="step1Text">
-                                <input id="step1_textbox4" class="step1_textbox4 step1_textbox" type="text" tabIndex="4" placeholder="이름" name="step1Text">
-                                <input id="step1_textbox5" class="step1_textbox5 step1_textbox" type="text" tabIndex="5" placeholder="이름" name="step1Text">
-                                <input id="step1_textbox6" class="step1_textbox6 step1_textbox" type="text" tabIndex="6" placeholder="이름" name="step1Text">
-                                <input id="step1_textbox7" class="step1_textbox7 step1_textbox" type="text" tabIndex="7" placeholder="이름" name="step1Text">
-                                <input id="step1_textbox8" class="step1_textbox8 step1_textbox" type="text" tabIndex="8" placeholder="이름" name="step1Text">
-                                <input id="step1_textbox9" class="step1_textbox9 step1_textbox" type="text" tabIndex="9" placeholder="이름" name="step1Text">
+                            <div class="textbox_shapes">
+                                <input id="step1_textbox1" class="step1_textbox1 step1_textbox" type="text" tabIndex="1"
+                                    placeholder="이름" name="step1Me">
+                                <input id="step1_textbox2" class="step1_textbox2 step1_textbox" type="text" tabIndex="2"
+                                    placeholder="이름" name="step1Text">
+                                <input id="step1_textbox3" class="step1_textbox3 step1_textbox" type="text" tabIndex="3"
+                                    placeholder="이름" name="step1Text">
+                                <input id="step1_textbox4" class="step1_textbox4 step1_textbox" type="text" tabIndex="4"
+                                    placeholder="이름" name="step1Text">
+                                <input id="step1_textbox5" class="step1_textbox5 step1_textbox" type="text" tabIndex="5"
+                                    placeholder="이름" name="step1Text">
+                                <input id="step1_textbox6" class="step1_textbox6 step1_textbox" type="text" tabIndex="6"
+                                    placeholder="이름" name="step1Text">
+                                <input id="step1_textbox7" class="step1_textbox7 step1_textbox" type="text" tabIndex="7"
+                                    placeholder="이름" name="step1Text">
+                                <input id="step1_textbox8" class="step1_textbox8 step1_textbox" type="text" tabIndex="8"
+                                    placeholder="이름" name="step1Text">
+                                <input id="step1_textbox9" class="step1_textbox9 step1_textbox" type="text" tabIndex="9"
+                                    placeholder="이름" name="step1Text">
                                 <div id="step1_shape_num1" class="step1_shape"></div>
                                 <div id="step1_shape_num2"></div>
                                 <div id="step1_shape_num3"></div>
-                            </div>    
-                            <div class = "next_wrapper" style="top: 630px;">
-                                <div id="step1_next" class="next" style="display: none;">NEXT</div>   
-                            </div>                  
-                        </div> 
+                            </div>
+                            <div class="next_wrapper" style="top: 630px;">
+                                <div id="step1_next" class="next" style="display: none;">NEXT</div>
+                            </div>
+                        </div>
                     </div>
-    
+
                     <!-- step2 -->
                     <div class="swiper-slide entireSwiper-swiper-slide">
                         <div id="step2" style="width: 100%;">
@@ -48,12 +62,13 @@
                                 함께 찍은 사진이 없다면 마음에 드는 사진을 골라 주세요.
                             </p>
                             <div class="input_image" style="display:table;">
-                                <input type="file" id="fileupload" name="step2Fileupload" accept="image/*" style="margin:0 auto; padding-top:100px;margin-left:50px; position:absolute; z-index:1;">
+                                <input type="file" id="fileupload" name="step2Fileupload" accept="image/*"
+                                    style="margin:0 auto; padding-top:100px;margin-left:50px; position:absolute; z-index:1;">
                                 <div style="display:table-cell; vertical-align:middle;">
                                     <img src="" id="target" alt="" style="max-width:500px; max-height:250px;">
                                 </div>
                             </div>
-                            <div class = "step2_emotion_wrapper">
+                            <div class="step2_emotion_wrapper">
                                 <p style="padding-top:3%;">
                                     그 사람에게 내가 전하고 싶은 감정을 선택해주세요
                                 </p>
@@ -62,27 +77,30 @@
                                     <div class="feel" id="thanks" onclick="feelingCheck('고마움');">
                                         고마움
                                     </div>
-                                    <div class="feel" id="sorry" onclick="feelingCheck('미안함');" style="margin-left:50px;">
+                                    <div class="feel" id="sorry" onclick="feelingCheck('미안함');"
+                                        style="margin-left:50px;">
                                         미안함
                                     </div>
-                                    <div class="feel" id="cheer" onclick="feelingCheck('축하/응원');" style="margin-left:50px;">
+                                    <div class="feel" id="cheer" onclick="feelingCheck('축하/응원');"
+                                        style="margin-left:50px;">
                                         축하/응원
                                     </div>
                                     <div class="feel" id="love" onclick="feelingCheck('사랑');" style="margin-left:50px;">
                                         사랑
                                     </div>
-                                    <div class="feel" id="hello" onclick="feelingCheck('안부');" style="margin-left:50px;">
+                                    <div class="feel" id="hello" onclick="feelingCheck('안부');"
+                                        style="margin-left:50px;">
                                         안부
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class = "next_wrapper" style="top: 630px;">
-                                <div id="step2_next" class="next">NEXT</div>  
+
+                            <div class="next_wrapper" style="top: 630px;">
+                                <div id="step2_next" class="next">NEXT</div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
-    
+
                     <!-- step3 -->
                     <div class="swiper-slide">
                         <div id="step3" style=" width: 100%;">
@@ -92,16 +110,17 @@
                             </p>
                             <div class="input_textbox green" id="step3_1">
                                 <div class="num">01</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>우리가 처음 만났던 때</span>
-                                    <input class="step3_textbox step3_shape_green" type="text" name="step3_textbox1" id="step3_textbox1">
+                                    <input class="step3_textbox step3_shape_green" type="text" name="step3_textbox1"
+                                        id="step3_textbox1">
                                     <span class="text_end">이다.</span>
                                 </div>
                             </div>
 
                             <div class="input_textbox blue" id="step3_2">
                                 <div class="num">02</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>이 사람의 첫인상은</span>
                                     <input class="step3_textbox" type="text" name="step3_textbox2" id="step3_textbox2">
                                     <span class="text_end">이다.</span>
@@ -110,25 +129,25 @@
 
                             <div class="input_textbox yellow" id="step3_3">
                                 <div class="num">03</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>생각하면 떠오르는 색은</span>
-                                        <input class="step3_textbox" type="text" name="step3_textbox3" id="step3_textbox3">
-                                        <span class="text_end">이다.</span>
+                                    <input class="step3_textbox" type="text" name="step3_textbox3" id="step3_textbox3">
+                                    <span class="text_end">이다.</span>
                                 </div>
                             </div>
 
-                            <div class="input_textbox green"  id="step3_4">
+                            <div class="input_textbox green" id="step3_4">
                                 <div class="num">04</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>지난 날들 중, 가장 재미있었던 일은</span>
-                                        <input class="step3_textbox" type="text" name="step3_textbox4" id="step3_textbox4">
-                                        <span class="text_end">이다.</span>
+                                    <input class="step3_textbox" type="text" name="step3_textbox4" id="step3_textbox4">
+                                    <span class="text_end">이다.</span>
                                 </div>
                             </div>
 
                             <div class="input_textbox blue" id="step3_5">
                                 <div class="num">05</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>가장 진지했던 이야기 주제는</span>
                                     <input class="step3_textbox" type="text" name="step3_textbox5" id="step3_textbox5">
                                     <span class="text_end">이다.</span>
@@ -137,7 +156,7 @@
 
                             <div class="input_textbox yellow" id="step3_6">
                                 <div class="num">06</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>가장 마음이 쓰이는 날은</span>
                                     <input class="step3_textbox" type="text" name="step3_textbox6" id="step3_textbox6">
                                     <span class="text_end">이다.</span>
@@ -146,7 +165,7 @@
 
                             <div class="input_textbox green" id="step3_7">
                                 <div class="num">07</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>이 사람의 반전 매력은</span>
                                     <input class="step3_textbox" type="text" name="step3_textbox7" id="step3_textbox7">
                                     <span class="text_end">이다.</span>
@@ -155,7 +174,7 @@
 
                             <div class="input_textbox blue" id="step3_8">
                                 <div class="num">08</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>우리 둘의 공통점은</span>
                                     <input class="step3_textbox" type="text" name="step3_textbox8" id="step3_textbox8">
                                     <span class="text_end">이다.</span>
@@ -164,19 +183,19 @@
 
                             <div class="input_textbox yellow" id="step3_9">
                                 <div class="num">09</div>
-                                <div class = "textWrapper">
+                                <div class="textWrapper">
                                     <span>나에게 한 말 중 가장 인상 깊은 말은</span>
                                     <input class="step3_textbox" type="text" name="step3_textbox9" id="step3_textbox9">
                                     <span class="text_end">이다.</span>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                        <div class = "next_wrapper" style="top: 780px;">
-                            <div id="step3_next" class="next">NEXT</div>  
+                        <div class="next_wrapper" style="top: 780px;">
+                            <div id="step3_next" class="next">NEXT</div>
                         </div>
-                
+
                     </div>
-    
+
                     <!-- step4 -->
                     <div class="swiper-slide entireSwiper-swiper-slide">
                         <div id="step4" style=" width: 100%;">
@@ -189,37 +208,37 @@
                                     <div class="step4_quest">
                                         그때 나는 무엇을 보았나요? 👀
                                     </div>
-                                    <textarea class="step4_textbox" name="step4Text1" id="step4Text1" ></textarea>                      
+                                    <textarea class="step4_textbox" name="step4Text1" id="step4Text1"></textarea>
                                 </div>
                                 <div class="step4_main" id="ear">
                                     <div class="step4_quest">
                                         그때 나는 무엇을 들었나요? 👂
                                     </div>
-                                    <textarea class="step4_textbox" name="step4Text2" id="step4Text2"></textarea>                             
+                                    <textarea class="step4_textbox" name="step4Text2" id="step4Text2"></textarea>
                                 </div>
                                 <div class="step4_main" id="talk">
                                     <div class="step4_quest">
                                         그때 나는 어떤 말과 행동을 하였나요? 👄
                                     </div>
-                                    <textarea class="step4_textbox" name="step4Text3" id="step4Text3"></textarea>                              
+                                    <textarea class="step4_textbox" name="step4Text3" id="step4Text3"></textarea>
                                 </div>
                                 <div class="step4_main" id="think">
                                     <div class="step4_quest">
                                         그때 나는 무엇을 생각하고 느꼈나요? 🤔
                                     </div>
-                                    <textarea class="step4_textbox" name="step4Text4" id="step4Text4"></textarea>                           
+                                    <textarea class="step4_textbox" name="step4Text4" id="step4Text4"></textarea>
                                 </div>
                                 <div id="center">
                                     나
-                                </div>                                 
+                                </div>
                             </div>
-                            <div class = "next_wrapper" style="top: 580px;">
-                                <div id="step4_next" class="next">NEXT</div>  
+                            <div class="next_wrapper" style="top: 580px;">
+                                <div id="step4_next" class="next">NEXT</div>
                             </div>
                         </div>
-                        
+
                     </div>
-    
+
                     <!-- step5 -->
                     <div class="swiper-slide entireSwiper-swiper-slide">
                         <div id="step5" style=" width: 100%;">
@@ -228,46 +247,46 @@
                                 주어진 질문에 답하며 우리의 추억을 떠올려 보세요.
                             </p>
                             <div class="step5_text_wrapper">
-                                <div class="step5_1" >
-                                    <div id = "step5_question1">이 에피소드를 통해</br>그 친구에게 어떤 마음이 들었나요?
+                                <div class="step5_1">
+                                    <div id="step5_question1">이 에피소드를 통해</br>그 친구에게 어떤 마음이 들었나요?
                                     </div>
                                 </div>
                                 <div class="step5_1">
                                     <div>
-                                        <textarea id = "step5_answer1" name="step5Text1"></textarea>
-                                    </div>   
+                                        <textarea id="step5_answer1" name="step5Text1"></textarea>
+                                    </div>
                                 </div>
                                 <div class="step5_2">
-                                    <div id = "step5_question2">왜 그런 마음이 들었나요?</div>
+                                    <div id="step5_question2">왜 그런 마음이 들었나요?</div>
                                 </div>
                                 <div class="step5_2">
                                     <div>
-                                        <textarea id = "step5_answer2" name="step5Text2" ></textarea>
+                                        <textarea id="step5_answer2" name="step5Text2"></textarea>
                                     </div>
                                 </div>
                                 <div class="step5_3">
-                                    <div id = "step5_question3">왜 그렇게 느꼈나요?</div>
+                                    <div id="step5_question3">왜 그렇게 느꼈나요?</div>
                                 </div>
                                 <div class="step5_3">
                                     <div>
-                                        <textarea id = "step5_answer3" name="step5Text3"></textarea>
+                                        <textarea id="step5_answer3" name="step5Text3"></textarea>
                                     </div>
                                 </div>
                                 <div class="step5_4">
-                                    <div id = "step5_question4">왜 그렇게 생각했나요?</div>
+                                    <div id="step5_question4">왜 그렇게 생각했나요?</div>
                                 </div>
                                 <div class="step5_4">
                                     <div>
-                                        <textarea id = "step5_answer4" name="step5Text4"></textarea>
+                                        <textarea id="step5_answer4" name="step5Text4"></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <div class = "next_wrapper" style="top: 1200px;">
+                            <div class="next_wrapper" style="top: 1200px;">
                                 <div id="step5_next" class="next">NEXT</div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- step6 -->
                     <div class="swiper-slide entireSwiper-swiper-slide">
                         <div id="step6" style=" width: 100%;">
@@ -276,37 +295,40 @@
                                 어울리는 <span id="hl_blue">단어카드를 선택</span>해보세요<br>
                                 각 단어의 색은 내 감정에 맞게 글로 전달하는 것을 도와줍니다.<br>
                                 정해진 감정에 상관없이 자유롭게 골라도 좋습니다!<br>
-                                
+
                             </p>
                             <p style="font-family:gmarket_bold; font-size:20px;">원하는 감정을 선택해주세요</p>
-                            
+
                             <!-- 감정 카테고리 라디오 버튼 -->
                             <div class="step6_container">
                                 <table style="display:inline-block;">
                                     <tr>
                                         <td class="step6_container_td">
-                                            <div id = emotion_1 value = "1" class = "emotion_category animate_common"></div>
-                                            <div class = emotion_text id = emotion_text_1>공통단어</div>   
+                                            <div id=emotion_1 value="1" class="emotion_category animate_common"></div>
+                                            <div class=emotion_text id=emotion_text_1>공통단어</div>
                                         </td>
                                         <td class="step6_container_td">
-                                            <label id = emotion_2 value = "2" class="emotion_category animate_thanks" ></label>
-                                            <div  class = emotion_text id = emotion_text_2>고마움</div> 
+                                            <label id=emotion_2 value="2"
+                                                class="emotion_category animate_thanks"></label>
+                                            <div class=emotion_text id=emotion_text_2>고마움</div>
                                         </td>
                                         <td class="step6_container_td">
-                                            <label id = emotion_3 value = "3" class="emotion_category animate_sorry"></label>
-                                            <div  class = emotion_text id = emotion_text_3>미안함</div> 
+                                            <label id=emotion_3 value="3"
+                                                class="emotion_category animate_sorry"></label>
+                                            <div class=emotion_text id=emotion_text_3>미안함</div>
                                         </td>
                                         <td class="step6_container_td">
-                                            <label id = emotion_4 value = "4" class="emotion_category animate_celebration"></label>
-                                            <div  class = emotion_text id = emotion_text_4>축하응원</div> 
+                                            <label id=emotion_4 value="4"
+                                                class="emotion_category animate_celebration"></label>
+                                            <div class=emotion_text id=emotion_text_4>축하응원</div>
                                         </td>
                                         <td class="step6_container_td">
-                                            <label id = emotion_5 value = "5" class="emotion_category animate_love" ></label>
-                                            <div  class = emotion_text id = emotion_text_5>사랑</div> 
+                                            <label id=emotion_5 value="5" class="emotion_category animate_love"></label>
+                                            <div class=emotion_text id=emotion_text_5>사랑</div>
                                         </td>
                                         <td class="step6_container_td">
-                                            <label id = emotion_6 value = "6" class="emotion_category animate_say"></label>    
-                                            <div  class = emotion_text id = emotion_text_6>안부</div> 
+                                            <label id=emotion_6 value="6" class="emotion_category animate_say"></label>
+                                            <div class=emotion_text id=emotion_text_6>안부</div>
                                         </td>
                                     </tr>
                                 </table>
@@ -316,7 +338,8 @@
                                     <div class="swiper-slide">
                                         <div class="emotion_card_table emotion_card_table_common">
                                             <th:block th:each="item : ${common}">
-                                                <div th:text="${item}" class="emotion_card_text emotion_card_common" th:check=false th:id="${#strings.replace(item,' ','')}"></div>
+                                                <div th:text="${item}" class="emotion_card_text emotion_card_common"
+                                                    th:check=false th:id="${#strings.replace(item,' ','')}"></div>
                                             </th:block>
                                         </div>
                                     </div>
@@ -396,40 +419,40 @@
     <!-- swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        function feelingCheck(id){
+        function feelingCheck(id) {
             $("#feeling").val(id);
         }
 
 
-        $("#thanks").click(function(){
+        $("#thanks").click(function () {
             $("#thanks").css("background-color", "rgba(133, 194, 71, 0.2)");
             $("#sorry").css("background-color", "#fff");
             $("#cheer").css("background-color", "#fff");
             $("#love").css("background-color", "#fff");
             $("#hello").css("background-color", "#fff");
         });
-        $("#sorry").click(function(){
+        $("#sorry").click(function () {
             $("#thanks").css("background-color", "#fff");
             $("#sorry").css("background-color", "rgba(107, 167, 219, 0.2)");
             $("#cheer").css("background-color", "#fff");
             $("#love").css("background-color", "#fff");
             $("#hello").css("background-color", "#fff");
         });
-        $("#cheer").click(function(){
+        $("#cheer").click(function () {
             $("#thanks").css("background-color", "#fff");
             $("#sorry").css("background-color", "#fff");
             $("#cheer").css("background-color", "rgba(236, 106, 55, 0.2)");
             $("#love").css("background-color", "#fff");
             $("#hello").css("background-color", "#fff");
         });
-        $("#love").click(function(){
+        $("#love").click(function () {
             $("#thanks").css("background-color", "#fff");
             $("#sorry").css("background-color", "#fff");
             $("#cheer").css("background-color", "#fff");
             $("#love").css("background-color", "rgba(219, 77, 150, 0.2)");
             $("#hello").css("background-color", "#fff");
         });
-        $("#hello").click(function(){
+        $("#hello").click(function () {
             $("#thanks").css("background-color", "#fff");
             $("#sorry").css("background-color", "#fff");
             $("#cheer").css("background-color", "#fff");
@@ -437,36 +460,36 @@
             $("#hello").css("background-color", "rgba(232, 59, 77, 0.2)");
         });
 
-        $("#step3_textbox2").focus(function(){
-            $("html").animate({scrollTop:50}, 400);
+        $("#step3_textbox2").focus(function () {
+            $("html").animate({ scrollTop: 50 }, 400);
         });
-        $("#step3_textbox3").focus(function(){
-            $("html").animate({scrollTop:100}, 400);
+        $("#step3_textbox3").focus(function () {
+            $("html").animate({ scrollTop: 100 }, 400);
         });
-        $("#step3_textbox4").focus(function(){
-            $("html").animate({scrollTop:150}, 400);
+        $("#step3_textbox4").focus(function () {
+            $("html").animate({ scrollTop: 150 }, 400);
         });
-        $("#step3_textbox5").focus(function(){
-            $("html").animate({scrollTop:200}, 400);
+        $("#step3_textbox5").focus(function () {
+            $("html").animate({ scrollTop: 200 }, 400);
         });
-        $("#step3_textbox6").focus(function(){
-            $("html").animate({scrollTop:250}, 400);
+        $("#step3_textbox6").focus(function () {
+            $("html").animate({ scrollTop: 250 }, 400);
         });
-        $("#step3_textbox7").focus(function(){
-            $("html").animate({scrollTop:300}, 400);
+        $("#step3_textbox7").focus(function () {
+            $("html").animate({ scrollTop: 300 }, 400);
         });
-        $("#step3_textbox8").focus(function(){
-            $("html").animate({scrollTop:350}, 400);
+        $("#step3_textbox8").focus(function () {
+            $("html").animate({ scrollTop: 350 }, 400);
         });
-        $("#step3_textbox9").focus(function(){
-            $("html").animate({scrollTop:400}, 400);
+        $("#step3_textbox9").focus(function () {
+            $("html").animate({ scrollTop: 400 }, 400);
         });
 
-        $("#step5_answer2").focus(function(){
-            $("html").animate({scrollTop:300}, 400);
+        $("#step5_answer2").focus(function () {
+            $("html").animate({ scrollTop: 300 }, 400);
         });
-        $("#step5_answer3").focus(function(){
-            $("html").animate({scrollTop:600}, 400);
+        $("#step5_answer3").focus(function () {
+            $("html").animate({ scrollTop: 600 }, 400);
         });
 
     </script>

@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-rity"> 
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-rity">
+
 <head th:replace="fragments/MDP_main_fragment :: top('join')"></head>
+
 <body>
     <div class="login_wrapper">
 
         <div class="login_logo">
             <img src="/img/MDP/main_logo.png">
-        </div>      
+        </div>
 
         <div id="updown"></div>
-        
+
         <div class="login_form_wrapper">
             <div class="login_icon">
                 ADMIN JOIN
             </div>
-            <form th:action="@{/MDPadmin/join}" method ="POST">
+            <form th:action="@{/MDPadmin/join}" method="POST">
                 <div class="login_text" style="text-align:left;">
                     <span class="star">*</span> 아이디<br>
-                    <input type="text" name="username" size="15" placeholder=" 아이디" onfocus="this.placeholder=''" onblur="this.placeholder=' 아이디'">
+                    <input type="text" name="username" size="15" placeholder=" 아이디" onfocus="this.placeholder=''"
+                        onblur="this.placeholder=' 아이디'">
                 </div>
                 <div class="login_text" style="text-align:left;">
                     <span class="star">*</span> 비밀번호<br>
-                    <input type="password" name="password" size="15" placeholder=" 비밀번호" onfocus="this.placeholder=''" onblur="this.placeholder='비밀번호'">
+                    <input type="password" name="password" size="15" placeholder=" 비밀번호" onfocus="this.placeholder=''"
+                        onblur="this.placeholder='비밀번호'">
                 </div>
                 <div class="login_text" style="text-align:left;">
                     <span class="star">*</span> 승인코드<br>
-                    <input type="password" name="code" size="15" placeholder=" 승인코드" onfocus="this.placeholder=''" onblur="this.placeholder='승인코드'">
+                    <input type="password" name="code" size="15" placeholder=" 승인코드" onfocus="this.placeholder=''"
+                        onblur="this.placeholder='승인코드'">
                 </div>
                 <input type="hidden" value="1" name="enabled" />
                 <div class="button_wrapper" style="margin-top: 15px;">
-                    <input  class="button_login" type="submit" value="관리자 회원가입"/>
+                    <input class="button_login" type="submit" value="관리자 회원가입" />
                 </div>
             </form>
         </div>
     </div>
 </body>
+
 </html>

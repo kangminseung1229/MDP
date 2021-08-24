@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/MDP_main_fragment :: top('letter')">
+
 <body>
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="letter_wrapper">
-        
+
         <!-- <div id="letter_top">
             <div id="letter_title">
                 편지쓰기
@@ -47,64 +49,64 @@
                 - 돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.
             </div>
         </div> -->
-       
+
         <div id="letter_left">
-            <div id = "guide_wrapper_parent" class="guide_wrapper_parent">
-               <button id = "guide_button" class="guide_button" th:check=false >> 편지쓰기 가이드</button>
-               
-               <div class="guide_wrapper_two">
+            <div id="guide_wrapper_parent" class="guide_wrapper_parent">
+                <button id="guide_button" class="guide_button" th:check=false>> 편지쓰기 가이드</button>
+
+                <div class="guide_wrapper_two">
                     <div style="display: flex; flex-direction: row; margin-bottom: 13px;">
-                        <div id = "guide1" class="letter_shadow guide_wrapper" style="margin-right:13px;">
-                            <div class="guide_tittle"><span id = "hand">🖐</span> 가벼운 인사말로 시작해 보세요</div>
+                        <div id="guide1" class="letter_shadow guide_wrapper" style="margin-right:13px;">
+                            <div class="guide_tittle"><span id="hand">🖐</span> 가벼운 인사말로 시작해 보세요</div>
                             <div class="guide_sub">
-                                <div >
+                                <div>
                                     예시)<br>
                                     안녕 오랜만이야, 잘 지내고 있지?<br>
-                                    안녕하세요 저 00 입니다. 잘 지내고 계신가요?</div>   
+                                    안녕하세요 저 00 입니다. 잘 지내고 계신가요?</div>
                             </div>
                         </div>
-                        <div id = "guide2" class="letter_shadow guide_wrapper">
+                        <div id="guide2" class="letter_shadow guide_wrapper">
                             <div class="guide_tittle">💭 에피소드로 이야기를 시작해요</div>
                             <div class="guide_sub">
-                                <div >
+                                <div>
                                     예시)<br>
                                     그때 기억나니?<br>
-                                        편지를 쓰려다 보니 너와 함께 했던 이때가 기억났어.<br>
-                                    널 보면 항상 그 자리에 서 있는 나무가 떠올라.</div>   
+                                    편지를 쓰려다 보니 너와 함께 했던 이때가 기억났어.<br>
+                                    널 보면 항상 그 자리에 서 있는 나무가 떠올라.</div>
                             </div>
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: row;">
-                        <div id = "guide3" class="letter_shadow guide_wrapper"  style="margin-right:13px;">
+                        <div id="guide3" class="letter_shadow guide_wrapper" style="margin-right:13px;">
                             <div class="guide_tittle">😏 에피소드를 좀 더 자세히 풀어내요</div>
                             <div class="guide_sub">
-                                <div >
+                                <div>
                                     예시)<br>
                                     제가 굉장히 걱정하면서 어렵게 꺼낸 이야기를 잘 들어주셨던게 기억이 나요.<br>
-                                    그때 너랑 나랑 정말 다르면서도 비슷하다고 생각했어.</div>   
+                                    그때 너랑 나랑 정말 다르면서도 비슷하다고 생각했어.</div>
                             </div>
                         </div>
-                        <div id = "guide4" class="letter_shadow guide_wrapper">
+                        <div id="guide4" class="letter_shadow guide_wrapper">
                             <div class="guide_tittle">😉 전하고 싶은 솔직한 감정을 꺼내요</div>
                             <div class="guide_sub">
-                                <div >
+                                <div>
                                     예시)<br>
                                     말로 표현하지는 못했지만 언제나 날 응원해 주는 너에게 고마움을 느끼고 있어.<br>
-                                    돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.</div>   
+                                    돌이켜 보니 그때 해주신 말씀 덕분에 제가 지금까지 올 수 있었다고 전하고 싶었어요.</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        
-            
-            
+
+
+
             <!-- <hr style="border: solid 1px grey;"> -->
 
-                
-            <div id="one"class="letter_shadow">
+
+            <div id="one" class="letter_shadow">
                 <div class="hashtag" id="step2">
-                    <span id = "step2_emotion" th:text="|# ${feeling}|"></span>
+                    <span id="step2_emotion" th:text="|# ${feeling}|"></span>
                 </div>
                 <div class="hashtag green">
                     <span th:text="|# ${step3_textbox1}|"></span>
@@ -137,7 +139,7 @@
             <div id="two" class="letter_shadow">
                 <div class="second_wrapper">
                     <div class="second_div left">
-                        그때 나는 무엇을 보았나요?  👀
+                        그때 나는 무엇을 보았나요? 👀
                         <div class="inner_div">
                             <span th:text="${step4Text1}"></span>
                         </div>
@@ -203,14 +205,14 @@
                     </div>
                 </div>
             </div>
-            <div class="step6_letter_shadow" >
-                <span id = "step6_emotion_result" th:text="${step6_emotion_result}" style="display: none;"></span>
-                <table id = "letter_select_word"></table>
-            </div> 
-        
+            <div class="step6_letter_shadow">
+                <span id="step6_emotion_result" th:text="${step6_emotion_result}" style="display: none;"></span>
+                <table id="letter_select_word"></table>
+            </div>
 
-        </div>   
-    
+
+        </div>
+
         <div id="letter_right">
             <div style="width: 400px; height: auto;display: inline-block;">
 
@@ -226,17 +228,19 @@
                 <form th:action="@{/MDP/fin}" method="POST" autocomplete="off">
                     <div id="letter">
                         <img src="/img/MDP/twinkle.png" class="twinkle">
-                        <div class = "letter_to">
-                            <p style="display: inline; white-space: nowrap;">TO.</p><input type="text" id = "letter_to_name" name="letterTo" th:value="${step1Text}" style="width:100px;">
+                        <div class="letter_to">
+                            <p style="display: inline; white-space: nowrap;">TO.</p><input type="text"
+                                id="letter_to_name" name="letterTo" th:value="${step1Text}" style="width:100px;">
                         </div>
-                        <div id = "letter_img">
+                        <div id="letter_img">
                             <img src="" id="target" alt="" style="max-width:330px; max-height:200px;">
                         </div>
                         <textarea id="letter_textarea" name="letterText"></textarea>
-                        <div class = "letter_from">
-                            <p style="display: inline; white-space: nowrap;">FROM.</p><input type="text" id = "letter_from_name" name="letterFrom" th:value="${step1Me}" style="width:75px;">
+                        <div class="letter_from">
+                            <p style="display: inline; white-space: nowrap;">FROM.</p><input type="text"
+                                id="letter_from_name" name="letterFrom" th:value="${step1Me}" style="width:75px;">
                         </div>
-                        <div id = "wave_shape">
+                        <div id="wave_shape">
                             <div class="letter_thinkus">THINKUS</div>
                             <div class='wave-top'></div>
                             <div class="wave-mid"></div>
@@ -244,43 +248,44 @@
                         <input class="next" type="submit" style="margin-top: 50px;">
                     </div>
                 </form>
-                    
-               
+
+
             </div>
-            
-        </div>  
-       
+
+        </div>
+
     </div>
 </body>
+
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-    var common=["진심의","의지되는","감사한","걱정스러운","기억에 남는",
-                "친절한","안심이 되는","그리운","배려하는","위로의","재미있는",
-                "빛나는","건강한","밝은","기대되는","행복한","든든한","아름다운",
-                "따스한","보고싶은","편안한","신나는"];
-    var thanks=["찬란한","정감 있는","나를 위한","감동적인","베푸는",
-                "인자한","설레는","벅차는","보답하는","사려깊은"];
-    var sorry=["늦었지만","이제라도","사과하는","슬픈","마음 아픈",
-                "죄송한","눈물나는","속상한","안타까운","안쓰러운"];
-    var celebration=["긍정적인","뿌듯한","믿음직한","따뜻한","열정적인",
-                    "활발한","생기 넘치는","매력적인","부지런한"];
-    var love=["응원하는","여유로운","하나뿐인","사랑스러운","오랫동안",
-                "풍부한","간직하고 싶은","고운","부드러운","감싸주는"];
-    var say=["화사한","아련한","씁쓸한","단단한","외로운",
-                "궁금한","다시 예전처럼","포근한","잔잔한","끈끈한"];
-    var emotionList = [common,thanks,sorry,celebration,love,say];
+    var common = ["진심의", "의지되는", "감사한", "걱정스러운", "기억에 남는",
+        "친절한", "안심이 되는", "그리운", "배려하는", "위로의", "재미있는",
+        "빛나는", "건강한", "밝은", "기대되는", "행복한", "든든한", "아름다운",
+        "따스한", "보고싶은", "편안한", "신나는"];
+    var thanks = ["찬란한", "정감 있는", "나를 위한", "감동적인", "베푸는",
+        "인자한", "설레는", "벅차는", "보답하는", "사려깊은"];
+    var sorry = ["늦었지만", "이제라도", "사과하는", "슬픈", "마음 아픈",
+        "죄송한", "눈물나는", "속상한", "안타까운", "안쓰러운"];
+    var celebration = ["긍정적인", "뿌듯한", "믿음직한", "따뜻한", "열정적인",
+        "활발한", "생기 넘치는", "매력적인", "부지런한"];
+    var love = ["응원하는", "여유로운", "하나뿐인", "사랑스러운", "오랫동안",
+        "풍부한", "간직하고 싶은", "고운", "부드러운", "감싸주는"];
+    var say = ["화사한", "아련한", "씁쓸한", "단단한", "외로운",
+        "궁금한", "다시 예전처럼", "포근한", "잔잔한", "끈끈한"];
+    var emotionList = [common, thanks, sorry, celebration, love, say];
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
 
-        $("#help").click(function(){
-            $("#write_helper").css("display", "block");  
+        $("#help").click(function () {
+            $("#write_helper").css("display", "block");
             $("#letter_left").css("opacity", 0.3);
         });
-        $("#close_helper").click(function(){
-            $("#write_helper").css("display", "none");  
+        $("#close_helper").click(function () {
+            $("#write_helper").css("display", "none");
             $("#letter_left").css("opacity", 1);
         });
         $("#letter_to_name").css('width', '200');
@@ -289,14 +294,14 @@
 
         let emotionValue = $("#step6_emotion_result").text().split('|');
 
-        emotionList.forEach(function(value,index){
+        emotionList.forEach(function (value, index) {
 
-            value.forEach(function(subValue,subIndex){
-                emotionValue.forEach(function(emoValue,emoIndex){
+            value.forEach(function (subValue, subIndex) {
+                emotionValue.forEach(function (emoValue, emoIndex) {
 
-                    if(subValue == emoValue){
-                        addStep6(emoValue,index);
-                        
+                    if (subValue == emoValue) {
+                        addStep6(emoValue, index);
+
                     }
 
 
@@ -308,92 +313,92 @@
         $(".guide_wrapper_two").hide();
         guideChecked();
 
-        $("#guide_button").click(function(){
-            let checkVal =  $("#guide_button").prop("check");
+        $("#guide_button").click(function () {
+            let checkVal = $("#guide_button").prop("check");
 
-            if(checkVal!=true){
+            if (checkVal != true) {
                 console.log(checkVal);
                 guideChecked();
-                
-                
+
+
             }
-            else{
+            else {
                 $("#guide_button").removeClass("guide_button_check");
                 $("#guide_button").addClass("guide_button");
                 $("#guide_button").html("> 편지쓰기 가이드");
                 $(".guide_wrapper_parent").removeClass("slideUpDown");
                 console.log(checkVal);
-                $("#guide_button").prop("check",false);
+                $("#guide_button").prop("check", false);
                 $(".guide_wrapper_parent").addClass("slideDownUp");
                 $(".guide_wrapper_two").fadeOut(600);
             }
         });
 
 
-        function guideChecked(){
+        function guideChecked() {
             $("#guide_button").removeClass("guide_button");
             $("#guide_button").addClass("guide_button_check");
             $("#guide_button").html("> 편지쓰기 가이드 접기");
             $(".guide_wrapper_parent").removeClass("slideDownUp");
-            $("#guide_button").prop("check",true);
+            $("#guide_button").prop("check", true);
             $(".guide_wrapper_two").fadeIn(600);
             $(".guide_wrapper_parent").addClass("slideUpDown");
-            
+
         }
         $("#guide2").hover(
             function () {
-            $(this).addClass("animated swing");
+                $(this).addClass("animated swing");
 
             },
             function () {
-            $(this).removeClass("animated swing");
+                $(this).removeClass("animated swing");
             }
         );
 
         $("#guide3").hover(
             function () {
-            $(this).addClass("animated rubberBand");
+                $(this).addClass("animated rubberBand");
 
             },
             function () {
-            $(this).removeClass("animated rubberBand");
+                $(this).removeClass("animated rubberBand");
             }
         );
 
         $("#guide4").hover(
             function () {
-            $(this).addClass("animated jello");
+                $(this).addClass("animated jello");
             },
             function () {
-            $(this).removeClass("animated jello");
+                $(this).removeClass("animated jello");
             }
         );
 
-        
-       
-    });
-    $("#target").prop("src",localStorage["target"]);
 
-    function step2Css(text){
-       
-        switch(text){
-            case "# 고마움":{
+
+    });
+    $("#target").prop("src", localStorage["target"]);
+
+    function step2Css(text) {
+
+        switch (text) {
+            case "# 고마움": {
                 $("#step2").addClass("thanks");
                 break;
             }
-            case "# 미안함":{
+            case "# 미안함": {
                 $("#step2").addClass("sorry");
                 break;
             }
-            case "# 축하/응원":{
+            case "# 축하/응원": {
                 $("#step2").addClass("celebration");
                 break;
             }
-            case "# 사랑":{
+            case "# 사랑": {
                 $("#step2").addClass("love");
                 break;
             }
-            case "# 안부":{
+            case "# 안부": {
                 $("#step2").addClass("say");
                 break;
             }
@@ -401,43 +406,43 @@
     }
 
 
-    function addStep6(emotion,index){
+    function addStep6(emotion, index) {
         let last_node_count = $("#letter_select_word").children().last().children().length;
-        if(last_node_count>=6 || last_node_count == 0){
+        if (last_node_count >= 6 || last_node_count == 0) {
             $("#letter_select_word").append('<tr class = "select_tr">');
         }
         let class_result;
-        switch(index){
-            case 0:{
+        switch (index) {
+            case 0: {
                 class_result = "emotion_card_common";
-               
+
                 break;
             }
-            case 1:{
+            case 1: {
                 class_result = "emotion_card_thanks";
                 break;
             }
-            case 2:{
+            case 2: {
                 class_result = "emotion_card_sorry";
                 break;
             }
-            case 3:{
+            case 3: {
                 class_result = "emotion_card_celebration";
                 break;
             }
-            case 4:{
+            case 4: {
                 class_result = "emotion_card_love";
                 break;
             }
-            case 5:{
+            case 5: {
                 class_result = "emotion_card_say";
                 break;
             }
         }
 
-        
+
         let label = $('<div/>', {
-            value : emotion
+            value: emotion
         });
         label.addClass("eventNone");
         label.addClass(class_result);
@@ -446,6 +451,6 @@
 
         $("#letter_select_word").children().last().append("<td>").children().last().append(label);
     }
-    
+
 
 </script>

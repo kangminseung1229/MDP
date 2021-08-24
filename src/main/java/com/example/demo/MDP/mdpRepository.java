@@ -10,25 +10,30 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface mdpRepository extends JpaRepository<mdpPurchaseCode,Long> {
+public interface mdpRepository extends JpaRepository<mdpPurchaseCode, Long> {
 
     Page<mdpPurchaseCode> findByUser(String user, Pageable pageable);
+
     Page<mdpPurchaseCode> findAll(Pageable pageable);
+
     Page<mdpPurchaseCode> findByOrderByIdDesc(Pageable pageable);
 
     Long countByCodeAndUserIsNull(String code);
+
     Long countByUser(String user);
+
     Long countByCode(String code);
+
     Long countByUserOrCodeAndUserIsNotNull(String code, String user);
 
-    @Query(value="SELECT id FROM mdpPurchaseCode order by id desc limit 1", nativeQuery = true )
+    @Query(value = "SELECT id FROM mdpPurchaseCode order by id desc limit 1", nativeQuery = true)
     long lastColumn();
 
-    @Query(value="SELECT user FROM mdpPurchaseCode WHERE CODE=:user", nativeQuery = true )
+    @Query(value = "SELECT user FROM mdpPurchaseCode WHERE CODE=:user", nativeQuery = true)
     String findUser(String user);
 
     @Transactional
     @Modifying
-    @Query(value="UPDATE mdpPurchaseCode SET USER=:user WHERE CODE=:code", nativeQuery = true )
+    @Query(value = "UPDATE mdpPurchaseCode SET USER=:user WHERE CODE=:code", nativeQuery = true)
     void updateUser(String user, String code);
-}    
+}

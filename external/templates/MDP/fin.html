@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/MDP_main_fragment :: top('fin')">
+
 <body>
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="fin_wrapper">
 
-        <div class = "envelope_parents">
+        <div class="envelope_parents">
 
-            <div id = "envelope_root" class = "envelope animated swing">
-                <div class = "envelope_inner">
+            <div id="envelope_root" class="envelope animated swing">
+                <div class="envelope_inner">
                     <div class="envelope_wrapper_front ">
-                        <img class = "envelope" img src="/img/MDP/envelope.png">
+                        <img class="envelope" img src="/img/MDP/envelope.png">
                         <div class="letter_font letter_to_position">
-                            <span>TO.</span><span id = "letter_to_name" th:text="${letterTo}"></span>
+                            <span>TO.</span><span id="letter_to_name" th:text="${letterTo}"></span>
                         </div>
                         <div class="letter_font letter_from_position">
-                            <span>FROM.</span><span id = "letter_from_name" th:text="${letterFrom}"></span>
+                            <span>FROM.</span><span id="letter_from_name" th:text="${letterFrom}"></span>
                         </div>
                     </div>
                     <div class="envelope_wrapper_back">
-                        <img class = "envelope" img src="/img/MDP/envelope_back.png">
+                        <img class="envelope" img src="/img/MDP/envelope_back.png">
                     </div>
                 </div>
             </div>
             <div class="envelope_last">
-                <img class = "envelope_back_next envelope" img src="/img/MDP/envelope_back_next.png">
-             
+                <img class="envelope_back_next envelope" img src="/img/MDP/envelope_back_next.png">
+
                 <div id="letter" style="margin-top:-350px;">
                     <div class="letter_background">
                         <div class="letter_to letter_font">
-                            <span>TO.</span><span id = "letter_to_name" th:text="${letterTo}"></span>
+                            <span>TO.</span><span id="letter_to_name" th:text="${letterTo}"></span>
                         </div>
                         <div class="letter_image">
                             <img src="" id="target" alt="" style="max-width:330px; max-height:200px;">
@@ -37,47 +39,49 @@
                         <div class="display_none">
                             <div id="letter_textarea" th:text="${letterText}"></div>
                             <div id="letter_from" class="letter_font">
-                                <span>FROM.</span><span id = "letter_from_name" th:text="${letterFrom}"></span>
+                                <span>FROM.</span><span id="letter_from_name" th:text="${letterFrom}"></span>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="letter_bottom">
-                        <img src="/img/MDP/letter.png" style="max-width:100%; position:relative; top:-247px;">   
+                        <img src="/img/MDP/letter.png" style="max-width:100%; position:relative; top:-247px;">
                     </div>
                 </div>
 
             </div>
-            
+
             <div class="arrive_letter">편지가 완성되었습니다<br> 편지 봉투를 클릭해보세요</div>
         </div>
-        <div id = "fin_buttons">
+        <div id="fin_buttons">
             <div id="fin_paragraph">
                 <p>
                     편지가 완성되었습니다.<br>
                     소중한 사람에게 전달해보아요 :)
                 </p>
             </div>
-    
+
             <div id="fin_btn_wrapper">
                 <button class="fin_btn" id="copy">편지 복사하기</button>
                 <button class="fin_btn" id="save_image">이미지로 저장하기</button>
-                <input type="button" class="fin_btn" id="to_first" onclick="location.href='/MDP/main'" value="첫페이지로 돌아가기">
+                <input type="button" class="fin_btn" id="to_first" onclick="location.href='/MDP/main'"
+                    value="첫페이지로 돌아가기">
             </div>
         </div>
-        
-        
+
+
 
     </div>
 </body>
+
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script type="text/javascript">
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-        $("#envelope_root").click(function(){
+        $("#envelope_root").click(function () {
             $("#envelope_root").hide();
             $(".envelope_back_next").show();
             $("#letter").fadeIn(600);
@@ -85,64 +89,64 @@
             $("#letter").addClass("preview");
             $("#letter").addClass("privew_letter");
             $(".arrive_letter").html("편지지를 클릭해주세요");
-            $(".arrive_letter").css("margin-top","50px");
+            $(".arrive_letter").css("margin-top", "50px");
             // $(".envelope_last").css("margin-top","100px");
         });
 
-        $("#letter").click(function(){
+        $("#letter").click(function () {
             $("#letter").removeClass("privew_letter");
             $(".envelope_back_next").hide();
             $(".arrive_letter").hide();
             $(".display_none").fadeIn(600);
             $("#fin_buttons").fadeIn(600);
-            $("#letter").css("margin-top","-200px");
+            $("#letter").css("margin-top", "-200px");
         });
 
         // 버튼 클릭시 편지를 jpg 형식으로 저장
-        $("#save_image").on("click", function(){
-            html2canvas(document.querySelector("#letter"), {scrollY: -window.scrollY}).then(function(canvas){
-                if(canvas.msToBlob){
+        $("#save_image").on("click", function () {
+            html2canvas(document.querySelector("#letter"), { scrollY: -window.scrollY }).then(function (canvas) {
+                if (canvas.msToBlob) {
                     var blob = canvas.msToBlob();
                     window.navigator.msSaveBlob(blob, "capture.jpg");
                 }
-                else{
+                else {
                     saveAs(canvas.toDataURL(), "capture.jpg");
                 }
             });
 
-            function saveAs(uri, filename){
-                var link=document.createElement('a');
-                if(typeof link.download==='string'){
-                    link.href=uri;
-                    link.download=filename;
+            function saveAs(uri, filename) {
+                var link = document.createElement('a');
+                if (typeof link.download === 'string') {
+                    link.href = uri;
+                    link.download = filename;
 
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                 }
-                else{
+                else {
                     window.open(uri);
                 }
             }
 
         });
 
-     
+
 
         //브라우저에 저장된 이미지 호출
-        $("#target").prop("src",localStorage["target"]);
+        $("#target").prop("src", localStorage["target"]);
 
         //버튼 클릭시 편지 텍스트 클립보드에 복사
-        $("#copy").click(function(){
+        $("#copy").click(function () {
             alert("편지를 복사하였습니다");
             const valOfDiv = document.getElementById("letter_textarea").textContent;
-            const textArea=document.createElement('textarea');
+            const textArea = document.createElement('textarea');
             document.body.appendChild(textArea);
-            textArea.value=valOfDiv;
+            textArea.value = valOfDiv;
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
         });
     });
-    
+
 </script>
