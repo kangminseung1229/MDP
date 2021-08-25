@@ -2,26 +2,34 @@ $(document).ready(function(){
     // Swiper 객체 생성
     swiper = new Swiper(".entireSwiper", {
         // Swiper 속성 설정
-        allowTouchMove : false,
 
+        // swipe 터치 막음
+        loop : false, 
+        speed : 200, 
+        initialSlide : 0, 
+        pagination : false, 
+        simulateTouch : false, 
+        // 네비게이션 버튼
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev"
         },
-
-        on: {
-            activeIndexChange: function () {
-                num = this.realIndex + 1;
-                $("input:radio[id=" + num + "]").prop('checked', true);
-                $('html, body').scrollTop(0);
-            }
-        },
+        // 키보드 이벤트 막기
         keyboard: {
             enabled: false,
             onlyInViewport: false,
             pageUpDown: false
         }
     });
+
+    swiper.on("transitionEnd", function(e){
+
+        num = swiper.activeIndex+1;
+        $("input:radio[id=" + num + "]").prop('checked', true);
+        $('html, body').scrollTop(0);
+
+    });
+
     // Swiper 내비게이션 버튼 비활성화
     $('.swiper-button-next').addClass( "disabled" );
     $('.swiper-button-prev').addClass( "disabled" );

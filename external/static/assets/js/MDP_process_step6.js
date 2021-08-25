@@ -10,8 +10,6 @@ $(document).ready(function () {
             activeIndexChange: function () {
                 let num = this.realIndex + 1;
                 $("input[id=emotion" + num + "]").prop('checked', true);
-                console.log(num);
-
             }
         },
         keyboard: {
@@ -101,7 +99,6 @@ $('.emotion_card_text').on('click', function () {
     }
     // 감정단어 추가
     else {
-        console.log($(this));
         addEmotion($(this).clone());
         $(this).addClass("emotion_card_text_checked");
         $(this).prop("check", true);
@@ -111,9 +108,8 @@ $('.emotion_card_text').on('click', function () {
 // 내가 선택한 감정단어 : 추가
 function addEmotion(emotion) {
     let last_node_count = $("#select_word").children().last().children().length;
-    console.log(last_node_count);
     checkedId.push(emotion);
-    console.log($(".select_word").append(emotion));
+    $(".select_word").append(emotion)
 
     // 내가 선택한 감정단어 클릭시 지우기
     $(emotion).click(function () {
@@ -121,7 +117,6 @@ function addEmotion(emotion) {
         let smaeID = $(emotion).prop("id");
         $("#" + smaeID).prop("check", false);
         $("#" + smaeID).removeClass("emotion_card_text_checked");
-        console.log(smaeID);
     });
 
 }
@@ -180,7 +175,6 @@ function clickCategory(idName) {
             if (i == num) {
                 $("#emotion_" + num).addClass("emotion_checked");
                 $("#emotion_text_" + num).addClass("emotion_checked_text");
-                console.log(num);
             }
             else {
                 $("#emotion_" + i).removeClass("emotion_checked");
