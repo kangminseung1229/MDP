@@ -57,6 +57,7 @@
     margin-bottom:20px;
     padding-top:3%;
     font-family: gmarket_medium;
+    line-height:23px;
 }
 
 #login_form input:focus{
