@@ -1,36 +1,35 @@
-<<<<<<< HEAD
 $(document).ready(function(){
     // Swiper 객체 생성
     swiper = new Swiper(".entireSwiper", {
         // Swiper 속성 설정
-        allowTouchMove : false,
-=======
-$(document).ready(function () {
 
-    swiper = new Swiper(".entireSwiper", {
-
-        allowTouchMove: false,
->>>>>>> 5efb4d38d9b81942f5e9928f383c011346019852
-
+        // swipe 터치 막음
+        loop : false, 
+        speed : 200, 
+        initialSlide : 0, 
+        pagination : false, 
+        simulateTouch : false, 
+        // 네비게이션 버튼
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev"
         },
-
-        on: {
-            activeIndexChange: function () {
-                num = this.realIndex + 1;
-                $("input:radio[id=" + num + "]").prop('checked', true);
-                $('html, body').scrollTop(0);
-            }
-        },
+        // 키보드 이벤트 막기
         keyboard: {
             enabled: false,
             onlyInViewport: false,
             pageUpDown: false
         }
     });
-<<<<<<< HEAD
+
+    swiper.on("transitionEnd", function(e){
+
+        num = swiper.activeIndex+1;
+        $("input:radio[id=" + num + "]").prop('checked', true);
+        $('html, body').scrollTop(0);
+
+    });
+
     // Swiper 내비게이션 버튼 비활성화
     $('.swiper-button-next').addClass( "disabled" );
     $('.swiper-button-prev').addClass( "disabled" );
@@ -46,19 +45,6 @@ $(document).ready(function () {
         
         switch(menu){
             case "1": { //Step1 받는 사람
-=======
-    $('.swiper-button-next').addClass("disabled");
-    $('.swiper-button-prev').addClass("disabled");
-    //   임시로 페이지로 고정
-    $('html, body').scrollTop(0);
-    swiper.slideTo(0);
-
-    $("input:radio[name=menu]").change(function () {
-        let menu = $('input:radio[name="menu"]:checked').val();
-
-        switch (menu) {
-            case "1": {
->>>>>>> 5efb4d38d9b81942f5e9928f383c011346019852
                 $('html, body').scrollTop(0);
                 swiper.slideTo(0);
                 break;
