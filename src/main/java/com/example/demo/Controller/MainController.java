@@ -1,6 +1,5 @@
 package com.example.demo.Controller;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,14 +12,14 @@ public class MainController{
 
     @GetMapping("/")
     public String index(HttpServletRequest request, Model model) {
-        // 세션 검사
+        // 세션을 받고 
         HttpSession session = request.getSession();
         String permission = (String) session.getAttribute("permission");
         String user = (String) session.getAttribute("user");
         model.addAttribute("loginOut", permission);
         model.addAttribute("user", user);
 
-        return "MDP/main";     
+        return "MDP/main";      
     }
 
 }
