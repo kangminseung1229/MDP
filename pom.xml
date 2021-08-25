@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>kr.co.taxnet.new</groupId>
-	<artifactId>newtaxnet</artifactId>
-	<version>001</version>
-	<name>newtaxnet</name>
+	<artifactId>MDP</artifactId>
+	<version>008</version>
+	<name>MDP</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
