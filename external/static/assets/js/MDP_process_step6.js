@@ -1,30 +1,29 @@
 checkedId = new Array();
 
 $(document).ready(function () {
-
+    // emotion Swiper 객체 생성
     emotionSwiper = new Swiper(".emotionSwiper", {
-
+        // Swiper 속성 설정
         autoHeight: true,
-        allowTouchMove: false,
-        on: {
-            activeIndexChange: function () {
-                let num = this.realIndex + 1;
-                $("input[id=emotion" + num + "]").prop('checked', true);
-            }
-        },
+        // swipe 터치 막음
+        loop : false, 
+        speed : 200, 
+        initialSlide : 0, 
+        pagination : false, 
+        simulateTouch : false,
+        // 키보드 이벤트 막기
         keyboard: {
             enabled: false,
             onlyInViewport: false,
             pageUpDown: false
         },
     });
-
+    // 감정 Swiper, 선택 박스, 버튼 hide
     $(".emotionSwiper").hide();
     $(".step6_container_select").hide();
     $("#step6_next").hide();
 
-    idNum = 0;
-    let firstCount = false;
+    // 감정카드 카테고리 선택시 Swiper 움직임
 
     $("input:radio[name=step6_emotion_category]").change(function () {
         $("#emotion_common").removeClass("animate_common");

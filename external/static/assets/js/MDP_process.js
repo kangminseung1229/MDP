@@ -22,8 +22,8 @@ $(document).ready(function(){
         }
     });
 
+    // Swiper index에 따라 메뉴 라디오 버튼 활성화
     swiper.on("transitionEnd", function(e){
-
         num = swiper.activeIndex+1;
         $("input:radio[id=" + num + "]").prop('checked', true);
         $('html, body').scrollTop(0);
@@ -104,7 +104,7 @@ function step1() {
     onkeyUpFunc(9, stage3);
     step1Next();
     
-// 텍스트박스 텍스트 검사
+    // 텍스트박스의 key를 up했을때 해당 함수 실행
     function onkeyUpFunc(num,func) {
         $("#step1_textbox"+num).keyup(function(){
             func();
@@ -113,12 +113,13 @@ function step1() {
 
     // step1 : stage1
     function stage1() {
+        // 텍스트를 작성하였을 경우
         if ($("#step1_textbox1").val().length > 0) {
             nowStage = 1;
             $('#stage2').fadeIn(600);
             $('#step1_shape_num2').fadeIn(600);
 
-            // TextBox
+            // TextBox 보이기
             for (let i = 2; i <= 4; i++) {
                 $('#step1_textbox' + i).fadeIn(600);
             }
@@ -133,6 +134,7 @@ function step1() {
     // step1 : stage2
     function stage2() {
         nowStage = 2;
+        // 텍스트를 작성하였을 경우
         if( $("#step1_textbox2").val().length>0 &&  
             $("#step1_textbox3").val().length >0 &&  
             $("#step1_textbox4").val().length>0){
@@ -156,6 +158,7 @@ function step1() {
     // step1 : stage3
     function stage3() {
         nowStage = 3;
+        // 텍스트를 작성하였을 경우
         if( $("#step1_textbox5").val().length>0 &&  $("#step1_textbox6").val().length >0 &&  
             $("#step1_textbox7").val().length>0 && $("#step1_textbox8").val().length>0 &&  
             $("#step1_textbox9").val().length >0 ){
@@ -174,16 +177,20 @@ function step1() {
 
     // next 버튼 함수
     function step1Next() {
+        // next버튼을 눌렀을 경우
         $("#step1_next").click(function () {
-
+            // 모든 텍스트가 작성되었을 경우
             if ($("#step1_textbox5").val().length > 0 && $("#step1_textbox6").val().length > 0 &&
                 $("#step1_textbox7").val().length > 0 && $("#step1_textbox8").val().length > 0 &&
                 $("#step1_textbox9").val().length > 0) {
+                
+                // stage3에서 버튼을 눌렀을 때
                 if (nowStage == 3) {
-                    stage4();
+                    stage4();   //한 사람을 선택하는 함수 실행
                 }
+                // stage4에서 버튼을 눌렀을 때
                 else if (nowStage == 4) {
-                    swiper.slideTo(1);
+                    swiper.slideTo(1); // Step2로 넘어가기
                     $("#2").removeAttr("disabled");        
                 }
             }
@@ -193,13 +200,14 @@ function step1() {
     // step1 : stage4 8개의 사람 중 편지를 전하고자 하는 사람 선택
     function stage4(){
         nowStage = 4;
-        // 
+        // 모든 텍스트가 작성되었는지 확인
         if($("#step1_textbox1").val().length>0 &&  $("#step1_textbox2").val().length >0 &&  
             $("#step1_textbox3").val().length>0 && $("#step1_textbox4").val().length>0 &&  
             $("#step1_textbox5").val().length >0 && $("#step1_textbox6").val().length>0 &&  
             $("#step1_textbox7").val().length >0 &&  $("#step1_textbox8").val().length>0 &&
             $("#step1_textbox9").val().length>0 ){
-            
+                
+                // 원래 
                 $('#stage1').fadeOut(600);
                 $('#stage2').fadeOut(600);
                 $('#stage3').fadeOut(600);
