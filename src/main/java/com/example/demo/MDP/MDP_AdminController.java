@@ -85,42 +85,15 @@ public class MDP_AdminController {
     public String manage(Model model, @RequestParam(required = false, defaultValue = "") String searchText,
             @PageableDefault(size = 15) Pageable pageable) {
         // 페이징
-        Page<mdpPurchaseCode> page = mdpRepo.findAll(pageable);
+        Page<mdpPurchaseCode> page;
 
-        int startPage;
-        int endPage;
-
-        // 한 번에 뜨는 페이지의 개수가 5개 혹은 그 미만으로 뜨게 하기 위한 조건문
-        // 현재 페이지가 1,2인 경우 총 페이지가 5미만일 때는 마지막 페이지까지, 총 페이지가 5 이상일 때는 5까지 출력
-        if (page.getPageable().getPageNumber() < 2) {
-            startPage = 1;
-            if (page.getTotalPages() < 5) {
-                endPage = page.getTotalPages();
-            } else
-                endPage = 5;
+        if(searchText.equals("")){
+            page = mdpRepo.findAll(pageable);
         }
-        // 현재 페이지가 3이상인 경우 첫페이지는 현재페이지-2, 마지막 페이지는 총 페이지의 개수 혹은 현재 페이지+3 중 작은 값
-        else {
-            startPage = page.getPageable().getPageNumber() - 1;
-            endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
+        else{
+            page = mdpRepo.manageSearch(searchText, pageable);
         }
-
-        model.addAttribute("startPage", startPage);
-        model.addAttribute("endPage", endPage);
-        model.addAttribute("total", page.getTotalPages()); // 총 페이지 수
-        model.addAttribute("pages", page.getPageable().getPageNumber()); // 현재 페이지
-        model.addAttribute("list", page);
-
-        return "admin/manage";
-    }
-
-    @GetMapping("/search")
-    public String search(Model model, @RequestParam(required = false, defaultValue = "") String searchText,
-            @PageableDefault(size = 15) Pageable pageable) {
-
-        // 아이디 검색
-        Page<mdpPurchaseCode> page = mdpRepo.manageSearch(searchText, pageable);
-
+            
         int startPage;
         int endPage;
 
@@ -130,7 +103,6 @@ public class MDP_AdminController {
             startPage = 1;
             if (page.getTotalPages() < 5) {
                 if(page.getTotalPages()==0){
-                    System.out.println("===");
                     endPage=1;
                 }
                 else{
