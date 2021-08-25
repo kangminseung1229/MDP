@@ -122,12 +122,9 @@
         $("#right_max").css("pointer-events", "none");
         $("#right_max").css("color", "#BDBDBD");
         $("#num").click(function(){
-            console.log("888");
-            // location.reload();
             history.go(0);
         });
 
-        console.log("===");
     }
     //마지막 페이지일 때 오른쪽 버튼 비활성화
     if ((parseInt(pages) + 1) == total) {
