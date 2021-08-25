@@ -45,7 +45,7 @@
 
 
             <!-- 로그인되어있는 경우 -->
-            <div sec:authorize="isAuthenticated">
+            <div sec:authorize="isAuthenticated()">
 
                 <div class="login_text" style="display: inline-block; text-align:center;">
                     <span sec:authentication="name">사용자이름</span> 님
