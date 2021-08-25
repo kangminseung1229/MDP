@@ -51,8 +51,8 @@
 
             </div>
 
-            <div class="arrive_letter">편지가 완성되었습니다<br> 편지 봉투를 클릭해보세요</div>
-        </div>
+            <div class="arrive_letter">편지가 완성되었습니다.<br> 편지 봉투를 클릭해보세요.</div>
+        </div>1
         <div id="fin_buttons">
             <div id="fin_paragraph">
                 <p>
@@ -65,7 +65,7 @@
                 <button class="fin_btn" id="copy">편지 복사하기</button>
                 <button class="fin_btn" id="save_image">이미지로 저장하기</button>
                 <input type="button" class="fin_btn" id="to_first" onclick="location.href='/MDP/main'"
-                    value="첫페이지로 돌아가기">
+                    value="첫 페이지로 돌아가기">
             </div>
         </div>
 
@@ -88,9 +88,8 @@
             $(".display_none").hide();
             $("#letter").addClass("preview");
             $("#letter").addClass("privew_letter");
-            $(".arrive_letter").html("편지지를 클릭해주세요");
+            $(".arrive_letter").html("편지지를 클릭해 주세요.");
             $(".arrive_letter").css("margin-top", "50px");
-            // $(".envelope_last").css("margin-top","100px");
         });
 
         $("#letter").click(function () {

@@ -21,8 +21,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -33,12 +31,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/test/**").permitAll()
 				.antMatchers("/.well-known/pki-validation/*").permitAll()
                 .antMatchers("/MDP/*").permitAll()
-                .antMatchers("/MDPadmin/*").permitAll()
+                .antMatchers("/MDPadmin/adminLogin").permitAll()
+                .antMatchers("/MDPadmin/adminJoin").permitAll()
+                .antMatchers("/MDPadmin/manage").authenticated()
                 .anyRequest().authenticated()
 				.and()
-			.formLogin()
-				.loginPage("/") //login form 전송시 오는 곳 -> postmapping login 에 해당한다.
-                // .defaultSuccessUrl("/sessionIns")
+            .formLogin()
+                //login form 전송시 오는 곳 -> postmapping login 에 해당한다.
+				.loginPage("/")
                 .successHandler(new SuccessHandler())
                 .failureUrl("/MDPadmin/login")
 				.permitAll()
@@ -46,7 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.logout()
                 .logoutUrl("/adminLogout")
                 .logoutSuccessUrl("/MDPadmin/login")
-                // .logoutSuccessUrl("/?logout")
 				.permitAll()
                 .and()
             .csrf().disable();

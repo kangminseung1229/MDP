@@ -36,4 +36,8 @@ public interface mdpRepository extends JpaRepository<mdpPurchaseCode, Long> {
     @Modifying
     @Query(value = "UPDATE mdpPurchaseCode SET USER=:user WHERE CODE=:code", nativeQuery = true)
     void updateUser(String user, String code);
+
+    @Query(value = "SELECT * FROM mdpPurchaseCode WHERE CODE LIKE %:user% OR USER LIKE %:user%", nativeQuery = true)
+    Page<mdpPurchaseCode> manageSearch(String user, Pageable pageable);
+
 }

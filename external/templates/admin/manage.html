@@ -34,7 +34,7 @@
                     <div style="color:white; font-size:30px; font-family: gmarket_bold;">관리자 페이지</div>
                     <br>
                     <input type="radio" name="menu" id="rb1" value="1" checked="true"
-                        onclick="location.href='/MDPadmin/admin/manage'" />
+                        onclick="location.href='/MDPadmin/manage'" />
                     <label for="rb1">구매코드 관리</label><br>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <div style="text-align:left; padding-left:10px; width: 300px; display: table-cell">아이디(user) 검색
                     </div>
                     <div style=" text-align:left;padding-left:70px; width: 300px; display: table-cell">구매코드 추가</div>
-                    <form action="search" method="GET">
+                    <form action="manage" method="GET">
                         <input name="searchText" type="textbox" class="search_textbox">
                         <input id="searchButton" type="submit" class="searchbtn" value="검색">
                     </form>
@@ -58,7 +58,7 @@
                         <input id="addButton" type="submit" class="searchbtn" value="추가">
                     </form>
                     <button class="searchbtn" style="float: right; margin-right:-8px;"
-                        onclick="location.href='/MDPadmin/admin/manage'">새로고침</button>
+                        onclick="location.href='/MDPadmin/manage'">새로고침</button>
                 </div>
 
                 <!-- 사용자 인덱스, 아이디, 코드 출력 -->
@@ -81,24 +81,24 @@
                         <li class="page-item">
                             <a id="left_max" class="page-link"
                                 th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
-                                th:href="@{/MDPadmin/admin/manage(    page=${0}, searchText=${param.searchText}    )   }"
+                                th:href="@{/MDPadmin/manage(    page=${0}, searchText=${param.searchText}    )   }"
                                 tabindex="-1" aria-disabled="true">«</a>
                         </li>
                         <li class="page-item disabled">
                             <a id="left_btn" class="page-link"
                                 th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'"
-                                th:href="@{/MDPadmin/admin/manage(    page=${list.pageable.pageNumber -1 }, searchText=${param.searchText}    )   }"
+                                th:href="@{/MDPadmin/manage(    page=${list.pageable.pageNumber -1 }, searchText=${param.searchText}    )   }"
                                 tabindex="-1" aria-disabled="true">◀</a>
                         </li>
-                        <li class="page-item" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link" th:id="'num'+${i}" 
-                        th:href="@{/MDPadmin/admin/manage(page=${i-1}, searchText=${param.searchText})}" th:text="${i}">1</a></li>
+                        <li class="page-item" id="num" th:classappend="${i == list.pageable.pageNumber+1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}"><a class="page-link" th:id="'num'+${i}" 
+                        th:href="@{/MDPadmin/manage(page=${i-1}, searchText=${param.searchText})}" th:text="${i}">1</a></li>
                     <li class="page-item">
                         <a id="right_btn" class="page-link" th:classappend="${list.totalPages == list.pageable.pageNumber+1} ? 'disabled'"
-                        th:href="@{/MDPadmin/admin/manage(page=${list.pageable.pageNumber +1 }, searchText=${param.searchText})}">▶</a>
+                        th:href="@{/MDPadmin/manage(page=${list.pageable.pageNumber +1 }, searchText=${param.searchText})}">▶</a>
                     </li>
                     <li class="page-item">
                         <a id="right_max" class="page-link" th:classappend="${list.totalPages == list.pageable.pageNumber+1} ? 'disabled'"
-                        th:href="@{/MDPadmin/admin/manage(page=${list.totalPages-1}, searchText=${param.searchText})}">»</a>
+                        th:href="@{/MDPadmin/manage(page=${list.totalPages-1}, searchText=${param.searchText})}">»</a>
                     </li>
                     </ul>
                 </div>
@@ -116,7 +116,19 @@
 
     var pages = $("#pages").attr("value");
     var total = $("#total").attr("value");
+    if(total==0){
+        $("#right_btn").css("pointer-events", "none");
+        $("#right_btn").css("color", "#BDBDBD");
+        $("#right_max").css("pointer-events", "none");
+        $("#right_max").css("color", "#BDBDBD");
+        $("#num").click(function(){
+            console.log("888");
+            // location.reload();
+            history.go(0);
+        });
 
+        console.log("===");
+    }
     //마지막 페이지일 때 오른쪽 버튼 비활성화
     if ((parseInt(pages) + 1) == total) {
         $("#right_btn").css("pointer-events", "none");

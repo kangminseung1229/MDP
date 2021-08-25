@@ -14,19 +14,12 @@ import lombok.Data;
 @Entity
 public class SecurityRole {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-
     // @ManyToMany(mappedBy = "roles")
     // private List<SecurityAdmins> securityAdmins;
 
-
-
-
-    
 }
