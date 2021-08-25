@@ -51,7 +51,7 @@ public class MDP_AdminController {
     }
 
     @PostMapping("/join")
-    public String admin_join(SecurityAdmins sa, String code, HttpServletResponse response) throws IOException {
+    public String adminJoin(SecurityAdmins sa, String code, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
         // 승인코드 검사
