@@ -21,8 +21,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -33,7 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/test/**").permitAll()
 				.antMatchers("/.well-known/pki-validation/*").permitAll()
                 .antMatchers("/MDP/*").permitAll()
-                .antMatchers("/MDPadmin/*").permitAll()
+                .antMatchers("/MDPadmin/adminLogin").permitAll()
+                .antMatchers("/MDPadmin/adminJoin").permitAll()
+                .antMatchers("/MDPadmin/manage").authenticated()
                 .anyRequest().authenticated()
 				.and()
             .formLogin()

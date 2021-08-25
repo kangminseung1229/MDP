@@ -119,14 +119,7 @@ public class MDP_AdminController {
             @PageableDefault(size = 15) Pageable pageable) {
 
         // 아이디 검색
-        // Page<mdpPurchaseCode> page = mdpRepo.findByUser(searchText, pageable);
         Page<mdpPurchaseCode> page = mdpRepo.manageSearch(searchText, pageable);
-
-        // int startPage = Math.max(1, page.getPageable().getPageNumber() - 9);
-        // int endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 9);
-        // model.addAttribute("startPage", startPage);
-        // model.addAttribute("endPage", endPage);
-        // model.addAttribute("list", page);
 
         int startPage;
         int endPage;
