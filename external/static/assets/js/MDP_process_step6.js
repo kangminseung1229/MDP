@@ -19,48 +19,8 @@ $(document).ready(function () {
     $(".step6_container_select").hide();
     $("#step6_next").hide();
 
-    // 감정카드 카테고리 선택시 Swiper 움직임
 
-    $("input:radio[name=step6_emotion_category]").change(function () {
-        $("#emotion_common").removeClass("animate_common");
-        $("#emotion_thanks").removeClass("animate_thanks");
-        $("#emotion_sorry").removeClass("animate_sorry");
-        $("#emotion_celebration").removeClass("animate_celebration");
-        $("#emotion_love").removeClass("animate_love");
-        $("#emotion_say").removeClass("animate_say");
-
-        $(".emotionSwiper").fadeIn(600);
-
-        let emotion_radio = $('input:radio[name="step6_emotion_category"]:checked').val();
-
-        switch (emotion_radio) {
-            case "1": {
-                emotionSwiper.slideTo(0);
-                break;
-            }
-            case "2": {
-                emotionSwiper.slideTo(1);
-                break;
-            }
-            case "3": {
-                emotionSwiper.slideTo(2);
-                break;
-            }
-            case "4": {
-                emotionSwiper.slideTo(3);
-                break;
-            }
-            case "5": {
-                emotionSwiper.slideTo(4);
-                break;
-            }
-            case "6": {
-                emotionSwiper.slideTo(5);
-                break;
-            }
-        }
-    });
-
+    // 카테고리 클릭시 움직이는 효과 해제
     $(".emotion_category").click(function () {
         $("#emotion_1").removeClass("animate_common");
         $("#emotion_2").removeClass("animate_thanks");
@@ -72,29 +32,33 @@ $(document).ready(function () {
         $(".emotionSwiper").fadeIn(600);
     });
 
+    // 카테고리 클릭시 해당 Swiper로 이동
     for (let i = 1; i < 7; i++) {
         clickCategory(i);
     }
 
 });
 
+// 카드 클릭시
 $('.emotion_card_text').on('click', function () {
     let idx = $(this).prop("id");
     let isChecked = $(this).prop("check");
+
+    // 살짝 아래로 스크롤 이동
     $("html").animate({ scrollTop: 150 }, 400);
 
+    // 내가 선택한 감정단어 보이기
     $(".step6_container_select").fadeIn(600);
     $("#step6_next").delay(300).fadeIn(600);
 
-    // 감정단어 삭제
+    // 만약 이미 체크된 감정단어일 경우 
     if (isChecked) {
-        deleteEmotion(this);
+        deleteEmotion(this);    // 감정단어 삭제
         $(this).removeClass("emotion_card_text_checked");
         $(this).prop("check", false);
     }
-    // 감정단어 추가
     else {
-        addEmotion($(this).clone());
+        addEmotion($(this).clone());    // 감정단어 추가
         $(this).addClass("emotion_card_text_checked");
         $(this).prop("check", true);
     }
@@ -127,34 +91,41 @@ function deleteEmotion(emotion) {
 // 감정 카테고리 클릭
 function clickCategory(idName) {
     $("#emotion_" + idName).click(function () {
+        // 클릭한 카테고리 value
         emotion_radio = $("#emotion_" + idName).attr("value");
 
         switch (emotion_radio) {
-            case "1": {
+            // 공통단어
+            case "1": { 
                 emotionSwiper.slideTo(0);
                 removeClass(1);
                 break;
             }
+            // 고마움
             case "2": {
                 emotionSwiper.slideTo(1);
                 removeClass(2);
                 break;
             }
+            // 미안함
             case "3": {
                 emotionSwiper.slideTo(2);
                 removeClass(3);
                 break;
             }
+            // 축하응원
             case "4": {
                 emotionSwiper.slideTo(3);
                 removeClass(4);
                 break;
             }
+            // 사랑
             case "5": {
                 emotionSwiper.slideTo(4);
                 removeClass(5);
                 break;
             }
+            // 안부
             case "6": {
                 emotionSwiper.slideTo(5);
                 removeClass(6);
