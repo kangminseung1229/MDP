@@ -66,7 +66,6 @@ body{
 #main_logo{
     width:49%;
     margin:0 auto;
-    /* float: left; */
     text-align:center;
     line-height:500px;
     position: absolute;
@@ -75,9 +74,7 @@ body{
 }
 #main_logo img{
     position:relative;
-    /* margin-left:-170px; */
     vertical-align:middle;
-    /* padding-left:25%; */
 }
 #guide{
     width: 590px;
@@ -93,7 +90,6 @@ body{
     border:1.5px solid #fff;
     background-color:#fff;
     margin-left:50%;
-    /* margin-top: 60px; */
     height:380px;
     float:left;
 }
@@ -218,15 +214,3 @@ body{
     font-weight: normal;
     font-style: normal;
 }
-/* @font-face {
-    font-family: 'brandon_bold';
-    src: url('../css/fonts/Brandon_bld.otf') format('opentype');
-}
-@font-face {
-    font-family: 'brandon_medium';
-    src: url('../css/fonts/Brandon_med.otf') format('opentype');
-}
-@font-face {
-    font-family: 'brandon_light';
-    src: url('../css/fonts/Brandon_light.otf') format('opentype');
-} */
