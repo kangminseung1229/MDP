@@ -7,10 +7,12 @@
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="main_blue">
         <div id="wrapper">
-
-            <div id="main_logo">
-                <img src="/img/MDP/main_logo_white.png">
+            <div id="main_logo" style="height:400px; margin-top:-30px">
+                <img src="/img/MDP/main_logo_white.png" style="display: inline-block; vertical-align:top;">
             </div>
+            <div id="guide">
+                * Chrome, Microsoft Edge 환경 권장
+            </div>               
 
             <div class="updown"></div>
 
@@ -36,9 +38,7 @@
                     onclick="location.href='/MDP/process'" value='START'></input>
                 <input id="loginCheck" class="start_btn" type="button" th:if="${loginOut} != 'LOGOUT'"
                     onclick="location.href='/MDP/login'" value='START'></input>
-                <div>
-                    <div style="font-family: gmarket_medium; color:white; float: right; margin-top: 15px;">* Chrome, Edage 환경 권장</div>
-                </div>
+                
             </div>
         </div>
     </div>
