@@ -66,7 +66,7 @@ body{
 #main_logo{
     width:49%;
     margin:0 auto;
-    float: left;
+    /* float: left; */
     text-align:center;
     line-height:500px;
     position: absolute;
@@ -74,15 +74,26 @@ body{
     transform: translateY(-45%);
 }
 #main_logo img{
-    margin-left:-170px;
+    position:relative;
+    /* margin-left:-170px; */
     vertical-align:middle;
-    padding-left:25%;
+    /* padding-left:25%; */
+}
+#guide{
+    width: 590px;
+    text-align:right;
+    font-family: gmarket_medium;
+    color:white;
+    font-size:12px;
+    position:absolute;
+    margin-top:380px;
+    left:-60px;
 }
 .updown{
     border:1.5px solid #fff;
     background-color:#fff;
     margin-left:50%;
-    margin-top: 60px;
+    /* margin-top: 60px; */
     height:380px;
     float:left;
 }
@@ -101,6 +112,7 @@ body{
     color:#fff;
     line-height:30px;
     width:500px;
+    margin-top:-30px;
 }
 #main_text p{
     margin-top:20px;

@@ -7,10 +7,12 @@
     <header th:replace="fragments/MDP_main_fragment :: header"></header>
     <div id="main_blue">
         <div id="wrapper">
-
-            <div id="main_logo">
-                <img src="/img/MDP/main_logo_white.png">
+            <div id="main_logo" style="height:400px; margin-top:-30px">
+                <img src="/img/MDP/main_logo_white.png" style="display: inline-block; vertical-align:top;">
             </div>
+            <div id="guide">
+                * Chrome, Microsoft Edge 환경 권장
+            </div>               
 
             <div class="updown"></div>
 
@@ -31,14 +33,15 @@
                         어느새 자신도 알지 못했던 내 마음을 깨닫게 되고<br>
                         상대방에게 내 마음을 전하는 것이 한층 쉬워질 거예요.<br>
                     </p>
+                    <!-- <p style=" font-size:12px; margin-top:-10px; color:#BBBBBB;">
+                        * Chrome, Microsoft Edge 환경 권장
+                    </p> -->
                 </div>
                 <input class="start_btn" type="button" th:if="${loginOut} == 'LOGOUT'"
                     onclick="location.href='/MDP/process'" value='START'></input>
                 <input id="loginCheck" class="start_btn" type="button" th:if="${loginOut} != 'LOGOUT'"
                     onclick="location.href='/MDP/login'" value='START'></input>
-                <div>
-                    <div style="font-family: gmarket_medium; color:white; float: right; margin-top: 15px;">* Chrome, Edage 환경 권장</div>
-                </div>
+                
             </div>
         </div>
     </div>
