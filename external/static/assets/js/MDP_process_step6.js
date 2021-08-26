@@ -6,11 +6,7 @@ $(document).ready(function () {
         // Swiper 속성 설정
         autoHeight: true,
         // swipe 터치 막음
-        loop : false, 
-        speed : 200, 
-        initialSlide : 0, 
-        pagination : false, 
-        simulateTouch : false,
+        allowTouchMove: false,
         // 키보드 이벤트 막기
         keyboard: {
             enabled: false,

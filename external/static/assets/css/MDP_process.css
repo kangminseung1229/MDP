@@ -248,6 +248,8 @@
     width: 1200px;
     height: auto;
     top:190px;
+    margin-top: 177px;
+    overflow-x: hidden;
 }
 
 .swiper-slide{height:1px}

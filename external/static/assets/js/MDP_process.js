@@ -4,11 +4,17 @@ $(document).ready(function(){
         // Swiper 속성 설정
 
         // swipe 터치 막음
-        loop : false, 
-        speed : 200, 
-        initialSlide : 0, 
-        pagination : false, 
-        simulateTouch : false, 
+        allowTouchMove: false,
+        
+        // Swiper index에 따라 메뉴 라디오 버튼 활성화
+        on: {
+            activeIndexChange: function () {
+                num = this.realIndex+1;
+                $("input:radio[id="+num+"]").prop('checked', true);
+                $('html, body').scrollTop(0);
+            }
+        },
+
         // 네비게이션 버튼
         navigation: {
             nextEl: ".swiper-button-next",
@@ -20,14 +26,6 @@ $(document).ready(function(){
             onlyInViewport: false,
             pageUpDown: false
         }
-    });
-
-    // Swiper index에 따라 메뉴 라디오 버튼 활성화
-    swiper.on("transitionEnd", function(e){
-        num = swiper.activeIndex+1;
-        $("input:radio[id=" + num + "]").prop('checked', true);
-        $('html, body').scrollTop(0);
-
     });
 
     // Swiper 내비게이션 버튼 비활성화
@@ -191,6 +189,7 @@ function step1() {
                 // stage4에서 버튼을 눌렀을 때
                 else if (nowStage == 4) {
                     swiper.slideTo(1); // Step2로 넘어가기
+                    $('html, body').scrollTop(0);   // 스크롤 맨 위
                     $("#2").removeAttr("disabled");        
                 }
             }
@@ -280,6 +279,7 @@ function step2() {
     function step2Next() {
         $("#step2_next").click(function () {
             swiper.slideTo(2);
+            $('html, body').scrollTop(0);   // 스크롤 맨 위
             $("#3").removeAttr("disabled");        
         });
     }
@@ -329,6 +329,8 @@ function step3() {
             $("#step3_textbox5").val().length > 0 && $("#step3_textbox6").val().length > 0 &&
             $("#step3_textbox7").val().length > 0 && $("#step3_textbox8").val().length > 0 &&
             $("#step3_textbox9").val().length > 0) {
+
+            $('html, body').scrollTop(0);   // 스크롤 맨 위
             swiper.slideTo(3);
         }
 
@@ -364,6 +366,7 @@ function step4() {
 
         if (textLength1 > 0 && textLength2 > 0 && textLength3 > 0 && textLength4 > 0) {
             swiper.slideTo(4);
+            $('html, body').scrollTop(0);   // 스크롤 맨 위
             $("#5").removeAttr("disabled");       
         }
 
@@ -397,6 +400,7 @@ function step5() {
         if ($("#step5_answer1").val().length > 1 && $("#step5_answer2").val().length > 1 &&
             $("#step5_answer3").val().length > 1 && $("#step5_answer4").val().length > 1) {
             swiper.slideTo(5);
+            $('html, body').scrollTop(0);   // 스크롤 맨 위
             $("#6").removeAttr("disabled");    
         }
 

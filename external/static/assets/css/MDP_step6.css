@@ -132,9 +132,10 @@
 
 /* 감정카드 Swiper */
 .emotionSwiper{
-    width: 650px;
+    /* width: 650px; */
     height: auto;
     margin-top: -20px;
+    /* overflow-x: hidden; */
 }
 .emotion-swiper-button-next {
     color: #043383 !important;
