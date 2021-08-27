@@ -93,28 +93,11 @@ public class MDP_AdminController {
         else{
             page = mdpRepo.manageSearch(searchText, pageable);
         }
-            
-        int startPage;
-        int endPage;
 
-        // 한 번에 뜨는 페이지의 개수가 5개 혹은 그 미만으로 뜨게 하기 위한 조건문
-        // 현재 페이지가 1,2인 경우 총 페이지가 5미만일 때는 마지막 페이지까지, 총 페이지가 5 이상일 때는 5까지 출력
-        if (page.getPageable().getPageNumber() < 2) {
-            startPage = 1;
-            if (page.getTotalPages() < 5) {
-                if(page.getTotalPages()==0){
-                    endPage=1;
-                }
-                else{
-                    endPage = page.getTotalPages();
-                }
-            } else
-                endPage = 5;
-        }
-        // 현재 페이지가 3이상인 경우 첫페이지는 현재페이지-2, 마지막 페이지는 총 페이지의 개수 혹은 현재 페이지+3 중 작은 값
-        else {
-            startPage = page.getPageable().getPageNumber() - 1;
-            endPage = Math.min(page.getTotalPages(), page.getPageable().getPageNumber() + 3);
+        int startPage = Math.max(1, Math.min(page.getPageable().getPageNumber()-1, page.getTotalPages()-4));
+		int endPage = Math.min(page.getTotalPages(), startPage + 4);
+        if(page.getTotalPages()==0){
+            endPage=1;
         }
 
         model.addAttribute("startPage", startPage);
