@@ -242,6 +242,21 @@
     padding-top: 1%;
     padding-bottom: 1%;
 }
+#step2_next{
+    display: none;
+}
+#step3_next{
+    display: none;
+}
+#step4_next{
+    display: none;
+}
+#step5_next{
+    display: none;
+}
+.step2_emotion_wrapper{
+    display: none;
+}
 
 /* swiper */
 .entireSwiper {

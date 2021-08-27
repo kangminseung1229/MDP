@@ -206,24 +206,28 @@ function step1() {
             $("#step1_textbox7").val().length >0 &&  $("#step1_textbox8").val().length>0 &&
             $("#step1_textbox9").val().length>0 ){
                 
-                // 원래 
+                // 설명 안내문 사라지기
                 $('#stage1').fadeOut(600);
                 $('#stage2').fadeOut(600);
                 $('#stage3').fadeOut(600);
-                $('#step1_next').fadeOut(600)
-
+                // next 버튼 사라지기
+                $('#step1_next').fadeOut(600);
+                
+                // 다음 안내문 보이기
                 $('#stage4').delay(600).fadeIn(600);
 
+                // 텍스트 박스 읽기 전용으로 변경
                 $("#step1_textbox1").prop("readonly",true);
                 $("#step1_textbox1").prop("width","auto");
 
+                // 모든 텍스트박스들을 라디오로 변경
                 for(let i = 2; i<10; i++){
                     let textbox = "step1_textbox"+i;
                     $("#"+textbox).prop("type","radio");
                     $("#"+textbox).after("<label class ="+textbox+" id = step1_label"+i+">"+$("#"+textbox).val()+"</label>");
                 }
                 
-                // 한 사람 선택이 되면 
+                // 한 사람 선택이 되면 다음 단계로 넘어갈 수 있음
                 $("input[name = step1Text]").click(function(){
                     step1Next("step2");
                     $('#step1_next').fadeIn(600);
@@ -237,10 +241,7 @@ function step1() {
 
 //****step2 Java Script****
 function step2() {
-
-    $("#step2_next").hide();
-    $(".step2_emotion_wrapper").hide();
-
+    
     // 파일 업로드가 되었을 경우
     $("#fileupload").change(function () {
         const imgPath = document.querySelector('#fileupload').files[0];
@@ -266,7 +267,7 @@ function step2() {
 
     });
 
-
+    // 전하고 싶은 감정을 클릭하면 다음 버튼 보이기
     $(".feel").click(function () {
         $("#step2_next").fadeIn(600);
     });
@@ -278,7 +279,7 @@ function step2() {
     // next 버튼 함수
     function step2Next() {
         $("#step2_next").click(function () {
-            swiper.slideTo(2);
+            swiper.slideTo(2);  // 다음 슬라이드로 넘어가기
             $('html, body').scrollTop(0);   // 스크롤 맨 위
             $("#3").removeAttr("disabled");        
         });
@@ -297,8 +298,6 @@ function step2() {
 //****step3 Java Script****
 function step3() {
 
-    $('#step3_next').hide();
-
     onkeyUpFunc(1);
     onkeyUpFunc(2);
     onkeyUpFunc(3);
@@ -309,6 +308,7 @@ function step3() {
     onkeyUpFunc(8);
     onkeyUpFunc(9);
 
+    // 텍스트 작성시 텍스트를 다 작성하면 다음 버튼으로 보여주기
     function onkeyUpFunc(num) {
         $("#step3_textbox" + num).keyup(function () {
 
@@ -321,7 +321,7 @@ function step3() {
 
         });
     }
-
+    // next 버튼을 누르면 다음 슬라이드로 넘어가기
     $("#step3_next").click(function () {
 
         if ($("#step3_textbox1").val().length > 0 && $("#step3_textbox2").val().length > 0 &&
@@ -340,9 +340,7 @@ function step3() {
 //****step4 Java Script****
 function step4() {
 
-
-    $('#step4_next').hide();
-
+    // 텍스트 작성시 텍스트를 다 작성하면 다음 버튼으로 보여주기
     for (let i = 1; i <= 4; i++) {
         $('textarea[name=step4Text' + i + ']').keyup(function () {
             // 텍스트영역의 길이를 체크
@@ -356,7 +354,7 @@ function step4() {
 
         });
     }
-
+    // next 버튼을 누르면 다음 슬라이드로 넘어가기
     $("#step4_next").click(function () {
 
         var textLength1 = $("textarea[name=step4Text1]").val().length;
@@ -379,14 +377,12 @@ function step4() {
 //****step5 Java Script****
 function step5() {
 
-
-    $('#step5_next').hide();
-
     checkStep5(1);
     checkStep5(2);
     checkStep5(3);
     checkStep5(4);
 
+    // 텍스트 작성시 텍스트를 다 작성하면 다음 버튼으로 보여주기
     function checkStep5(num) {
         $("#step5_answer" + num).keyup(function () {
             if ($("#step5_answer1").val().length > 1 && $("#step5_answer2").val().length > 1 &&
@@ -396,6 +392,7 @@ function step5() {
         });
     }
 
+    // next 버튼을 누르면 다음 슬라이드로 넘어가기
     $('#step5_next').click(function () {
         if ($("#step5_answer1").val().length > 1 && $("#step5_answer2").val().length > 1 &&
             $("#step5_answer3").val().length > 1 && $("#step5_answer4").val().length > 1) {
@@ -406,23 +403,15 @@ function step5() {
 
     });
 
-    function step5Keyup(num) {
-        $("#step5_answer" + num).keyup(function () {
-            if ($("#step5_answer" + num).val().length > 1) {
-                num++;
-                $("#step5_question" + num).fadeIn(600);
-                $("#step5_answer" + num).delay(300).fadeIn(600);
-
-            }
-        });
-    }
 }
 
+// letter로 넘어가기 전 check 함수
 function checkProcess() {
 
     let checkString = [];
     let count = 0;
 
+    // 사용자가 선택한 감정카드 text value 넘겨주기
     $(".select_word").children().each(function (index, item) {
 
         if (count == 0)
@@ -434,6 +423,9 @@ function checkProcess() {
     });
     $("#step6_emotion_result").val(checkString);
 
+    // 각 step별 모든 답변이 완료되었는지 체크
+
+    // Step1
     if ($("#step1_textbox1").val().length == 0 || $("#step1_textbox2").val().length == 0 ||
         $("#step1_textbox3").val().length == 0 || $("#step1_textbox4").val().length == 0 ||
         $("#step1_textbox5").val().length == 0 || $("#step1_textbox6").val().length == 0 ||
@@ -443,17 +435,15 @@ function checkProcess() {
         alert('01.받는 사람 : 아직 답하지 못한 질문이 있어요');
         return false;
     }
-
-    if ($("#feeling").val() == "") {
+     // Step2
+    else if ($("#feeling").val() == "") {
 
         swiper.slideTo(1);
         alert('02.되돌아 보며 : 아직 답하지 못한 질문이 있어요');
         return false;
     }
-
-
-
-    if ($("#step3_textbox1").val().length == 0 || $("#step3_textbox2").val().length == 0 ||
+     // Step3
+    else if ($("#step3_textbox1").val().length == 0 || $("#step3_textbox2").val().length == 0 ||
         $("#step3_textbox3").val().length == 0 || $("#step3_textbox4").val().length == 0 ||
         $("#step3_textbox5").val().length == 0 || $("#step3_textbox6").val().length == 0 ||
         $("#step3_textbox7").val().length == 0 || $("#step3_textbox8").val().length == 0 ||
@@ -462,14 +452,14 @@ function checkProcess() {
         alert('03.그 사람과 나는 : 아직 답하지 못한 질문이 있어요');
         return false;
     }
-
+     // Step4
     else if ($("textarea[name=step4Text1]").val().length == 0 || $("textarea[name=step4Text2]").val().length == 0 ||
         $("textarea[name=step4Text3]").val().length == 0 || $("textarea[name=step4Text4]").val().length == 0) {
         swiper.slideTo(3);
         alert('04.그때의 나는 : 아직 답하지 못한 질문이 있어요');
         return false;
     }
-
+    // Step5
     else if ($("#step5_answer1").val().length == 0 || $("#step5_answer2").val().length == 0 ||
         $("#step5_answer3").val().length == 0 || $("#step5_answer4").val().length == 0) {
         swiper.slideTo(4);
